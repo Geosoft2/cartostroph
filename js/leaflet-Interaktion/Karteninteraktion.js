@@ -18,8 +18,7 @@ function onMapClick(e) {
 			
 			addMarker=false;
 		}
-		}
-		
+		}	
 
 		
 
