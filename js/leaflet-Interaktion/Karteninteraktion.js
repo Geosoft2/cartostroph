@@ -1,6 +1,11 @@
 /**
  * @author Mazur93
  */
+var lat;
+var lng;
+// var URL;
+// var Titel;
+var MarkerArray = [];
 function newMarker(){
 	addMarker = true;
 	};
@@ -10,16 +15,22 @@ function resetView(){
 	}
 	
 function onMapClick(e) {
-			if(addMarker == true){
-			
-			L.marker(e.latlng).addTo(map).bindPopup("Titel: <br />Katastrophenart: <br />URL: <br />Bewertung: <br />Breitengrad: " 
-													+ e.latlng.lat + "<br />Längengrad: " + e.latlng.lng + "<br /><br /><a>Mehr Infos...</a>"
-													) ;
-			
-			addMarker=false;
-		}
-		}	
-
+	if (addMarker == true){ 
+				lng = e.latlng.lng;
+				lat = e.latlng.lat;
+				document.getElementById("map").setAttribute("data-reveal-id","newTopicModal",true);
+				addMarker = false;
+	}
 		
+}	
+function submitTopic(){
+	var URL = document.getElementById("URL").value;
+	var Titel = document.getElementById("Titel").value;
+	var Bewertung = document.getElementById("Bewertung").value;
+	L.marker([lat, lng]).addTo(map).bindPopup("Titel: " + Titel + "<br />URL: " + URL + "<br />Bewertung: "
+								       		 + Bewertung + "<br />Breitengrad: " + lat + "<br />Längengrad: " + lng + "<br /><br /><a>Mehr Infos...</a>");	
+	addMarker = false;
+	document.getElementById("map").removeAttribute("data-reveal-id");				       		 								
+}
 
 

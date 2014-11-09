@@ -38,15 +38,15 @@
                     		</script>
 						</div>
                     	
-						<!-- <div id="myModal" class="reveal-modal" data-reveal>
+						<div id="newTopicModal" class="reveal-modal" data-reveal>
   							<h2>Du hast einen neuen Geodatensatz? Teil in mit anderen!</h2>
   							<form>
-  								<p>URL: <input width=100% id="URL" /></p>
-  								<p>Titel: <input id="Titel" /></p>
+  								<p>URL: <input id="URL" /></p>
+  								<p>Titel: <input id="Titel"/></p>
   								<p>Kommentar: <textarea id="Kommentar"></textarea></p>
   								<p>Bewertung: <div class="row">
   												 <div class="small-10 medium-11 columns">
-  												 	<div class="range-slider" data-slider data-options="display_selector: #sliderOutput3; start: 1; end: 5;" >
+  												 	<div id="Bewertung" class="range-slider" data-slider data-options="display_selector: #sliderOutput3; start: 1; end: 5;" >
   												 		<span class="range-slider-handle" role="slider" tabindex="0"></span>
   												 		<span class="range-slider-active-segment"></span> 
   												 	</div> 
@@ -56,11 +56,12 @@
   												 </div>
   											  </div>
   								</p>
-  								<input id="submit" type="submit" value=" Absenden ">
-        						<input type="reset" value=" Abbrechen">
         						</form>
-  						<a class="close-reveal-modal">&#215;</a>
-					</div> -->
+  							<a  id="submitTopic1" class="close-reveal-modal">Abschicken</a>
+  							<script type="text/javascript">
+                    			document.getElementById("submitTopic1").onclick = submitTopic;
+                    		</script>
+					</div>
 					
 					</li>
                     <li class="active"><a href="#">Right Button Active</a></li>
