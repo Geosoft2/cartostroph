@@ -19,6 +19,9 @@ function onMapClick(e) {
 				lng = e.latlng.lng;
 				lat = e.latlng.lat;
 				document.getElementById("map").setAttribute("data-reveal-id","newTopicModal",true);
+				document.getElementById("URL").value = "";
+				document.getElementById("Titel").value = "";
+				document.getElementById("Kommentar").value = "";
 				addMarker = false;
 	}
 		
