@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html class="no-js" lang="en">
 <head>
     <meta charset="utf-8" />
@@ -27,6 +27,7 @@
                             <input type="text" placeholder="Suche">
                         </div>
                     </li>
+                    
                     <li><a href="#">First Right Button</a></li>
                     <li><a href="#">Second Right Button</a></li>
                     <li><a href="#" data-reveal-id="myModal">Neues Topic anlegen</a>
@@ -101,14 +102,11 @@
 
         // create a map in the "map" div, set the view to a given place and zoom
         var addMarker = false; // wheter a new marker can be set or not
-        var map = L.map('map', {
-            center: [30.505, 0.000], 
-            zoom: 2,
-            dragging: true,
-            touchZoom: true,
-            zoomControl: true
-        });
+       
+        var map = L.map('map');
 
+        //
+        map.setView([30.505,0], 2);
 
         // add an OpenStreetMap tile layer
         L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
@@ -119,9 +117,31 @@
 			id: 'examples.map-i875mjb7'
 		}).addTo(map);
 		
+        //zoom to location of user 
+        map.locate({setView: true, maxZoom: 12});
+
+
+
+        /*function onLocationFound(e) {
+            var radius = e.accuracy / 0.001;
+
+            L.marker(e.latlng).addTo(map)
+                .bindPopup("You are within " + radius + " meters from this point").openPopup(); 
+
+            L.circle(e.latlng, radius).addTo(map);
+        }
+
+        map.on('locationfound', onLocationFound);
+
+        function onLocationError(e) {
+            alert(e.message);
+        }
+
+        map.on('locationerror', onLocationError);*/
+
 		
 		map.on('click', onMapClick);
-	
+		// map.on('mouseout',resetView);
     </script>
 </body>
 </html>
