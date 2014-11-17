@@ -63,7 +63,7 @@
   								</p>
   								<p>Bewertung: <div class="row">
   												 <div class="small-10 medium-11 columns">
-  												 	<div id="Bewertung" class="range-slider" data-slider data-options="display_selector: #sliderOutput3; start: 1; end: 5;" >
+  												 	<div id="Bewertung" class="range-slider" data-slider disabled data-options="display_selector: #sliderOutput3; start: 1; end: 5;" >
   												 		<span class="range-slider-handle" role="slider" tabindex="0"></span>
   												 		<span class="range-slider-active-segment"></span> 
   												 	</div> 
@@ -72,6 +72,8 @@
   												 	<span id="sliderOutput3"></span>
   												 </div>
   											  </div>
+  								</p>
+  								<input id="checkbox1" type="checkbox" onclick="activateAssessment()"><label for="checkbox1" >Bewertung ausgeschaltet</label>
   								</p>
   								<p>Tags: <input type="text" id="tags" /></p>
         						</form>

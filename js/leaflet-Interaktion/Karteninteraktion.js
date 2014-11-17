@@ -23,6 +23,7 @@ function onMapClick(e) {
 				document.getElementById("URL").value = "";
 				document.getElementById("Titel").value = "";
 				document.getElementById("Kommentar").value = "";
+				document.getElementById("checkbox1").checked="checked";
 				addMarker = false;
 	}
 		
@@ -35,6 +36,10 @@ function submitTopic(){
 								       		 + Bewertung + "<br />Breitengrad: " + lat + "<br />Längengrad: " + lng + "<br /><br /><a>Mehr Infos...</a>");	
 	addMarker = false;
 	document.getElementById("map").removeAttribute("data-reveal-id");				       		 								
+}
+
+function activateAssessment() {
+	document.getElementById("Bewertung").removeAttribute("disabled");
 }
 
 
