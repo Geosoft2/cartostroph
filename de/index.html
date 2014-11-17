@@ -42,9 +42,15 @@
 						<div id="newTopicModal" class="reveal-modal" data-reveal>
   							<h2>Fügen Sie einen Geodatensatz hinzu</h2>
   							<form>
-  								<p>URL: <input id="URL" /></p>
-  								<p>Titel: <input id="Titel"/></p>
-  								<p>Kommentar: <textarea id="Kommentar"></textarea></p>
+  								<p>URL: <input type="text" id="URL" required/></p>
+  								<p>Titel: <input type="text" id="Titel"/></p>
+  								<p>Kommentar: <textarea type="text"  id="Kommentar"></textarea></p>
+  								<p>
+  								Zeitliche Ausdehnung - Start <input type="date" id="start" />	
+  								</p>
+  								<p>
+  								Zeitliche Ausdehnung - Ende <input type="date" id="ende" />	
+  								</p>
   								<p>Bewertung: <div class="row">
   												 <div class="small-10 medium-11 columns">
   												 	<div id="Bewertung" class="range-slider" data-slider data-options="display_selector: #sliderOutput3; start: 1; end: 5;" >
@@ -57,6 +63,7 @@
   												 </div>
   											  </div>
   								</p>
+  								<p>Tags: <input type="text" id="tags" /></p>
         						</form>
   							<a  id="submitTopic1" class="close-reveal-modal">Abschicken</a>
   							<script type="text/javascript">
