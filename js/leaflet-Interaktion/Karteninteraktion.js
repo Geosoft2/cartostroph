@@ -18,6 +18,8 @@ function onMapClick(e) {
 	if (addMarker == true){ 
 				lng = e.latlng.lng;
 				lat = e.latlng.lat;
+				document.getElementById("Breitengrad").value = lat;
+				document.getElementById("Längengrad").value = lng;
 				document.getElementById("newTopicModal").setAttribute("overflow","scroll");
 				document.getElementById("map").setAttribute("data-reveal-id","newTopicModal",true);
 				document.getElementById("URL").value = "";
