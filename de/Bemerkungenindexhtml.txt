@@ -1,5 +1,5 @@
-Der OK und ABSCHICKEN Button muss unten rechts im Fenster erscheinen und kleiner sein.
+Der OK und ABSCHICKEN Button muss unten rechts im Fenster erscheinen und kleiner sein. ( er ist kleiner, aber links unten)
 
-Ganz wichtig: der Standort, also die Koordinate, die der Benutzer geklickt hat, soll im Kommentarerstellungsformular angezeigt werden!
+Ganz wichtig: der Standort, also die Koordinate, die der Benutzer geklickt hat, soll im Kommentarerstellungsformular angezeigt werden!( ist gemacht)
 
-Bei der Bewertung soll, sobald der Slider versucht wird zu bewegen, die Checkbox 'Bewertung ausgeschaltet' unchecked werden
+Bei der Bewertung soll, sobald der Slider versucht wird zu bewegen, die Checkbox 'Bewertung ausgeschaltet' unchecked werden( erledigt)
