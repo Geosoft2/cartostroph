@@ -23,7 +23,7 @@ function onMapClick(e) {
 				document.getElementById("URL").value = "";
 				document.getElementById("Titel").value = "";
 				document.getElementById("Kommentar").value = "";
-				document.getElementById("checkbox1").checked="checked";
+				document.getElementById("checkbox1").checked="true";
 				addMarker = false;
 	}
 		
@@ -46,4 +46,8 @@ function activateAssessment() {
 	 }
 }
 
+function activateSlider() {
+	document.getElementById("Bewertung").removeAttribute("disabled");
+	document.getElementById("checkbox1").checked = false;
+}
 
