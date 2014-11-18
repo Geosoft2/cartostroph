@@ -60,7 +60,8 @@
   								<p>
   								Zeitliche Ausdehnung - Ende <input type="date" id="end" name="end" />	
   								</p>
-  								<p>Bewertung: <div class="row">
+  								<p>Bewertung: <br /><input id="checkbox1" type="checkbox" onclick="activateAssessment()"><label for="checkbox1" >Bewertung ausschalten</label>
+  									 <div class="row">
   												 <div class="small-10 medium-11 columns">
   												 	<div id="Bewertung" name="Bewertung" class="range-slider" data-slider disabled data-options="display_selector: #sliderOutput3; start: 1; end: 5;" >
   												 		<span class="range-slider-handle" role="slider" tabindex="0"></span>
@@ -72,8 +73,7 @@
   												 </div>
   											  </div>
   								</p>
-  								<input id="checkbox1" type="checkbox" onclick="activateAssessment()"><label for="checkbox1" >Bewertung ausgeschaltet</label>
-  								</p>
+  								
   								<p>Tags: <input type="text" id="tags" name="tags"/>
 								</p>
 								<p>Hyperlink: <input type="text" id="hyperlink" name="hyperlink"/>

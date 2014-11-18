@@ -39,7 +39,11 @@ function submitTopic(){
 }
 
 function activateAssessment() {
-	document.getElementById("Bewertung").removeAttribute("disabled");
+	 if(document.getElementById("checkbox1").checked == false){
+		document.getElementById("Bewertung").removeAttribute("disabled");
+	 } else {
+	 	document.getElementById("Bewertung").setAttribute("disabled","true",true);
+	 }
 }
 
 
