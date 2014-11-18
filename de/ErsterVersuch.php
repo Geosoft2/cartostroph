@@ -15,7 +15,7 @@
 	
     $kategorie = $_POST['Kategorie'];
 	$katwert = NULL;
-    switch ($klasse) { 
+    switch ($kategorie) { 
         case 'Welt': 
             $katwert = 'Welt';
             break; 
