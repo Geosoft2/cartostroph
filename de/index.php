@@ -14,6 +14,9 @@
 	$kommentar = $_POST['Kommentar'];
 	$breitengrad = $_POST['Breitengrad'];
 	$laengengrad = $_POST['Längengrad'];
+	$position = ($breitengrad, $laengengrad);
+	$autor = NULL;
+
 	
     $kategorie = $_POST['Kategorie'];
 	$katwert = NULL;
@@ -44,7 +47,7 @@
 	$hyperlink = $_POST['Hyperlink'];
 	
 	$res = pg_query("INSERT INTO topic(url_top, text, bewertung, hyperlink, anfangsdatum, enddatum, kategorie, titel, position, autor) 
-					VALUES($url, $kommentar, $bewertung, $hyperlink, $start, $end, $katwert, $titel, $position);");         //position und autor fehlen!
+					VALUES($url, $kommentar, $bewertung, $hyperlink, $start, $end, $katwert, $titel, $position, $autor);");         //position und autor fehlen!
 	
 	//$result = pg_query($con, $query) or die ("Cannot execute query: $query\n"); 
 	$users = pg_fetch_all($res);
