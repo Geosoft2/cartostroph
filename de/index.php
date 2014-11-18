@@ -42,9 +42,10 @@
 	$tags = $_POST['Tags'];
 	$hyperlink = $_POST['Hyperlink'];
 	
-	
-	$result = pg_query($con, "INSERT INTO topic(url_top, text, bewertung, hyperlink, anfangsdatum, enddatum, kategorie, titel, position, autor)
-					VALUES($url, $kommentar, $bewertung, $hyperlink, $start, $end, $katwert, $titel);"); //position und autor fehlen!
+	$query = "INSERT INTO topic(url_top, text, bewertung, hyperlink, anfangsdatum, enddatum, kategorie, titel) 
+					VALUES($url, $kommentar, $bewertung, $hyperlink, $start, $end, $katwert, $titel);"          //, position, autor)
+																												//position und autor fehlen!
+	$result = pg_query($con, $query) or die ("Cannot execute query: $query\n"); 
 
 	
 	//dump the result object
