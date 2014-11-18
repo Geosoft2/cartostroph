@@ -1,7 +1,7 @@
 <?php 
 
 	$host = "http://giv-geosoft2c.uni-muenster.de"; 
-	$user = "p_stue07"; 
+	$user = "j_gock02"; 
 	$pass = "********"; 
 	$db = "postgres"; 
 
