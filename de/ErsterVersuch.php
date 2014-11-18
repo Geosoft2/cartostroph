@@ -1,16 +1,14 @@
 <?php 
 
-$host = "http://giv-geosoft2c.uni-muenster.de"; 
-$user = "p_stue07"; 
-$pass = "********"; 
-$db = "postgres"; 
+	$host = "http://giv-geosoft2c.uni-muenster.de"; 
+	$user = "p_stue07"; 
+	$pass = "********"; 
+	$db = "postgres"; 
 
-$con = pg_connect("host=$host dbname=$db user=$user password=$pass")
-    or die ("Could not connect to server\n"); 
+	$con = pg_connect("host=$host dbname=$db user=$user password=$pass")
+		or die ("Could not connect to server\n"); 
 
-$result = pg_query($con, "INSERT INTO test(spalte1, spalte2)
-					VALUES('asdf', 'jfghj');");
-					
+		
 	$url = $_POST['URL'];
 	$titel = $_POST['Titel'];
 	$kommentar = $_POST['Kommentar'];
@@ -43,8 +41,12 @@ $result = pg_query($con, "INSERT INTO test(spalte1, spalte2)
 	$bewertung = $_POST['Bewertung'];
 	$tags = $_POST['Tags'];
 	$hyperlink = $_POST['Hyperlink'];
+	
+	
+	$result = pg_query($con, "INSERT INTO topic(url_top, text, bewertung, hyperlink, anfangsdatum, enddatum, kategorie, titel, position, autor)
+					VALUES($url, $kommentar, $bewertung, $hyperlink, $start, $end, $katwert, $titel);"); //position und autor fehlen!
 
-
+	
 	//dump the result object
 	var_dump($result);
 
