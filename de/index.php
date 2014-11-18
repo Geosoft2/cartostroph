@@ -5,13 +5,15 @@
 	$pass = "********"; 
 	$db = "postgres"; 
 
-	$con = pg_connect("host=$host dbname=$db user=$user password=$pass")
-		or die ("Could not connect to server\n"); 
-
+	@pg_connect("host=$host dbname=$db user=$user password=$pass")
+		or die ("Could not connect to server\n".pg_last_error()); 
+	
 		
 	$url = $_POST['URL'];
 	$titel = $_POST['Titel'];
 	$kommentar = $_POST['Kommentar'];
+	$breitengrad = $_POST['Breitengrad'];
+	$laengengrad = $_POST['Längengrad'];
 	
     $kategorie = $_POST['Kategorie'];
 	$katwert = NULL;
@@ -33,7 +35,6 @@
             break; 	
         default:
 			$katwert = NULL;
-            echo 'NULL<br />';
     }
 	
 	$start = $_POST['star'];
@@ -42,11 +43,12 @@
 	$tags = $_POST['Tags'];
 	$hyperlink = $_POST['Hyperlink'];
 	
-	$query = "INSERT INTO topic(url_top, text, bewertung, hyperlink, anfangsdatum, enddatum, kategorie, titel) 
-					VALUES($url, $kommentar, $bewertung, $hyperlink, $start, $end, $katwert, $titel);"          //, position, autor)
-																												//position und autor fehlen!
-	$result = pg_query($con, $query) or die ("Cannot execute query: $query\n"); 
-
+	$res = pg_query("INSERT INTO topic(url_top, text, bewertung, hyperlink, anfangsdatum, enddatum, kategorie, titel, position, autor) 
+					VALUES($url, $kommentar, $bewertung, $hyperlink, $start, $end, $katwert, $titel, $position);");         //position und autor fehlen!
+	
+	//$result = pg_query($con, $query) or die ("Cannot execute query: $query\n"); 
+	$users = pg_fetch_all($res);
+	var_dump($users);
 	
 	//dump the result object
 	var_dump($result);
