@@ -41,29 +41,28 @@
                     	
 						<div id="newTopicModal" class="reveal-modal" data-reveal>
   							<h2>Fügen Sie einen Geodatensatz hinzu</h2>
-  							<form>
-  								<p>URL: <input type="text" id="URL" required/></p>
-  								<p>Titel: <input type="text" id="Titel"/></p>
-  								<p>Kommentar: <textarea type="text"  id="Kommentar"></textarea></p>
+  							<form action="b1.php" method="post">
+  								<p>URL: <input type="text" id="URL" name="URL" required/></p>
+  								<p>Titel: <input type="text" id="Titel" name="Titel"/></p>
+  								<p>Kommentar: <textarea type="text"  id="Kommentar" name="Kommentar"></textarea></p>
   								<p>Kategorie:
-  									<input list="kategorien" name="Kategorie">
-									<datalist id="kategorien">
-  										<option value="Welt">
-  										<option value="Kontinent">
-  										<option value="Land">
-  										<option value="Region">
-  										<option value="Stadt">
-									</datalist>
+									<select id="Kategorie" name="Kategorie">
+  										<option value="Welt">Welt</option>
+  										<option value="Kontinent">Kontinent</option>
+  										<option value="Land">Land</option>
+  										<option value="Region">Region</option>
+  										<option value="Stadt">Stadt</option>
+									</select>
 								</p>
   								<p>
-  								Zeitliche Ausdehnung - Start <input type="date" id="start" />	
+  								Zeitliche Ausdehnung - Start <input type="date" id="start" name="start" />	
   								</p>
   								<p>
-  								Zeitliche Ausdehnung - Ende <input type="date" id="ende" />	
+  								Zeitliche Ausdehnung - Ende <input type="date" id="end" name="end" />	
   								</p>
   								<p>Bewertung: <div class="row">
   												 <div class="small-10 medium-11 columns">
-  												 	<div id="Bewertung" class="range-slider" data-slider disabled data-options="display_selector: #sliderOutput3; start: 1; end: 5;" >
+  												 	<div id="Bewertung" name="Bewertung" class="range-slider" data-slider disabled data-options="display_selector: #sliderOutput3; start: 1; end: 5;" >
   												 		<span class="range-slider-handle" role="slider" tabindex="0"></span>
   												 		<span class="range-slider-active-segment"></span> 
   												 	</div> 
@@ -75,7 +74,10 @@
   								</p>
   								<input id="checkbox1" type="checkbox" onclick="activateAssessment()"><label for="checkbox1" >Bewertung ausgeschaltet</label>
   								</p>
-  								<p>Tags: <input type="text" id="tags" /></p>
+  								<p>Tags: <input type="text" id="tags" name="tags"/>
+								</p>
+								<p>Hyperlink: <input type="text" id="hyperlink" name="hyperlink"/>
+								</p>
         						</form>
   							<a  id="submitTopic1" class="close-reveal-modal">Abschicken</a>
   							<script type="text/javascript">
@@ -118,15 +120,12 @@
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script type="text/javascript">
         $(document).foundation();
-
         // create a map in the "map" div, set the view to a given place and zoom
         var addMarker = false; // wheter a new marker can be set or not
        
         var map = L.map('map');
-
         //
         map.setView([30.505,0], 2);
-
         // add an OpenStreetMap tile layer
         L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
 			maxZoom: 18,
@@ -138,26 +137,17 @@
 		
         //zoom to location of user 
         map.locate({setView: true, maxZoom: 12});
-
-
-
         /*function onLocationFound(e) {
             var radius = e.accuracy / 0.001;
-
             L.marker(e.latlng).addTo(map)
                 .bindPopup("You are within " + radius + " meters from this point").openPopup(); 
-
             L.circle(e.latlng, radius).addTo(map);
         }
-
         map.on('locationfound', onLocationFound);
-
         function onLocationError(e) {
             alert(e.message);
         }
-
         map.on('locationerror', onLocationError);*/
-
 		
 		map.on('click', onMapClick);
 		// map.on('mouseout',resetView);
