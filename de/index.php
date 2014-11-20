@@ -1,12 +1,10 @@
 <?php 
 
-	$host = "http://giv-geosoft2c.uni-muenster.de"; 
-	$user = "j_gock02"; 
-	$pass = "********"; 
-	$db = "postgres"; 
+	ini_set('display_errors', '1');
+	error_reporting(E_ALL | E_STRICT);
 
-	@pg_connect("host=$host dbname=$db user=$user password=$pass")
-		or die ("Could not connect to server\n".pg_last_error()); 
+
+	@connection = pg_connect("host=localhost dbname=postgres user=j_gock02 password=***"); 
 	
 		
 	$url = $_POST['URL'];
@@ -46,17 +44,7 @@
 	$tags = $_POST['Tags'];
 	$hyperlink = $_POST['Hyperlink'];
 	
-	$res = pg_query("INSERT INTO topic(url_top, text, bewertung, hyperlink, anfangsdatum, enddatum, kategorie, titel, position, autor) 
-					VALUES($url, $kommentar, $bewertung, $hyperlink, $start, $end, $katwert, $titel, $position, $autor);");         //position und autor fehlen!
-	
-	//$result = pg_query($con, $query) or die ("Cannot execute query: $query\n"); 
-	$users = pg_fetch_all($res);
-	var_dump($users);
-	
-	//dump the result object
-	var_dump($result);
-
-	//closing connection
-	pg_close($con); 
+	$result = pg_query($connection, "INSERT INTO topic(url_top, text, bewertung, hyperlink, anfangsdatum, enddatum, kategorie, titel, position, autor) 
+					VALUES($url, $kommentar, $bewertung, $hyperlink, $start, $end, $katwert, $titel, $position, $autor)");         //position und autor fehlen!
 
 ?>
