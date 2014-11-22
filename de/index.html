@@ -28,8 +28,42 @@
                         </div>
                     </li>
                     
-                    <li><a href="#">First Right Button</a></li>
-                    <li><a href="#">Second Right Button</a></li>
+                    <li><a href="FAQ.html">Hilfe</a></li>
+                    <!-- Loginfunktion -->
+                    <li><a href="#" data-reveal-id="loginModal">Login</a>
+                    	<div id="loginModal" class="reveal-modal" data-reveal>
+                    		
+                    		<p>Loggen Sie sich bitte ein. Haben Sie noch kein Konto/Account bei uns ? Zur Regestrierung geht es <a onclick="test" data-reveal-id="RegisterModal">hier</a> .</p>
+                    		
+                    		<div class="large-3 large-centered columns">
+  								<div class="login-box">
+  									<div class="row">
+  										<div class="large-12 columns">
+    							<form>
+       								<div class="row">
+         								<div class="large-12 columns">
+             								<input id="Benutzername" type="text" name="username" placeholder="Username" />
+         								</div>
+       								</div>
+      								<div class="row">
+         								<div class="large-12 columns">
+             								<input id="Passwort" type="password" name="password" placeholder="Password" />
+         								</div>
+      								</div>
+      								<div class="row">
+        								<div class="large-12 large-centered columns">
+          									<input type="submit" class="button expand" value="Log In"/>
+        								</div>
+      								</div>
+    							</form>
+  										</div>
+									</div>
+								</div>
+							</div>
+                    		<a id="cancelLogin" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
+                    	</div>
+                    </li>
+                    <!-- Neues Topic erstellen -->
                     <li><a href="#" data-reveal-id="myModal">Neues Topic anlegen</a>
                     	<div id="myModal" class="reveal-modal" data-reveal>
                     		<h3>Wählen Sie eine Position, durch Klick in die Karte</h3>
@@ -38,16 +72,23 @@
                     			document.getElementById("setCoordinate").onclick = newMarker;
                     		</script>
 						</div>
-                    	
+                  		<!-- Formular zur Erstellung eines Topics  -->
 						<div id="newTopicModal" class="reveal-modal" data-reveal>
   							<h2>Fügen Sie einen Geodatensatz hinzu</h2>
   							<form action="index.php" method="post">
   								<p>Breitengrad: <input id="Breitengrad" readonly="readonly" type="number" name="Breitengrad"/> </p>
   								<p>Längengrad: <input id="Längengrad" readonly="readonly" type="number" name="Längengrad"/> </p>
-  								<p>URL: <input type="text" id="URL" name="URL" required/></p>
-  								<p>Titel: <input type="text" id="Titel" name="Titel" /></p>
-  								<p>Kommentar: <textarea type="text"  id="Kommentar" name="Kommentar"></textarea></p>
-  								<p>Kategorie:
+  								<p><abbr title="Hier geben Sie an unter welcher Internetadresse der Geodatensatz auffindbar ist"><img src="../img/info.png" width="15px" height="15px" /></abbr> URL: <input type="text" id="URL" name="URL" required/> </p>
+  								<p><abbr title="Hier geben Sie einen geeigneten Titel des Datensatzens an, z.B. 'Überflutungsdaten Münster 2014'"><img src="../img/info.png" width="15px" height="15px"/></abbr> Titel: <input type="text" id="Titel" name="Titel" /></p>
+  								<p><abbr title="Hier geben Sie an was Sie über den Geodatensatz denken. Ist er hilfreich? Ist er gut? Fehlt etwas? etc."><img src="../img/info.png" width="15px" height="15px"/></abbr> Kommentar: <textarea type="text"  id="Kommentar" name="Kommentar"></textarea></p>
+  								<p><abbr title="Hier geben Sie an wie groß das Gebiet ist, welches vom Geodatensatz abgedeckt wird. Zur Auswahl stehen:
+					Welt
+					Kontinent
+					Land
+					Region
+					Stadt
+				">
+						<img src="../img/info.png" width="15px" height="15px"/></abbr> Kategorie:
 									<select id="Kategorie" name="Kategorie">
   										<option value="Welt">Welt</option>
   										<option value="Kontinent">Kontinent</option>
@@ -56,13 +97,13 @@
   										<option value="Stadt">Stadt</option>
 									</select>
 								</p>
-  								<p>
-  								Zeitliche Ausdehnung - Start <input type="date" id="start" name="start" />	
+  								<p><abbr title="Hier geben Sie an ab wann der Geodatensatz gültig ist"><img src="../img/info.png" width="15px" height="15px"/></abbr>
+  								Zeitliche Ausdehnung - Start (optional) <input type="date" id="start" name="start" />	
   								</p>
-  								<p>
-  								Zeitliche Ausdehnung - Ende <input type="date" id="end" name="end" />	
+  								<p><abbr title="Hier geben Sie an bis wann der Datensatz gültig war bzw. voraussichtlich sein wird."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
+  								Zeitliche Ausdehnung - Ende (optional) <input type="date" id="end" name="end" />	
   								</p>
-  								<p>Bewertung: <br /><input id="checkbox1" type="checkbox" onclick="activateAssessment()"><label for="checkbox1" >Bewertung ausschalten</label>
+  								<p><abbr title="Hier geben Sie an wie gut Sie den Datensatzfinden.Skala von 1(sehr schlecht/unbrauchbar) bis 5(perfekt)"><img src="../img/info.png" width="15px" height="15px"/></abbr> Bewertung (optional): <br /><input id="checkbox1" type="checkbox" onclick="activateAssessment()"><label for="checkbox1" >Bewertung ausschalten</label>
   									 <div class="row">
   												 <div class="small-10 medium-11 columns">
   												 	<div id="Bewertung" name="Bewertung" onclick="activateSlider()" class="range-slider" data-slider disabled data-options="display_selector: #sliderOutput3; start: 1; end: 5;" >
@@ -76,19 +117,36 @@
   											  </div>
   								</p>
   								
-  								<p>Tags: <input type="text" id="tags" name="tags"/>
+  								<p><abbr title="Hier geben Sie Tags an, damit der Datensatz später leichter zu finden ist."><img src="../img/info.png" width="15px" height="15px"/></abbr> Tags (optional): <input type="text" id="tags" name="tags"/>
 								</p>
-								<p>Hyperlink: <input type="text" id="hyperlink" name="hyperlink"/>
+								<p><abbr title="Hier geben Sie andere Internetquellen an, welche den Geodatensatz ergänzen - z.B. neuer oder besserer Datensatz, Zusatzinformationen zum betroffenen Gebiet, etc."><img src="../img/info.png" width="15px" height="15px"/></abbr> Hyperlink (optional): <input type="text" id="hyperlink" name="hyperlink"/>
 								</p>
         						</form>
   							<a  id="submitTopic1" style="position: relative ; font-size: 120%" class="close-reveal-modal">Abschicken</a>
   							<script type="text/javascript">
                     			document.getElementById("submitTopic1").onclick = submitTopic;
+                    			document.getElementById("hilfeURL").onclick = test;
                     		</script>
 					</div>
 					
 					</li>
-                    <li class="active"><a href="#">Right Button Active</a></li>
+					<!-- Pop-Up für Registrierung  -->
+                    <li><a href="#" data-reveal-id="RegisterModal">Registrierung</a></li>
+                    <div id="RegisterModal" class="reveal-modal" data-reveal>
+                    	<h1> Registrierung </h1>
+                    	<form action="" method="post" >
+                    		Benutzername: <input type="text" />
+                    		Passwort: <input type="password" />
+                    		Passwort wiederholen:<input type="password" />
+                    		<input type="submit" value="Registrieren"/>
+                    		<input type="reset" value="Abbrechen"/>
+                    	</form>
+                    </div>
+                    
+                    
+                    
+                    
+                    
                     <li class="has-dropdown">
                         <a href="#">Right Button Dropdown</a>
                         <ul class="dropdown">

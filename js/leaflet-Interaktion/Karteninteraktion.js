@@ -53,3 +53,6 @@ function activateSlider() {
 	document.getElementById("checkbox1").checked = false;
 }
 
+function test() {
+	document.setAttribute("data-reveal-id","newTopicModal")
+}
