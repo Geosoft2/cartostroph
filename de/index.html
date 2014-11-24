@@ -37,12 +37,12 @@
                     	<div id="loginModal" class="reveal-modal" data-reveal>
                     		
                     		<p>Loggen Sie sich bitte ein. Haben Sie noch kein Konto/Account bei uns ? Zur Regestrierung geht es <a onclick="test" data-reveal-id="RegisterModal">hier</a> .</p>
-                    		
+                
                     		<div class="large-3 large-centered columns">
   								<div class="login-box">
   									<div class="row">
   										<div class="large-12 columns">
-    							<form>
+    							<form action="index.php" method="post">
        								<div class="row">
          								<div class="large-12 columns">
              								<input id="Benutzername" type="text" name="username" placeholder="Username" />
@@ -135,10 +135,11 @@
 					</li>
 					<!-- Pop-Up für Registrierung  -->
                     <li><a href="#" data-reveal-id="RegisterModal">Registrierung</a></li>
+		
                     <div id="RegisterModal" class="reveal-modal" data-reveal>
                     	<h1> Registrierung </h1>
-                    	<form action="" method="post" >
-                    		Benutzername: <input type="text" />
+                    	<form action="index.php" method="post" >
+                    		Benutzername: <input type="text" name="text"/>
                     		Passwort: <input type="password" />
                     		Passwort wiederholen:<input type="password" />
                     		<input type="submit" value="Registrieren"/>
@@ -237,36 +238,22 @@
         // create a map in the "map" div, set the view to a given place and zoom
         var addMarker = false; // wheter a new marker can be set or not
        
-        var osmLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>',
-    		thunLink = '<a href="http://thunderforest.com/">Thunderforest</a>';
-
-	var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    		osmAttrib = '&copy; ' + osmLink + ' Contributors',
-    		landUrl = 'http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png',
-    		thunAttrib = '&copy; '+osmLink+' Contributors & '+thunLink;
-
-	var osmMap = L.tileLayer(osmUrl, {attribution: osmAttrib}),
-    		landMap = L.tileLayer(landUrl, {attribution: thunAttrib});
-
-	var map = L.map('map', {
-      		layers: [osmMap] // only add one!
-    		})
-    		.setView([30.505, 0], 2);
-
-	var baseLayers = {
-  		"OSM Mapnik": osmMap,
-  		"Landscape": landMap
-	};
-
-	L.control.layers(baseLayers).addTo(map);
-
-
-
-
+        var map = L.map('map');
+        //
+        map.setView([30.505,0], 2);
+        // add an OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+			id: 'examples.map-i875mjb7'
+		}).addTo(map);
+		
         //zoom to location of user 
         map.locate({setView: true, maxZoom: 12});
         /*function onLocationFound(e) {
-            var radius = e.accuracy / 2;
+            var radius = e.accuracy / 0.001;
             L.marker(e.latlng).addTo(map)
                 .bindPopup("You are within " + radius + " meters from this point").openPopup(); 
             L.circle(e.latlng, radius).addTo(map);
