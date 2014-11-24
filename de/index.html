@@ -40,12 +40,12 @@
     							<form action="login.php" method="post">
        								<div class="row">
          								<div class="large-12 columns">
-             								<input id="Benutzername" type="text" name="username" placeholder="Username" />
+             								<input id="Benutzername" type="text" name="Benutzername" placeholder="Username" />
          								</div>
        								</div>
       								<div class="row">
          								<div class="large-12 columns">
-             								<input id="Passwort" type="password" name="password" placeholder="Password" />
+             								<input id="Passwort" type="password" name="Passwort" placeholder="Password" />
          								</div>
       								</div>
       								<div class="row">
@@ -134,9 +134,9 @@
                     <div id="RegisterModal" class="reveal-modal" data-reveal>
                     	<h1> Registrierung </h1>
                     	<form action="regist.php" method="post" >
-                    		Benutzername: <input type="text" name="text"/>
-                    		Passwort: <input type="password" />
-                    		Passwort wiederholen:<input type="password" />
+                    		Benutzername: <input type="text" id="Benutzername" name="Benutzername"/>
+                    		Passwort: <input type="password" id="Passwort" name="Passwort"/>
+                    		Passwort wiederholen:<input type="password" id="Passwort" name="Passwort"/>
                     		<input type="submit" class="button expand" value="Registrieren"/>
                     		<a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
                     	</form>

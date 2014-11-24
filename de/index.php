@@ -3,10 +3,8 @@
 	ini_set('display_errors', '1');
 	error_reporting(E_ALL | E_STRICT);
 
-
 	@connection = pg_connect("host=localhost dbname=postgres user=j_gock02 password=***"); 
 	
-		
 	$url = $_POST['URL'];
 	$titel = $_POST['Titel'];
 	$kommentar = $_POST['Kommentar'];
@@ -15,7 +13,6 @@
 	$position = '$breitengrad, $laengengrad';
 	$autor = 'Anonym';
 
-	
     $kategorie = $_POST['Kategorie'];
 	$katwert = NULL;
     switch ($kategorie) { 
