@@ -45,6 +45,6 @@
 	$hyperlink = $_POST['Hyperlink'];
 	
 	$result = pg_query($connection, "INSERT INTO topic(url_top, text, bewertung, hyperlink, anfangsdatum, enddatum, kategorie, titel, position, autor) 
-					VALUES($url, $kommentar, $bewertung, $hyperlink, $start, $end, $katwert, $titel, $position, $autor)");         //position und autor fehlen!
+					VALUES($url, $kommentar, $bewertung, $hyperlink, $start, $end, $katwert, $titel, $position, $autor)");
 
 ?>
