@@ -237,22 +237,36 @@
         // create a map in the "map" div, set the view to a given place and zoom
         var addMarker = false; // wheter a new marker can be set or not
        
-        var map = L.map('map');
-        //
-        map.setView([30.505,0], 2);
-        // add an OpenStreetMap tile layer
-        L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
-			maxZoom: 18,
-			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-			id: 'examples.map-i875mjb7'
-		}).addTo(map);
-		
+        var osmLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>',
+    		thunLink = '<a href="http://thunderforest.com/">Thunderforest</a>';
+
+	var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    		osmAttrib = '&copy; ' + osmLink + ' Contributors',
+    		landUrl = 'http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png',
+    		thunAttrib = '&copy; '+osmLink+' Contributors & '+thunLink;
+
+	var osmMap = L.tileLayer(osmUrl, {attribution: osmAttrib}),
+    		landMap = L.tileLayer(landUrl, {attribution: thunAttrib});
+
+	var map = L.map('map', {
+      		layers: [osmMap] // only add one!
+    		})
+    		.setView([30.505, 0], 2);
+
+	var baseLayers = {
+  		"OSM Mapnik": osmMap,
+  		"Landscape": landMap
+	};
+
+	L.control.layers(baseLayers).addTo(map);
+
+
+
+
         //zoom to location of user 
         map.locate({setView: true, maxZoom: 12});
         /*function onLocationFound(e) {
-            var radius = e.accuracy / 0.001;
+            var radius = e.accuracy / 2;
             L.marker(e.latlng).addTo(map)
                 .bindPopup("You are within " + radius + " meters from this point").openPopup(); 
             L.circle(e.latlng, radius).addTo(map);
