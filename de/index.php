@@ -12,8 +12,8 @@
 	$kommentar = $_POST['Kommentar'];
 	$breitengrad = $_POST['Breitengrad'];
 	$laengengrad = $_POST['Längengrad'];
-	$position = ($breitengrad, $laengengrad);
-	$autor = NULL;
+	$position = '$breitengrad, $laengengrad';
+	$autor = 'Anonym';
 
 	
     $kategorie = $_POST['Kategorie'];
