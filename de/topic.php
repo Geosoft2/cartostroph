@@ -5,7 +5,7 @@
 	
 	include("config.php");
 	global $config;
-	@connection = pg_connect($config["connection"]); 
+	$connection = pg_connect($config["connection"]); 
 	
 	$url = $_POST['URL'];
 	$titel = $_POST['Titel'];

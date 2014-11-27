@@ -5,7 +5,7 @@
 
 	include("config.php");
 	global $config;
-	@connection = pg_connect($config["connection"]); 	
+	$connection = pg_connect($config["connection"]); 	
 	
 	$Benutzername = $_POST['Benutzername'];
 	$Passwort = $_POST['Passwort'];
