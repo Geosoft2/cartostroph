@@ -2,8 +2,10 @@
 
 	ini_set('display_errors', '1');
 	error_reporting(E_ALL | E_STRICT);
-
-	@connection = pg_connect("host=localhost dbname=postgres user=j_gock02 password=***"); 
+	
+	include("config.php");
+	global $config;
+	@connection = pg_connect($config["connection"]); 
 	
 	$url = $_POST['URL'];
 	$titel = $_POST['Titel'];
