@@ -15,5 +15,7 @@
 
 	$result = pg_query($connection, "INSERT INTO nutzer(name, passwort, ort, plz, land) 
 					VALUES('$Benutzername', '$Passwort', '$Ort', '$PLZ', '$Land')");
+					
+	
 
 ?>

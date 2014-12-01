@@ -54,6 +54,10 @@
         								</div>
       								</div>
     							</form>
+								<script type="text/javascript">
+									document.getElementById("submitTopic1").onclick = submitTopic;
+									document.getElementById("hilfeURL").onclick = test;
+								</script>
   										</div>
 									</div>
 								</div>
@@ -120,7 +124,7 @@
 								<p><abbr title="Hier geben Sie andere Internetquellen an, welche den Geodatensatz ergänzen - z.B. neuer oder besserer Datensatz, Zusatzinformationen zum betroffenen Gebiet, etc."><img src="../img/info.png" width="15px" height="15px"/></abbr> Hyperlink (optional): <input type="text" id="hyperlink" name="hyperlink"/>
 								</p>
         						</form>
-  							<a  onclick="index.php" id="submitTopic1" style="position: relative ; font-size: 120%" class="close-reveal-modal">Abschicken</a>
+  							<a  onclick="topic.php" id="submitTopic1" style="position: relative ; font-size: 120%" class="close-reveal-modal">Abschicken</a>
   							<script type="text/javascript">
                     			document.getElementById("submitTopic1").onclick = submitTopic;
                     			document.getElementById("hilfeURL").onclick = test;
@@ -143,6 +147,10 @@
                     		<input type="submit" class="button expand" value="Registrieren"/>
                     		<a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
                     	</form>
+						<script type="text/javascript">
+                    			document.getElementById("submitTopic1").onclick = submitTopic;
+                    			document.getElementById("hilfeURL").onclick = test;
+                    	</script>
                     </div>
                     
                     <!-- Pop-Up mit Hilfestellung beim ersten Aufruf  -->
