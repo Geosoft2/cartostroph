@@ -28,43 +28,9 @@
                    
                     <li><a href="FAQ.html">Hilfe</a></li>
                     <!-- Loginfunktion -->
-                    <li><a href="#" data-reveal-id="loginModal">Login</a>
-                    	<div id="loginModal" class="reveal-modal" data-reveal>
-                    		
-                    		<p>Bitte loggen Sie sich ein. Haben Sie noch keinen Account? Zur Registrierung geht es <a onclick="test" data-reveal-id="RegisterModal">hier</a>.</p>
-                
-                    		<div class="large-3 large-centered columns">
-  								<div class="login-box">
-  									<div class="row">
-  										<div class="large-12 columns">
-    							<form action="login.php" method="post">
-       								<div class="row">
-         								<div class="large-12 columns">
-             								<input id="Benutzername" type="text" name="Benutzername" placeholder="Username" />
-         								</div>
-       								</div>
-      								<div class="row">
-         								<div class="large-12 columns">
-             								<input id="Passwort" type="password" name="Passwort" placeholder="Password" />
-         								</div>
-      								</div>
-      								<div class="row">
-        								<div class="large-12 large-centered columns">
-          									<input type="submit" class="button expand" value="Log In"/>
-        								</div>
-      								</div>
-    							</form>
-								<script type="text/javascript">
-									document.getElementById("submitTopic1").onclick = submitTopic;
-									document.getElementById("hilfeURL").onclick = test;
-								</script>
-  										</div>
-									</div>
-								</div>
-							</div>
-                    		<a id="cancelLogin" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
-                    	</div>
-                    </li>
+                    <li class="has-dropdown">
+                        <a href="#" data-dropdown="login-dropdown">Login</a>
+                    </li>S
                     <!-- Neues Topic erstellen -->
                     <li><a href="#" data-reveal-id="myModal">Neues Topic anlegen</a>
                     	<div id="myModal" class="reveal-modal" data-reveal>
@@ -207,16 +173,6 @@
 						<a  onclick="hilfeCookie()" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Weiter</a>
                     </div>
                     
-
-                    <li class="has-dropdown">
-                        <a href="#" data-dropdown="login-dropdown">Login</a>
-                        <!-- <ul class="dropdown">
-                            <li><a href="#">First link in dropdown</a></li>
-                            <li><a href="#">Second link in dropdown</a></li>
-                            <li><a href="#">Third link in dropdown</a></li>
-                            <li class="active"><a href="#">Active link in dropdown</a></li>
-                        </ul> -->
-                    </li>
                     <li class="has-form">
                         <div>
                             <input type="text" placeholder="Suche">
