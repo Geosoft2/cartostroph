@@ -14,6 +14,6 @@
 	$Land = $_POST['Land'];
 
 	$result = pg_query($connection, "INSERT INTO nutzer(name, passwort, ort, plz, land) 
-					VALUES($Benutzername, $Passwort, $Ort, $PLZ, $Land)");
+					VALUES('$Benutzername', '$Passwort', '$Ort', '$PLZ', '$Land')");
 
 ?>
