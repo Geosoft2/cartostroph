@@ -1,4 +1,5 @@
 <?php 
+	
 
 	ini_set('display_errors', '1');
 	error_reporting(E_ALL | E_STRICT);
@@ -9,8 +10,18 @@
 	
 	$Benutzername = $_POST['Benutzername'];
 	$Passwort = $_POST['Passwort'];
-
-	$result = pg_query($connection, "SELECT nutzer WHERE name=$Benutzername
+	
+	include("user.php");
+	
+	var user = new User($Benutzername,$Passwort);
+	if (user->authentify()) {
+		header("location:index.html");
+	}
+	else {
+		header("location:login.php");
+	}
+	
+	$result = pg_query($connection, "SELECT name, passwort FROM nutzer WHERE name=$Benutzername
 									AND passwort=$Passwort");
 
 ?>
