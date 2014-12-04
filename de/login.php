@@ -24,4 +24,6 @@
 	$result = pg_query($connection, "SELECT name, passwort FROM nutzer WHERE name=$Benutzername
 									AND passwort=$Passwort");
 
+	header("Location: index.html");
+	exit();
 ?>

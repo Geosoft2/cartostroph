@@ -46,4 +46,6 @@
 	$result = pg_query($connection, "INSERT INTO topic(url_top, text, bewertung, hyperlink, anfangsdatum, enddatum, kategorie, titel, position, autor, tag) 
 					VALUES('$url', '$kommentar', $bewertung, '$hyperlink', $start, $end, '$katwert', '$titel', $position, '$autor', '$tags')");
 
+	header("Location: index.html");
+	exit();
 ?>
