@@ -47,8 +47,8 @@
   								<p>Breitengrad: <input id="Breitengrad" readonly="readonly" type="number" name="Breitengrad"/> </p>
   								<p>Längengrad: <input id="Längengrad" readonly="readonly" type="number" name="Längengrad"/> </p>
   								<p><abbr title="Hier geben Sie an unter welcher Internetadresse der Geodatensatz auffindbar ist"><img src="../img/info.png" width="15px" height="15px" /></abbr> URL: <input type="text" id="URL" name="URL" required/> </p>
-  								<p><abbr title="Hier geben Sie einen geeigneten Titel des Datensatzens an, z.B. 'Überflutungsdaten Münster 2014'"><img src="../img/info.png" width="15px" height="15px"/></abbr> Titel: <input type="text" id="Titel" name="Titel" /></p>
-  								<p><abbr title="Hier geben Sie an was Sie über den Geodatensatz denken. Ist er hilfreich? Ist er gut? Fehlt etwas? etc."><img src="../img/info.png" width="15px" height="15px"/></abbr> Kommentar: <textarea type="text"  id="Kommentar" name="Kommentar"></textarea></p>
+  								<p><abbr title="Hier geben Sie einen geeigneten Titel des Datensatzens an, z.B. 'Überflutungsdaten Münster 2014'"><img src="../img/info.png" width="15px" height="15px"/></abbr> Titel: <input type="text" id="Titel" name="Titel" required /></p>
+  								<p><abbr title="Hier geben Sie an was Sie über den Geodatensatz denken. Ist er hilfreich? Ist er gut? Fehlt etwas? etc."><img src="../img/info.png" width="15px" height="15px"/></abbr> Kommentar: <textarea type="text"  id="Kommentar" name="Kommentar" required></textarea></p>
   								<p><abbr title="Hier geben Sie an wie groß das Gebiet ist, welches vom Geodatensatz abgedeckt wird. Zur Auswahl stehen:
 					Welt
 					Kontinent
@@ -89,11 +89,11 @@
 								</p>
 								<p><abbr title="Hier geben Sie andere Internetquellen an, welche den Geodatensatz ergänzen - z.B. neuer oder besserer Datensatz, Zusatzinformationen zum betroffenen Gebiet, etc."><img src="../img/info.png" width="15px" height="15px"/></abbr> Hyperlink (optional): <input type="text" id="hyperlink" name="hyperlink"/>
 								</p>
+								<input type="submit" class="button expand" value="Topic erstellen"/>
         						</form>
-  							<a  onclick="topic.php" id="submitTopic1" style="position: relative ; font-size: 120%" class="close-reveal-modal">Abschicken</a>
+  							<a id="cancelTopic" style="position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
   							<script type="text/javascript">
-                    			document.getElementById("submitTopic1").onclick = submitTopic;
-                    			document.getElementById("hilfeURL").onclick = test;
+                    			// document.getElementById("submitTopic1").onclick = submitTopic;
                     		</script>
 					</div>
 					
@@ -104,9 +104,9 @@
                     <div id="RegisterModal" class="reveal-modal" data-reveal>
                     	<h1> Registrierung </h1>
                     	<form action="register.php" method="post" >
-                    		Benutzername: <input type="text" id="Benutzername" name="Benutzername"/>
-                    		Passwort: <input type="password" id="Passwort" name="Passwort"/>
-                    		Passwort wiederholen:<input type="password" id="Passwort" name="Passwort"/>
+                    		Benutzername: <input type="text" id="Benutzername" name="Benutzername" required/>
+                    		Passwort: <input type="password" id="Passwort" name="Passwort" required/>
+                    		Passwort wiederholen:<input type="password" id="Passwort" name="Passwort" required/>
                     		Ort (optional): <input type="text" name="Ort" id="Ort" />
                     		PLZ (optional): <input type="text" name="PLZ" id="PLZ"/>
                     		Land (optional): <input type="text" name="Land" id="Land" />
@@ -115,7 +115,6 @@
                     	</form>
 						<script type="text/javascript">
                     			document.getElementById("submitTopic1").onclick = submitTopic;
-                    			document.getElementById("hilfeURL").onclick = test;
                     	</script>
                     </div>
                     
