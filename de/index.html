@@ -105,16 +105,19 @@
                     	<h1> Registrierung </h1>
                     	<form action="register.php" method="post" >
                     		Benutzername: <input type="text" id="Benutzername" name="Benutzername" required/>
-                    		Passwort: <input type="password" id="Passwort" name="Passwort" required/>
-                    		Passwort wiederholen:<input type="password" id="Passwort" name="Passwort" required/>
+                    		Passwort: <input type="password" id="passwort" name="Passwort" required/>
+                    		Passwort wiederholen:<input type="password" id="passwortWieder" name="Passwort" required/>
                     		Ort (optional): <input type="text" name="Ort" id="Ort" />
                     		PLZ (optional): <input type="text" name="PLZ" id="PLZ"/>
                     		Land (optional): <input type="text" name="Land" id="Land" />
-                    		<input type="submit" class="button expand" value="Registrieren"/>
+                    		<input id="regist" type="submit" class="button expand" value="Registrieren"/>
+                    		
                     		<a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
                     	</form>
+                    	<button id="test">test</button>
 						<script type="text/javascript">
-                    			document.getElementById("submitTopic1").onclick = submitTopic;
+                    		//	document.getElementById("submitTopic1").onclick = submitTopic;
+                    			document.getElementById("test").onclick = testalert();
                     	</script>
                     </div>
                     
@@ -187,11 +190,11 @@
     <form id="top-nav-login" action="login.xqy" method="post">
         <div class="row">
             <label>User</label>
-            <input type="email" name="user" placeholder="email@example.com" tabindex="1"/>
+            <input type="text" name="user" placeholder="email@example.com" tabindex="1"/>
         </div>
         <div class="row">
             <label>Password</label>
-            <input type="password" name="email" placeholder="********" tabindex="2"/>
+            <input type="password" placeholder="********" tabindex="2"/>
         </div>
         <div class="row">
             <input type="submit" class="button tiny success" value="Login" tabindex="3"/>
