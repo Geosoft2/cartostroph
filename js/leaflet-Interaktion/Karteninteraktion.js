@@ -31,7 +31,6 @@ function onMapClick(e) {
 		
 }	
 function submitTopic(){
-	document.alert("Bla");
 	var URL = document.getElementById("URL").value;
 	var Titel = document.getElementById("Titel").value;
 	var Bewertung = document.getElementById("Bewertung").value;
