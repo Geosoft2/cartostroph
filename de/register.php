@@ -12,6 +12,8 @@
 	$Ort = $_POST['Ort'];
 	$PLZ = $_POST['PLZ'];
 	$Land = $_POST['Land'];
+	// Passwort ueber sha1 verschluesseln
+	$Passwort = sha1('$Passwort');
 
 	$result = pg_query($connection, "INSERT INTO nutzer(name, passwort, ort, plz, land) 
 					VALUES('$Benutzername', '$Passwort', '$Ort', '$PLZ', '$Land')");
