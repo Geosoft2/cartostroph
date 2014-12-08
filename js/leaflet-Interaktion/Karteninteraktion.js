@@ -34,8 +34,9 @@ function submitTopic(){
 	var URL = document.getElementById("URL").value;
 	var Titel = document.getElementById("Titel").value;
 	var Bewertung = document.getElementById("Bewertung").value;
-	L.marker([lat, lng]).addTo(map).bindPopup("Titel: " + Titel + "<br />URL: " + URL + "<br />Bewertung: "
-								       		 + Bewertung + "<br />Breitengrad: " + lat + "<br />Längengrad: " + lng + "<br /><br /><a>Mehr Infos...</a>");	
+	var Autor = getCookie("Autor");
+	L.marker([lat, lng]).addTo(map).bindPopup("Titel: " + Titel + "<br />Bewertung: "
+								       		 + Bewertung + "<br />Breitengrad: " + "<br/> Autor: " + Autor  + "<br /><br /><a>Mehr Infos...</a>");	
 	addMarker = false;
 	document.getElementById("map").removeAttribute("data-reveal-id");				       		 								
 }
