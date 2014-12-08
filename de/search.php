@@ -29,4 +29,8 @@
 
 	// close connection
 	pg_close($dbh);
+	
+	//pg_escape_string($_POST['cname'])
+	//http://www.techrepublic.com/blog/how-do-i/how-do-i-use-php-with-postgresql/
+	//http://www.treibsand.com/2009/01/26/volltextsuche-mit-postgresql/
 ?>
