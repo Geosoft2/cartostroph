@@ -83,3 +83,11 @@ function HilfeAnzeigen() {
 	$(document).ready(function(){$('#HilfeModal').foundation('reveal', 'open')});
 	}
 }
+
+function autor() {
+	var autor = getCookie("Autor");
+	if(autor == ""){
+		autor = "Anonym";
+	}
+	return autor;
+}
