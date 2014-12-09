@@ -18,6 +18,9 @@
     $kategorie = $_POST['Kategorie'];
 	$katwert = NULL;
     switch ($kategorie) { 
+		case 'keine Ausgewählt':
+			$katwert = NULL;
+			break;
         case 'Welt': 
             $katwert = 'Welt';
             break; 
