@@ -13,8 +13,8 @@
 	$breitengrad = $_POST['Breitengrad'];
 	$laengengrad = $_POST['Längengrad'];
 	$position = '$breitengrad, $laengengrad';
-	$autor = 'Anonym';
-/**
+	$autor = $_POST['Autor'];
+
     $kategorie = $_POST['Kategorie'];
 	$katwert = NULL;
     switch ($kategorie) { 
@@ -37,11 +37,11 @@
 			$katwert = NULL;
     }
 	
-	$start = $_POST['star'];
+	$start = $_POST['start'];
 	$end = $_POST['end'];
-	$bewertung = $_POST['Bewertung'];
-	$tags = $_POST['Tags'];
-	$hyperlink = $_POST['Hyperlink'];*/
+	$bewertung = $_POST['sliderOutput3'];
+	$tags = $_POST['tags'];
+	$hyperlink = $_POST['hyperlink'];
 	
 	$result = pg_query($connection, "INSERT INTO topic(url_top, text, bewertung, hyperlink, anfangsdatum, enddatum, kategorie, titel, position, autor, Tag) 
 					VALUES('$url', '$kommentar', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$autor', NULL)");
