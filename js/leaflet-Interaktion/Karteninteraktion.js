@@ -34,7 +34,7 @@ function onMapClick(e) {
 function submitTopic(){
 	var URL = document.getElementById("URL").value;
 	var Titel = document.getElementById("Titel").value;
-	var Bewertung = document.getElementById("Bewertung").value;
+	var Bewertung = document.getElementById("sliderOutput3").innerHTML;
 	var Autor = autor();
 	L.marker([lat, lng]).addTo(map).bindPopup("Titel: " + Titel + "<br />Bewertung: "
 								       		 + Bewertung + "<br />Breitengrad: " + "<br/> Autor: " + Autor  + "<br /><br /><a>Mehr Infos...</a>");	
