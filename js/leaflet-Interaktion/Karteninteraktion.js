@@ -26,6 +26,7 @@ function onMapClick(e) {
 				document.getElementById("Titel").value = "";
 				document.getElementById("Kommentar").value = "";
 				document.getElementById("checkbox1").checked="true";
+				document.getElementById("Autor").value = autor();
 				addMarker = false;
 	}
 		
