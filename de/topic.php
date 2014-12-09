@@ -14,7 +14,7 @@
 	$laengengrad = $_POST['Längengrad'];
 	$position = '$breitengrad, $laengengrad';
 	$autor = 'Anonym';
-
+/**
     $kategorie = $_POST['Kategorie'];
 	$katwert = NULL;
     switch ($kategorie) { 
@@ -41,11 +41,12 @@
 	$end = $_POST['end'];
 	$bewertung = $_POST['Bewertung'];
 	$tags = $_POST['Tags'];
-	$hyperlink = $_POST['Hyperlink'];
+	$hyperlink = $_POST['Hyperlink'];*/
 	
-	$result = pg_query($connection, "INSERT INTO topic(url_top, text, bewertung, hyperlink, anfangsdatum, enddatum, kategorie, titel, position, autor, tag) 
-					VALUES('$url', '$kommentar', $bewertung, '$hyperlink', $start, $end, '$katwert', '$titel', $position, '$autor', '$tags')");
+	$result = pg_query($connection, "INSERT INTO topic(url_top, text, bewertung, hyperlink, anfangsdatum, enddatum, kategorie, titel, position, autor, Tag) 
+					VALUES('$url', '$kommentar', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$autor', NULL)");
+					//VALUES('$url', '$kommentar', $bewertung, '$hyperlink', $start, $end, '$katwert', '$titel', $position, '$autor', '$tags')");
 
-	header("Location: index.html");
-	exit();
+	//header("Location: index.html");
+	//exit();
 ?>

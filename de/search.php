@@ -27,8 +27,6 @@
 	// free memory
 	pg_free_result($result);
 
-	// close connection
-	pg_close($dbh);
 	
 	//pg_escape_string($_POST['cname'])
 	//http://www.techrepublic.com/blog/how-do-i/how-do-i-use-php-with-postgresql/
