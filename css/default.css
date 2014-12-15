@@ -10,9 +10,22 @@ div#HilfeModal {
     text-align: justify;
 }
 
+div#myModal {
+    width: 50%;
+    top: 50px;
+}
+
 div#newTopicModal {
     height: 85%;
-    width: 95%;
+    width: 50%;
+    top: 50px;
+    overflow-y: scroll;
+    text-align: justify
+}
+
+div#RegisterModal {
+    height: 85%;
+    width: 30%;
     top: 50px;
     overflow-y: scroll;
     text-align: justify

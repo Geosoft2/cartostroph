@@ -49,7 +49,7 @@
 
                   		<!-- Formular zur Erstellung eines Topics  -->
 						<div id="newTopicModal" class="reveal-modal" data-reveal>
-  							<h2>Fügen Sie einen Geodatensatz hinzu</h2>
+  							<h3>Fügen Sie einen Geodatensatz hinzu</h3>
   							<form action="topic.php" method="post">
   								<p>Breitengrad: <input id="Breitengrad" readonly="readonly" type="number" name="Breitengrad"/> </p>
   								<p>Längengrad: <input id="Längengrad" readonly="readonly" type="number" name="Längengrad"/> </p>
@@ -97,7 +97,8 @@
 								</p>
 								<input type="submit" class="button expand" value="Topic erstellen"/>
         					</form>
-  							<a id="cancelTopic" style="position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
+  							<a id="cancelTopic" style="position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a><br />
+                            <br />
 					    </div>
 					</li>
 
@@ -119,7 +120,7 @@
 
     <!-- PopUp-Registrierungs-Formular -->
     <div id="RegisterModal" class="reveal-modal" data-reveal>
-        <h1> Registrierung </h1>
+        <h2> Registrierung </h2>
         <form action="register.php" method="post">
             Benutzername: <input type="text" id="Benutzername" name="Benutzername" required />
             Passwort: <input type="password" id="passwort" name="Passwort" required />
@@ -128,7 +129,8 @@
             PLZ (optional): <input type="text" name="PLZ" id="PLZ" />
             Land (optional): <input type="text" name="Land" id="Land" />
             <input id="regist" type="submit" class="button expand" value="Registrieren" />
-            <a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
+            <a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a><br />
+            <br />
         </form>
     </div>
 	
@@ -207,9 +209,9 @@
                 <li><strong>Hyperlink (optional)</strong>: Hier geben Sie andere Internetquellen an, welche den Geodatensatz ergänzen - z.B. neuer oder besserer Datensatz, Zusatzinformationen zum betroffenen Gebiet, etc.</li>
             </ul>
         </p>
-        <br />
         <input id="HilfeAusschalten" type="checkbox"><label for="HilfeAusschalten">Hilfe nicht mehr anzeigen</label><br />
-        <a onclick="hilfeCookie()" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Weiter</a>
+        <a onclick="hilfeCookie()" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Weiter</a><br />
+        <br />
     </div>
 	
 	
