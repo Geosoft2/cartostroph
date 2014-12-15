@@ -5,6 +5,7 @@
 div#HilfeModal {
     height: 85%;
     width: 95%;
+    top: 50px;
     overflow-y: scroll;
     text-align: justify;
 }
