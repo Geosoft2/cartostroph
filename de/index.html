@@ -78,12 +78,14 @@
   								<p><abbr title="Hier geben Sie an bis wann der Datensatz gültig war bzw. voraussichtlich sein wird."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
   								Zeitliche Ausdehnung - Ende (optional) <input type="date" id="end" name="end" />	
   								</p>
-  								<p><abbr title="Hier geben Sie an wie gut Sie den Datensatzfinden.Skala von 1(sehr schlecht/unbrauchbar) bis 5(perfekt)"><img src="../img/info.png" width="15px" height="15px"/></abbr> Bewertung (optional): <br /><input id="checkbox1" type="checkbox" onclick="activateAssessment()"><label for="checkbox1" >Bewertung ausschalten</label>
+  								<p><abbr title="Hier geben Sie an wie gut Sie den Datensatzfinden.Skala von 1(sehr schlecht/unbrauchbar) bis 5(perfekt)"><img src="../img/info.png" width="15px" height="15px"/></abbr> 
+								Bewertung (optional): <br /><input id="checkbox1" name="checkbox1" type="checkbox" onclick="activateAssessment()"><label for="checkbox1" >Bewertung ausschalten</label>
   									<div class="row">
   									    <div class="small-10 medium-11 columns">
   										    <div id="Bewertung" name="Bewertung" onclick="activateSlider()" class="range-slider" data-slider disabled data-options="display_selector: #sliderOutput3; start: 1; end: 5;" >
   											    <span class="range-slider-handle" role="slider" tabindex="0"></span>
   												<span class="range-slider-active-segment"></span> 
+												<input type="hidden" name = "Bewertung">
   											</div> 
   										</div>
   										<div class="small-2 medium-1 columns">
