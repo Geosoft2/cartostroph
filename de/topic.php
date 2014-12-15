@@ -11,7 +11,7 @@
 	$titel = $_POST['Titel'];
 	$kommentar = $_POST['Kommentar'];
 	$breitengrad = $_POST['Breitengrad'];
-	$laengengrad = $_POST['Längengrad'];
+	$laengengrad = $_POST['Laengengrad'];
 	$position = '$breitengrad, $laengengrad';
 	$autor = $_POST['Autor'];
 
