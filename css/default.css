@@ -1,0 +1,19 @@
+﻿body {
+}
+
+div#HilfeModal {
+    height: 75%;
+    overflow-y: scroll;
+    text-align: justify;
+}
+
+div#faqcontent {
+    height: 90%;
+    top: 7.5%;
+    bottom: 2.5%;
+    width: 95%;
+    left: 2.5%;
+    right: 2.5%;
+    position: absolute; 
+    text-align: justify
+}
