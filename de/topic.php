@@ -47,16 +47,22 @@
 	if ($_POST['end'] != ''){
 		$end = $_POST['end'];
 		}
-	//$bewertung = (int) $_POST['Bewertung'];
+		
+	$checkbox = $_POST['checkbox1'];
 	$tags = $_POST['tags'];
 	$hyperlink = $_POST['hyperlink'];
-	$autor = 'Anonym';
 
 	
-	
+	if($checkbox){
 	$result = pg_query($connection, "INSERT INTO topic(url_top, text, bewertung, hyperlink, anfangsdatum, enddatum, kategorie, titel, position, autor, tag) 
 					VALUES('$url', '$kommentar', Null, '$hyperlink', '$start', '$end', '$katwert', '$titel', Point($breitengrad, $laengengrad), '$autor', '$tags')");
 
+	}else{
+	$bewertung = (int) $_POST['Bewertung'];
+	$result = pg_query($connection, "INSERT INTO topic(url_top, text, bewertung, hyperlink, anfangsdatum, enddatum, kategorie, titel, position, autor, tag) 
+					VALUES('$url', '$kommentar', $bewertung, '$hyperlink', '$start', '$end', '$katwert', '$titel', Point($breitengrad, $laengengrad), '$autor', '$tags')");
+	}
+	
 	header("Location: index.html");
 	exit();
 ?>
