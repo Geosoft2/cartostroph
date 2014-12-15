@@ -2,7 +2,8 @@
 }
 
 div#HilfeModal {
-    height: 75%;
+    height: 80%;
+    width: 95%;
     overflow-y: scroll;
     text-align: justify;
 }
