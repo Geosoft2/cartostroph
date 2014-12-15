@@ -12,7 +12,6 @@
 	$kommentar = $_POST['Kommentar'];
 	$breitengrad = $_POST['Breitengrad'];
 	$laengengrad = $_POST['Längengrad'];
-	$position = '$breitengrad, $laengengrad';
 	$autor = $_POST['Autor'];
 
     $kategorie = $_POST['Kategorie'];
@@ -39,21 +38,24 @@
         default:
 			$katwert = NULL;
     }
-	
-   	$start = $_POST['start'];
-	$end = $_POST['end'];
-	//$start = date('$start', 'DD Mon YYYY');   //to_date('05 Dec 2000', 'DD Mon YYYY')
-	//$end = date('$end', 'DD Mon YYYY');
-	$bewertung = (int) $_POST['Bewertung'];
+
+	$start = '0001-01-01';
+	if ($_POST['start'] != ''){
+		$start = $_POST['start'];
+		}
+	$end = '9999-12-31';
+	if ($_POST['end'] != ''){
+		$end = $_POST['end'];
+		}
+	//$bewertung = (int) $_POST['Bewertung'];
 	$tags = $_POST['tags'];
 	$hyperlink = $_POST['hyperlink'];
 	$autor = 'Anonym';
 
 	
 	
-	$result = pg_query($connection, "INSERT INTO topic(url_top, text, bewertung, hyperlink, anfangsdatum, enddatum, kategorie, titel, position, autor, Tag) 
-					VALUES('$url', '$kommentar', $bewertung, '$hyperlink', Null, Null, '$katwert', '$titel', Point($breitengrad, $laengengrad), '$autor', '$tags')");
-					//VALUES('$url', '$kommentar', $bewertung, '$hyperlink', $start, $end, '$katwert', '$titel', $position, '$autor', '$tags')");
+	$result = pg_query($connection, "INSERT INTO topic(url_top, text, bewertung, hyperlink, anfangsdatum, enddatum, kategorie, titel, position, autor, tag) 
+					VALUES('$url', '$kommentar', Null, '$hyperlink', '$start', '$end', '$katwert', '$titel', Point($breitengrad, $laengengrad), '$autor', '$tags')");
 
 	header("Location: index.html");
 	exit();
