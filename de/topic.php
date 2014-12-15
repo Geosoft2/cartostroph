@@ -11,13 +11,8 @@
 	$titel = $_POST['Titel'];
 	$kommentar = $_POST['Kommentar'];
 	$breitengrad = $_POST['Breitengrad'];
-<<<<<<< HEAD
 	$laengengrad = $_POST['Laengengrad'];
 	$position = '$breitengrad, $laengengrad';
-=======
-	$laengengrad = $_POST['Längengrad'];
-	//$position = '$breitengrad, $laengengrad';
->>>>>>> origin/master
 	$autor = $_POST['Autor'];
 
     $kategorie = $_POST['Kategorie'];
@@ -60,6 +55,6 @@
 					VALUES('$url', '$kommentar', $bewertung, '$hyperlink', Null, Null, '$katwert', '$titel', Point($breitengrad, $laengengrad), '$autor', '$tags')");
 					//VALUES('$url', '$kommentar', $bewertung, '$hyperlink', $start, $end, '$katwert', '$titel', $position, '$autor', '$tags')");
 
-	//header("Location: index.html");
-	//exit();
+	header("Location: index.html");
+	exit();
 ?>
