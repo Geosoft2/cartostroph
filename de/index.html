@@ -94,8 +94,8 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td id="startDate">2012-02-20</td>
-									<td id="endDate">2012-02-25</td>
+									<td id="start">2012-02-20</td>
+									<td id="end">2012-02-25</td>
 								</tr>
 							</tbody>
 						</table>
@@ -319,27 +319,27 @@
 		
 		map.on('click', onMapClick);
 		// map.on('mouseout',resetView);
-		var startDate = new Date(2012, 1, 20);
-				var endDate = new Date(2012, 1, 25);
+		var start = new Date(2012, 1, 20);
+				var end = new Date(2012, 1, 25);
 				$('#dp4').fdatepicker()
 					.on('changeDate', function (ev) {
-					if (ev.date.valueOf() > endDate.valueOf()) {
+					if (ev.date.valueOf() > end.valueOf()) {
 						$('#alert').show().find('strong').text('Startdatum kann nicht größer sein als das Enddatum');
 					} else {
 						$('#alert').hide();
-						startDate = new Date(ev.date);
-						$('#startDate').text($('#dp4').data('date'));
+						start = new Date(ev.date);
+						$('#start').text($('#dp4').data('date'));
 					}
 					$('#dp4').fdatepicker('hide');
 				});
 				$('#dp5').fdatepicker()
 					.on('changeDate', function (ev) {
-					if (ev.date.valueOf() < startDate.valueOf()) {
+					if (ev.date.valueOf() < start.valueOf()) {
 						$('#alert').show().find('strong').text('Enddatum kann nicht größer sein als das Startdatum');
 					} else {
 						$('#alert').hide();
-						endDate = new Date(ev.date);
-						$('#endDate').text($('#dp5').data('date'));
+						end = new Date(ev.date);
+						$('#end').text($('#dp5').data('date'));
 					}
 					$('#dp5').fdatepicker('hide');
 				});
