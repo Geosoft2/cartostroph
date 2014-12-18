@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <script src="../js/vendor/modernizr.js"></script>
     <script src="../js/leaflet-Interaktion/Karteninteraktion.js"></script>
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+ <script src="http://foundation-datepicker.peterbeno.com/js/foundation-datepicker.js"></script>
+ <link rel="stylesheet" href="http://foundation-datepicker.peterbeno.com/stylesheets/foundation-datepicker.css">
+ <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
 </head>
 <body id="index">
 	<script>
@@ -72,12 +77,35 @@
   										<option value="Stadt">Stadt</option>
 								    </select>
 								</p>
-  								<p><abbr title="Hier geben Sie an ab wann der Geodatensatz gültig ist"><img src="../img/info.png" width="15px" height="15px"/></abbr>
+								<div class="panel">
+						<div class="alert alert-box" id="alert">	<strong>Startdatum darf nicht größer sein als das Enddatum</strong>
+
+						</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th style="font-size:0.8em">Zeitliche Ausdehnung - Start (optional)  <abbr title="Hier geben Sie an ab wann der Geodatensatz gültig ist im Format: JJJJ-MM-TT"><img src="../img/info.png" width="15px" height="15px"/></abbr>
+										<a style="margin-left: 34%" href="#" class="button small" id="dp4" data-date-format="yyyy-mm-dd" data-date="2012-02-20">ändern</a>
+									</th>
+									<th style="font-size:0.8em">Zeitliche Ausdehnung - Ende (optional)<abbr title="Hier geben Sie an bis wann der Datensatz gültig war bzw. voraussichtlich sein wird im Format: JJJJ-MM-TT."><img src="../img/info.png" width="15px" height="15px"/></abbr>
+										<a style="margin-left: 34%" href="#" class="button small" id="dp5" data-date-format="yyyy-mm-dd" data-date="2012-02-25">ändern</a>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td id="startDate">2012-02-20</td>
+									<td id="endDate">2012-02-25</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+  								<!-- <p><abbr title="Hier geben Sie an ab wann der Geodatensatz gültig ist im Format: JJJJ-MM-TT"><img src="../img/info.png" width="15px" height="15px"/></abbr>
   								Zeitliche Ausdehnung - Start (optional) <input type="date" id="start" name="start" />	
   								</p>
-  								<p><abbr title="Hier geben Sie an bis wann der Datensatz gültig war bzw. voraussichtlich sein wird."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
+  								<p><abbr title="Hier geben Sie an bis wann der Datensatz gültig war bzw. voraussichtlich sein wird im Format: JJJJ-MM-TT."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
   								Zeitliche Ausdehnung - Ende (optional) <input type="date" id="end" name="end" />	
-  								</p>
+  								</p> -->
   								<p><abbr title="Hier geben Sie an wie gut Sie den Datensatzfinden.Skala von 1(sehr schlecht/unbrauchbar) bis 5(perfekt)"><img src="../img/info.png" width="15px" height="15px"/></abbr> 
 								Bewertung (optional): <br /><input id="checkbox1" name="checkbox1" type="checkbox" onclick="activateAssessment()"><label for="checkbox1" >Bewertung ausschalten</label>
   									<div class="row">
@@ -96,6 +124,8 @@
   								<p><abbr title="Hier geben Sie Tags an, damit der Datensatz später leichter zu finden ist."><img src="../img/info.png" width="15px" height="15px"/></abbr> Tags (optional): <input type="text" id="tags" name="tags"/>
 								</p>
 								<p><abbr title="Hier geben Sie andere Internetquellen an, welche den Geodatensatz ergänzen - z.B. neuer oder besserer Datensatz, Zusatzinformationen zum betroffenen Gebiet, etc."><img src="../img/info.png" width="15px" height="15px"/></abbr> Hyperlink (optional): <input type="text" id="hyperlink" name="hyperlink"/>
+								</p>
+								<p>
 								</p>
 								<p>Autor <input id="Autor" type="text" readonly="readonly" name="Autor"/>
 								<input type="submit" class="button expand" value="Topic erstellen"/>
@@ -235,12 +265,13 @@
     </div>
 
     <!-- Skriptabschnitt -->
-    <script src="../js/vendor/jquery.js"></script>
+    <!-- <script src="../js/vendor/jquery.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script> -->
     <script src="../js/foundation/foundation.min.js"></script>
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script type="text/javascript">
         $(document).foundation();
-
+		
         // create a map in the "map" div, set the view to a given place and zoom
         var addMarker = false;
        
@@ -288,6 +319,30 @@
 		
 		map.on('click', onMapClick);
 		// map.on('mouseout',resetView);
+		var startDate = new Date(2012, 1, 20);
+				var endDate = new Date(2012, 1, 25);
+				$('#dp4').fdatepicker()
+					.on('changeDate', function (ev) {
+					if (ev.date.valueOf() > endDate.valueOf()) {
+						$('#alert').show().find('strong').text('Startdatum kann nicht größer sein als das Enddatum');
+					} else {
+						$('#alert').hide();
+						startDate = new Date(ev.date);
+						$('#startDate').text($('#dp4').data('date'));
+					}
+					$('#dp4').fdatepicker('hide');
+				});
+				$('#dp5').fdatepicker()
+					.on('changeDate', function (ev) {
+					if (ev.date.valueOf() < startDate.valueOf()) {
+						$('#alert').show().find('strong').text('Enddatum kann nicht größer sein als das Startdatum');
+					} else {
+						$('#alert').hide();
+						endDate = new Date(ev.date);
+						$('#endDate').text($('#dp5').data('date'));
+					}
+					$('#dp5').fdatepicker('hide');
+				});
     </script>
 </body>
 </html>
