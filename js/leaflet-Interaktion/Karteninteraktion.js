@@ -92,3 +92,98 @@ function autor() {
 	}
 	return autor;
 }
+
+function showDataOnMap(URL) {
+	
+	var Typ = URL.split(".");
+	var Laenge = Typ.length;
+	Typ = Typ[(Laenge-1)];
+	if(URL.contains("WMS") || URL.contains("wms")){
+		alert("it is a wms");
+		Typ = "WMS";
+	}
+	
+	//boundingBox gibt an ob 
+	boundingBox = true;
+	if((Typ == "jpg" || Typ == "png") && boundingBox ){
+		Typ = "geoPic"
+	}
+	
+	switch(Typ) {
+		// GEOJSON
+		case "geojson":
+		alert(Typ);
+		var geojsonLayer = new L.GeoJSON.AJAX(URL);       
+		geojsonLayer.addTo(map);
+		break;
+		
+		//KML
+		case "kml":
+		alert(Typ);
+		omnivore.kml(URL).addTo(map);
+		break;
+		
+		//GML
+		case "gml":
+		alert(Typ);
+		
+		break;
+		
+		
+		//JPEG
+		case "jpg":
+		alert(Typ);
+		document.write("<img src='" + URL +  "' alt='Boris'>");
+		break;
+		
+		
+		//PNG
+		case "png":
+		alert(Typ);
+		document.write("<img src='" + URL +  "' alt='Boris'>");
+		break;
+		
+		
+		//JPEG / PNG mit boundingBox die angegeben wurde
+		case "geoPic":
+		alert(Typ);
+		var imageUrl = URL ,
+    	imageBounds = [[40.712216, -74.22655], [40.773941, -74.12544]];
+		L.imageOverlay(imageUrl, imageBounds).addTo(map);
+		map.fitBounds([
+    	[40.712, -74.227],
+    	[40.774, -74.125]]);
+		break;
+		
+		
+		//WMTS
+		case "WMTS":
+		alert(Typ);
+		
+		break;
+		
+		//WFS
+		case "WFS":
+		alert(Typ);
+		
+		break;
+		
+		
+		case "WMS":
+		var nexrad = L.tileLayer.wms("http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi", {
+    //layers: 'nexrad-n0r-900913',
+    format: 'image/png',
+    transparent: true,
+    attribution: "Weather data © 2012 IEM Nexrad"
+}).addTo(map);
+		// var temperature = L.tileLayer.wms(URL, {
+    	// format: 'img/png',
+    	// transparent: true,
+    	// layers: 'nexrad-n0r-900913',
+    	// //layers: 16
+		// }).addTo(map);
+		break;
+	}
+}
+
+
