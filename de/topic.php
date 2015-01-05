@@ -63,6 +63,6 @@
 					VALUES('$url', '$kommentar', $bewertung, '$hyperlink', '$start', '$end', '$katwert', '$titel', Point($breitengrad, $laengengrad), '$autor', '$tags')");
 	}
 	
-	header("Location: index.html");
+	header("Location: index.php");
 	exit();
 ?>
