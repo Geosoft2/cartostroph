@@ -325,7 +325,7 @@
 					
 			echo '<script type="text/javascript"> ';
 			echo 'L.marker([' . $Position . ']).addTo(map).bindPopup("Titel: " + "' . $Titel . '" + "<br />Bewertung: "
-								       		 + "' . $Bewertung . '" + "<br/> URL: " + "' . $URL . '" + "<br/> Autor: " + "' . $Autor . '"  + "<br /><br /><a>Mehr Infos...</a>");';
+								       		 + "' . $Bewertung . '" + "<br/> URL: " + "' . $URL . '" + "<br/> Autor: " + "' . $Autor . '"  + "<br /><br /><a href=\"DynamicMap.html\">Mehr Infos...</a>");';
 			echo '</script>';
 
 		}
