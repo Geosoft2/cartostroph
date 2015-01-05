@@ -316,16 +316,16 @@
 		// print each row
 		
 		while ($row = pg_fetch_array($result)) {
-			$URL = $row[0];
-			$Titel = $row[1];
+			$URL = (string)$row[0];
+			$Titel = (string)$row[1];
 			$Pos = (string)$row[2];
 			$Position = substr($Pos, 1, -1);
-			$Bewertung = $row[3];
-			$Autor = $row[4];
+			$Bewertung = (string)$row[3];
+			$Autor = (string)$row[4];
 					
 			echo '<script type="text/javascript"> ';
-			echo 'L.marker([' . $Position . ']).addTo(map).bindPopup("Titel: " + ' . $Titel . ' + "<br />Bewertung: "
-								       		 + ' . $Bewertung . ' + "<br/> URL: " + ' . $URL . ' + "<br/> Autor: " + ' . $Autor . '  + "<br /><br /><a>Mehr Infos...</a>");';
+			echo 'L.marker([' . $Position . ']).addTo(map).bindPopup("Titel: " + "' . $Titel . '" + "<br />Bewertung: "
+								       		 + "' . $Bewertung . '" + "<br/> URL: " + "' . $URL . '" + "<br/> Autor: " + "' . $Autor . '"  + "<br /><br /><a>Mehr Infos...</a>");';
 			echo '</script>';
 
 		}
