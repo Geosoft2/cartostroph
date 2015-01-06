@@ -52,7 +52,7 @@
 
 	$result = pg_query($connection, "INSERT INTO nutzer(name, passwort, ort, plz, land) 
 					VALUES('$Benutzername', '$Passwort', '$Ort', '$PLZ', '$Land')"); 
-	header("Location: index.html");
+	header("Location: index.php");
 	exit();		
 		
 		
