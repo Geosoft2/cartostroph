@@ -15,7 +15,7 @@
         <nav class="top-bar" data-topbar role="navigation">
             <ul class="title-area">
                 <li class="name">
-                    <h1><a href="index.html">Cartostroph</a></h1>
+                    <h1><a href="index.php">Cartostroph</a></h1>
                 </li>
 
                 <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
@@ -32,24 +32,7 @@
                         <a href="#" data-dropdown="login-dropdown">Login</a>
                     </li>S
 
-                    <!-- Pop-Up für Registrierung  -->
-                    <li><a href="#" data-reveal-id="RegisterModal">Registrierung</a></li>
-
-                    <!-- Registrierungsformular  -->
-                    <div id="RegisterModal" class="reveal-modal" data-reveal>
-                        <h1> Registrierung </h1>
-                        <form action="register.php" method="post">
-                            Benutzername: <input type="text" id="Benutzername" name="Benutzername" required />
-                            Passwort: <input type="password" id="passwort" name="Passwort" required />
-                            Passwort wiederholen:<input type="password" id="passwortWieder" name="Passwort" required />
-                            Ort (optional): <input type="text" name="Ort" id="Ort" />
-                            PLZ (optional): <input type="text" name="PLZ" id="PLZ" />
-                            Land (optional): <input type="text" name="Land" id="Land" />
-                            <input id="regist" type="submit" class="button expand" value="Registrieren" />
-
-                            <a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
-                        </form>
-                    </div>
+                    
 
                     <!-- Suche  -->
                     <li class="has-form">
@@ -62,24 +45,7 @@
         </nav>
     </div>
 
-    <!-- Login-Formular -->
-    <div id="login-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
-        <h5>Log In:</h5>
-        <form id="top-nav-login" action="login.xqy" method="post">
-            <div class="row">
-                <label>User</label>
-                <input type="text" name="user" placeholder="email@example.com" tabindex="1" />
-            </div>
-            <div class="row">
-                <label>Password</label>
-                <input type="password" placeholder="********" tabindex="2" />
-            </div>
-            <div class="row">
-                <input type="submit" class="button tiny success" value="Login" tabindex="3" />
-            </div>
-            <p>Sie haben noch kein Konto? Zur Registrierung geht es <a onclick="test" data-reveal-id="RegisterModal">hier</a></p>
-        </form>
-    </div>
+    
 
     <!-- Inhalt -->
    <div id="registercontent">
