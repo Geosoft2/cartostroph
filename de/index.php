@@ -21,7 +21,7 @@
         <nav class="top-bar" data-topbar role="navigation">
             <ul class="title-area">
                 <li class="name">
-                    <h1><a href="index.html">Cartostroph!</a></h1>
+                    <h1><a href="index.php">Cartostroph!</a></h1>
                 </li>
                 <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
                 <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
@@ -143,14 +143,14 @@
     <!-- Dropdown-Login-Feld -->
     <div id="login-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
         <h5>Log In:</h5>
-        <form id="top-nav-login" action="login.xqy" method="post">
+        <form id="top-nav-login" action="login.php" method="post">
             <div class="row">
                 <label>User</label>
                 <input type="text" name="user" placeholder="email@example.com" tabindex="1" />
             </div>
             <div class="row">
                 <label>Password</label>
-                <input type="password" placeholder="********" tabindex="2" />
+                <input type="password" name="password" placeholder="********" tabindex="2" />
             </div>
             <div class="row">
                 <input type="submit" class="button tiny success" value="Login" tabindex="3" />
