@@ -324,8 +324,9 @@
 			$Autor = (string)$row[4];
 					
 			echo '<script type="text/javascript"> ';
-			echo 'L.marker([' . $Position . ']).addTo(map).bindPopup("Titel: " + "' . $Titel . '" + "<br />Bewertung: "
-								       		 + "' . $Bewertung . '" + "<br/> URL: " + "' . $URL . '" + "<br/> Autor: " + "' . $Autor . '"  + "<br /><br /><a href=\"DynamicMap.html\">Mehr Infos...</a>");';
+			echo 'var marker = L.marker([' . $Position . ']).addTo(map).bindPopup("Titel: " + "' . $Titel . '" + "<br />Bewertung: "
+								       		 + "' . $Bewertung . '" + "<br/> URL: " + "<a href=" + "' . $URL . '" + ">"+ "' . $URL . '"   + "</a>" +  "<br/> Autor: " + "' . $Autor . '"  + "<br /><br /><a href=\"DynamicMap.html\">Mehr Infos...</a>");';
+			echo 'marker.on(\'click\',clickMarker);';							 
 			echo '</script>';
 
 		}
