@@ -186,4 +186,11 @@ function showDataOnMap(URL) {
 	}
 }
 
+function clickMarker() {
+	URL = this.getPopup().getContent().split("<br/>")[1].split("=")[1].split(">")[1].split(",")[0]
+	URL = URL.substring(0,URL.length-3);
+	urlCookie = "URL=" + URL;
+	document.cookie = "URL=" + URL;
+}
+
 

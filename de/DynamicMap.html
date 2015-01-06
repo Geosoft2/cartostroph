@@ -54,8 +54,8 @@
 		
 		
 		
-		var URL = 'http://giv-geosoft2c.uni-muenster.de/Bartosz/cartostroph/de/leonardttown.geojson'   //diese wird aus der Datenabnk gezogen
-		
+		//var URL = 'http://giv-geosoft2c.uni-muenster.de/Bartosz/cartostroph/de/leonardttown.geojson'   //diese wird aus der Datenabnk gezogen
+		var URL = getCookie("URL"); 
 		var Typ = URL.split(".");
 		var Laenge = Typ.length;
 		alert(Typ[(Laenge-1)]);
