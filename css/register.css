@@ -1,0 +1,13 @@
+body {
+}
+
+div#registercontent {
+    height: 50%;
+    top: 7.5%;
+    bottom: 42.5%;
+    width: 30%;
+    left: 35%;
+    right: 35%;
+    position: absolute; 
+    text-align: justify
+}
