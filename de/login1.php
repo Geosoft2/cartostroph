@@ -47,6 +47,7 @@
 
 	<p>Sie wurden erfolgreich angemeldet</p>
 		<p>Sie können sich auch wieder <a href="logout.php">abmelden</a>.</p>
+		<p><a href="index.php">Hier</a> geht es zur Startseite.</p>
 </div>
 	<script src="../js/vendor/jquery.js"></script>
     <script src="../js/foundation/foundation.min.js"></script>

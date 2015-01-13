@@ -49,7 +49,16 @@
        </br>
 	<p>Ihr Login schlug fehl.</p>
 		<p>Bitte überprüfen Sie ihr Passwort und ihren Benutzernamen und versuchen es erneut.</p>
-</div>
+		<a href="#" data-reveal-id="passwortVergessen">Ich habe mein Passwort vergessen</a>
+		<div id="passwortVergessen" class="reveal-modal" data-reveal>
+					  <form>
+					  	<p> Geben Sie bitte die E-Mail an, welche Sie bei der Registrierung benutzt haben</p>
+					  	<p>E-Mail: </p><input type="email" />
+					  	<input class="button" type="submit" />
+					  </form>
+					  <a class="close-reveal-modal">&#215;</a>
+					</div>
+   </div>
 
 
     <!-- Dropdown-Login-Feld -->

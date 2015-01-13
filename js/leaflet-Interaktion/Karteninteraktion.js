@@ -93,6 +93,14 @@ function autor() {
 	return autor;
 }
 
+function loggedIn() {
+	var autor = getCookie("Autor");
+	if(autor == ""){
+		autor = "Login";
+	}
+	return autor;
+}
+
 function showDataOnMap(URL) {
 	
 	var Typ = URL.split(".");

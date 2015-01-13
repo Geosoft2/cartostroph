@@ -17,8 +17,8 @@
 		if (pg_num_rows($result)>0) {
 			session_start();
                  
-            setcookie('name', $user, strtotime("+1 month"));
-            $_COOKIE['name'] = $user; // fake-cookie setzen
+            setcookie('Autor', $user, strtotime("+1 month"));
+            $_COOKIE['Autor'] = $user; // fake-cookie setzen
 
 			header("Location: login1.php");
 			exit;

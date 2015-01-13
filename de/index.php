@@ -13,7 +13,6 @@
 <body id="index">
 	<script>
 		window.onload=HilfeAnzeigen;
-		//window.onload=addMarkers;
 	</script>
 	
 	
@@ -37,7 +36,16 @@
 
                     <!-- Loginfunktion -->
                     <li class="has-dropdown">
-                        <a href="#" data-dropdown="login-dropdown">Login</a>
+                        <a href="#" id="login-drop">Login</a>
+						<script type="text/javascript">
+                    			document.getElementById("login-drop").innerHTML = loggedIn();
+								if (loggedIn() == "Login"){
+									document.getElementById("login-drop").setAttribute("data-dropdown", "login-dropdown");
+								}else{
+									document.getElementById("login-drop").setAttribute("data-dropdown", "loggedin-dropdown");
+								}
+                    	</script>
+						
                     </li>
 
                     <!-- Neues Topic erstellen -->
@@ -96,9 +104,11 @@
   										</div>
   									</div>
   								</p>
-  								<p><abbr title="Hier geben Sie Tags an, damit der Datensatz später leichter zu finden ist."><img src="../img/info.png" width="15px" height="15px"/></abbr> Tags (optional): <input type="text" id="tags" name="tags"/>
+  								<p><abbr title="Hier geben Sie Tags an, damit der Datensatz später leichter zu finden ist."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
+								Tags (optional): <input type="text" id="tags" name="tags"/>
 								</p>
-								<p><abbr title="Hier geben Sie andere Internetquellen an, welche den Geodatensatz ergänzen - z.B. neuer oder besserer Datensatz, Zusatzinformationen zum betroffenen Gebiet, etc."><img src="../img/info.png" width="15px" height="15px"/></abbr> Hyperlink (optional): <input type="text" id="hyperlink" name="hyperlink"/>
+								<p><abbr title="Hier geben Sie andere Internetquellen an, welche den Geodatensatz ergänzen - z.B. neuer oder besserer Datensatz, Zusatzinformationen zum betroffenen Gebiet, etc."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
+								Hyperlink (optional): <input type="text" id="hyperlink" name="hyperlink"/>
 								</p>
 								<p>Autor <input id="Autor" type="text" readonly="readonly" name="Autor"/>
 								<input type="submit" class="button expand" value="Topic erstellen"/>
@@ -110,15 +120,22 @@
 
 					<!-- Pop-Up für Registrierung  -->
                     <li>
-                        <a href="#" data-reveal-id="RegisterModal">Registrierung</a>
+                    	<a id="regis" href="#" data-reveal-id="RegisterModal">Registrierung</a>
+                    	<script type="text/javascript">
+                    		if (loggedIn() == "Login"){
+					
+								}else{
+									document.getElementById("regis").innerHTML="";
+								}
+                    	</script>
+                        
                     </li>
                     
                     <!-- Suchfeld -->
-                    <li class="has-form">
-                        <div>
-                            <input type="text" placeholder="Suche">
-                        </div>
+					 <li>
+						<a href="search.php">Suche</a>
                     </li>
+                    
                 </ul>
             </section>
         </nav>
@@ -143,13 +160,14 @@
     <!-- Dropdown-Login-Feld -->
     <div id="login-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
         <h5>Log In:</h5>
+		
         <form id="top-nav-login" action="login.php" method="post">
             <div class="row">
-                <label>User</label>
+                <label>Nutzer</label>
                 <input type="text" name="user" placeholder="email@example.com" tabindex="1" />
             </div>
             <div class="row">
-                <label>Password</label>
+                <label>Passwort</label>
                 <input type="password" name="password" placeholder="********" tabindex="2" />
             </div>
             <div class="row">
@@ -158,6 +176,70 @@
             <p>Sie haben noch kein Konto? Zur Registrierung geht es <a onclick="test" data-reveal-id="RegisterModal">hier</a></p>
         </form>
     </div>
+	
+	<!-- Dropdown-Eingeloggt-Feld -->
+	<div id="loggedin-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
+		<h5 id="eingeloggtAls"><h5>
+			<script>
+				document.getElementById("eingeloggtAls").innerHTML = "Eingeloggt als: " + autor();
+			</script>
+			<ul id="drop" class="[tiny small medium large content]f-dropdown" data-dropdown-content>
+			  <a href="#" data-reveal-id="Profile">Profil</a>
+
+					<div id="Profile" class="reveal-modal" data-reveal>
+					  <h3 id="benutzername">Mein Profil: </h3>
+					  
+					  <script>
+						document.getElementById("benutzername").innerHTML = "Mein Profil: " + autor();
+					  </script>
+					  <form action="alteruser.php" method="post">
+					  <button style="float: right;"> Daten ändern</button>
+						<?php
+						// attempt a connection
+						ini_set('display_errors', '1');
+						error_reporting(E_ALL | E_STRICT);
+						include("config.php");
+						global $config;
+
+						$connection = pg_connect($config["connection"]);
+						if (!$connection) {
+							die("Error in connection: " . pg_last_error());
+						}
+						
+						$user = $_COOKIE['Autor'];
+
+						// execute query
+						$sql = "SELECT ort, plz, land FROM nutzer WHERE name='$user';";
+	
+						$result = pg_query($connection, $sql);
+						if (!$result) {
+							die("Error in SQL query: " . pg_last_error());
+						}
+
+						// iterate over result set
+						// print each row
+						while ($row = pg_fetch_array($result)) {
+							$ort = (string)$row[0];
+							$plz = (string)$row[1];
+							$land = (string)$row[2];
+						
+							echo '<p>Ort: ' . $ort . '</p><input type=\"text\" id=\"ort\" name=\"ort\" style=\"width: 90%;\"/>';
+							echo '<p>PLZ: ' . $plz . '</p><input type=\"text\" id=\"plz\" name=\"plz\" style=\"width: 90%;\"/>';
+							echo '<p>Land: ' . $land . '</p><input type=\"text\" id=\"land\" name=\"land\" style=\"width: 90%;\"/>';
+						}
+
+						// free memory
+						pg_free_result($result);
+						?>
+						<a class="close-reveal-modal">&#215;</a>
+						</form>
+					</div>
+			
+			  
+			  <br /><a href="#">Meine Topics und Kommentare</a>
+			  <br /><a href="logout.php">Logout</a>
+			</ul>
+	</div>
 
     <!-- Pop-Up mit Hilfestellung beim ersten Aufruf  -->
     <div id="HilfeModal" class="reveal-modal" data-reveal>
@@ -326,9 +408,8 @@
 			echo '<script type="text/javascript"> ';
 			echo 'var marker = L.marker([' . $Position . ']).addTo(map).bindPopup("Titel: " + "' . $Titel . '" + "<br />Bewertung: "
 								       		 + "' . $Bewertung . '" + "<br/> URL: " + "<a href=" + "' . $URL . '" + ">"+ "' . $URL . '"   + "</a>" +  "<br/> Autor: " + "' . $Autor . '"  + "<br /><br /><a href=\"DynamicMap.html\">Mehr Infos...</a>");';
-			echo 'marker.on(\'click\',clickMarker);';							 
+			echo 'marker.on(\'click\',clickMarker);';
 			echo '</script>';
-
 		}
 
 		pg_free_result($result);

@@ -6,8 +6,8 @@
 	global $config;
 	$connection = pg_connect($config["connection"]); 
 	
-	setcookie('name', 0, strtotime("+1 month"));
-    $_COOKIE['name'] = 0;
+	setcookie('Autor', 0, strtotime("+1 month"));
+    $_COOKIE['Autor'] = 0;
 	
     header('Location: logout1.php');
 ?>
