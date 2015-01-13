@@ -223,14 +223,20 @@
 							$plz = (string)$row[1];
 							$land = (string)$row[2];
 						
-							echo '<p>Ort: ' . $ort . '</p><input type=\"text\" id=\"ort\" name=\"ort\" style=\"width: 90%;\"/>';
-							echo '<p>PLZ: ' . $plz . '</p><input type=\"text\" id=\"plz\" name=\"plz\" style=\"width: 90%;\"/>';
-							echo '<p>Land: ' . $land . '</p><input type=\"text\" id=\"land\" name=\"land\" style=\"width: 90%;\"/>';
+							echo '<p>Ort: ' . $ort . ' </p>';
+							echo '<p>PLZ: ' . $plz . '</p>';
+							echo '<p>Land: ' . $land . '</p>';
+							//echo '<p>Ort: <input value=' . $ort . ' type=\"text\" id=\"ort\" name=\"ort\" style=\"width: 90%;\"/></p>';
+							//echo '<p>PLZ: <input value=' . $plz . ' type=\"text\" id=\"plz\" name=\"plz\" style=\"width: 90%;\"/></p>';
+							//echo '<p>Land: <input value=' . $land . ' type=\"text\" id=\"land\" name=\"land\" style=\"width: 90%;\"/></p>';
 						}
 
 						// free memory
 						pg_free_result($result);
 						?>
+						<input value="ort" type="text" id="ort" name="ort" style="width: 90%;"/>
+						<input value="plz" type="text" id="plz" name="plz" style="width: 90%;"/>
+						<input value="land" type="text" id="land" name="land" style="width: 90%;"/>
 						<a class="close-reveal-modal">&#215;</a>
 						</form>
 					</div>
