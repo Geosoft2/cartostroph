@@ -11,6 +11,9 @@
     <script src="../js/foundation/foundation.min.js"></script>
 </head>
 <body>
+	<script type="text/javascript">
+		window.location.href = "index.php";
+	</script>
     <div class="fixed">
         <nav class="top-bar" data-topbar role="navigation">
             <ul class="title-area">
