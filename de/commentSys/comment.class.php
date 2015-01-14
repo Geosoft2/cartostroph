@@ -35,21 +35,11 @@ class Comment
 		
 		// Converting the time to a UNIX timestamp:
 		$d['dt'] = strtotime($d['dt']);
-		
-		// Needed for the default gravatar image:
-		$url = 'http://'.dirname($_SERVER['SERVER_NAME'].$_SERVER["REQUEST_URI"]).'/img/default_avatar.gif';
-		
+			
 		return '
 		
-			<div class="comment">
-				<div class="avatar">
-					'.$link_open.'
-					<img src="http://www.gravatar.com/avatar/'.md5($d['email']).'?size=50&amp;default='.urlencode($url).'" />
-					'.$link_close.'
-				</div>
-				
+			<div class="comment">				
 				<div class="name">'.$d['name'].'</div>
-				<div class="url">'.$link_open.$d['url'].$link_close.'</div>
 				<div class="rating">'.$d['rating'].'</div>
 				<div class="date" title="Added at '.date('H:i \o\n d M Y',$d['dt']).'">'.date('H:i \o\n d M Y',$d['dt']).'</div>
 				<p>'.$d['body'].'</p>
@@ -78,11 +68,11 @@ class Comment
 			$errors['email'] = 'Bitte geben sie eine richtige Email Addresse ein.';
 		}
 		
-		if(!($data['url'] = filter_input(INPUT_POST,'url',FILTER_CALLBACK,array('options'=>'Comment::validate_text'))))
+		if(!($data['url_top'] = filter_input(INPUT_POST,'url_top',FILTER_CALLBACK,array('options'=>'Comment::validate_text'))))
 		{
 
 			
-			$url = '';
+			$url_top = '';
 		}
 		
 		// Using the filter with a custom callback function:
@@ -102,7 +92,6 @@ class Comment
 		{
 			$errors['rating'] = 'Bitte geben sie eine Bewertung an.';
 		}
-		
 
 		if(!empty($errors)){
 			

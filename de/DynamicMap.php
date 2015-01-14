@@ -1,3 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Geodatensatz</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+		<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="../js/leaflet-Interaktion/Karteninteraktion.js"></script>
+		<meta name="author" content="Mazur93" />
+
+ 		<link rel="stylesheet" type="text/css" href="../css/commentSys/comment.css" /> 
+		<script type="text/javascript" src="commentSys/script.js"></script>
+		<link rel="stylesheet" href="../css/foundation/foundation.css" />
+	    <link rel="stylesheet" href="../css/default.css" />
+	    <script src="../js/vendor/jquery.js"></script>
+    	<script src="../js/foundation/foundation.min.js"></script>
+	    <script src="../js/vendor/modernizr.js"></script>
+		<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+	<!-- <script src="https://raw.githubusercontent.com/calvinmetcalf/leaflet-ajax/master/dist/leaflet.ajax.min.js"></script> -->
+		<!-- Date: 2014-12-17 -->
+
 <?php
 /*
 /  PHP TEIL vom Comment System
@@ -14,9 +39,10 @@ include "commentSys/comment.class.php";
 /*
 /	Select all the comments and populate the $comments array with objects
 */
-
+$cookie = $_COOKIE['URL'];
 $comments = array();
-$result = pg_query("SELECT * FROM comments ORDER BY id DESC");
+$result = pg_query("SELECT * FROM comments
+WHERE page_id = '$cookie' ORDER BY id DESC");
 
 while($row = pg_fetch_assoc($result))
 {
@@ -25,29 +51,6 @@ while($row = pg_fetch_assoc($result))
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Geodatensatz</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-		<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-		<script src="http://code.jquery.com/jquery-latest.js"></script>
-		<script src="../js/leaflet-Interaktion/Karteninteraktion.js"></script>
-		<script type="text/javascript" src="commentSys/script.js"></script>
-		<meta name="author" content="Mazur93" />
-    <link rel="stylesheet" type="text/css" href="../css/commentSys/comment.css" /> 
-		<link rel="stylesheet" href="../css/foundation/foundation.css" />
-	    <link rel="stylesheet" href="../css/default.css" />
-	    <script src="../js/vendor/jquery.js"></script>
-    	<script src="../js/foundation/foundation.min.js"></script>
-	    <script src="../js/vendor/modernizr.js"></script>
-		<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
-	<!-- <script src="https://raw.githubusercontent.com/calvinmetcalf/leaflet-ajax/master/dist/leaflet.ajax.min.js"></script> -->
-		<!-- Date: 2014-12-17 -->
 </head>
 	<body>
 	<div class="fixed">
@@ -74,7 +77,7 @@ while($row = pg_fetch_assoc($result))
                     
                     
                     
-                    <!-- Pop-Up fÃ¼r Registrierung  -->
+                    <!-- Pop-Up für Registrierung  -->
                     <li>
                         <a href="#" data-reveal-id="RegisterModal">Registrierung</a>
                     </li>
@@ -130,7 +133,7 @@ while($row = pg_fetch_assoc($result))
 			maxZoom: 18,
 			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-				'Imagery Â© <a href="http://mapbox.com">Mapbox</a>',
+				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 			id: 'examples.map-i875mjb7'
 		}).addTo(map);
 		
@@ -158,10 +161,6 @@ while($row = pg_fetch_assoc($result))
 		
 		
 	</script>
-	<script>
-  		$(document).foundation();
-	</script>
-
 
 <!--
   Div-Container vom Comment System
@@ -169,24 +168,42 @@ while($row = pg_fetch_assoc($result))
 -->
 
 
-
 <div id="addCommentContainer" style="
 top: 50px;
 ">
+
 	<p>Kommentar</p>
 	<form id="addCommentForm" method="post" action="">
     	<div>
-        	<label for="name">Name(Pflichtfeld)</label>
-        	<input type="text" name="name" id="name" />
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" />
             
-            <label for="email">Email-Addresse(Pflichtfeld)</label>
+            <label for="email">Email-Addresse</label>
             <input type="text" name="email" id="email" />
-            
-            <label for="url">Webseite</label>
-            <input type="text" name="url" id="url" />
-            
-	    <label for="rating">Bewertung(Pflichtfeld)</label>
-            <input type="text" name="rating" id="rating" />
+         
+            <label for="page_id">URL (optional)</label>
+            <input type="hidden" name="page_id" id="page_id" />
+
+<script>
+var url1 = getCookie("URL"); 
+document.getElementById("page_id").value= url1; 
+</script>
+
+  	<p><abbr title="Hier geben Sie an wie gut Sie den Datensatzfinden.Skala von 1(sehr schlecht/unbrauchbar) bis 5(perfekt)"><img src="../img/info.png" width="15px" height="15px"/></abbr> 
+		Bewertung (optional): <br /><input id="checkbox1" name="checkbox1" type="checkbox" onclick="activateAssessment()"><label for="checkbox1" >Bewertung ausschalten</label>
+  		<div class="row">
+  		    <div class="small-10 medium-11 columns">
+  		      <div id="Bewertung" name="Bewertung" onclick="activateSlider()" class="range-slider" data-slider enabled data-options="display_selector: #sliderOutput3; start: 1; end: 5;" >
+  		      <span class="range-slider-handle" role="slider" tabindex="0"></span>
+  		      <span class="range-slider-active-segment"></span> 
+			<input type="hidden" name = "rating">
+  		    </div> 
+  		  </div>
+  		<div class="small-2 medium-1 columns">
+  		<span id="sliderOutput3"></span>
+  		</div>
+  	    </div>
+  	</p>
 
             <label for="body">Kommentar</label>
             <textarea name="body" id="body" cols="20" rows="5"></textarea>
@@ -209,12 +226,9 @@ foreach($comments as $c){
 ?>
 
 
-
-</div>
-
-
-
-
-</body>
+	<script>
+  		$(document).foundation();
+	</script>
+	</body>
 </html>
 
