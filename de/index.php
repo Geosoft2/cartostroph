@@ -342,12 +342,14 @@
     		osmAttrib = '&copy; ' + osmLink + ' Contributors',
     		landUrl = 'http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png',
     		thunAttrib = '&copy; '+osmLink+' Contributors & '+thunLink;
-            mapUrl = 'https://{s}.tiles.mapbox.com/v3/examples.map-i875mjb7/{z}/{x}/{y}.png',
-            mapAttrib = '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>';
-
+            	mapUrl = 'https://{s}.tiles.mapbox.com/v3/examples.map-i875mjb7/{z}/{x}/{y}.png',
+            	mapAttrib = '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>';
+		aerialUrl = 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png';
+		
 	    var osmMap = L.tileLayer(osmUrl, {attribution: osmAttrib}),
     		landMap = L.tileLayer(landUrl, {attribution: thunAttrib});
-            mapBox = L.tileLayer(mapUrl, {attribution: mapAttrib});
+            	mapBox = L.tileLayer(mapUrl, {attribution: mapAttrib});
+            	aerial = L.tileLayer(aerialUrl, {attribution: mapAttrib});
 
 	    var map = L.map('map', {
       		layers: [mapBox] // only add one!
@@ -357,7 +359,8 @@
 	    var baseLayers = {
   		    "OSM Mapnik": osmMap,
   		    "Landscape": landMap,
-            "MapBox": mapBox
+            "MapBox": mapBox,
+            "Aerial": aerial
 	    };
 
 	    L.control.layers(baseLayers).addTo(map);
