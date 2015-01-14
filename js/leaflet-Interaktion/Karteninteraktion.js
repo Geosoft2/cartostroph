@@ -87,7 +87,7 @@ function HilfeAnzeigen() {
 
 function autor() {
 	var autor = getCookie("Autor");
-	if(autor == ""){
+	if(autor == "" || autor == 0){
 		autor = "Anonym";
 	}
 	return autor;
@@ -95,7 +95,7 @@ function autor() {
 
 function loggedIn() {
 	var autor = getCookie("Autor");
-	if(autor == ""){
+	if(autor == "" || autor == 0){
 		autor = "Login";
 	}
 	return autor;
