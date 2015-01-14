@@ -105,10 +105,12 @@ function showDataOnMap(URL) {
 	
 	var Typ = URL.split(".");
 	var Laenge = Typ.length;
-	Typ = Typ[(Laenge-1)];
-	if(URL.contains("WMS") || URL.contains("wms")){
-		alert("it is a wms");
-		Typ = "WMS";
+	Typ = Typ[(Laenge - 1)];
+	var ur = URL;
+	alert(ur);
+	if ((ur.indexOf('WMS') != -1) || (ur.indexOf('wms') != -1)) {
+	alert("it is a wms");
+	Typ = "WMS";
 	}
 	
 	//boundingBox gibt an ob 
@@ -120,9 +122,17 @@ function showDataOnMap(URL) {
 	switch(Typ) {
 		// GEOJSON
 		case "geojson":
-		alert(Typ);
-		var geojsonLayer = new L.GeoJSON.AJAX(URL);       
-		geojsonLayer.addTo(map);
+		$.ajax({
+    	type: "POST",
+    	url: URL ,
+    	dataType: 'json',
+    	success: function (response) {
+
+        geojsonLayer = L.geoJson(response, {
+            style: yourLeafletStyle
+        }).addTo(map);
+    }
+});
 		break;
 		
 		//KML
