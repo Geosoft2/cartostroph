@@ -113,14 +113,7 @@
                         <a href="#" data-reveal-id="RegisterModal">Registrierung</a>
                     </li>
                     
-                    <!-- Suchfeld -->
-                    <li class="has-form">
-                        <div>
-                            <form action="search.php" method="get">
-                            <input type="text" placeholder="Suche" name="search">
-                        </form>
-                        </div>
-                    </li>
+                    
                 </ul>
             </section>
         </nav>
