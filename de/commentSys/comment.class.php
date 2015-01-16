@@ -68,7 +68,7 @@ class Comment
 			$errors['email'] = 'Bitte geben sie eine richtige Email Addresse ein.';
 		}
 		
-		if(!($data['url_top'] = filter_input(INPUT_POST,'url_top',FILTER_CALLBACK,array('options'=>'Comment::validate_text'))))
+		if(!($data['page_id'] = filter_input(INPUT_POST,'page_id',FILTER_CALLBACK,array('options'=>'Comment::validate_text'))))
 		{
 
 			
