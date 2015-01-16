@@ -15,7 +15,7 @@
         <nav class="top-bar" data-topbar role="navigation">
             <ul class="title-area">
                 <li class="name">
-                    <h1><a href="index.php">Cartostroph</a></h1>
+                   <h1><a href="index.php">Carto<span style="color: red;">stroph!</span></a></h1>
                 </li>
 
                 <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
@@ -25,19 +25,18 @@
 
                 <!-- Right Nav Section -->
                 <ul class="right">
-                    <li><a href="FAQ.html">Hilfe</a></li>
+                    <li><a href="FAQ.php">Hilfe</a></li>
 
                  <!-- Loginfunktion -->
                     <li class="has-dropdown">
                         <a href="#" data-dropdown="login-dropdown">Login</a>
                     </li>
 
-                    <!-- Suche  -->
-                    <li class="has-form">
-                        <div>
-                            <input type="text" placeholder="Suche">
-                        </div>
+                    <!-- Suchfeld -->
+					 <li>
+						<a href="search.php">Suche</a>
                     </li>
+					
                 </ul>
             </section>
         </nav>
@@ -52,7 +51,7 @@
 		<a href="#" data-reveal-id="passwortVergessen">Ich habe mein Passwort vergessen</a>
 		<div id="passwortVergessen" class="reveal-modal" data-reveal>
 					  <form>
-					  	<p> Geben Sie bitte die E-Mail an, welche Sie bei der Registrierung benutzt haben</p>
+					  	<p> Geben Sie bitte Ihren Benutzernamen oder Ihre E-Mail an, welche Sie bei der Registrierung benutzt haben.</p>
 					  	<p>E-Mail: </p><input type="email" />
 					  	<input class="button" type="submit" />
 					  </form>
@@ -64,13 +63,14 @@
     <!-- Dropdown-Login-Feld -->
     <div id="login-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
         <h5>Log In:</h5>
+		
         <form id="top-nav-login" action="login.php" method="post">
             <div class="row">
-                <label>User</label>
+                <label>Nutzer</label>
                 <input type="text" name="user" placeholder="email@example.com" tabindex="1" />
             </div>
             <div class="row">
-                <label>Password</label>
+                <label>Passwort</label>
                 <input type="password" name="password" placeholder="********" tabindex="2" />
             </div>
             <div class="row">
@@ -79,6 +79,8 @@
             <p>Sie haben noch kein Konto? Zur Registrierung geht es <a onclick="test" data-reveal-id="RegisterModal">hier</a></p>
         </form>
     </div>
+	
+	
 	<script src="../js/vendor/jquery.js"></script>
     <script src="../js/foundation/foundation.min.js"></script>
 	<script type="text/javascript">

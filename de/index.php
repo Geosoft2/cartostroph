@@ -31,7 +31,7 @@
                     
                     <!-- FAQ aufrufen -->
                     <li>
-                        <a href="FAQ.html">Hilfe</a>
+                        <a href="FAQ.php">Hilfe</a>
                     </li>
 
                     <!-- Loginfunktion -->
