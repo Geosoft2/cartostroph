@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @author Mazur93
  */
 var lat;
@@ -31,16 +31,7 @@ function onMapClick(e) {
 	}
 		
 }	
-function submitTopic(){
-	var URL = document.getElementById("URL").value;
-	var Titel = document.getElementById("Titel").value;
-	var Bewertung = document.getElementById("sliderOutput3").innerHTML;
-	var Autor = autor();
-	L.marker([lat, lng]).addTo(map).bindPopup("Titel: " + Titel + "<br />Bewertung: "
-								       		 + Bewertung + "<br />Breitengrad: " + "<br/> Autor: " + Autor  + "<br /><br /><a>Mehr Infos...</a>");	
-	addMarker = false;
-	document.getElementById("map").removeAttribute("data-reveal-id");				       		 								
-}
+
 
 function activateAssessment() {
 	 if(document.getElementById("checkbox1").checked == false){
