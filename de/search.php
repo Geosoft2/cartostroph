@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="../js/dist(Marker)/leaflet.awesome-markers.css">
     <script src="../js/dist(Marker)/leaflet.awesome-markers.js"</script>
     <script src="../js/dist(Marker)/leaflet.awesome-markers.min.js"</script>		
+    <link rel="stylesheet" href="../js/PanControl/L.Control.Pan.css">
+    <link rel="stylesheet" href="../js/PanControl/L.Control.Pan.ie.css">
+    <script src="../js/PanControl/L.Control.Pan.js"</script>	
 </head>
 <body id="index">
 	<script>
@@ -406,6 +409,7 @@
             alert(e.message);
         }
         map.on('locationerror', onLocationError);*/
+        L.control.pan().addTo(map);
 		map.addControl(L.control.search());
 		
 		map.on('click', onMapClick);
