@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <script src="../js/vendor/modernizr.js"></script>
     <script src="../js/leaflet-Interaktion/Karteninteraktion.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="../js/leaflet-Interaktion/Leaflet-Search.js"</script>
+    <script src="../js/leaflet-Interaktion/sprite.coffee"</script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+    <link rel="stylesheet" href="../js/dist(Marker)/leaflet.awesome-markers.css">
+    <script src="../js/dist(Marker)/leaflet.awesome-markers.js"</script>
+    <script src="../js/dist(Marker)/leaflet.awesome-markers.min.js"</script>		
 </head>
 <body id="index">
 	<script>
@@ -347,7 +355,7 @@
     <!-- Skriptabschnitt -->
     <script src="../js/vendor/jquery.js"></script>
     <script src="../js/foundation/foundation.min.js"></script>
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <!-- <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> -->
     <script type="text/javascript">
         $(document).foundation();
 
@@ -398,6 +406,7 @@
             alert(e.message);
         }
         map.on('locationerror', onLocationError);*/
+		map.addControl(L.control.search());
 		
 		map.on('click', onMapClick);
 		// map.on('mouseout',resetView);
@@ -434,10 +443,25 @@
 			$Autor = (string)$row[4];
 					
 			echo '<script type="text/javascript"> ';
-			echo 'L.marker([' . $Position . ']).addTo(map).bindPopup("Titel: " + "' . $Titel . '" + "<br />Bewertung: "
-								       		 + "' . $Bewertung . '" + "<br/> URL: " + "' . $URL . '" + "<br/> Autor: " + "' . $Autor . '"  + "<br /><br /><a href=\"DynamicMap.html\">Mehr Infos...</a>");';
+			
+			echo 'var AnonymMarker = L.AwesomeMarkers.icon({
+    			  markerColor: "red",
+    			  });';
+				  
+			echo 'var EingeloggtMarker = L.AwesomeMarkers.icon({
+    			  markerColor: "blue",
+    			  });';	  
+			
+			echo 'var autor = "' . $Autor . '";';
+			echo 'if(autor == "" || autor == 0 || autor == "Anonym"){';
+			echo 'var marker = L.marker([' . $Position . '],{icon: AnonymMarker}).addTo(map).bindPopup("Titel: " + "' . $Titel . '" + "<br />Bewertung: "
+								       		 + "' . $Bewertung . '" + "<br/> URL: " + "<a href=" + "' . $URL . '" + ">"+ "' . $URL . '"   + "</a>" +  "<br/> Autor: " + "' . $Autor . '"  + "<br /><br /><a href=\"DynamicMap.php\">Mehr Infos...</a>");';
+			echo'} else {
+				var marker = L.marker([' . $Position . '],{icon: EingeloggtMarker}).addTo(map).bindPopup("Titel: " + "' . $Titel . '" + "<br />Bewertung: "
+								       		 + "' . $Bewertung . '" + "<br/> URL: " + "<a href=" + "' . $URL . '" + ">"+ "' . $URL . '"   + "</a>" +  "<br/> Autor: " + "' . $Autor . '"  + "<br /><br /><a href=\"DynamicMap.php\">Mehr Infos...</a>");
+			}';
+			echo 'marker.on(\'click\',clickMarker);';
 			echo '</script>';
-
 		}
 
 		pg_free_result($result);
