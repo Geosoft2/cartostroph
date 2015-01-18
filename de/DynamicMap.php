@@ -254,9 +254,7 @@ while($row = pg_fetch_assoc($result))
 -->
 
 
-<div id="addCommentContainer" style="
-top: 50px;
-">
+<div id="addCommentContainer">
 
 	<p>Kommentar</p>
 	<form id="addCommentForm" method="post" action="">
