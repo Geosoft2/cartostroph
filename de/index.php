@@ -11,6 +11,7 @@
     <script src="../js/leaflet-Interaktion/Karteninteraktion.js"></script>
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script src="../js/leaflet-Interaktion/Leaflet-Search.js"</script>
+    <script src="../js/leaflet-Interaktion/sprite.coffee"</script>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
     <link rel="stylesheet" href="../js/dist(Marker)/leaflet.awesome-markers.css">
@@ -335,7 +336,7 @@
     <!-- Skriptabschnitt -->
     <script src="../js/vendor/jquery.js"></script>
     <script src="../js/foundation/foundation.min.js"></script>
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <!-- <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> -->
     <script type="text/javascript">
         $(document).foundation();
 
@@ -387,6 +388,7 @@
         }
         map.on('locationerror', onLocationError);*/
 		map.addControl(L.control.search());
+		
 		map.on('click', onMapClick);
 		// map.on('mouseout',resetView);
     </script>
