@@ -115,9 +115,7 @@ label{
 }
 
 label span.error{
-	color:red;
-	position:relative;
-	right:-10px;
+
 }
 
 #submit{
