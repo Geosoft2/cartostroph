@@ -26,7 +26,7 @@ function onMapClick(e) {
 				document.getElementById("Titel").value = "";
 				document.getElementById("Kommentar").value = "";
 				document.getElementById("checkbox1").checked="true";
-				document.getElementById("Autor").value = autor();
+				document.getElementById("Autor").value = author();
 				addMarker = false;
 	}
 		
@@ -76,7 +76,7 @@ function HilfeAnzeigen() {
 	}
 }
 
-function autor() {
+function author() {
 	var autor = getCookie("Autor");
 	if(autor == "" || autor == 0){
 		autor = "Anonym";

@@ -192,7 +192,7 @@
 	<div id="loggedin-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
 		<h5 id="eingeloggtAls"><h5>
 			<script>
-				document.getElementById("eingeloggtAls").innerHTML = "Eingeloggt als: " + autor();
+				document.getElementById("eingeloggtAls").innerHTML = "Eingeloggt als: " + author();
 			</script>
 			<ul id="drop" class="[tiny small medium large content]f-dropdown" data-dropdown-content>
 			  <a href="#" data-reveal-id="Profile">Profil</a>
@@ -201,7 +201,7 @@
 					  <h3 id="benutzername">Mein Profil: </h3>
 					  
 					  <script>
-						document.getElementById("benutzername").innerHTML = "Mein Profil: " + autor();
+						document.getElementById("benutzername").innerHTML = "Mein Profil: " + author();
 					  </script>
 					  <form action="alteruser.php" method="post">
 					  <button style="float: right;"> Daten ändern</button>
