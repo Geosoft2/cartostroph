@@ -365,7 +365,6 @@
     <!-- Skriptabschnitt -->
     <script src="../js/vendor/jquery.js"></script>
     <script src="../js/foundation/foundation.min.js"></script>
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script type="text/javascript">
         $(document).foundation();
 
