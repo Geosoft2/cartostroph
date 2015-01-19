@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -267,7 +267,7 @@ while($row = pg_fetch_assoc($result))
 <script>
 var url1 = getCookie("URL"); 
 document.getElementById("page_id").value= url1; 
-document.getElementById("name").value = autor();
+document.getElementById("name").value = author();
 </script>
 
   	<p><abbr title="Hier geben Sie an wie gut Sie den Datensatzfinden.Skala von 1(sehr schlecht/unbrauchbar) bis 5(perfekt)"><img src="../img/info.png" width="15px" height="15px"/></abbr> 
