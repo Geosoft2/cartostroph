@@ -36,13 +36,13 @@
 	$count = pg_num_rows($result);
 
 	if($count == 1) {
-		header("Location: register1.html");
+		header("Location: register1.php");
 		exit();
 	} 
 
 	elseif($Passwort!=$Passwort2) {
 
-	header("Location: register.html");
+	header("Location: register2.php");
 		exit();
 
 	} else {
