@@ -253,7 +253,7 @@
 					</div>
 			
 			  
-			  <br /><a href="#">Meine Topics und Kommentare</a>
+			  <br /><a href="infouser.php">Meine Topics und Kommentare</a>
 			  <br /><a href="logout.php">Logout</a>
 			</ul>
 	</div>
@@ -387,7 +387,7 @@
         }
         map.on('locationfound', onLocationFound);
         function onLocationError(e) {
-            alert(e.message);
+            
         }
         map.on('locationerror', onLocationError);*/
         L.control.pan().addTo(map);
