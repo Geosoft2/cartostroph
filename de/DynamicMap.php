@@ -87,7 +87,7 @@ while($row = pg_fetch_assoc($result))
                     
                     
                     
-                    <!-- Pop-Up für Registrierung  -->
+                    <!-- Pop-Up fï¿½r Registrierung  -->
                     <li>
                         <a href="#" data-reveal-id="RegisterModal">Registrierung</a>
                     </li>
@@ -127,7 +127,7 @@ while($row = pg_fetch_assoc($result))
 	<div id="loggedin-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
 		<h5 id="eingeloggtAls"><h5>
 			<script>
-				document.getElementById("eingeloggtAls").innerHTML = "Eingeloggt als: " + autor();
+				document.getElementById("eingeloggtAls").innerHTML = "Eingeloggt als: " + author();
 			</script>
 			<ul id="drop" class="[tiny small medium large content]f-dropdown" data-dropdown-content>
 			  <a href="#" data-reveal-id="Profile">Profil</a>
@@ -136,10 +136,10 @@ while($row = pg_fetch_assoc($result))
 					  <h3 id="benutzername">Mein Profil: </h3>
 					  
 					  <script>
-						document.getElementById("benutzername").innerHTML = "Mein Profil: " + autor();
+						document.getElementById("benutzername").innerHTML = "Mein Profil: " + author();
 					  </script>
 					  <form action="alteruser.php" method="post">
-					  <button style="float: right;"> Daten ändern</button>
+					  <button style="float: right;"> Daten ï¿½ndern</button>
 						<?php
 						// attempt a connection
 						ini_set('display_errors', '1');
@@ -219,7 +219,7 @@ while($row = pg_fetch_assoc($result))
 			maxZoom: 18,
 			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+				'Imagery ï¿½ <a href="http://mapbox.com">Mapbox</a>',
 			id: 'examples.map-i875mjb7'
 		}).addTo(map);
 		
