@@ -259,18 +259,15 @@ while($row = pg_fetch_assoc($result))
 	<p>Kommentar</p>
 	<form id="addCommentForm" method="post" action="">
     	<div>
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name" />
-            
-            <label for="email">Email-Addresse</label>
-            <input type="text" name="email" id="email" />
+	     <p>Autor <input id="name" type="text" readonly="readonly" name="name"/>
          
-            <label for="page_id">URL (optional)</label>
+            <label for="page_id"></label>
             <input type="hidden" name="page_id" id="page_id" />
 
 <script>
 var url1 = getCookie("URL"); 
 document.getElementById("page_id").value= url1; 
+document.getElementById("name").value = autor();
 </script>
 
   	<p><abbr title="Hier geben Sie an wie gut Sie den Datensatzfinden.Skala von 1(sehr schlecht/unbrauchbar) bis 5(perfekt)"><img src="../img/info.png" width="15px" height="15px"/></abbr> 

@@ -12,7 +12,7 @@
 		if(working) return false;
 		
 		working = true;
-		$('#submit').val('Läuft..');
+		$('#submit').val('Arbeitet..');
 		$('span.error').remove();
 		
 		/* Sending the form fileds to submit.php: */

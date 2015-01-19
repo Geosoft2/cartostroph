@@ -24,14 +24,7 @@ class Comment
 		$link_open = '';
 		$link_close = '';
 		
-		if($d['url']){
-			
-			// If the person has entered a URL when adding a comment,
-			// define opening and closing hyperlink tags
-			
-			$link_open = '<a href="'.$d['url'].'">';
-			$link_close =  '</a>';
-		}
+
 		
 		// Converting the time to a UNIX timestamp:
 		$d['dt'] = strtotime($d['dt']);
@@ -62,11 +55,6 @@ class Comment
 
 		
 		// Using the filter_input function introduced in PHP 5.2.0
-		
-		if(!($data['email'] = filter_input(INPUT_POST,'email',FILTER_VALIDATE_EMAIL)))
-		{
-			$errors['email'] = 'Bitte geben sie eine richtige Email Addresse ein.';
-		}
 		
 		if(!($data['page_id'] = filter_input(INPUT_POST,'page_id',FILTER_CALLBACK,array('options'=>'Comment::validate_text'))))
 		{
