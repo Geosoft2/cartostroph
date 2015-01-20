@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html class="no-js" lang="de-de">
 <head>
     <meta charset="utf-8" />
@@ -424,8 +424,39 @@
 			$Titel = (string)$row[1];
 			$Pos = (string)$row[2];
 			$Position = substr($Pos, 1, -1);
-			$Bewertung = (string)$row[3];
-			$Autor = (string)$row[4];
+            $Autor = (string)$row[4];
+
+			        $sql6 = "SELECT bewertung FROM topic WHERE url_top = '$URL'";
+
+                    $sql4 = "SELECT sum(rating) FROM comments WHERE page_id ='$URL'";
+
+                    $sql5 = "SELECT count(rating) FROM comments WHERE page_id ='$URL'";
+
+                    $sql7 =  pg_query($connection, $sql6);
+                    $sql2 = pg_query($connection, $sql4);
+                    $sql3 = pg_query($connection, $sql5);
+
+
+                    while ($row = pg_fetch_array($sql7)) {
+                            $bewertungTopic = (float)$row[0]; 
+                        }
+
+                    while ($row = pg_fetch_array($sql2)) {
+                            $sum = (float)$row[0]; 
+                        }
+
+                    while ($row = pg_fetch_array($sql3)) {
+                            $count = (float)$row[0]; 
+                        }
+                    if ($bewertungTopic != NULL) {
+                        
+                        $rating_avg = ($bewertungTopic + $sum) / ($count + 1);
+                    } else {
+                     
+                     $rating_avg = ($bewertungTopic + $sum) / ($count); 
+                    }
+
+            $Bewertung = (string)$rating_avg;
 					
 			echo '<script type="text/javascript"> ';
 			
