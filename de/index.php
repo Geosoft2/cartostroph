@@ -70,7 +70,7 @@
 						</div>
 
                   		<!-- Formular zur Erstellung eines Topics  -->
-						<div id="newTopicModal" class="reveal-modal" data-reveal>
+						<div id="newTopicModal" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
   							<h3>Fügen Sie einen Geodatensatz hinzu</h3>
   							<form action="topic.php" method="post">
   								<p>Breitengrad: <input id="Breitengrad" readonly="readonly" type="number" name="Breitengrad"/> </p>
@@ -124,7 +124,7 @@
 								<p>Autor <input id="Autor" type="text" readonly="readonly" name="Autor"/>
 								<input type="submit" class="button expand" value="Topic erstellen"/>
         					</form>
-  							<a id="cancelTopic" style="position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a><br />
+  							<a id="cancelTopic" style="position: relative ; font-size: 120%" class="close-reveal-modal" onclick="discardTopic()">Abbrechen</a><br />
                             <br />
 					    </div>
 					</li>

@@ -9,6 +9,10 @@ var MarkerArray = [];
 function newMarker(){
 	addMarker = true;
 	};
+	
+function discardTopic(){
+	document.getElementById("map").removeAttribute("data-reveal-id");
+	};
 		
 function resetView(){
 	map.setView([30.505, 0.000], 2);
