@@ -97,6 +97,11 @@ while($row = pg_fetch_assoc($result))
 						<a href="search.php">Suche</a>
                     </li>
 					
+					<!-- Impressum aufrufen -->
+                    <li>
+                        <a href="Impressum.php">Impressum</a>
+                    </li>
+					
 					 </ul>
             </section>
         </nav>
@@ -211,6 +216,8 @@ while($row = pg_fetch_assoc($result))
 				    </div>
 
 
+					
+		<!-- Inhalt -->
 	<div class="large-8 columns" >
 		<div class="row"><h1>Infos</h1></div>
 		<div class="row" id="map" style="height: 92.5%"><h1 style="color: transparent">das</h1>
@@ -317,7 +324,14 @@ foreach($comments as $c){
 -->
 
 
-
+	<!-- Subnav -->
+    <div style="height: 7.5%">
+        <dl class="sub-nav">
+            <dd><a href="Impressum.php">Impressum</a></dd>
+            <dd><a href="FAQ.php">FAQ</a></dd>
+            <dd><a href="#"></a></dd>
+        </dl>
+    </div>
 
 
 	<script>

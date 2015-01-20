@@ -146,6 +146,11 @@
 					 <li>
 						<a href="search.php">Suche</a>
                     </li>
+					
+					<!-- Impressum aufrufen -->
+                    <li>
+                        <a href="Impressum.php">Impressum</a>
+                    </li>
                     
                 </ul>
             </section>
@@ -328,11 +333,9 @@
     <!-- Subnav -->
     <div style="height: 7.5%">
         <dl class="sub-nav">
-            <dt>Filter:</dt>
-            <dd class="active"><a href="#">All</a></dd>
-            <dd><a href="#">Active</a></dd>
-            <dd><a href="#">Pending</a></dd>
-            <dd><a href="#">Suspended</a></dd>
+            <dd><a href="Impressum.php">Impressum</a></dd>
+            <dd><a href="FAQ.php">FAQ</a></dd>
+            <dd><a href="#"></a></dd>
         </dl>
     </div>
 

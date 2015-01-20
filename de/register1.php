@@ -47,6 +47,12 @@
 					 <li>
 						<a href="search.php">Suche</a>
                     </li>
+					
+					<!-- Impressum aufrufen -->
+                    <li>
+                        <a href="Impressum.php">Impressum</a>
+                    </li>
+					
                 </ul>
             </section>
         </nav>

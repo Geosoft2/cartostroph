@@ -132,6 +132,11 @@
                     <li>
                         <a href="#" data-reveal-id="RegisterModal">Registrierung</a>
                     </li>
+					
+					<!-- Impressum aufrufen -->
+                    <li>
+                        <a href="Impressum.php">Impressum</a>
+                    </li>
                     
                     
                 </ul>
@@ -338,8 +343,17 @@
                                 <option value="5">5</option>
                             </select>
                             </p>
+					<p><abbr title="Hier können Sie auf Ihren Standort basiert eine räumliche Suche mit Radius machen. Bitte geben Sie die Kilometer an."><img src="../img/info.png" width="15px" height="15px"/></abbr>
+					Kilometer <input type="text" placeholder="0" name="radius"></p>
+					</p>
+					<p><abbr title="Hier können Sie eine Bounding Box auf der Karte klicken. Klicken Sie das erste Mal für die obere rechte Ecke und das zweite Mal für die untere linke Ecke."><img src="../img/info.png" width="15px" height="15px"/></abbr>
+					<a onclick="#" style="text-align: right ;position: relative ; font-size: 100%" >Bounding Box</a>
                             <p><input id="filter" type="submit" class="button expand" value="Filtern" />
-                            </p>    
+                            </p>  
+					<p>
+					mein Standort: 
+					<p>Breitengrad: <input id="lng" readonly="readonly" type="number" name="lng"/> </p>
+  					<p>Längengrad: <input id="lat" readonly="readonly" type="number" name="lat"/> </p>
                   </form></h1>
 
 </div>
@@ -362,6 +376,8 @@
     <script type="text/javascript">
         $(document).foundation();
 
+		
+		
         // create a map in the "map" div, set the view to a given place and zoom
         var addMarker = false;
        
@@ -398,19 +414,23 @@
         //zoom to location of user 
 	    map.locate({ setView: true, maxZoom: 12 });
 
-        /*function onLocationFound(e) {
+        function onLocationFound(e) {
             var radius = e.accuracy / 2;
             L.marker(e.latlng).addTo(map)
-                .bindPopup("You are within " + radius + " meters from this point").openPopup(); 
+                .bindPopup("Sie befinden sich innerhalb von " + radius + " Metern von diesem Punkt").openPopup(); 
             L.circle(e.latlng, radius).addTo(map);
         }
         map.on('locationfound', onLocationFound);
         function onLocationError(e) {
             alert(e.message);
         }
-        map.on('locationerror', onLocationError);*/
+        map.on('locationerror', onLocationError);
         L.control.pan().addTo(map);
 		map.addControl(L.control.search());
+		
+		//fill the filter with lat and long values
+		getElementById("lat").value = e.latlng.lat;
+		getElementById("lng").value = e.latlng.lng;
 		
 		map.on('click', onMapClick);
 		// map.on('mouseout',resetView);

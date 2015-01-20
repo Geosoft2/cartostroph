@@ -41,6 +41,8 @@
                 <!-- Right Nav Section -->
                 <ul class="right">
                     
+					
+					
                     <!-- FAQ aufrufen -->
                     <li>
                         <a href="FAQ.php">Hilfe</a>
@@ -133,14 +135,11 @@
                         <a href="#" data-reveal-id="RegisterModal">Registrierung</a>
                     </li>
                     
-                    <!-- Suchfeld -->
-                    <li class="has-form">
-                        <div>
-                            <form action="search.php" method="get">
-                            <input type="text" placeholder="Suche" name="search">
-                        </form>
-                        </div>
+					<!-- Impressum aufrufen -->
+                    <li>
+                        <a href="Impressum.php">Impressum</a>
                     </li>
+					
                 </ul>
             </section>
         </nav>
@@ -351,14 +350,12 @@
 
 </div>
 
-    <!-- Subnav -->
+	<!-- Subnav -->
     <div style="height: 7.5%">
         <dl class="sub-nav">
-            <dt>Filter:</dt>
-            <dd class="active"><a href="#">All</a></dd>
-            <dd><a href="#">Active</a></dd>
-            <dd><a href="#">Pending</a></dd>
-            <dd><a href="#">Suspended</a></dd>
+            <dd><a href="Impressum.php">Impressum</a></dd>
+            <dd><a href="FAQ.php">FAQ</a></dd>
+            <dd><a href="#"></a></dd>
         </dl>
     </div>
 
@@ -402,7 +399,7 @@
 	    L.control.layers(baseLayers).addTo(map);
 
         //zoom to location of user 
-	    map.locate({ setView: true, maxZoom: 12 });
+	    map.locate({ setView: false, maxZoom: 12 });
 
         /*function onLocationFound(e) {
             var radius = e.accuracy / 2;
@@ -436,117 +433,121 @@
 
 		// execute query
 		$suchbegriff = htmlspecialchars($_GET['search']);
-$kategorie = $_GET['KategorieSuche'];
-    $katwert = NULL;
-    switch ($kategorie) { 
-        case 'Keine':
-            $katwert = NULL;
-            break;
-        case 'Welt': 
-            $katwert = 'Welt';
-            break; 
-        case 'Kontinent': 
-            $katwert = 'Kontinent';
-            break; 
-        case 'Land': 
-            $katwert = 'Land';
-            break; 
-        case 'Region': 
-            $katwert = 'Region';
-            break; 
-        case 'Stadt': 
-            $katwert = 'Stadt';
-            break;  
-        default:
-            $katwert = NULL;
-    }
+		$kategorie = $_GET['KategorieSuche'];
+		$katwert = NULL;
+		switch ($kategorie) { 
+			case 'Keine':
+				$katwert = NULL;
+				break;
+			case 'Welt': 
+				$katwert = 'Welt';
+				break; 
+			case 'Kontinent': 
+				$katwert = 'Kontinent';
+				break; 
+			case 'Land': 
+				$katwert = 'Land';
+				break; 
+			case 'Region': 
+				$katwert = 'Region';
+				break; 
+			case 'Stadt': 
+				$katwert = 'Stadt';
+				break;  
+			default:
+				$katwert = NULL;
+		}
 
-$start = '0001-01-01';
-    if ($_GET['startSuche'] != ''){
-        $start = $_GET['startSuche'];
+		$start = '0001-01-01';
+		if ($_GET['startSuche'] != ''){
+			$start = $_GET['startSuche'];
         }
-    $end = '9999-12-31';
-    if ($_GET['endSuche'] != ''){
-        $end = $_GET['endSuche'];
+		$end = '9999-12-31';
+		if ($_GET['endSuche'] != ''){
+			$end = $_GET['endSuche'];
         }
 
-$bewertung = $_GET['BewertungSuche'];
-    $bewert = NULL;
-    switch ($bewertung) { 
-        case 'Keine':
-            $bewert = NULL;
-            break;
-        case '1': 
-            $bewert = 'Welt';
-            break; 
-        case '2': 
-            $bewert = 'Kontinent';
-            break; 
-        case '3': 
-            $bewert = 'Land';
-            break; 
-        case '4': 
-            $bewert = 'Region';
-            break; 
-        case '5': 
-            $bewert = 'Stadt';
-            break;  
-        default:
-            $bewert = NULL;
-    } 
+		$bewertung = $_GET['BewertungSuche'];
+		$bewert = NULL;
+		switch ($bewertung) { 
+			case 'Keine':
+				$bewert = NULL;
+				break;
+			case '1': 
+				$bewert = 'Welt';
+				break; 
+			case '2': 
+				$bewert = 'Kontinent';
+				break; 
+			case '3': 
+				$bewert = 'Land';
+				break; 
+			case '4': 
+				$bewert = 'Region';
+				break; 
+			case '5': 
+				$bewert = 'Stadt';
+				break;  
+			default:
+				$bewert = NULL;
+		} 
 
-//Hilfsvariable für den SQL Befehl
-//$sqlContent = "";
-$suchbegriffHilf = "";
+		//Hilfsvariable für den SQL Befehl
+		//$sqlContent = "";
+		$suchbegriffHilf = "";
 
-if ($suchbegriff != "") {
-    $suchbegriffHilf = "(text LIKE '%$suchbegriff%' OR titel LIKE '%$suchbegriff%' OR tag LIKE '%$suchbegriff%' OR body LIKE '%$suchbegriff%')";
-}
-
-
-$sqlContent = $suchbegriffHilf;
+		if ($suchbegriff != "") {
+			$suchbegriffHilf = "(text LIKE '%$suchbegriff%' OR titel LIKE '%$suchbegriff%' OR tag LIKE '%$suchbegriff%' OR body LIKE '%$suchbegriff%')";
+		}
 
 
-if ($katwert == NULL) {
-    $kategorieHilf = "";
-} elseif ($suchbegriff == "" and $katwert != NULL) {
-    $kategorieHilf = "kategorie  = '$katwert'";
-} else {
-    $kategorieHilf = "AND kategorie = '$katwert'";
-}
+		$sqlContent = $suchbegriffHilf;
 
 
-$sqlContent = $sqlContent.$kategorieHilf;
+		if ($katwert == NULL) {
+			$kategorieHilf = "";
+		} elseif ($suchbegriff == "" and $katwert != NULL) {
+			$kategorieHilf = "kategorie  = '$katwert'";
+		} else {
+			$kategorieHilf = "AND kategorie = '$katwert'";
+		}
 
 
-if ($bewert == NULL) {
-    $bewertungHilf = "";
-} elseif ($suchbegriff == "" and $katwert == NULL) {
-    $bewertungHilf = "bewertung = '$bewert'";
-} else {
-    $bewertungHilf = " AND bewertung = '$bewert'";
-}
+		$sqlContent = $sqlContent.$kategorieHilf;
 
 
-$sqlContent = $sqlContent.$bewertungHilf;
+		if ($bewert == NULL) {
+			$bewertungHilf = "";
+		} elseif ($suchbegriff == "" and $katwert == NULL) {
+			$bewertungHilf = "bewertung = '$bewert'";
+		} else {
+			$bewertungHilf = " AND bewertung = '$bewert'";
+		}
 
 
-if ($suchbegriff == "" and $katwert == NULL and $bewert == NULL) {
-    $zeitlichesAusmaß = "(anfangsdatum <= '$start' AND enddatum >= '$start') OR (anfangsdatum <= '$end' AND enddatum >= '$end') OR (anfangsdatum >= '$start' AND anfangsdatum <= '$end') OR (enddatum >= '$start' AND enddatum <= '$end');";
-} else {
-    $zeitlichesAusmaß = " AND ((anfangsdatum <= '$start' AND enddatum >= '$start') OR (anfangsdatum <= '$end' AND enddatum >= '$end') OR (anfangsdatum >= '$start' AND anfangsdatum <= '$end') OR (enddatum >= '$start' AND enddatum <= '$end'));";
-}
+		$sqlContent = $sqlContent.$bewertungHilf;
 
-$sqlContent = $sqlContent.$zeitlichesAusmaß;
 
-//echo ("$sqlContent");
+		if ($suchbegriff == "" and $katwert == NULL and $bewert == NULL) {
+			$zeitlichesAusmaß = "(anfangsdatum <= '$start' AND enddatum >= '$start') OR (anfangsdatum <= '$end' AND enddatum >= '$end') OR (anfangsdatum >= '$start' AND anfangsdatum <= '$end') OR (enddatum >= '$start' AND enddatum <= '$end');";
+		} else {
+			$zeitlichesAusmaß = " AND ((anfangsdatum <= '$start' AND enddatum >= '$start') OR (anfangsdatum <= '$end' AND enddatum >= '$end') OR (anfangsdatum >= '$start' AND anfangsdatum <= '$end') OR (enddatum >= '$start' AND enddatum <= '$end'));";
+		}
 
-$sqlBegin = "SELECT url_top, titel, position, bewertung, autor FROM topic LEFT OUTER JOIN comments on topic.url_top = comments.page_id WHERE ";
+		$sqlContent = $sqlContent.$zeitlichesAusmaß;
 
-$sql = $sqlBegin.$sqlContent ;
-//echo "$sql";
+		$radius = $_GET['radius'];
+		
+		
 
-$result = pg_query($connection, $sql);
+		//echo ("$sqlContent");
+
+		$sqlBegin = "SELECT url_top, titel, position, bewertung, autor FROM topic LEFT OUTER JOIN comments on topic.url_top = comments.page_id WHERE ";
+
+		$sql = $sqlBegin.$sqlContent ;
+		//echo "$sql";
+
+		$result = pg_query($connection, $sql);
 		
 	
 		// iterate over result set
