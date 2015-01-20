@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cartostroph | Willkommen</title>
+    <title>Cartostroph | Login fehlgeschlagen</title>
     <link rel="stylesheet" href="../css/foundation/foundation.css" />
     <link rel="stylesheet" href="../css/register.css" />
     <script src="../js/vendor/modernizr.js"></script>
@@ -31,7 +31,20 @@
                     <li class="has-dropdown">
                         <a href="#" data-dropdown="login-dropdown">Login</a>
                     </li>
-
+					
+				 <!-- Pop-Up für Registrierung  -->
+                    <li>
+                    	<a id="regis" href="#" data-reveal-id="RegisterModal">Registrierung</a>
+                    	<script type="text/javascript">
+                    		if (loggedIn() == "Login"){
+					
+								}else{
+									document.getElementById("regis").innerHTML="";
+								}
+                    	</script>
+                        
+                    </li>
+					
                     <!-- Suchfeld -->
 					 <li>
 						<a href="search.php">Suche</a>
@@ -42,21 +55,42 @@
         </nav>
     </div>
 
+	<!-- PopUp-Registrierungs-Formular -->
+    <div id="RegisterModal" class="reveal-modal" data-reveal>
+        <h2> Registrierung </h2>
+        <form action="register.php" method="post">
+            Benutzername: <input type="text" id="Benutzername" name="Benutzername" required />
+            Passwort: <input type="password" id="passwort" name="Passwort" required />
+            Passwort wiederholen:<input type="password" id="passwortWieder" name="Passwort2" required />
+            Ort (optional): <input type="text" name="Ort" id="Ort" />
+            PLZ (optional): <input type="text" name="PLZ" id="PLZ" />
+            Land (optional): <input type="text" name="Land" id="Land" />
+            <input id="regist" type="submit" class="button expand" value="Registrieren" />
+            <a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a><br />
+            <br />
+        </form>
+    </div>
 
     <!-- Inhalt -->
    <div id="registercontent">
        </br>
 	<p>Ihr Login schlug fehl.</p>
-		<p>Bitte überprüfen Sie ihr Passwort und ihren Benutzernamen und versuchen es erneut.</p>
-		<a href="#" data-reveal-id="passwortVergessen">Ich habe mein Passwort vergessen</a>
-		<div id="passwortVergessen" class="reveal-modal" data-reveal>
-					  <form>
-					  	<p> Geben Sie bitte Ihren Benutzernamen oder Ihre E-Mail an, welche Sie bei der Registrierung benutzt haben.</p>
-					  	<p>E-Mail: </p><input type="email" />
-					  	<input class="button" type="submit" />
-					  </form>
-					  <a class="close-reveal-modal">&#215;</a>
-					</div>
+		<p>Bitte überprüfen Sie Ihr Passwort und Ihren Benutzernamen und versuchen es erneut.</p>
+		<p>Wenn sie Ihr Passwort oder Ihren Benutzernamen vergessen haben registrieren Sie sich bitte neu.</p>
+		 <form id="top-nav-login" action="login.php" method="post">
+            <div class="row">
+                <label>Nutzer</label>
+                <input type="text" name="user" placeholder="email@example.com" tabindex="1" />
+            </div>
+            <div class="row">
+                <label>Passwort</label>
+                <input type="password" name="password" placeholder="********" tabindex="2" />
+            </div>
+            <div class="row">
+                <input type="submit" class="button tiny success" value="Login" tabindex="3" />
+            </div>
+            <p>Sie haben noch kein Konto? Zur Registrierung geht es <a onclick="test" data-reveal-id="RegisterModal">hier</a></p>
+        </form>
    </div>
 
 

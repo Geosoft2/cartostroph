@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cartostroph | Willkommen</title>
+    <title>Cartostroph | Suche</title>
     <link rel="stylesheet" href="../css/foundation/foundation.css" />
     <link rel="stylesheet" href="../css/default.css" />
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
@@ -145,7 +145,7 @@
         <form action="register.php" method="post">
             Benutzername: <input type="text" id="Benutzername" name="Benutzername" required />
             Passwort: <input type="password" id="passwort" name="Passwort" required />
-            Passwort wiederholen:<input type="password" id="passwortWieder" name="Passwort" required />
+            Passwort wiederholen:<input type="password" id="passwortWieder" name="Passwort2" required />
             Ort (optional): <input type="text" name="Ort" id="Ort" />
             PLZ (optional): <input type="text" name="PLZ" id="PLZ" />
             Land (optional): <input type="text" name="Land" id="Land" />

@@ -24,12 +24,12 @@
 	$PLZ = holeWert("PLZ");
 	$Land = holeWert("Land"); */
 
-	$Benutzername = htmlspecialchars($_POST['Benutzername']);
-	$Passwort = htmlspecialchars($_POST['Passwort']);
-	$Passwort2 = htmlspecialchars($_POST['Passwort2']);
-	$Ort = htmlspecialchars($_POST['Ort']);
-	$PLZ = htmlspecialchars($_POST['PLZ']);
-	$Land = htmlspecialchars($_POST['Land']);
+	$Benutzername = pg_escape_string(htmlspecialchars($_POST['Benutzername']));
+	$Passwort = pg_escape_string(htmlspecialchars($_POST['Passwort']));
+	$Passwort2 = pg_escape_string(htmlspecialchars($_POST['Passwort2']));
+	$Ort = pg_escape_string(htmlspecialchars($_POST['Ort']));
+	$PLZ = pg_escape_string(htmlspecialchars($_POST['PLZ']));
+	$Land = pg_escape_string(htmlspecialchars($_POST['Land']));
 	
 	$sql = "SELECT name FROM nutzer WHERE name='$Benutzername'";
 	$result = pg_query($connection, $sql); 

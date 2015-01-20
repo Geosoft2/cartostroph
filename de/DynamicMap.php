@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Geodatensatz</title>
+		<title>Cartostroph | Geodatensatz</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 		<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
@@ -200,7 +200,7 @@ while($row = pg_fetch_assoc($result))
 				        <form action="register.php" method="post">
 				            Benutzername: <input type="text" id="Benutzername" name="Benutzername" required />
 				            Passwort: <input type="password" id="passwort" name="Passwort" required />
-				            Passwort wiederholen:<input type="password" id="passwortWieder" name="Passwort" required />
+				            Passwort wiederholen:<input type="password" id="passwortWieder" name="Passwort2" required />
 				            Ort (optional): <input type="text" name="Ort" id="Ort" />
 				            PLZ (optional): <input type="text" name="PLZ" id="PLZ" />
 				            Land (optional): <input type="text" name="Land" id="Land" />
@@ -211,50 +211,19 @@ while($row = pg_fetch_assoc($result))
 				    </div>
 
 
-	<div id="map" style="width: 100%; height: 92.5%;"></div> 
-	<script>
-	var map = L.map('map').setView([51.505, -0.09], 2);
-		
-		L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
-			maxZoom: 18,
-			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-				'Imagery � <a href="http://mapbox.com">Mapbox</a>',
-			id: 'examples.map-i875mjb7'
-		}).addTo(map);
-		
-		
-		
-/*      Beispiele von URL:
-		geojson: http://giv-geosoft2c.uni-muenster.de/Bartosz/cartostroph/de/leonardttown.geojson
-		kml http://giv-geosoft2c.uni-muenster.de/Bartosz/cartostroph/de/balloon-image-rel.kml
-		wms: "http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi"
-		jpeg: http://basemap.nationalmap.gov/arcgis/rest/services/USGSShadedReliefOnly/MapServer/WMTS/tile/1.0.0/USGSShadedReliefOnly/default/default028mm/4/7/4.jpg
-		png: http://fc03.deviantart.net/fs70/f/2013/012/e/c/png_cookie_by_ellatutorials-d5r8nel.png
-		jpg mit Koordinaten: http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg [[40.712216, -74.22655], [40.773941, -74.12544]]
-		* */
-
-		
-		
-		
-		
-		//var URL = 'http://giv-geosoft2c.uni-muenster.de/Bartosz/cartostroph/de/leonardttown.geojson'   //diese wird aus der Datenabnk gezogen
-		 var URL = getCookie("URL"); 
-		 var Typ = URL.split(".");
-		 var Laenge = Typ.length;
-		 alert(Typ[(Laenge-1)]);
-		 showDataOnMap(URL);
-		
-		
-	</script>
-
-<!--
-  Div-Container vom Comment System
-  zum Kommentar Erstellen
--->
-
-
-<div id="addCommentContainer">
+	<div class="large-8 columns" >
+		<div class="row"><h1>Infos</h1></div>
+		<div class="row" id="map" style="height: 92.5%"><h1 style="color: transparent">das</h1>
+			<h1 style="color: transparent">das</h1>
+			<h1 style="color: transparent">das</h1>
+			<h1 style="color: transparent">das</h1>
+			<h1 style="color: transparent">das</h1>
+			<h1 style="color: transparent">das</h1>
+			<h1 style="color: transparent">das</h1>
+		</div>
+	</div>
+<div class="large-4 columns"> 
+	     <div id="addCommentContainer">
 
 	<p>Kommentar</p>
 	<form id="addCommentForm" method="post" action="">
@@ -304,7 +273,51 @@ foreach($comments as $c){
 	echo $c->markup();
 }
 
-?>
+?>                       
+
+</div>
+	<script>
+	var map = L.map('map').setView([51.505, -0.09], 2);
+		
+		L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery � <a href="http://mapbox.com">Mapbox</a>',
+			id: 'examples.map-i875mjb7'
+		}).addTo(map);
+		
+		
+		
+/*      Beispiele von URL:
+		geojson: http://giv-geosoft2c.uni-muenster.de/Bartosz/cartostroph/de/leonardttown.geojson
+		kml http://giv-geosoft2c.uni-muenster.de/Bartosz/cartostroph/de/balloon-image-rel.kml
+		wms: "http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi"
+		jpeg: http://basemap.nationalmap.gov/arcgis/rest/services/USGSShadedReliefOnly/MapServer/WMTS/tile/1.0.0/USGSShadedReliefOnly/default/default028mm/4/7/4.jpg
+		png: http://fc03.deviantart.net/fs70/f/2013/012/e/c/png_cookie_by_ellatutorials-d5r8nel.png
+		jpg mit Koordinaten: http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg [[40.712216, -74.22655], [40.773941, -74.12544]]
+		* */
+
+		
+		
+		
+		
+		//var URL = 'http://giv-geosoft2c.uni-muenster.de/Bartosz/cartostroph/de/leonardttown.geojson'   //diese wird aus der Datenabnk gezogen
+		 var URL = getCookie("URL"); 
+		 var Typ = URL.split(".");
+		 var Laenge = Typ.length;
+		 showDataOnMap(URL);
+		
+		
+	</script>
+
+<!--
+  Div-Container vom Comment System
+  zum Kommentar Erstellen
+-->
+
+
+
 
 
 	<script>

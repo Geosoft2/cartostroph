@@ -3,23 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cartostroph | Willkommen</title>
+    <title>Cartostroph | Suche Filter</title>
     <link rel="stylesheet" href="../css/foundation/foundation.css" />
     <link rel="stylesheet" href="../css/default.css" />
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <script src="../js/vendor/modernizr.js"></script>
     <script src="../js/leaflet-Interaktion/Karteninteraktion.js"></script>
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-    <script src="../js/leaflet-Interaktion/Leaflet-Search.js"</script>
-    <script src="../js/leaflet-Interaktion/sprite.coffee"</script>
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
-    <link rel="stylesheet" href="../js/dist(Marker)/leaflet.awesome-markers.css">
-    <script src="../js/dist(Marker)/leaflet.awesome-markers.js"</script>
-    <script src="../js/dist(Marker)/leaflet.awesome-markers.min.js"</script>
-    <link rel="stylesheet" href="../js/PanControl/L.Control.Pan.css">
-    <link rel="stylesheet" href="../js/PanControl/L.Control.Pan.ie.css">
-    <script src="../js/PanControl/L.Control.Pan.js"</script>
 </head>
 <body id="index">
 	<script>
@@ -152,7 +141,7 @@
         <form action="register.php" method="post">
             Benutzername: <input type="text" id="Benutzername" name="Benutzername" required />
             Passwort: <input type="password" id="passwort" name="Passwort" required />
-            Passwort wiederholen:<input type="password" id="passwortWieder" name="Passwort" required />
+            Passwort wiederholen:<input type="password" id="passwortWieder" name="Passwort2" required />
             Ort (optional): <input type="text" name="Ort" id="Ort" />
             PLZ (optional): <input type="text" name="PLZ" id="PLZ" />
             Land (optional): <input type="text" name="Land" id="Land" />
@@ -365,6 +354,7 @@
     <!-- Skriptabschnitt -->
     <script src="../js/vendor/jquery.js"></script>
     <script src="../js/foundation/foundation.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script type="text/javascript">
         $(document).foundation();
 
@@ -415,8 +405,7 @@
             alert(e.message);
         }
         map.on('locationerror', onLocationError);*/
-		L.control.pan().addTo(map);
-		map.addControl(L.control.search());
+		
 		map.on('click', onMapClick);
 		// map.on('mouseout',resetView);
     </script>
@@ -560,25 +549,10 @@ $result = pg_query($connection, $sql);
 			$Autor = (string)$row[4];
 					
 			echo '<script type="text/javascript"> ';
-			
-			echo 'var AnonymMarker = L.AwesomeMarkers.icon({
-    			  markerColor: "red",
-    			  });';
-				  
-			echo 'var EingeloggtMarker = L.AwesomeMarkers.icon({
-    			  markerColor: "blue",
-    			  });';	  
-			
-			echo 'var autor = "' . $Autor . '";';
-			echo 'if(autor == "" || autor == 0 || autor == "Anonym"){';
-			echo 'var marker = L.marker([' . $Position . '],{icon: AnonymMarker}).addTo(map).bindPopup("Titel: " + "' . $Titel . '" + "<br />Bewertung: "
-								       		 + "' . $Bewertung . '" + "<br/> URL: " + "<a href=" + "' . $URL . '" + ">"+ "' . $URL . '"   + "</a>" +  "<br/> Autor: " + "' . $Autor . '"  + "<br /><br /><a href=\"DynamicMap.php\">Mehr Infos...</a>");';
-			echo'} else {
-				var marker = L.marker([' . $Position . '],{icon: EingeloggtMarker}).addTo(map).bindPopup("Titel: " + "' . $Titel . '" + "<br />Bewertung: "
-								       		 + "' . $Bewertung . '" + "<br/> URL: " + "<a href=" + "' . $URL . '" + ">"+ "' . $URL . '"   + "</a>" +  "<br/> Autor: " + "' . $Autor . '"  + "<br /><br /><a href=\"DynamicMap.php\">Mehr Infos...</a>");
-			}';
-			echo 'marker.on(\'click\',clickMarker);';
+			echo 'L.marker([' . $Position . ']).addTo(map).bindPopup("Titel: " + "' . $Titel . '" + "<br />Bewertung: "
+								       		 + "' . $Bewertung . '" + "<br/> URL: " + "' . $URL . '" + "<br/> Autor: " + "' . $Autor . '"  + "<br /><br /><a href=\"DynamicMap.html\">Mehr Infos...</a>");';
 			echo '</script>';
+
 		}
 
 		pg_free_result($result);

@@ -158,7 +158,7 @@
         <form action="register.php" method="post">
             Benutzername: <input type="text" id="Benutzername" name="Benutzername" required />
             Passwort: <input type="password" id="passwort" name="Passwort" required />
-            Passwort wiederholen:<input type="password" id="passwortWieder" name="Passwort" required />
+            Passwort wiederholen:<input type="password" id="passwortWieder" name="Passwort2" required />
             Ort (optional): <input type="text" name="Ort" id="Ort" />
             PLZ (optional): <input type="text" name="PLZ" id="PLZ" />
             Land (optional): <input type="text" name="Land" id="Land" />

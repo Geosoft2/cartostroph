@@ -6,8 +6,8 @@
 	global $config;
 	$connection = pg_connect($config["connection"]); 
 
-		$user = $_POST['user'];
-		$pw = $_POST['password'];
+		$user = pg_escape_string(htmlspecialchars($_POST['user']));
+		$pw = pg_escape_string(htmlspecialchars($_POST['password']));
 		$password = hash('sha512', $pw);
 		
 		// Benutzername und Passwort werden überprüft

@@ -79,7 +79,7 @@ function HilfeAnzeigen() {
 function author() {
 	var autor = getCookie("Autor");
 	if(autor == "" || autor == 0){
-		autor = "Anonym";
+		autor = "Gast";
 	}
 	return autor;
 }
