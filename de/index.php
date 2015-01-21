@@ -85,7 +85,7 @@
 					                Region
 					                Stadt
 				                    ">
-						            <img src="../img/info.png" width="15px" height="15px"/></abbr> Kategorie:
+						            <img src="../img/info.png" width="15px" height="15px"/></abbr>&ensp;Kategorie:
 									<select id="Kategorie" name="Kategorie">
   								        <option value="Welt">Welt</option>
   										<option value="Kontinent">Kontinent</option>
