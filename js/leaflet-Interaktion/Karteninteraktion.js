@@ -206,4 +206,18 @@ function clickMarker() {
 	document.cookie = "URL=" + URL;
 }
 
+function onLocationFound(e) {
+            var radius = e.accuracy / 2;
+            L.marker(e.latlng).addTo(map)
+                .bindPopup("Sie befinden sich innerhalb von " + radius + " Metern von diesem Punkt").openPopup(); 
+            L.circle(e.latlng, radius).addTo(map);
+            //fill the filter with lat and long values
+			getElementById("lat").value = e.latlng.lat;
+			getElementById("lng").value = e.latlng.lng;
+        }
+        
+function onLocationError(e) {
+            alert(e.message);
+        }        
+
 

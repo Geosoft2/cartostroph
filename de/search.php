@@ -414,23 +414,12 @@
         //zoom to location of user 
 	    map.locate({ setView: true, maxZoom: 12 });
 
-        function onLocationFound(e) {
-            var radius = e.accuracy / 2;
-            L.marker(e.latlng).addTo(map)
-                .bindPopup("Sie befinden sich innerhalb von " + radius + " Metern von diesem Punkt").openPopup(); 
-            L.circle(e.latlng, radius).addTo(map);
-        }
+        
         map.on('locationfound', onLocationFound);
-        function onLocationError(e) {
-            alert(e.message);
-        }
+      
         map.on('locationerror', onLocationError);
         L.control.pan().addTo(map);
 		map.addControl(L.control.search());
-		
-		//fill the filter with lat and long values
-		getElementById("lat").value = e.latlng.lat;
-		getElementById("lng").value = e.latlng.lng;
 		
 		map.on('click', onMapClick);
 		// map.on('mouseout',resetView);
