@@ -3,8 +3,10 @@
  */
 var lat;
 var lng;
-// var URL;
-// var Titel;
+var userLat;
+var userLng;
+var userRadius = 0;
+var radi;
 var MarkerArray = [];
 function newMarker(){
 	addMarker = true;
@@ -212,12 +214,24 @@ function onLocationFound(e) {
                 .bindPopup("Sie befinden sich innerhalb von " + radius + " Metern von diesem Punkt").openPopup(); 
             L.circle(e.latlng, radius).addTo(map);
             //fill the filter with lat and long values
-			getElementById("lat").value = e.latlng.lat;
-			getElementById("lng").value = e.latlng.lng;
+			document.getElementById("lat").value = e.latlng.lat;
+			document.getElementById("lng").value = e.latlng.lng;
         }
         
 function onLocationError(e) {
             alert(e.message);
-        }        
+        }            
+
+function searchCircle() {
+	userRadius++;
+	if(userRadius >= 2) {
+		map.removeLayer(radi);
+		var rad = document.getElementById("radius").value * 1000;
+    	radi = L.circle([userLat,userLng],rad).addTo(map);
+	}else {
+		var rad = document.getElementById("radius").value * 1000;
+    	radi = L.circle([userLat,userLng],rad).addTo(map);
+	}
+}    
 
 

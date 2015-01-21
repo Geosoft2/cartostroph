@@ -344,7 +344,7 @@
                             </select>
                             </p>
 					<p><abbr title="Hier können Sie auf Ihren Standort basiert eine räumliche Suche mit Radius machen. Bitte geben Sie die Kilometer an."><img src="../img/info.png" width="15px" height="15px"/></abbr>
-					Kilometer <input type="text" placeholder="0" name="radius"></p>
+					Kilometer <input type="text" id="radius" placeholder="0" name="radius" onchange="searchCircle()"></p>
 					</p>
 					<p><abbr title="Hier können Sie eine Bounding Box auf der Karte klicken. Klicken Sie das erste Mal für die obere rechte Ecke und das zweite Mal für die untere linke Ecke."><img src="../img/info.png" width="15px" height="15px"/></abbr>
 					<a onclick="#" style="text-align: right ;position: relative ; font-size: 100%" >Bounding Box</a>
