@@ -440,7 +440,7 @@
                     $sql3 = pg_query($connection, $sql5);
 
 
-                    while ($row = pg_fetch_array($sql7)) {
+                   while ($row = pg_fetch_array($sql7)) {
                             $bewertungTopic = (float)$row[0]; 
                         }
 
@@ -458,9 +458,11 @@
                     elseif ($bewertungTopic != NULL) {
                         
                         $rating_avg = ($bewertungTopic + $sum) / ($count + 1);
+                        $rating_avg = round($rating_avg,2);
                     } else {
                      
                      $rating_avg = ($bewertungTopic + $sum) / ($count); 
+                     $rating_avg = round($rating_avg,2);
                     }
 
                     $Bewertung = (string)$rating_avg;
