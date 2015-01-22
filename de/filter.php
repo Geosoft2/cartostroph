@@ -474,19 +474,19 @@
 				$bewert = NULL;
 				break;
 			case '1': 
-				$bewert = 'Welt';
+				$bewert = '1';
 				break; 
 			case '2': 
-				$bewert = 'Kontinent';
+				$bewert = '2';
 				break; 
 			case '3': 
-				$bewert = 'Land';
+				$bewert = '3';
 				break; 
 			case '4': 
-				$bewert = 'Region';
+				$bewert = '4';
 				break; 
 			case '5': 
-				$bewert = 'Stadt';
+				$bewert = '5';
 				break;  
 			default:
 				$bewert = NULL;
@@ -514,40 +514,39 @@
 
 
 		$sqlContent = $sqlContent.$kategorieHilf;
+                
+
+              /*  if ($bewert == NULL) {
+                    $bewertungHilf = "";
+                } elseif ($suchbegriff == "" and $katwert == NULL) {
+                    $bewertungHilf = "$rating_avg >= '$bewert'";
+                } else {
+                    $bewertungHilf = " AND $rating_avg >= '$bewert'";
+                    }     */
 
 
-		if ($bewert == NULL) {
-			$bewertungHilf = "";
-		} elseif ($suchbegriff == "" and $katwert == NULL) {
-			$bewertungHilf = "bewertung = '$bewert'";
-		} else {
-			$bewertungHilf = " AND bewertung = '$bewert'";
-		}
+                //$sqlContent = $sqlContent.$bewertungHilf;
 
 
-		$sqlContent = $sqlContent.$bewertungHilf;
+                if ($suchbegriff == "" and $katwert == NULL) {
+                $zeitlichesAusmaß = "(anfangsdatum <= '$start' AND enddatum >= '$start') OR (anfangsdatum <= '$end' AND enddatum >= '$end') OR (anfangsdatum >= '$start' AND anfangsdatum <= '$end') OR (enddatum >= '$start' AND enddatum <= '$end');";
+                } else {
+                $zeitlichesAusmaß = " AND ((anfangsdatum <= '$start' AND enddatum >= '$start') OR (anfangsdatum <= '$end' AND enddatum >= '$end') OR (anfangsdatum >= '$start' AND anfangsdatum <= '$end') OR (enddatum >= '$start' AND enddatum <= '$end'));";
+                    }
+
+                $sqlContent = $sqlContent.$zeitlichesAusmaß;
 
 
-		if ($suchbegriff == "" and $katwert == NULL and $bewert == NULL) {
-			$zeitlichesAusmaß = "(anfangsdatum <= '$start' AND enddatum >= '$start') OR (anfangsdatum <= '$end' AND enddatum >= '$end') OR (anfangsdatum >= '$start' AND anfangsdatum <= '$end') OR (enddatum >= '$start' AND enddatum <= '$end');";
-		} else {
-			$zeitlichesAusmaß = " AND ((anfangsdatum <= '$start' AND enddatum >= '$start') OR (anfangsdatum <= '$end' AND enddatum >= '$end') OR (anfangsdatum >= '$start' AND anfangsdatum <= '$end') OR (enddatum >= '$start' AND enddatum <= '$end'));";
-		}
+                if ($sqlContent == ""){
+                    $sqlBegin = "SELECT url_top, titel, position, bewertung, autor FROM topic LEFT OUTER JOIN comments on topic.url_top = comments.page_id ";
+                } else {
+                    $sqlBegin = "SELECT url_top, titel, position, bewertung, autor FROM topic LEFT OUTER JOIN comments on topic.url_top = comments.page_id WHERE";
+                   } 
+                    
+                $sql = $sqlBegin.$sqlContent ;
 
-		$sqlContent = $sqlContent.$zeitlichesAusmaß;
 
-		$radius = $_GET['radius'];
-		
-		
-
-		//echo ("$sqlContent");
-
-		$sqlBegin = "SELECT url_top, titel, position, bewertung, autor FROM topic LEFT OUTER JOIN comments on topic.url_top = comments.page_id WHERE ";
-
-		$sql = $sqlBegin.$sqlContent ;
-		//echo "$sql";
-
-		$result = pg_query($connection, $sql);
+                $result = pg_query($connection, $sql);
 		
 	
 		// iterate over result set
@@ -558,8 +557,43 @@
 			$Titel = (string)$row[1];
 			$Pos = (string)$row[2];
 			$Position = substr($Pos, 1, -1);
-			$Bewertung = (string)$row[3];
 			$Autor = (string)$row[4];
+                        
+                        //average berechnen 
+                        $sql6 = "SELECT bewertung FROM topic WHERE url_top = '$URL'";
+                        $sql4 = "SELECT sum(rating) FROM comments WHERE page_id ='$URL'";
+                        $sql5 = "SELECT count(rating) FROM comments WHERE page_id ='$URL'";
+
+                        $sql7 = pg_query($connection, $sql6);
+                        $sql2 = pg_query($connection, $sql4);
+                        $sql3 = pg_query($connection, $sql5);
+
+
+                        while ($row = pg_fetch_array($sql7)) {
+                            $bewertungTopic = (float)$row[0]; 
+                            }
+
+                        while ($row = pg_fetch_array($sql2)) {
+                            $sum = (float)$row[0]; 
+                            }
+
+                        while ($row = pg_fetch_array($sql3)) {
+                            $count = (float)$row[0]; 
+                            }
+            
+
+                        if ($bewertungTopic == NULL and $count == NULL) {
+                            $rating_avg = 0;
+                            }
+                        elseif ($bewertungTopic != NULL) {
+                            $rating_avg = ($bewertungTopic + $sum) / ($count + 1);
+                        } else {
+                            $rating_avg = ($bewertungTopic + $sum) / ($count); 
+                            }
+                        
+                        if ($rating_avg >= $bewert) { 
+                            $Bewertung = round($rating_avg,2);
+			
 					
 			echo '<script type="text/javascript"> ';
 			echo 'var AnonymMarker = L.AwesomeMarkers.icon({
@@ -583,7 +617,8 @@
 
 		}
 
-		pg_free_result($result);
+        }
+		//pg_free_result($result);
 		
 	?>
 </body>
