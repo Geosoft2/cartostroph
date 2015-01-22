@@ -452,9 +452,9 @@
 			$Titel = (string)$row[1];
 			$Pos = (string)$row[2];
 			$Position = substr($Pos, 1, -1);
-            $Autor = (string)$row[4];
+                        $Autor = (string)$row[4];
 
-			        $sql6 = "SELECT bewertung FROM topic WHERE url_top = '$URL'";
+                    $sql6 = "SELECT bewertung FROM topic WHERE url_top = '$URL'";
 
                     $sql4 = "SELECT sum(rating) FROM comments WHERE page_id ='$URL'";
 
@@ -476,7 +476,11 @@
                     while ($row = pg_fetch_array($sql3)) {
                             $count = (float)$row[0]; 
                         }
-                    if ($bewertungTopic != NULL) {
+                    
+                    if ($bewertungTopic == NULL and $count == NULL) {
+                        $rating_avg = "Keine Bewertung";
+                        }
+                    elseif ($bewertungTopic != NULL) {
                         
                         $rating_avg = ($bewertungTopic + $sum) / ($count + 1);
                     } else {
@@ -484,7 +488,7 @@
                      $rating_avg = ($bewertungTopic + $sum) / ($count); 
                     }
 
-            $Bewertung = (string)$rating_avg;
+                    $Bewertung = (string)$rating_avg;
 					
 			echo '<script type="text/javascript"> ';
 			
