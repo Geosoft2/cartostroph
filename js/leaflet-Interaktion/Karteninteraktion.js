@@ -7,6 +7,12 @@ var userLat;
 var userLng;
 var userRadius = 0;
 var radi;
+var bboxUR = false;
+var bboxLL = false;
+var bboxURcoor;
+var bboxLLcoor;
+var Bbox = false;
+var bboxPolygon;
 var MarkerArray = [];
 function newMarker(){
 	addMarker = true;
@@ -34,10 +40,19 @@ function onMapClick(e) {
 				document.getElementById("checkbox1").checked="true";
 				document.getElementById("Autor").value = author();
 				addMarker = false;
+	}else if (bboxUR == true) {
+		bboxURcoor = e.latlng;
+		bboxLL = true;
+		bboxUR = false;
+	}else if (bboxLL == true){
+		bboxLLcoor = e.latlng;
+		var bounds = [bboxURcoor, bboxLLcoor];
+		bboxPolygon = L.rectangle(bounds, {color: "#FF0040", weight: 1}).addTo(map);
+		bboxLL = false;
+		userbbox++;
 	}
 		
-}	
-
+}
 
 function activateAssessment() {
 	 if(document.getElementById("checkbox1").checked == false){
@@ -232,6 +247,13 @@ function searchCircle() {
 		var rad = document.getElementById("radius").value * 1000;
     	radi = L.circle([userLat,userLng],rad).addTo(map);
 	}
-}    
+}
+
+function searchBoundingBox() {
+		bboxUR = true;
+		if(bboxPolygon != null){
+			map.removeLayer(bboxPolygon);
+		}
+}     
 
 
