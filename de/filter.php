@@ -344,6 +344,16 @@
                                 <option value="5">5</option>
                             </select>
                             </p>
+							<p><abbr title="Hier können Sie auf Ihren Standort basiert eine räumliche Suche mit Radius machen. Bitte geben Sie die Kilometer an."><img src="../img/info.png" width="15px" height="15px"/></abbr>
+							Radiussuche in Kilometer <input type="text" id="radius" placeholder="0" name="radius" onchange="searchCircle()"></p>
+							</p>
+							<p>
+							 
+							<p>
+							mein Standort: 
+							<p>Breitengrad: <input id="lng" readonly="readonly" type="number" name="lng"/> </p>
+							<p>Längengrad: <input id="lat" readonly="readonly" type="number" name="lat"/> </p>
+                
                             <p><input id="filter" type="submit" class="button expand" value="Filtern" />
                             </p>    
                   </form></h1>
@@ -401,17 +411,9 @@
         //zoom to location of user 
 	    map.locate({ setView: false, maxZoom: 12 });
 
-        /*function onLocationFound(e) {
-            var radius = e.accuracy / 2;
-            L.marker(e.latlng).addTo(map)
-                .bindPopup("You are within " + radius + " meters from this point").openPopup(); 
-            L.circle(e.latlng, radius).addTo(map);
-        }
         map.on('locationfound', onLocationFound);
-        function onLocationError(e) {
-            alert(e.message);
-        }
-        map.on('locationerror', onLocationError);*/
+		
+        map.on('locationerror', onLocationError);
 		L.control.pan().addTo(map);
 		map.addControl(L.control.search());
 		

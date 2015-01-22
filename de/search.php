@@ -344,7 +344,7 @@
                             </select>
                             </p>
 					<p><abbr title="Hier können Sie auf Ihren Standort basiert eine räumliche Suche mit Radius machen. Bitte geben Sie die Kilometer an."><img src="../img/info.png" width="15px" height="15px"/></abbr>
-					Kilometer <input type="text" id="radius" placeholder="0" name="radius" onchange="searchCircle()"></p>
+					Radiussuche in Kilometer <input type="text" id="radius" placeholder="0" name="radius" onchange="searchCircle()"></p>
 					</p>
 					<p>
 					<a style="text-align: right ;position: relative ; font-size: 100%" data-reveal-id="BboxModal" >Bounding Box</a>
@@ -386,8 +386,6 @@
     <!-- <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> -->
     <script type="text/javascript">
         $(document).foundation();
-
-		
 		
         // create a map in the "map" div, set the view to a given place and zoom
         var addMarker = false;
@@ -424,7 +422,6 @@
 
         //zoom to location of user 
 	    map.locate({ setView: true, maxZoom: 12 });
-
         
         map.on('locationfound', onLocationFound);
       
