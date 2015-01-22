@@ -540,7 +540,7 @@
                 if ($sqlContent == ""){
                     $sqlBegin = "SELECT url_top, titel, position, bewertung, autor FROM topic LEFT OUTER JOIN comments on topic.url_top = comments.page_id ";
                 } else {
-                    $sqlBegin = "SELECT url_top, titel, position, bewertung, autor FROM topic LEFT OUTER JOIN comments on topic.url_top = comments.page_id WHERE";
+                    $sqlBegin = "SELECT url_top, titel, position, bewertung, autor FROM topic LEFT OUTER JOIN comments on topic.url_top = comments.page_id WHERE ";
                    } 
                     
                 $sql = $sqlBegin.$sqlContent ;
