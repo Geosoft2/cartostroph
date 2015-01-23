@@ -103,7 +103,7 @@
         <form id="top-nav-login" action="login.php" method="post">
             <div class="row">
                 <label>Nutzer</label>
-                <input type="text" name="user" placeholder="email@example.com" tabindex="1" />
+                <input type="text" name="user" placeholder="name" tabindex="1" />
             </div>
             <div class="row">
                 <label>Passwort</label>
