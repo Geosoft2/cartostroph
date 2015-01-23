@@ -284,7 +284,10 @@ foreach($comments as $c){
 
 </div>
 	<script>
-	var map = L.map('map').setView([51.505, -0.09], 2);
+	var map = L.map('map', {
+			minZoom: 2 ,
+    		worldCopyJump : true
+    	}).setView([51.505, -0.09], 2);
 		
 		L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
 			maxZoom: 18,

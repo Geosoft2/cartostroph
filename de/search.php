@@ -408,6 +408,8 @@
 
 	    var map = L.map('map', {
       		layers: [mapBox] // only add one!
+			minZoom: 2 ,
+    		worldCopyJump : true
     	})
     		.setView([30.505, 0], 2);
 
