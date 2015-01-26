@@ -230,7 +230,9 @@ function onLocationFound(e) {
             L.circle(e.latlng, radius).addTo(map);
             //fill the filter with lat and long values
 			document.getElementById("lat").value = e.latlng.lat;
+			userLat = e.latlng.lat;
 			document.getElementById("lng").value = e.latlng.lng;
+			userLng = e.latlng.lng;
         }
         
 function onLocationError(e) {
