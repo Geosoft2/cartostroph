@@ -28,10 +28,18 @@ class Comment
 		
 		// Converting the time to a UNIX timestamp:
 		$d['dt'] = strtotime($d['dt']);
+
+		if($d['name'] === "Gast") {	
+		$avatar = '<img src="/../Simon/Master/img/CommentSys/Gast.gif" />';
+	
+		}  else   { 
+			$avatar  = '<img src="/../Simon/Master/img/CommentSys/default_avatar.gif" />';
+		}
 			
 		return '
 		
-			<div class="comment">				
+			<div class="comment">
+				<div class="avatar">'.$avatar.'</div>			
 				<div class="name">'.$d['name'].'</div>
 				<div class="rating">'.$d['rating'].'</div>
 				<div class="date" title="Added at '.date('H:i \o\n d M Y',$d['dt']).'">'.date('H:i \o\n d M Y',$d['dt']).'</div>
