@@ -317,7 +317,7 @@
     <div class="large-8 columns" id="map" style="height: 92.5%;">
 
 </div>
-<div class="large-4 columns"> <h1><h3>Filter</h3>
+<div id="SearchContent" class="large-4 columns"> <h1><h3>Filter</h3>
                             <form action="filter.php" method="get">
                             <p><input type="text" placeholder="Suche" name="search"></p>
                             <p><select id="KategorieSuche" name="KategorieSuche">
