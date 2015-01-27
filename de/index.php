@@ -145,8 +145,8 @@
 								Hyperlink (optional): <input type="text" id="hyperlink" name="hyperlink"/>
 								</p>
 								<p>Autor <input id="Autor" type="text" readonly="readonly" name="Autor"/>
-								<input type="hidden" id="cTbboxLLcoor" />
-								<input type="hidden" id="cTbboxURcoor" />
+								<input type="hidden" id="cTbboxLLcoor" name="cTbboxLLcoor"/>
+								<input type="hidden" id="cTbboxURcoor" name="cTbboxURcoor"/>
 								
 								<input type="submit" class="button expand" value="Topic erstellen"/>
         					</form>
