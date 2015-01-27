@@ -298,8 +298,8 @@ function fillForm() {
 	document.getElementById("Kommentar").value = "";
 	document.getElementById("checkbox1").checked="true";
 	document.getElementById("Autor").value = author();
-	document.getElementById("cTbboxLLcoor").value = createTopicbboxLLcoor;
-	document.getElementById("cTbboxURcoor").value = createTopicbboxURcoor;
+	document.getElementById("cTbboxLLcoor").value = createTopicbboxPolygon.getBounds().getSouthWest();
+	document.getElementById("cTbboxURcoor").value = createTopicbboxPolygon.getBounds().getNorthEast();
 	//alert(document.getElementById("cTbboxLLcoor").value);
 	}
 	
