@@ -9,10 +9,17 @@ var userRadius = 0;
 var radi;
 var bboxUR = false;
 var bboxLL = false;
+var createTopicbboxUR = false;
+var createTopicbboxLL = false;
 var bboxURcoor;
 var bboxLLcoor;
 var Bbox = false;
 var bboxPolygon;
+var createTopicbboxPolygon;
+var createTopicbboxLLcoor;
+var createTopicbboxURcoor;
+var CreateTopicCenterLat;
+var CreateTopicCenterLng;
 var MarkerArray = [];
 function newMarker(){
 	addMarker = true;
@@ -20,6 +27,9 @@ function newMarker(){
 	
 function discardTopic(){
 	document.getElementById("map").removeAttribute("data-reveal-id");
+	if(createTopicbboxPolygon != null){
+			map.removeLayer(createTopicbboxPolygon);
+		}
 	};
 		
 function resetView(){
@@ -30,8 +40,8 @@ function onMapClick(e) {
 	if (addMarker == true){ 
 				lng = e.latlng.lng;
 				lat = e.latlng.lat;
-				document.getElementById("Breitengrad").value = lat;
-				document.getElementById("Längengrad").value = lng;
+				document.getElementById("Breitengrad").value = CreateTopicCenterLat;
+				document.getElementById("Längengrad").value = CreateTopicCenterLng;
 				document.getElementById("newTopicModal").setAttribute("overflow","scroll");
 				document.getElementById("map").setAttribute("data-reveal-id","newTopicModal",true);
 				document.getElementById("URL").value = "";
@@ -49,7 +59,20 @@ function onMapClick(e) {
 		var bounds = [bboxURcoor, bboxLLcoor];
 		bboxPolygon = L.rectangle(bounds, {color: "#FF0040", weight: 1}).addTo(map);
 		bboxLL = false;
-		userbbox++;
+	}else if (createTopicbboxUR == true) {
+		createTopicbboxURcoor = e.latlng;
+		createTopicbboxLL = true;
+		createTopicbboxUR = false;
+		//document.getElementById("map").setAttribute("data-reveal-id","BboxModal2",false);
+	}else if (createTopicbboxLL == true){
+		createTopicbboxLLcoor = e.latlng;
+		var bounds = [createTopicbboxURcoor, createTopicbboxLLcoor];
+		createTopicbboxPolygon = L.rectangle(bounds, {color: "#FF0040", weight: 1}).addTo(map);
+		CreateTopicCenterLat = createTopicbboxPolygon.getBounds().getCenter().lat;
+		CreateTopicCenterLng = createTopicbboxPolygon.getBounds().getCenter().lng;
+		createTopicbboxLL = false;
+		document.getElementById("map").setAttribute("data-reveal-id","confirmBbox",false);
+		//addMarker = true;
 	}
 		
 }
@@ -256,6 +279,25 @@ function searchBoundingBox() {
 		if(bboxPolygon != null){
 			map.removeLayer(bboxPolygon);
 		}
-}     
+}
 
+function createTopicBoundingBox() {
+		createTopicbboxUR = true;
+		if(createTopicbboxPolygon != null){
+			map.removeLayer(createTopicbboxPolygon);
+		}
+}
+
+function fillForm() {
+	document.getElementById("Breitengrad").value = CreateTopicCenterLat;
+	document.getElementById("Längengrad").value = CreateTopicCenterLng;
+	document.getElementById("URL").value = "";
+	document.getElementById("Titel").value = "";
+	document.getElementById("Kommentar").value = "";
+	document.getElementById("checkbox1").checked="true";
+	document.getElementById("Autor").value = author();
+	document.getElementById("cTbboxLLcoor").value = createTopicbboxLLcoor;
+	document.getElementById("cTbboxURcoor").value = createTopicbboxURcoor;
+	//alert(document.getElementById("cTbboxLLcoor").value);
+	}
 

@@ -60,7 +60,9 @@
                     </li>
 
                     <!-- Neues Topic erstellen -->
-                    <li><a href="#" data-reveal-id="myModal">Neues Topic anlegen</a>
+                    <li><a href="#" data-reveal-id="BboxModal2">Neues Topic anlegen</a>
+                    	
+                    	
                     	<div id="myModal" class="reveal-modal" data-reveal>
                     		<h3>Wählen Sie eine Position durch Klick in die Karte</h3>
                     		<a id="setCoordinate" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">OK</a>
@@ -68,13 +70,34 @@
                     			document.getElementById("setCoordinate").onclick = newMarker;
                     		</script>
 						</div>
+						
+						
+						<!-- popUp fuer Boundingbox -->
+						<div id="BboxModal2" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
+                    		<h3>Hier können Sie eine Bounding Box auf der Karte klicken. Klicken Sie das erste Mal für die obere rechte Ecke und das zweite Mal für die untere linke Ecke.</h3>
+                    		<a id="setBbox2" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">OK</a><br />
+                    		<a id="rejectBbox2" onclick="discardTopic" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
+                    		<script type="text/javascript">
+                    			document.getElementById("setBbox2").onclick = createTopicBoundingBox;
+                    		</script>
+						</div>
+						
+						<!-- popUp fuer Boundingbox -->
+						<div id="confirmBbox"data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
+							<h3>Sind Sie mit der Boundingbox zufrieden?</h3>
+							<a id="setBbox3" style="text-align: right ;position: relative ; font-size: 120%"  class="close-reveal-modal" data-reveal-id="newTopicModal">Ja</a><br />
+                    		<a id="rejectBbox2" onclick="discardTopic()" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Nein</a>
+                    		<script>
+                    			document.getElementById("setBbox3").onclick = fillForm;
+                    		</script>
+						</div>
 
                   		<!-- Formular zur Erstellung eines Topics  -->
 						<div id="newTopicModal" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
   							<h3>Fügen Sie einen Geodatensatz hinzu</h3>
   							<form action="topic.php" method="post">
-  								<p>Breitengrad: <input id="Breitengrad" readonly="readonly" type="number" name="Breitengrad"/> </p>
-  								<p>Längengrad: <input id="Längengrad" readonly="readonly" type="number" name="Längengrad"/> </p>
+  								<p>Breitengrad vom Zentrum der Bbox: <input id="Breitengrad" readonly="readonly" type="number" name="Breitengrad"/> </p>
+  								<p>Längengrad vom Zentrum der Bbox: <input id="Längengrad" readonly="readonly" type="number" name="Längengrad"/> </p>
   								<p><abbr title="Hier geben Sie an unter welcher Internetadresse der Geodatensatz auffindbar ist"><img src="../img/info.png" width="15px" height="15px" /></abbr> URL: <input type="text" id="URL" name="URL" required/> </p>
   								<p><abbr title="Hier geben Sie einen geeigneten Titel des Datensatzens an, z.B. 'Überflutungsdaten Münster 2014'"><img src="../img/info.png" width="15px" height="15px"/></abbr> Titel: <input type="text" id="Titel" name="Titel" required /></p>
   								<p><abbr title="Hier geben Sie an was Sie über den Geodatensatz denken. Ist er hilfreich? Ist er gut? Fehlt etwas? etc."><img src="../img/info.png" width="15px" height="15px"/></abbr> Kommentar: <textarea type="text"  id="Kommentar" name="Kommentar" required></textarea></p>
@@ -122,6 +145,9 @@
 								Hyperlink (optional): <input type="text" id="hyperlink" name="hyperlink"/>
 								</p>
 								<p>Autor <input id="Autor" type="text" readonly="readonly" name="Autor"/>
+								<input type="hidden" id="cTbboxLLcoor" />
+								<input type="hidden" id="cTbboxURcoor" />
+								
 								<input type="submit" class="button expand" value="Topic erstellen"/>
         					</form>
   							<a id="cancelTopic" style="position: relative ; font-size: 120%" class="close-reveal-modal" onclick="discardTopic()">Abbrechen</a><br />
