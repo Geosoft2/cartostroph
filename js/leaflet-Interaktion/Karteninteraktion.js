@@ -29,6 +29,7 @@ function discardTopic(){
 	document.getElementById("map").removeAttribute("data-reveal-id");
 	if(createTopicbboxPolygon != null){
 			map.removeLayer(createTopicbboxPolygon);
+			createTopicbboxPolygon = null;
 		}
 	};
 		
@@ -278,6 +279,7 @@ function searchBoundingBox() {
 		bboxUR = true;
 		if(bboxPolygon != null){
 			map.removeLayer(bboxPolygon);
+			bboxPolygon = null;
 		}
 }
 
@@ -300,4 +302,17 @@ function fillForm() {
 	document.getElementById("cTbboxURcoor").value = createTopicbboxURcoor;
 	//alert(document.getElementById("cTbboxLLcoor").value);
 	}
+	
+function commentIntersectsTopic() {
+	if(createTopicbboxPolygon!= null && bboxPolygon != null) {
+		var x = createTopicbboxPolygon.getBounds();
+		var y = bboxPolygon.getBounds();
+		if (x.intersects(y)) {
+			return true;
+		}
+	}else if(bboxPolygon =  null){
+		return true;
+	}
+	return false;
+}
 
