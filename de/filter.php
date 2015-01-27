@@ -317,7 +317,21 @@
     <div class="large-8 columns" id="map" style="height: 92.5%;">
 
 </div>
-<div id="SearchContent" class="large-4 columns"> <h1><h3>Filter</h3>
+<div id="SearchContent" class="large-4 columns"> <h1><h3>Filter</h3> <button class="tiny button" data-reveal-id="PermalinkModal">Permalink</button>
+	
+						<div id="PermalinkModal" class="reveal-modal" data-reveal>
+                    		<h3>Der Permalink von Ihrer Suche</h3>
+                    		<input id="permalink" readonly="true" type="text" />
+                    		<a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">OK</a>
+                    		<script>
+                    			document.getElementById("permalink").value = window.location.href;
+                    		</script>
+						</div>
+						
+		
+	
+	
+	
                             <form action="filter.php" method="get">
                             <p><input type="text" placeholder="Suche" name="search"></p>
                             <p><select id="KategorieSuche" name="KategorieSuche">
