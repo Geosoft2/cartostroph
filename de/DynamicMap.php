@@ -229,7 +229,6 @@ while($row = pg_fetch_assoc($result))
 					
 		<!-- Inhalt -->
 	<div class="large-8 columns" >
-		<div class="row"><h1>Infos</h1></div>
 		<div class="row" id="map" style="height: 92.5%"><h1 style="color: transparent">das</h1>
 			<h1 style="color: transparent">das</h1>
 			<h1 style="color: transparent">das</h1>
@@ -238,6 +237,112 @@ while($row = pg_fetch_assoc($result))
 			<h1 style="color: transparent">das</h1>
 			<h1 style="color: transparent">das</h1>
 		</div>
+		<table>
+				<tr><th>URL:</th> <th id="URL"></th></tr>
+				<tr><th>Titel:</th> <th id="Titel"></th></tr>
+				<tr><th>Autor:</th> <th id="Autor"></th></tr>
+				<tr><th>Durchschnittliche bewertung:</th> <th id="Bewertung"></th></tr>
+				<tr><th>Kategorie:</th> <th id="Kategorie"></th></tr>
+				<tr><th>Hyperlinks:</th> <th id="Hyperlinks"></th></tr>
+				<tr><th>Tags:</th> <th  id="tag"></th"></tr>
+				<tr><th>Startdatum:</th> <th  id="Startdatum"></th"></tr>
+				<tr><th>Enddatum:</th> <th  id="Enddatum"></th"></tr>
+			</table>
+		</div>
+		
+		<?php 
+	
+		// attempt a connection
+		ini_set('display_errors', '1');
+		error_reporting(E_ALL | E_STRICT);
+
+		include("config.php");
+		
+		// execute query
+		$url = (string)$_COOKIE['URL'];
+		$sql = "SELECT bewertung, hyperlink, kategorie, titel, autor, tag, anfangsdatum ,enddatum FROM topic WHERE url_top = '$url'";
+		$result = pg_query($connection, $sql);
+		if (!$result) {
+			die("Error in SQL query: " . pg_last_error());
+		}
+		
+		$sql6 = "SELECT bewertung FROM topic WHERE url_top = '$url'";
+
+                    $sql4 = "SELECT sum(rating) FROM comments WHERE page_id ='$url'";
+
+                    $sql5 = "SELECT count(rating) FROM comments WHERE page_id ='$url'";
+
+                    $sql7 =  pg_query($connection, $sql6);
+                    $sql2 = pg_query($connection, $sql4);
+                    $sql3 = pg_query($connection, $sql5);
+
+
+                   while ($row = pg_fetch_array($sql7)) {
+                            $bewertungTopic = (float)$row[0]; 
+                        }
+
+                    while ($row = pg_fetch_array($sql2)) {
+                            $sum = (float)$row[0]; 
+                        }
+
+                    while ($row = pg_fetch_array($sql3)) {
+                            $count = (float)$row[0]; 
+                        }
+                    
+                    if ($bewertungTopic == NULL and $count == NULL) {
+                        $rating_avg = "Keine Bewertung";
+                        }
+                    elseif ($bewertungTopic != NULL) {
+                        
+                        $rating_avg = ($bewertungTopic + $sum) / ($count + 1);
+                        $rating_avg = round($rating_avg,2);
+                    } else {
+                     
+                     $rating_avg = ($bewertungTopic + $sum) / ($count); 
+                     $rating_avg = round($rating_avg,2);
+					 
+                    }
+
+                    $Bewertung = (string)$rating_avg;
+		
+		
+		
+		
+		while ($row = pg_fetch_array($result)) {
+			$bewertung = (string)$row[0];
+			$hyperlink = (string)$row[1];
+			$kategorie = (string)$row[2];
+			$titel = (string)$row[3];
+			$autor = (string)$row[4];
+			$tag = (string)$row[5];
+			$startdatum = (string)$row[6];
+			$enddatum = (string)$row[7];
+			
+			if($startdatum == "0001-01-01") {
+				$startdatum = "universell";
+			}
+			
+			if($enddatum == "9999-12-31") {
+				$enddatum = "universell";
+			}
+				
+			
+			
+			echo '<script type="text/javascript"> ';
+			echo 'document.getElementById("URL").innerHTML =  "<a href=" + "' . $url . '" + ">"+ "' . $url . '"   + "</a>";';
+			echo 'document.getElementById("Titel").innerHTML = "'. $titel .'";';
+			echo 'document.getElementById("Autor").innerHTML = "'. $autor .'";';
+			echo 'document.getElementById("Bewertung").innerHTML = "'. $Bewertung .'";';
+			echo 'document.getElementById("Kategorie").innerHTML = "'. $kategorie .'";';
+			echo 'document.getElementById("Hyperlinks").innerHTML = "'. $hyperlink .'";';
+			echo 'document.getElementById("tag").innerHTML = "'. $tag .'";';
+			echo 'document.getElementById("Startdatum").innerHTML = "'. $startdatum .'";';
+			echo 'document.getElementById("Enddatum").innerHTML = "'. $enddatum .'";';
+			echo '</script>';
+			
+		};
+		
+	?>
 	</div>
 <div class="large-4 columns"> 
 	     <div id="addCommentContainer">
