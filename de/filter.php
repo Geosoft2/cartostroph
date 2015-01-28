@@ -373,16 +373,6 @@
                   </form></h1>
 
 </div>
-
-	<!-- Subnav -->
-    <div style="height: 7.5%">
-        <dl class="sub-nav">
-            <dd><a href="Impressum.php">Impressum</a></dd>
-            <dd><a href="FAQ.php">FAQ</a></dd>
-            <dd><a href="#"></a></dd>
-        </dl>
-    </div>
-
     <!-- Skriptabschnitt -->
     <script src="../js/vendor/jquery.js"></script>
     <script src="../js/foundation/foundation.min.js"></script>

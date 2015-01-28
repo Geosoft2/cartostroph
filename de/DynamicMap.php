@@ -326,17 +326,6 @@ foreach($comments as $c){
   zum Kommentar Erstellen
 -->
 
-
-	<!-- Subnav -->
-    <div style="height: 7.5%">
-        <dl class="sub-nav">
-            <dd><a href="Impressum.php">Impressum</a></dd>
-            <dd><a href="FAQ.php">FAQ</a></dd>
-            <dd><a href="#"></a></dd>
-        </dl>
-    </div>
-
-
 	<script>
   		$(document).foundation();
 	</script>
