@@ -515,7 +515,7 @@
 		$suchbegriffHilf = "";
 
 		if ($suchbegriff != "") {
-			$suchbegriffHilf = "(text LIKE '%$suchbegriff%' OR titel LIKE '%$suchbegriff%' OR tag LIKE '%$suchbegriff%' OR body LIKE '%$suchbegriff%')";
+			$suchbegriffHilf = "(UPPER(text) LIKE UPPER('%$suchbegriff%') OR UPPER (titel) LIKE UPPER('%$suchbegriff%') OR UPPER(tag) LIKE UPPER('%$suchbegriff%') OR UPPER(body) LIKE UPPER('%$suchbegriff%'))";
 		}
 
 
