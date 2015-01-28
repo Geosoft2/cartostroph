@@ -365,7 +365,6 @@ foreach($comments as $c){
 			
 			$rp = (string)$row[1];
 			$rpoint = substr($rp, 1, -1);
-			echo $lpoint;
 			
 			echo '<script type="text/javascript"> ';
 			echo 'var bounds = [['. $lpoint .'],[ '. $rpoint .']];';
