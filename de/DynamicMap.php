@@ -325,7 +325,41 @@ foreach($comments as $c){
   Div-Container vom Comment System
   zum Kommentar Erstellen
 -->
+	<?php 
+	
+		// attempt a connection
+		ini_set('display_errors', '1');
+		error_reporting(E_ALL | E_STRICT);
 
+		include("config.php");
+		
+		// execute query
+		$url = $_COOKIE['URL'];
+		$sql = "SELECT lpoint, rpoint FROM topic WHERE url_top = '$url'";
+		$result = pg_query($connection, $sql);
+		if (!$result) {
+			die("Error in SQL query: " . pg_last_error());
+		}
+		
+		while ($row = pg_fetch_array($result)) {
+			$lp = (string)$row[0];
+			$lpoint = substr($lp, 1, -1);
+			
+			$rp = (string)$row[1];
+			$rpoint = substr($rp, 1, -1);
+			echo $lpoint;
+			
+			echo '<script type="text/javascript"> ';
+			echo 'var bounds = [['. $lpoint .'],[ '. $rpoint .']];';
+			echo'var TopicBBox = L.rectangle(bounds, {color: "black", weight: 1}).addTo(map);';
+			echo'map.fitBounds(bounds);';
+			echo '</script>';
+			
+		};
+		
+	?>
+	
+	
 	<script>
   		$(document).foundation();
 	</script>
