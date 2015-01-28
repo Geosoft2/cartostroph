@@ -92,10 +92,20 @@ while($row = pg_fetch_assoc($result))
                         <a href="#" data-reveal-id="RegisterModal">Registrierung</a>
                     </li>
 					
+					<!-- Schnellsuche -->
+						
+					<li class="has-form">
+						<div class="row collapse">
+							<form action="filter.php" method="get">
+								<input type="text" placeholder="Schnellsuche" name="search">
+							</form>
+						</div>
+					</li>
+					
 					<!-- Suchfeld -->
 					 <li>
 						<a href="search.php">Suche</a>
-                    </li>
+                    </li>					
 					
 					<!-- Impressum aufrufen -->
                     <li>
@@ -279,6 +289,9 @@ document.getElementById("name").value = author();
 foreach($comments as $c){
 	echo $c->markup();
 }
+
+
+//$result = (string) $_GET['url'];
 
 ?>                       
 

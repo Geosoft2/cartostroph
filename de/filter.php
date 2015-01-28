@@ -135,6 +135,16 @@
                         <a href="#" data-reveal-id="RegisterModal">Registrierung</a>
                     </li>
                     
+					<!-- Schnellsuche -->
+						
+					<li class="has-form">
+						<div class="row collapse">
+							<form action="filter.php" method="get">
+								<input type="text" placeholder="Schnellsuche" name="search">
+							</form>
+						</div>
+					</li>
+					
 					<!-- Impressum aufrufen -->
                     <li>
                         <a href="Impressum.php">Impressum</a>

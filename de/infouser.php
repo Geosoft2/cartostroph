@@ -39,8 +39,16 @@
 									document.getElementById("login-drop").setAttribute("data-dropdown", "loggedin-dropdown");
 								}
                     	</script>
-						
                     </li>
+					
+					<!-- Schnellsuche -->
+					<li class="has-form">
+						<div class="row collapse">
+							<form action="filter.php" method="get">
+								<input type="text" placeholder="Schnellsuche" name="search">
+							</form>
+						</div>
+					</li>
                     
                     <!-- Suchfeld -->
 					 <li>

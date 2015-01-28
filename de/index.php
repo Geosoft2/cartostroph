@@ -74,7 +74,7 @@
 						
 						<!-- popUp fuer Boundingbox -->
 						<div id="BboxModal2" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
-                    		<h3>Hier können Sie eine Bounding Box auf der Karte klicken. Klicken Sie das erste Mal für die obere rechte Ecke und das zweite Mal für die untere linke Ecke.</h3>
+                    		<h3>Hier können Sie eine Bounding Box auf der Karte klicken. Klicken Sie das erste Mal für die obere linke Ecke und das zweite Mal für die untere rechte Ecke.</h3>
                     		<a id="setBbox2" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">OK</a><br />
                     		<a id="rejectBbox2" onclick="discardTopic" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
                     		<script type="text/javascript">
@@ -168,6 +168,17 @@
                         
                     </li>
                     
+					<!-- Schnellsuche -->
+						
+					<li class="has-form">
+						<div class="row collapse">
+							<form action="filter.php" method="get">
+								<input type="text" placeholder="Schnellsuche" name="search">
+							</form>
+						</div>
+					</li>
+					
+					
                     <!-- Suchfeld -->
 					 <li>
 						<a href="search.php">Suche</a>

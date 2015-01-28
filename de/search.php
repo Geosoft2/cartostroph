@@ -133,6 +133,16 @@
                         <a href="#" data-reveal-id="RegisterModal">Registrierung</a>
                     </li>
 					
+					<!-- Schnellsuche -->
+						
+					<li class="has-form">
+						<div class="row collapse">
+							<form action="filter.php" method="get">
+								<input type="text" placeholder="Schnellsuche" name="search">
+							</form>
+						</div>
+					</li>
+					
 					<!-- Impressum aufrufen -->
                     <li>
                         <a href="Impressum.php">Impressum</a>
@@ -315,20 +325,20 @@
 	
     <div class="large-8 columns" id="map" style="height: 92.5%;">
 
-</div>
-<div id="SearchContent" class="large-4 columns"> <h1><h3>Filter</h3>
-                            <form action="filter.php" method="get">
-                            <p><input type="text" placeholder="Suche" name="search"></p>
-                            <p><select id="KategorieSuche" name="KategorieSuche">
-                                <option value="Keine">Keine Kategorie</option>
-                                <option value="Welt">Welt</option>
-                                <option value="Kontinent">Kontinent</option>
-                                <option value="Land">Land</option>
-                                <option value="Region">Region</option>
-                                <option value="Stadt">Stadt</option>
-                            </select>
-                            </p>
-                            <p><abbr title="Hier geben Sie an ab wann der Geodatensatz gültig ist"><img src="../img/info.png" width="15px" height="15px"/></abbr>
+	</div>
+	<div id="SearchContent" class="large-4 columns"> <h1><h3>Filter</h3>
+        <form action="filter.php" method="get">
+                  <p><input type="text" placeholder="Suche" name="search"></p>
+                  <p><select id="KategorieSuche" name="KategorieSuche">
+                      <option value="Keine">Keine Kategorie</option>
+                      <option value="Welt">Welt</option>
+                      <option value="Kontinent">Kontinent</option>
+                      <option value="Land">Land</option>
+                      <option value="Region">Region</option>
+                      <option value="Stadt">Stadt</option>
+                   </select>
+                   </p>
+                  <p><abbr title="Hier geben Sie an ab wann der Geodatensatz gültig ist"><img src="../img/info.png" width="15px" height="15px"/></abbr>
                   Start <input type="date" id="startSuche" name="startSuche" /> 
                   </p>
                   <p><abbr title="Hier geben Sie an bis wann der Datensatz gültig war bzw. voraussichtlich sein wird."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
@@ -354,9 +364,8 @@
 					mein Standort: 
 					<p>Breitengrad: <input id="lng" readonly="readonly" type="number" name="lng"/> </p>
   					<p>Längengrad: <input id="lat" readonly="readonly" type="number" name="lat"/> </p>
-                  </form></h1>
-
-</div>
+		</form></h1>
+	</div>
 
 
 <!-- popUp fuer Boundingbox -->
