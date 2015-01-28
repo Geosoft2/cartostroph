@@ -366,6 +366,7 @@
                     		<a id="rejectBbox" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
                     		<script type="text/javascript">
                     			document.getElementById("setBbox").onclick = searchBoundingBox;
+                    			document.getElementById("rejectBbox").onclick = discardTopic;
                     		</script>
 						</div>
 

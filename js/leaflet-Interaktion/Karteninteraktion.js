@@ -31,6 +31,10 @@ function discardTopic(){
 			map.removeLayer(createTopicbboxPolygon);
 			createTopicbboxPolygon = null;
 		}
+	if(bboxPolygon != null){
+			map.removeLayer(bboxPolygon);
+			bboxPolygon = null;
+		}	
 	};
 		
 function resetView(){
