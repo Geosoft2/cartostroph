@@ -481,6 +481,8 @@ foreach($comments as $c){
 			echo 'var bounds = [['. $lpoint .'],[ '. $rpoint .']];';
 			echo'var TopicBBox = L.rectangle(bounds, {color: "black", weight: 1}).addTo(map);';
 			echo'map.fitBounds(bounds);';
+			echo 'document.getElementById("LeftPoint").value =  ['. $lpoint.'];';
+			echo 'document.getElementById("RightPoint").value =  ['. $rpoint.'];';
 			echo '</script>';
 			
 		};
