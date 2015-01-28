@@ -105,7 +105,7 @@ while($row = pg_fetch_assoc($result))
 					<!-- Suchfeld -->
 					 <li>
 						<a href="search.php">Suche</a>
-                    </li>					
+                    </li>
 					
 					<!-- Impressum aufrufen -->
                     <li>
@@ -271,14 +271,24 @@ document.getElementById("name").value = author();
   		</div>
   	    </div>
   	</p>
-
+			<a style="text-align: right ;position: relative ; font-size: 100%" data-reveal-id="BboxModal" >Bounding Box</a><br />
             <label for="body">Kommentar</label>
             <textarea name="body" id="body" cols="20" rows="5"></textarea>
-            
             <input type="submit" id="submit" value="Abschicken" class="button"/>
         </div>
     </form>
 </div>
+
+
+						<div id="BboxModal" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
+                    		<h3>Hier können Sie eine Bounding Box auf der Karte klicken. Klicken Sie das erste Mal für die obere rechte Ecke und das zweite Mal für die untere linke Ecke.</h3>
+                    		<a id="setBbox" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">OK</a><br />
+                    		<a id="rejectBbox" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
+                    		<script type="text/javascript">
+                    			document.getElementById("setBbox").onclick = searchBoundingBox;
+                    			document.getElementById("rejectBbox").onclick = discardTopic;
+                    		</script>
+						</div>
 
 <?php
 /*
@@ -290,13 +300,11 @@ foreach($comments as $c){
 	echo $c->markup();
 }
 
-
-//$result = (string) $_GET['url'];
-
 ?>                       
 
 </div>
 	<script>
+	var addMarker = false;
 	var map = L.map('map', {
 			minZoom: 2 ,
     		worldCopyJump : true
@@ -330,14 +338,11 @@ foreach($comments as $c){
 		 var Typ = URL.split(".");
 		 var Laenge = Typ.length;
 		 showDataOnMap(URL);
+		 map.on('click', onMapClick);
 		
 		
 	</script>
 
-<!--
-  Div-Container vom Comment System
-  zum Kommentar Erstellen
--->
 	<?php 
 	
 		// attempt a connection
@@ -360,6 +365,7 @@ foreach($comments as $c){
 			
 			$rp = (string)$row[1];
 			$rpoint = substr($rp, 1, -1);
+			echo $lpoint;
 			
 			echo '<script type="text/javascript"> ';
 			echo 'var bounds = [['. $lpoint .'],[ '. $rpoint .']];';
@@ -370,8 +376,12 @@ foreach($comments as $c){
 		};
 		
 	?>
-	
-	
+
+
+
+
+
+
 	<script>
   		$(document).foundation();
 	</script>
