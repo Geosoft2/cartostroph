@@ -69,10 +69,17 @@ function onMapClick(e) {
 			if(k){
 				
 			}else{
-				alert("Der Kommentar muss innerhalb des Topics liegen");
-				document.write("<div data-alert class='alert-box success radius'>This is a success alert with a radius.<a href='#' class='close'>&times;</a></div>");
+				//sweetAlert("Boundingbox ist nicht korrekt!", "Der Kommentar muss sich innerhalb des Topics befinden!", "error");
+				swal({
+  title: "Boundingbox ist nicht korrekt!",
+  text: "Der Kommentar muss sich innerhalb des Topics befinden!",
+  type: "error",
+  confirmButtonColor: "#DD6B55",
+  confirmButtonText: "Ok",
+  closeOnConfirm: false
+},
+discardTopic());
 			}
-			
 		}
 	}else if (createTopicbboxUR == true) {
 		createTopicbboxURcoor = e.latlng;
