@@ -36,6 +36,13 @@ class Comment
 			$avatar  = '<img src="/../Simon/Master/img/CommentSys/default_avatar.gif" />';
 		}
 			
+		if($d['name'] === "$_COOKIE[Autor]") {	
+		$edit = '<button type="submit" id="edit" >Bearbeiten</button>';
+	
+		}  else   { 
+			$edit  = '';
+		}
+			
 		return '
 		
 			<div class="comment">
@@ -44,10 +51,13 @@ class Comment
 				<div class="rating">'.$d['rating'].'</div>
 				<div class="date" title="Added at '.date('H:i \o\n d M Y',$d['dt']).'">'.date('H:i \o\n d M Y',$d['dt']).'</div>
 				<p>'.$d['body'].'</p>
-			</div>
+
+				'.$edit.'
+	
+		</div>
 		';
 	}
-	
+
 	public static function validate(&$arr)
 	{
 		/*
@@ -77,6 +87,8 @@ class Comment
 		{
 			$errors['body'] = 'Bitte geben sie einen Kommentartext ein.';
 		}
+
+
 		
 		if(!($data['name'] = filter_input(INPUT_POST,'name',FILTER_CALLBACK,array('options'=>'Comment::validate_text'))))
 		{

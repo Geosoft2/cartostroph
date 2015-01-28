@@ -18,12 +18,14 @@ $validates = Comment::validate($arr);
 if($validates)
 {
 	/* Everything is OK, insert to database: */
-		pg_query("	INSERT INTO comments(name,page_id,rating,body)
+		pg_query("	INSERT INTO comments(name,page_id,rating,body,leftpoint,rightpoint)
 					VALUES (
 						'".$arr['name']."',
 						'".$arr['page_id']."',
 						'".$arr['rating']."',
 						'".$arr['body']."'
+						'".$arr['LeftPoint']."'
+						'".$arr['RightPoint']."'
 					)");
 	
 	$arr['dt'] = date('r',time());
