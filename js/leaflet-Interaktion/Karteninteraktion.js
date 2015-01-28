@@ -64,6 +64,16 @@ function onMapClick(e) {
 		var bounds = [bboxURcoor, bboxLLcoor];
 		bboxPolygon = L.rectangle(bounds, {color: "#FF0040", weight: 1}).addTo(map);
 		bboxLL = false;
+		if(TopicBBox != null) {
+			var k = TopicBBox.getBounds().intersects(bboxPolygon.getBounds());
+			if(k){
+				
+			}else{
+				alert("Der Kommentar muss innerhalb des Topics liegen");
+				document.write("<div data-alert class='alert-box success radius'>This is a success alert with a radius.<a href='#' class='close'>&times;</a></div>");
+			}
+			
+		}
 	}else if (createTopicbboxUR == true) {
 		createTopicbboxURcoor = e.latlng;
 		createTopicbboxLL = true;
