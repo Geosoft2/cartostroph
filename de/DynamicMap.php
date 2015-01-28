@@ -20,6 +20,8 @@
     	        <script src="../js/foundation/foundation.min.js"></script>
 	        <script src="../js/vendor/modernizr.js"></script>
 		<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+		<script src="../js/sweetAlert/sweet-alert.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../js/sweetAlert/sweet-alert.css">
 	   <!-- <script src="https://raw.githubusercontent.com/calvinmetcalf/leaflet-ajax/master/dist/leaflet.ajax.min.js"></script> -->
 	  	<!-- Date: 2014-12-17 -->
 
@@ -54,7 +56,7 @@ while($row = pg_fetch_assoc($result))
 </head>
 	<body>
 	<div class="fixed">
-        <nav class="top-bar" data-topbar role="navigation">
+        <nav id="topbar" class="top-bar" data-topbar role="navigation">
             <ul class="title-area">
                 <li class="name">
                     <h1><a href="index.php">Carto<span style="color: red;">stroph!</span></a></h1>
