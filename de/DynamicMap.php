@@ -353,7 +353,11 @@ while($row = pg_fetch_assoc($result))
 	<form id="addCommentForm" method="post" action="">
     	<div>
 	     <p>Autor <input id="name" type="text" readonly="readonly" name="name"/>
-         
+         	<label for="LeftPoint"></label>
+            <input type="text" name="LeftPoint" id="LeftPoint" />
+            <label for="RightPoint"></label>
+            <input type="text" name="RightPoint" id="RightPoint" /> 
+			
             <label for="page_id"></label>
             <input type="hidden" name="page_id" id="page_id" />
 
