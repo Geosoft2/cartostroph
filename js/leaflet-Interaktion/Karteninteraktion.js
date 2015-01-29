@@ -34,6 +34,10 @@ function discardTopic(){
 	if(bboxPolygon != null){
 			map.removeLayer(bboxPolygon);
 			bboxPolygon = null;
+			bboxURcoor = null;
+			bboxLLcoor = null;
+			document.getElementById("LeftPoint").value = lpoint;
+			document.getElementById("RightPoint").value = rpoint;
 		}	
 	};
 		
@@ -63,6 +67,8 @@ function onMapClick(e) {
 		bboxLLcoor = e.latlng;
 		var bounds = [bboxURcoor, bboxLLcoor];
 		bboxPolygon = L.rectangle(bounds, {color: "#FF0040", weight: 1}).addTo(map);
+		document.getElementById("LeftPoint").value = bboxLLcoor;
+		document.getElementById("RightPoint").value = bboxURcoor;
 		bboxLL = false;
 		if(TopicBBox != null) {
 			var k = TopicBBox.getBounds().intersects(bboxPolygon.getBounds());
