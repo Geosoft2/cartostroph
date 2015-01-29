@@ -41,8 +41,7 @@ include "commentSys/comment.class.php";
 /*
 /	Select all the comments and populate the $comments array with objects
 */
-$link = $_GET['url'];
-$cookie = $link;
+$cookie = $_COOKIE['URL'];
 $comments = array();
 $result = pg_query("SELECT * FROM comments
 WHERE page_id = '$cookie' ORDER BY id DESC");
@@ -244,7 +243,7 @@ while($row = pg_fetch_assoc($result))
 				<tr><th>URL:</th> <th id="URL"></th></tr>
 				<tr><th>Titel:</th> <th id="Titel"></th></tr>
 				<tr><th>Autor:</th> <th id="Autor"></th></tr>
-				<tr><th>Durchschnittliche Bewertung:</th> <th id="Bewertung"></th></tr>
+				<tr><th>Durchschnittliche bewertung:</th> <th id="Bewertung"></th></tr>
 				<tr><th>Kategorie:</th> <th id="Kategorie"></th></tr>
 				<tr><th>Hyperlinks:</th> <th id="Hyperlinks"></th></tr>
 				<tr><th>Tags:</th> <th  id="tag"></th"></tr>
@@ -262,7 +261,7 @@ while($row = pg_fetch_assoc($result))
 		include("config.php");
 		
 		// execute query
-		$url = (string)$_GET['url'];
+		$url = (string)$_COOKIE['URL'];
 		$sql = "SELECT bewertung, hyperlink, kategorie, titel, autor, tag, anfangsdatum ,enddatum FROM topic WHERE url_top = '$url'";
 		$result = pg_query($connection, $sql);
 		if (!$result) {
@@ -363,9 +362,7 @@ while($row = pg_fetch_assoc($result))
             <input type="hidden" name="page_id" id="page_id" />
 
 <script>
-//var url1 = getCookie("URL"); 
-var abc = window.location.href;
-var url1 = abc.substring(65);
+var url1 = getCookie("URL"); 
 document.getElementById("page_id").value= url1; 
 document.getElementById("name").value = author();
 </script>
@@ -448,9 +445,7 @@ foreach($comments as $c){
 		
 		
 		//var URL = 'http://giv-geosoft2c.uni-muenster.de/Bartosz/cartostroph/de/leonardttown.geojson'   //diese wird aus der Datenabnk gezogen
-		 //var URL = getCookie("URL"); 
-		 var abc = window.location.href;
-		 var URL = abc.substring(65);
+		 var URL = getCookie("URL"); 
 		 var Typ = URL.split(".");
 		 var Laenge = Typ.length;
 		 showDataOnMap(URL);
@@ -468,7 +463,7 @@ foreach($comments as $c){
 		include("config.php");
 		
 		// execute query
-		$url = $_GET['url'];
+		$url = $_COOKIE['URL'];
 		$sql = "SELECT lpoint, rpoint FROM topic WHERE url_top = '$url'";
 		$result = pg_query($connection, $sql);
 		if (!$result) {
