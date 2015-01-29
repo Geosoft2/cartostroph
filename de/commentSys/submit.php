@@ -23,9 +23,9 @@ if($validates)
 						'".$arr['name']."',
 						'".$arr['page_id']."',
 						'".$arr['rating']."',
-						'".$arr['body']."'
-						'".$arr['LeftPoint']."'
-						'".$arr['RightPoint']."'
+						'".$arr['body']."',
+						'".$arr['leftpoint']."  ',
+						'".$arr['rightpoint']."'
 					)");
 	
 	$arr['dt'] = date('r',time());

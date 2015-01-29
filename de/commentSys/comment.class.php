@@ -51,7 +51,8 @@ class Comment
 				<div class="rating">'.$d['rating'].'</div>
 				<div class="date" title="Added at '.date('H:i \o\n d M Y',$d['dt']).'">'.date('H:i \o\n d M Y',$d['dt']).'</div>
 				<p>'.$d['body'].'</p>
-
+				'.$d['leftpoint'].'
+				'.$d['rightpoint'].'
 				'.$edit.'
 	
 		</div>
@@ -80,6 +81,19 @@ class Comment
 			
 			$url_top = '';
 		}
+		if(!($data['leftpoint'] = filter_input(INPUT_POST,'leftpoint',FILTER_CALLBACK,array('options'=>'Comment::validate_text'))))
+		{
+
+			
+			$leftpoint = '';
+		}
+		if(!($data['rightpoint'] = filter_input(INPUT_POST,'rightpoint',FILTER_CALLBACK,array('options'=>'Comment::validate_text'))))
+		{
+
+			
+			$rightpoint = '';
+		}
+		
 		
 		// Using the filter with a custom callback function:
 		

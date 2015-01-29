@@ -353,10 +353,10 @@ while($row = pg_fetch_assoc($result))
 	<form id="addCommentForm" method="post" action="">
     	<div>
 	     <p>Autor <input id="name" type="text" readonly="readonly" name="name"/>
-         	<label for="LeftPoint"></label>
-            <input type="text" name="LeftPoint" id="LeftPoint" />
-            <label for="RightPoint"></label>
-            <input type="text" name="RightPoint" id="RightPoint" /> 
+         	<label for="leftpoint"></label>
+            <input type="text" name="leftpoint" id="leftpoint" />
+            <label for="rightpoint"></label>
+            <input type="text" name="rightpoint" id="rightpoint" /> 
 			
             <label for="page_id"></label>
             <input type="hidden" name="page_id" id="page_id" />
@@ -481,9 +481,9 @@ foreach($comments as $c){
 			echo 'var bounds = [['. $lpoint .'],[ '. $rpoint .']];';
 			echo'var TopicBBox = L.rectangle(bounds, {color: "black", weight: 1}).addTo(map);';
 			echo'map.fitBounds(bounds);';
-			echo 'document.getElementById("LeftPoint").value =  ['. $lpoint.'];';
+			echo 'document.getElementById("leftpoint").value =  ['. $lpoint.'];';
 			echo' var lpoint =['. $lpoint.'];';
-			echo 'document.getElementById("RightPoint").value =  ['. $rpoint.'];';
+			echo 'document.getElementById("rightpoint").value =  ['. $rpoint.'];';
 			echo' var rpoint =['. $rpoint.'];';
 			echo '</script>';
 			
