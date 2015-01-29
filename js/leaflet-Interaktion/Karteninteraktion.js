@@ -36,8 +36,8 @@ function discardTopic(){
 			bboxPolygon = null;
 			bboxURcoor = null;
 			bboxLLcoor = null;
-			document.getElementById("LeftPoint").value = lpoint;
-			document.getElementById("RightPoint").value = rpoint;
+			document.getElementById("leftpoint").value = lpoint;
+			document.getElementById("rightpoint").value = rpoint;
 		}	
 	};
 		
@@ -67,8 +67,29 @@ function onMapClick(e) {
 		bboxLLcoor = e.latlng;
 		var bounds = [bboxURcoor, bboxLLcoor];
 		bboxPolygon = L.rectangle(bounds, {color: "#FF0040", weight: 1}).addTo(map);
-		document.getElementById("leftpoint").value = bboxLLcoor;
-		document.getElementById("rightpoint").value = bboxURcoor;
+		
+		var kor = String(bboxLLcoor).slice(6,30)
+		var ki = kor.search(/,/);
+		kor1 = kor.slice(1,ki);
+		var kl = kor.indexOf(")");
+		//Salert(kl);
+		kor2 = kor.slice(ki+1,kl);
+		//alert(kor2);
+		var lpo = kor1 +"," + kor2;
+		document.getElementById("leftpoint").value = lpo;
+		
+		var kor = String(bboxURcoor).slice(6,30)
+		var ki = kor.search(/,/);
+		kor1 = kor.slice(1,ki);
+		var kl = kor.indexOf(")");
+		//alert(kl);
+		kor2 = kor.slice(ki+1,kl);
+		//alert(kor2);
+		var rpo = kor1 +"," + kor2;
+		document.getElementById("rightpoint").value = rpo;
+		//alert(kor);
+		//alert((string)bboxLLcoor.slice(0,6));
+		
 		bboxLL = false;
 		if(TopicBBox != null) {
 			var k = TopicBBox.getBounds().intersects(bboxPolygon.getBounds());
