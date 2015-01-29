@@ -67,8 +67,8 @@ function onMapClick(e) {
 		bboxLLcoor = e.latlng;
 		var bounds = [bboxURcoor, bboxLLcoor];
 		bboxPolygon = L.rectangle(bounds, {color: "#FF0040", weight: 1}).addTo(map);
-		document.getElementById("LeftPoint").value = bboxLLcoor;
-		document.getElementById("RightPoint").value = bboxURcoor;
+		document.getElementById("leftpoint").value = bboxLLcoor;
+		document.getElementById("rightpoint").value = bboxURcoor;
 		bboxLL = false;
 		if(TopicBBox != null) {
 			var k = TopicBBox.getBounds().intersects(bboxPolygon.getBounds());
