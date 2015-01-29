@@ -41,7 +41,8 @@ include "commentSys/comment.class.php";
 /*
 /	Select all the comments and populate the $comments array with objects
 */
-$cookie = $_COOKIE['URL'];
+$link = $_GET['url'];
+$cookie = $link;
 $comments = array();
 $result = pg_query("SELECT * FROM comments
 WHERE page_id = '$cookie' ORDER BY id DESC");
@@ -261,7 +262,7 @@ while($row = pg_fetch_assoc($result))
 		include("config.php");
 		
 		// execute query
-		$url = (string)$_COOKIE['URL'];
+		$url = (string)$_GET['url'];
 		$sql = "SELECT bewertung, hyperlink, kategorie, titel, autor, tag, anfangsdatum ,enddatum FROM topic WHERE url_top = '$url'";
 		$result = pg_query($connection, $sql);
 		if (!$result) {
@@ -362,7 +363,9 @@ while($row = pg_fetch_assoc($result))
             <input type="hidden" name="page_id" id="page_id" />
 
 <script>
-var url1 = getCookie("URL"); 
+//var url1 = getCookie("URL"); 
+var abc = window.location.href;
+var url1 = abc.substring(65);
 document.getElementById("page_id").value= url1; 
 document.getElementById("name").value = author();
 </script>
@@ -445,7 +448,9 @@ foreach($comments as $c){
 		
 		
 		//var URL = 'http://giv-geosoft2c.uni-muenster.de/Bartosz/cartostroph/de/leonardttown.geojson'   //diese wird aus der Datenabnk gezogen
-		 var URL = getCookie("URL"); 
+		 //var URL = getCookie("URL"); 
+		 var abc = window.location.href;
+		 var URL = abc.substring(65);
 		 var Typ = URL.split(".");
 		 var Laenge = Typ.length;
 		 showDataOnMap(URL);
@@ -463,7 +468,7 @@ foreach($comments as $c){
 		include("config.php");
 		
 		// execute query
-		$url = $_COOKIE['URL'];
+		$url = $_GET['url'];
 		$sql = "SELECT lpoint, rpoint FROM topic WHERE url_top = '$url'";
 		$result = pg_query($connection, $sql);
 		if (!$result) {
