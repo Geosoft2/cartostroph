@@ -365,11 +365,11 @@
 					<p>Breitengrad: <input id="lng" readonly="readonly" type="number" name="lng"/> </p>
   					<p>Längengrad: <input id="lat" readonly="readonly" type="number" name="lat"/> </p>
 		</form></h1>
-	</div>
+</div>
 
 
-<!-- popUp fuer Boundingbox -->
-<div id="BboxModal" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
+						<!-- popUp fuer Boundingbox -->
+						<div id="BboxModal" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
                     		<h3>Hier können Sie eine Bounding Box auf der Karte klicken. Klicken Sie das erste Mal für die obere rechte Ecke und das zweite Mal für die untere linke Ecke.</h3>
                     		<a id="setBbox" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">OK</a><br />
                     		<a id="rejectBbox" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>

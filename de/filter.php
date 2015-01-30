@@ -371,16 +371,28 @@
 							<p><abbr title="Hier können Sie auf Ihren Standort basiert eine räumliche Suche mit Radius machen. Bitte geben Sie die Kilometer an."><img src="../img/info.png" width="15px" height="15px"/></abbr>
 							Radiussuche in Kilometer <input type="text" id="radius" placeholder="0" name="radius" onchange="searchCircle()"></p>
 							</p>
-							<p>
-							 
-							<p>
-							mein Standort: 
-							<p>Breitengrad: <input id="lng" readonly="readonly" type="number" name="lng"/> </p>
-							<p>Längengrad: <input id="lat" readonly="readonly" type="number" name="lat"/> </p>
-                
+					<p>
+					<a style="text-align: right ;position: relative ; font-size: 100%" data-reveal-id="BboxModal" >Bounding Box</a>
                             <p><input id="filter" type="submit" class="button expand" value="Filtern" />
-                            </p>    
-                  </form></h1>
+                            </p>  
+					<p>
+					mein Standort: 
+					<p>Breitengrad: <input id="lng" readonly="readonly" type="number" name="lng"/> </p>
+  					<p>Längengrad: <input id="lat" readonly="readonly" type="number" name="lat"/> </p>
+		</form></h1>
+</div>
+
+
+						<!-- popUp fuer Boundingbox -->
+						<div id="BboxModal" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
+                    		<h3>Hier können Sie eine Bounding Box auf der Karte klicken. Klicken Sie das erste Mal für die obere rechte Ecke und das zweite Mal für die untere linke Ecke.</h3>
+                    		<a id="setBbox" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">OK</a><br />
+                    		<a id="rejectBbox" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
+                    		<script type="text/javascript">
+                    			document.getElementById("setBbox").onclick = searchBoundingBox;
+                    			document.getElementById("rejectBbox").onclick = discardTopic;
+                    		</script>
+						</div>
 
 </div>
     <!-- Skriptabschnitt -->
