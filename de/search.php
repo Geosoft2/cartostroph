@@ -356,6 +356,10 @@
 					<p><abbr title="Hier können Sie auf Ihren Standort basiert eine räumliche Suche mit Radius machen. Bitte geben Sie die Kilometer an."><img src="../img/info.png" width="15px" height="15px"/></abbr>
 					Radiussuche in Kilometer <input type="text" id="radius" placeholder="0" name="radius" onchange="searchCircle()"></p>
 					</p>
+					<label for="leftpoint"></label>
+            		<input type="text" name="leftpoint" id="leftpoint" />
+            		<label for="rightpoint"></label>
+            		<input type="text" name="rightpoint" id="rightpoint" /> 
 					<p>
 					<a style="text-align: right ;position: relative ; font-size: 100%" data-reveal-id="BboxModal" >Bounding Box</a>
                             <p><input id="filter" type="submit" class="button expand" value="Filtern" />
@@ -365,11 +369,11 @@
 					<p>Breitengrad: <input id="lng" readonly="readonly" type="number" name="lng"/> </p>
   					<p>Längengrad: <input id="lat" readonly="readonly" type="number" name="lat"/> </p>
 		</form></h1>
-</div>
+	</div>
 
 
-						<!-- popUp fuer Boundingbox -->
-						<div id="BboxModal" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
+<!-- popUp fuer Boundingbox -->
+<div id="BboxModal" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
                     		<h3>Hier können Sie eine Bounding Box auf der Karte klicken. Klicken Sie das erste Mal für die obere rechte Ecke und das zweite Mal für die untere linke Ecke.</h3>
                     		<a id="setBbox" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">OK</a><br />
                     		<a id="rejectBbox" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
@@ -390,6 +394,9 @@
 		
         // create a map in the "map" div, set the view to a given place and zoom
         var addMarker = false;
+        var TopicBBox = null;
+        var lpoint = null;
+        var rpoint = null
        
         var osmLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>',
     		thunLink = '<a href="http://thunderforest.com/">Thunderforest</a>';
