@@ -366,7 +366,6 @@ while($row = pg_fetch_assoc($result))
 //var url1 = getCookie("URL"); 
 var abc = window.location.href;
 var url1 = abc.substring(72);
-alert (url1);
 document.getElementById("page_id").value= url1; 
 document.getElementById("name").value = author();
 </script>
@@ -452,7 +451,6 @@ foreach($comments as $c){
 		 //var URL = getCookie("URL"); 
 		 var abc = window.location.href;
 		 var URL = abc.substring(72);
-		 alert(URL);
 		 var Typ = URL.split(".");
 		 var Laenge = Typ.length;
 		 showDataOnMap(URL);
