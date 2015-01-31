@@ -157,7 +157,7 @@ while($row = pg_fetch_assoc($result))
 						document.getElementById("benutzername").innerHTML = "Mein Profil: " + author();
 					  </script>
 					  <form action="alteruser.php" method="post">
-					  <button style="float: right;"> Daten �ndern</button>
+					  <button style="float: right;"> Daten ändern</button>
 						<?php
 						// attempt a connection
 						ini_set('display_errors', '1');
@@ -206,7 +206,7 @@ while($row = pg_fetch_assoc($result))
 					</div>
 			
 			  
-			  <br /><a href="#">Meine Topics und Kommentare</a>
+			  <br /><a href="infouser.php">Meine Topics und Kommentare</a>
 			  <br /><a href="logout.php">Logout</a>
 			</ul>
 			</div>

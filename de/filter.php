@@ -256,7 +256,7 @@
 					</div>
 			
 			  
-			  <br /><a href="#">Meine Topics und Kommentare</a>
+			  <br /><a href="infouser.php">Meine Topics und Kommentare</a>
 			  <br /><a href="logout.php">Logout</a>
 			</ul>
 	</div>
