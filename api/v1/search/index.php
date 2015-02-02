@@ -35,7 +35,9 @@ $array2 = array();
 
 while ($row = pg_fetch_array($result)) {
 		$URL = $row[0];
-		echo $URL;
+		$id = ("http://giv-geosoft2c.uni-muenster.de/Joana/Github/de/DynamicMap.php?url=".(string)$row[0]);
+		$text = $row[2];
+		
 					$sql6 = "SELECT bewertung FROM topic WHERE url_top = '$URL'";
 
                     $sql4 = "SELECT sum(rating) FROM comments WHERE page_id ='$URL'";
@@ -74,10 +76,10 @@ while ($row = pg_fetch_array($result)) {
 
                     $Bewertung = (string)$rating_avg;
 					
-	$id = ("http://giv-geosoft2c.uni-muenster.de/Joana/Github/de/DynamicMap.php?url=".(string)$row[0]);
-	$arr = array("id"=>$id, "text"=>($row[2]), "rating" => (float)$Bewertung, "itemUnderReview"=> $row[0]);
+	
+	$arr = array("id"=>htmlspecialchars($id), "text"=>htmlspecialchars((string)$text), "rating" => (float)htmlspecialchars($Bewertung), "itemUnderReview"=> htmlspecialchars($URL));
 
-	if ($row[1] == NULL) {
+	if ($Bewertung == NULL) {
 		unset($arr["rating"]);
 	}
 
