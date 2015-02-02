@@ -1,5 +1,7 @@
 <?php
 
+header('content-type application/json charset=utf-8');
+
 // attempt a connection
 		ini_set('display_errors', '1');
 		error_reporting(E_ALL | E_STRICT);
@@ -7,7 +9,7 @@
 		include("config.php");
 		global $config;
 		$connection = pg_connect($config["connection"]);
-		if (!$connection) {
+		if (!$connection){
 			die("Error in connection: " . pg_last_error());
 		}
 
@@ -32,7 +34,48 @@ $result = pg_query($connection, $sql);
 $array2 = array();
 
 while ($row = pg_fetch_array($result)) {
-	$arr = array("text"=>($row[2]), "rating" => (float)$row[1], "itemUnderReview"=> $row[0]);
+		$URL = $row[0];
+		echo $URL;
+					$sql6 = "SELECT bewertung FROM topic WHERE url_top = '$URL'";
+
+                    $sql4 = "SELECT sum(rating) FROM comments WHERE page_id ='$URL'";
+
+                    $sql5 = "SELECT count(rating) FROM comments WHERE page_id ='$URL'";
+
+                    $sql7 =  pg_query($connection, $sql6);
+                    $sql2 = pg_query($connection, $sql4);
+                    $sql3 = pg_query($connection, $sql5);
+
+
+                   while ($row = pg_fetch_array($sql7)) {
+                            $bewertungTopic = (float)$row[0]; 
+                        }
+
+                    while ($row = pg_fetch_array($sql2)) {
+                            $sum = (float)$row[0]; 
+                        }
+
+                    while ($row = pg_fetch_array($sql3)) {
+                            $count = (float)$row[0]; 
+                        }
+                    
+                    if ($bewertungTopic == NULL and $count == NULL) {
+                        $rating_avg = "Keine Bewertung";
+                        }
+                    elseif ($bewertungTopic != NULL) {
+                        
+                        $rating_avg = ($bewertungTopic + $sum) / ($count + 1);
+                        $rating_avg = round($rating_avg,2);
+                    } else {
+                     
+                     $rating_avg = ($bewertungTopic + $sum) / ($count); 
+                     $rating_avg = round($rating_avg,2);
+                    }
+
+                    $Bewertung = (string)$rating_avg;
+					
+	$id = ("http://giv-geosoft2c.uni-muenster.de/Joana/Github/de/DynamicMap.php?url=".(string)$row[0]);
+	$arr = array("id"=>$id, "text"=>($row[2]), "rating" => (float)$Bewertung, "itemUnderReview"=> $row[0]);
 
 	if ($row[1] == NULL) {
 		unset($arr["rating"]);
