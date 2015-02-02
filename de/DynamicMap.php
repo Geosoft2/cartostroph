@@ -379,7 +379,10 @@ while($row = pg_fetch_assoc($result))
   		      <span class="range-slider-handle" role="slider" tabindex="0"></span>
   		      <span class="range-slider-active-segment"></span> 
 			<input type="hidden" name = "rating">
-  		    </div> 
+  		    </div>
+  		    <script>
+  		    	document.getElementById("Bewertung").setAttribute("disabled","true",true);
+  		    </script>
   		  </div>
   		<div class="small-2 medium-1 columns">
   		<span id="sliderOutput3"></span>
