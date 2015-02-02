@@ -32,7 +32,7 @@
 */ 
 
 // Error reporting:
-error_reporting(E_ALL^E_NOTICE);
+//error_reporting(E_ALL^E_NOTICE);
 
 include "commentSys/connect.php";
 
@@ -256,8 +256,8 @@ while($row = pg_fetch_assoc($result))
 		<?php 
 	
 		// attempt a connection
-		ini_set('display_errors', '1');
-		error_reporting(E_ALL | E_STRICT);
+		//ini_set('display_errors', '1');
+		//error_reporting(E_ALL | E_STRICT);
 
 		include("config.php");
 		
@@ -361,15 +361,16 @@ while($row = pg_fetch_assoc($result))
 			
             <label for="page_id"></label>
             <input type="hidden" name="page_id" id="page_id" />
-
-<script>
-//var url1 = getCookie("URL"); 
-var abc = window.location.href;
-var url1 = abc.substring(72);
-document.getElementById("page_id").value= url1; 
-document.getElementById("name").value = author();
-</script>
-
+			<?php
+				$url = (string)$_GET['url'];
+				echo '<script>';
+				//var url1 = getCookie("URL"); 
+				//var abc = window.location.href;
+				//var url1 = abc.substring(72);
+				echo 'document.getElementById("page_id").value= "' . $url . '";'; 
+				echo 'document.getElementById("name").value = author();';
+				echo '</script>';
+			?>
   	<p><abbr title="Hier geben Sie an wie gut Sie den Datensatzfinden.Skala von 1(sehr schlecht/unbrauchbar) bis 5(perfekt)"><img src="../img/info.png" width="15px" height="15px"/></abbr> 
 		Bewertung (optional): <br /><input id="checkbox1" name="checkbox1" type="checkbox" onclick="activateAssessment()"><label for="checkbox1" >Bewertung ausschalten</label>
   		<div class="row">
@@ -450,8 +451,14 @@ foreach($comments as $c){
 		
 		//var URL = 'http://giv-geosoft2c.uni-muenster.de/Bartosz/cartostroph/de/leonardttown.geojson'   //diese wird aus der Datenabnk gezogen
 		 //var URL = getCookie("URL"); 
-		 var abc = window.location.href;
-		 var URL = abc.substring(72);
+		 <?php
+			$url = (string)$_GET['url'];
+			//echo '<script>';
+			//var abc = window.location.href;
+			//var URL = abc.substring(72);
+			echo 'var URL = "' . $url . '";';
+			//echo '</script>';
+		 ?>
 		 var Typ = URL.split(".");
 		 var Laenge = Typ.length;
 		 showDataOnMap(URL);
