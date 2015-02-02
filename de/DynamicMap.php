@@ -397,6 +397,40 @@ while($row = pg_fetch_assoc($result))
     </form>
 </div>
 
+<div id="Edit" class="reveal-modal" data-reveal>
+		<?php 
+		global $config;
+		
+		$connection = pg_connect($config["connection"]);
+		$sqlabfrage ="SELECT id FROM comments WHERE dt = '2015-01-14 11:47:33.781709'";
+		$idcomment = pg_query($connection,$sqlabfrage);
+		if (!$idcomment) {
+			die("Error in SQL query: " . pg_last_error());
+		}
+		while($row = pg_fetch_array($idcomment)) {
+		$idvomcom = (string)$row[0];
+
+		};	
+		?>
+
+	<div id="EditCommentContainer">
+	<p>Kommentar bearbeiten</p>
+	<form id="editCommentForm" method="post" action="">
+    	<div>
+	     <p>Autor <input id="name1" type="text" readonly="readonly" name="name"/>
+
+	    <label for="body">Kommentar</label>
+            <textarea name="body" id="body1" cols="20" rows="5"></textarea>
+            <input type="submit" id="submit" value="Abschicken" class="button"/>
+		
+
+<script>
+document.getElementById("name1").value = author();
+</script>
+</div>
+</div>
+</div>
+
 
 						<div id="BboxModal" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
                     		<h3>Hier können Sie eine Bounding Box auf der Karte klicken. Klicken Sie das erste Mal für die obere rechte Ecke und das zweite Mal für die untere linke Ecke.</h3>
