@@ -210,8 +210,6 @@
 					  <button style="float: right;"> Daten ändern</button>
 						<?php
 						// attempt a connection
-						ini_set('display_errors', '1');
-						error_reporting(E_ALL | E_STRICT);
 						include("config.php");
 						global $config;
 
@@ -328,6 +326,53 @@
 
 </div>
 <div id="SearchContent" class="large-4 columns"> <h1><h3>Filter</h3> <button class="tiny button" data-reveal-id="PermalinkModal">Permalink</button>
+	
+				<?php	
+					echo '<h6>Aktiver Filter</h6>';
+					echo '<ul class="breadcrumbs">';
+					
+					$suchbegriff = htmlspecialchars($_GET['search']);
+					echo '<li class="current"><a href="#">' . $suchbegriff . '</a></li>';
+					
+					$kategorie = '';
+					if ($_GET['KategorieSuche'] != ''){
+						$kategorie = $_GET['KategorieSuche'];
+						echo '<li class="current"><a href="#">' . $kategorie . '</a></li>';
+					}
+					
+					$start = '';
+					if ($_GET['startSuche'] != ''){
+						$start = "Start: ".$_GET['startSuche'];
+						echo '<li class="current"><a href="#">' . $start . '</a></li>';
+					}
+					
+					$end = '';
+					if ($_GET['endSuche'] != ''){
+						$end = "Ende: ".$_GET['endSuche'];
+						echo '<li class="current"><a href="#">' . $end . '</a></li>';
+					}
+					
+					$bewertung = '';
+					if ($_GET['BewertungSuche'] != ''){
+						$bewertung = "Bewertung: ".$_GET['BewertungSuche'];
+						echo '<li class="current"><a href="#">' . $bewertung . '</a></li>';
+					}
+					
+					$bbox = '';
+					if ($_GET['leftpoint'] != ''){
+						$bbox = "Suche basiert auf Boundingbox aktiv";
+						echo '<li class="current"><a href="#">' . $bbox . '</a></li>';
+					}
+					
+					$radius = '';
+					if ($_GET['radius'] != ''){
+						$radius = "Suche basiert auf Radius: ".$_GET['radius'];
+						echo '<li class="current"><a href="#">' . $radius . '</a></li>';
+					}
+					
+					echo '</ul>';
+				?>
+	
 	
 						<div id="PermalinkModal" class="reveal-modal" data-reveal>
                     		<h3>Der Permalink von Ihrer Suche</h3>
