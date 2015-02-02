@@ -244,7 +244,7 @@ while($row = pg_fetch_assoc($result))
 				<tr><th>URL:</th> <th id="URL"></th></tr>
 				<tr><th>Titel:</th> <th id="Titel"></th></tr>
 				<tr><th>Autor:</th> <th id="Autor"></th></tr>
-				<tr><th>Durchschnittliche Bewertung:</th> <th id="Bewertung"></th></tr>
+				<tr><th>Durchschnittliche Bewertung:</th> <th id="DBewertung"></th></tr>
 				<tr><th>Kategorie:</th> <th id="Kategorie"></th></tr>
 				<tr><th>Hyperlinks:</th> <th id="Hyperlinks"></th></tr>
 				<tr><th>Tags:</th> <th  id="tag"></th"></tr>
@@ -335,7 +335,7 @@ while($row = pg_fetch_assoc($result))
 			echo 'document.getElementById("URL").innerHTML =  "<a href=" + "' . $url . '" + ">"+ "' . $url . '"   + "</a>";';
 			echo 'document.getElementById("Titel").innerHTML = "'. $titel .'";';
 			echo 'document.getElementById("Autor").innerHTML = "'. $autor .'";';
-			echo 'document.getElementById("Bewertung").innerHTML = "'. $Bewertung .'";';
+			echo 'document.getElementById("DBewertung").innerHTML = "'. $Bewertung .'";';
 			echo 'document.getElementById("Kategorie").innerHTML = "'. $kategorie .'";';
 			echo 'document.getElementById("Hyperlinks").innerHTML = "'. $hyperlink .'";';
 			echo 'document.getElementById("tag").innerHTML = "'. $tag .'";';
