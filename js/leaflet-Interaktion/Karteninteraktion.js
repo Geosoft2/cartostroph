@@ -357,3 +357,15 @@ function commentIntersectsTopic() {
 	return false;
 }
 
+function drawBox(l,r) {
+	l = l.replace(/[{()}]/g, '');
+	r = r.replace(/[{()}]/g, '');
+	var KoordinatenL = l.split(",");
+	var KoordinatenR = r.split(",");
+	var bou = [[KoordinatenL[0],KoordinatenL[1]], [KoordinatenR[0],KoordinatenR[1]]];
+	if(comBBox != null) {
+		map.removeLayer(comBBox);
+	}
+	
+	comBBox =L.rectangle(bou, {color: "#ff7800", weight: 1}).addTo(map);
+}

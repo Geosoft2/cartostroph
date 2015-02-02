@@ -43,19 +43,35 @@ class Comment
 			$edit  = '';
 		}
 			
+		echo '<script>';
+		echo 'var lp = "'.$d['leftpoint'].'" ;';
+		echo 'var rp = "'.$d['rightpoint'].'"; ';
+		echo 'lp = lp.replace(/[{()}]/g, "");';
+		echo 'rp = rp.replace(/[{()}]/g, "");';
+		echo 'var bound = [[lp], [rp]];
+				//alert(bound); ';
+		// echo 'alert(lp);';	
+		echo '</script>';	
+		
+			
 		return '
 		
+			
+			
 			<div class="comment">
 				<div class="avatar">'.$avatar.'</div>			
 				<div class="name">'.$d['name'].'</div>
 				<div class="rating">'.$d['rating'].'</div>
 				<div class="date" title="Added at '.date('H:i \o\n d M Y',$d['dt']).'">'.date('H:i \o\n d M Y',$d['dt']).'</div>
+				<input type="hidden" value='.$d['leftpoint'].' />
+				<input type="hidden" value='.$d['rightpoint'].' />
+				<a onclick="drawBox(this.parentNode.childNodes[9].value, this.parentNode.childNodes[11].value)" class="button tiny">BBox auf der Karte Zeichnen</a>
 				<p>'.$d['body'].'</p>
 				'.$d['leftpoint'].'
 				'.$d['rightpoint'].'
 				'.$edit.'
 	
-		</div>
+			</div>
 		';
 	}
 

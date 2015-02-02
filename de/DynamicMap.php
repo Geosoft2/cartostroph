@@ -419,6 +419,7 @@ foreach($comments as $c){
 </div>
 	<script>
 	var addMarker = false;
+	var comBBox = null;
 	var map = L.map('map', {
 			minZoom: 2 ,
     		worldCopyJump : true
