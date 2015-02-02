@@ -102,12 +102,11 @@
 			echo 'URL: ' . $URL . '<br />';
 			echo 'Titel: ' . $Titel . '<br />';
 			echo 'Text: ' . $Text;
-			//echo '<a href=\"DynamicMap.php\">Mehr Infos...</a>';
 			echo '<form action=DynamicMap.php method=get>';
 			echo '<input type=hidden name=url value=';
 			echo $URL;
 			echo '>';
-			echo '<input id=filter type=submit value="Mehr Infos..."/>';
+			echo '<input class="button tiny" id=filter type=submit value="Mehr Infos..."/>';
 			echo '</form>';
 			echo '<br />';
 			
@@ -151,12 +150,11 @@
 					
 			echo 'URL: ' . $URL . '<br />';
 			echo 'Text: ' . $Text;
-			//echo '<a href=\"DynamicMap.php\">Mehr Infos...</a>';
 			echo '<form action=DynamicMap.php method=get>';
 			echo '<input type=hidden name=url value=';
 			echo $URL;
 			echo '>';
-			echo '<input id=filter type=submit value="Mehr Infos..."/>';
+			echo '<input class="button tiny" id=filter type=submit value="Mehr Infos..."/>';
 			echo '</form>';
 			echo '<br />';
 			
