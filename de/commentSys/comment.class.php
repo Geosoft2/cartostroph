@@ -43,17 +43,6 @@ class Comment
 			$edit  = '';
 		}
 			
-		echo '<script>';
-		echo 'var lp = "'.$d['leftpoint'].'" ;';
-		echo 'var rp = "'.$d['rightpoint'].'"; ';
-		echo 'lp = lp.replace(/[{()}]/g, "");';
-		echo 'rp = rp.replace(/[{()}]/g, "");';
-		echo 'var bound = [[lp], [rp]];
-				//alert(bound); ';
-		// echo 'alert(lp);';	
-		echo '</script>';	
-		
-			
 		return '
 		
 			
