@@ -614,9 +614,9 @@
            $sqlContent = $sqlContent.$bbox; 
 
 
-           if ($raduis == "") {
+           if ($radius == "") {
                 $center = "";
-           } elseif ($sqlContent == "" and $o) {
+           } elseif ($sqlContent == "") {
             $center = "circle '(($ownPositionlng,$ownPositionlat),$radius)' @> position";
            } 
            else {
