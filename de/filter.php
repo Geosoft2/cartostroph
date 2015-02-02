@@ -381,8 +381,8 @@
                             </p>  
                     <p>
 					mein Standort: 
-					<p>Breitengrad: <input id="lng" readonly="readonly" type="number" name="lng"/> </p>
-  					<p>Längengrad: <input id="lat" readonly="readonly" type="number" name="lat"/> </p>
+					<p>Breitengrad: <input id="lat" readonly="readonly" type="number" name="lat"/> </p>
+  					<p>Längengrad: <input id="lng" readonly="readonly" type="number" name="lng"/> </p>
 		</form></h1>
 </div>
 
@@ -526,11 +526,14 @@
 		
         $bboxLeft = $_GET['leftpoint'];
         $bboxRight = $_GET['rightpoint'];
-        
-        //echo "$bboxLeft";
-        //echo "$bboxRight";
 
-        //Hilfsvariable für den SQL Befehl
+        $ownPositionlng = $_GET['lat'];
+        $ownPositionlat = $_GET['lng'];  
+        $radius = $_GET['radius'];
+        $radius = (float)$radius;
+        $radius = ($radius/111);
+
+         //Hilfsvariable für den SQL Befehl
 		//$sqlContent = "";
 		$suchbegriffHilf = "";
 
@@ -554,9 +557,9 @@
 		$sqlContent = $sqlContent.$kategorieHilf;
                 
 
-        if ($bboxLeft == NULL) {
+        if ($bboxLeft == "") {
             $bbox = "";
-        }  elseif ($suchbegriff =="" and $katwert == NULL and $bboxLeft != NULL) {
+        }  elseif ($suchbegriff =="" and $katwert == NULL and $bbox != "") {
             $bbox = "box '(($bboxLeft),($bboxRight))' @> position";
         } else {
             $bbox = " AND (box '(($bboxLeft),($bboxRight))' @> position)";
@@ -564,6 +567,18 @@
 
 
            $sqlContent = $sqlContent.$bbox; 
+
+
+           if ($raduis == "") {
+                $center = "";
+           } elseif ($sqlContent == "" and $o) {
+            $center = "circle '(($ownPositionlng,$ownPositionlat),$radius)' @> position";
+           } 
+           else {
+            $center = " AND (circle '(($ownPositionlng,$ownPositionlat),$radius)' @> position)";
+           }
+
+           $sqlContent = $sqlContent.$center;
 
               /*  if ($bewert == NULL) {
                     $bewertungHilf = "";
@@ -577,7 +592,7 @@
                 //$sqlContent = $sqlContent.$bewertungHilf;
 
 
-                if ($suchbegriff == "" and $katwert == NULL and $bboxLeft == NULL) {
+                if ($suchbegriff == "" and $katwert == NULL and $bboxLeft == "" and $ownPositionlng =="") {
                 $zeitlichesAusmaß = "(anfangsdatum <= '$start' AND enddatum >= '$start') OR (anfangsdatum <= '$end' AND enddatum >= '$end') OR (anfangsdatum >= '$start' AND anfangsdatum <= '$end') OR (enddatum >= '$start' AND enddatum <= '$end');";
                 } else {
                 $zeitlichesAusmaß = " AND ((anfangsdatum <= '$start' AND enddatum >= '$start') OR (anfangsdatum <= '$end' AND enddatum >= '$end') OR (anfangsdatum >= '$start' AND anfangsdatum <= '$end') OR (enddatum >= '$start' AND enddatum <= '$end'));";
