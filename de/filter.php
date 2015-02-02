@@ -369,13 +369,17 @@
                             </select>
                             </p>
 							<p><abbr title="Hier können Sie auf Ihren Standort basiert eine räumliche Suche mit Radius machen. Bitte geben Sie die Kilometer an."><img src="../img/info.png" width="15px" height="15px"/></abbr>
-							Radiussuche in Kilometer <input type="text" id="radius" placeholder="0" name="radius" onchange="searchCircle()"></p>
-							</p>
-					<p>
-					<a style="text-align: right ;position: relative ; font-size: 100%" data-reveal-id="BboxModal" >Bounding Box</a>
+                    Radiussuche in Kilometer <input type="text" id="radius" placeholder="0" name="radius" onchange="searchCircle()"></p>
+                    </p>
+                    <label for="leftpoint"></label>
+                    <input type="hidden" name="leftpoint" id="leftpoint" />
+                    <label for="rightpoint"></label>
+                    <input hidden="hidden" name="rightpoint" id="rightpoint" /> 
+                    <p>
+                    <a style="text-align: right ;position: relative ; font-size: 100%" data-reveal-id="BboxModal" >Bounding Box</a>
                             <p><input id="filter" type="submit" class="button expand" value="Filtern" />
                             </p>  
-					<p>
+                    <p>
 					mein Standort: 
 					<p>Breitengrad: <input id="lng" readonly="readonly" type="number" name="lng"/> </p>
   					<p>Längengrad: <input id="lat" readonly="readonly" type="number" name="lat"/> </p>
@@ -519,7 +523,14 @@
 				$bewert = NULL;
 		} 
 
-		//Hilfsvariable für den SQL Befehl
+		
+        $bboxLeft = $_GET['leftpoint'];
+        $bboxRight = $_GET['rightpoint'];
+        
+        //echo "$bboxLeft";
+        //echo "$bboxRight";
+
+        //Hilfsvariable für den SQL Befehl
 		//$sqlContent = "";
 		$suchbegriffHilf = "";
 
@@ -543,6 +554,17 @@
 		$sqlContent = $sqlContent.$kategorieHilf;
                 
 
+        if ($bboxLeft == NULL) {
+            $bbox = "";
+        }  elseif ($suchbegriff =="" and $katwert == NULL and $bboxLeft != NULL) {
+            $bbox = "box '(($bboxLeft),($bboxRight))' @> position";
+        } else {
+            $bbox = " AND (box '(($bboxLeft),($bboxRight))' @> position)";
+        }
+
+
+           $sqlContent = $sqlContent.$bbox; 
+
               /*  if ($bewert == NULL) {
                     $bewertungHilf = "";
                 } elseif ($suchbegriff == "" and $katwert == NULL) {
@@ -555,7 +577,7 @@
                 //$sqlContent = $sqlContent.$bewertungHilf;
 
 
-                if ($suchbegriff == "" and $katwert == NULL) {
+                if ($suchbegriff == "" and $katwert == NULL and $bboxLeft == NULL) {
                 $zeitlichesAusmaß = "(anfangsdatum <= '$start' AND enddatum >= '$start') OR (anfangsdatum <= '$end' AND enddatum >= '$end') OR (anfangsdatum >= '$start' AND anfangsdatum <= '$end') OR (enddatum >= '$start' AND enddatum <= '$end');";
                 } else {
                 $zeitlichesAusmaß = " AND ((anfangsdatum <= '$start' AND enddatum >= '$start') OR (anfangsdatum <= '$end' AND enddatum >= '$end') OR (anfangsdatum >= '$start' AND anfangsdatum <= '$end') OR (enddatum >= '$start' AND enddatum <= '$end'));";
