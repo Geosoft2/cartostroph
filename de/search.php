@@ -357,9 +357,9 @@
 					Radiussuche in Kilometer <input type="text" id="radius" placeholder="0" name="radius" onchange="searchCircle()"></p>
 					</p>
 					<label for="leftpoint"></label>
-            		<input type="text" name="leftpoint" id="leftpoint" />
+            		<input type="hidden" name="leftpoint" id="leftpoint" />
             		<label for="rightpoint"></label>
-            		<input type="text" name="rightpoint" id="rightpoint" /> 
+            		<input hidden="hidden" name="rightpoint" id="rightpoint" /> 
 					<p>
 					<a style="text-align: right ;position: relative ; font-size: 100%" data-reveal-id="BboxModal" >Bounding Box</a>
                             <p><input id="filter" type="submit" class="button expand" value="Filtern" />
