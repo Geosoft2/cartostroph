@@ -331,12 +331,15 @@
 					echo '<h6>Aktiver Filter</h6>';
 					echo '<ul class="breadcrumbs">';
 					
-					$suchbegriff = htmlspecialchars($_GET['search']);
-					echo '<li class="current"><a href="#">' . $suchbegriff . '</a></li>';
+					$suchbegriff = '';
+					if ($_GET['search'] != ''){
+						$suchbegriff = "Suchbegriff: ".htmlspecialchars($_GET['search']);
+						echo '<li class="current"><a href="#">' . $suchbegriff . '</a></li>';
+					}
 					
 					$kategorie = '';
 					if ($_GET['KategorieSuche'] != ''){
-						$kategorie = $_GET['KategorieSuche'];
+						$kategorie = "Kategorie: ".$_GET['KategorieSuche'];
 						echo '<li class="current"><a href="#">' . $kategorie . '</a></li>';
 					}
 					
