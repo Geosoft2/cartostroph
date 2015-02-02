@@ -37,7 +37,7 @@ class Comment
 		}
 			
 		if($d['name'] === "$_COOKIE[Autor]") {	
-		$edit = '<button type="submit" id="edit" >Bearbeiten</button>';
+		$edit = '<button type="submit" id="edit" data-reveal-id="Edit" >Bearbeiten</button>';
 	
 		}  else   { 
 			$edit  = '';
@@ -59,6 +59,7 @@ class Comment
 				'.$d['leftpoint'].'
 				'.$d['rightpoint'].'
 				'.$edit.'
+				<input type="text" name="id" id="id" value = '.$d['id'].' />
 	
 			</div>
 		';
