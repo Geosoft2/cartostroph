@@ -102,7 +102,7 @@
        </br>
 	<p>Ihr Login schlug fehl.</p>
 		<p>Bitte überprüfen Sie Ihr Passwort und Ihren Benutzernamen und versuchen es erneut.</p>
-		<p>Wenn sie Ihr Passwort oder Ihren Benutzernamen vergessen haben registrieren Sie sich bitte neu.</p>
+		<p>Wenn sie Ihr Passwort oder Ihren Benutzernamen vergessen haben, registrieren Sie sich bitte neu.</p>
 		 <form id="top-nav-login" action="login.php" method="post">
             <div class="row">
                 <label>Nutzer</label>

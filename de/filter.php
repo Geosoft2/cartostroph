@@ -87,7 +87,7 @@
 						
 						<!-- popUp fuer Boundingbox -->
 						<div id="confirmBbox"data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
-							<h3>Sind Sie mit der Boundingbox zufrieden?</h3>
+							<h3>Sind Sie mit der räumlichen Ausdehnung zufrieden?</h3>
 							<a id="setBbox3" style="text-align: right ;position: relative ; font-size: 120%"  class="close-reveal-modal" data-reveal-id="newTopicModal">Ja</a><br />
                     		<a id="rejectBbox2" onclick="discardTopic()" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Nein</a>
                     		<script>
@@ -111,8 +111,9 @@
 					                Region
 					                Stadt
 				                    ">
-						            <img src="../img/info.png" width="15px" height="15px"/></abbr>&ensp;Kategorie:
+						            <img src="../img/info.png" width="15px" height="15px"/></abbr>&ensp;Kategorie
 									<select id="Kategorie" name="Kategorie">
+										<option value="Keine">Keine Kategorie</option>
   								        <option value="Welt">Welt</option>
   										<option value="Kontinent">Kontinent</option>
   										<option value="Land">Land</option>
@@ -375,7 +376,7 @@
     <div class="large-8 columns" id="map" style="height: 100%;">
 
 </div>
-<div id="SearchContent" class="large-4 columns">  <h3 style="display: inline">Suche  </h3><button class="tiny button" data-reveal-id="PermalinkModal">Permalink</button>
+<div id="SearchContent" class="large-4 columns">  <h3 style="display: inline">Suche  </h3>
 	
 				<?php	
 					echo '<h6>Aktiver Filter</h6>';
@@ -388,7 +389,7 @@
 					}
 					
 					$kategorie = '';
-					if ($_GET['KategorieSuche'] != ''){
+					if ($_GET['KategorieSuche'] != '' && $_GET['KategorieSuche'] != 'Keine'){
 						$kategorie = "Kategorie: ".$_GET['KategorieSuche'];
 						echo '<li class="current"><a href="#">' . $kategorie . '</a></li>';
 					}
@@ -406,7 +407,7 @@
 					}
 					
 					$bewertung = '';
-					if ($_GET['BewertungSuche'] != ''){
+					if ($_GET['BewertungSuche'] != '' && $_GET['BewertungSuche'] != 'Keine'){
 						$bewertung = "Bewertung: ".$_GET['BewertungSuche'];
 						echo '<li class="current"><a href="#">' . $bewertung . '</a></li>';
 					}
@@ -425,7 +426,8 @@
 					
 					echo '</ul>';
 				?>
-	
+				
+				<button class="tiny button" data-reveal-id="PermalinkModal">Permalink</button>
 	
 						<div id="PermalinkModal" class="reveal-modal" data-reveal>
                     		<h3>Der Permalink von Ihrer Suche</h3>
@@ -442,7 +444,7 @@
 	
                             <form action="filter.php" method="get">
                             <p><input type="text" placeholder="Suche" name="search"></p>
-                            <p>Kategorie: <select id="KategorieSuche" name="KategorieSuche">
+                            <p>Kategorie (optional)<select id="KategorieSuche" name="KategorieSuche">
                                 <option value="Keine">Keine Kategorie</option>
                                 <option value="Welt">Welt</option>
                                 <option value="Kontinent">Kontinent</option>
@@ -475,7 +477,7 @@
                     <input hidden="hidden" name="rightpoint" id="rightpoint" /> 
                     <p>
                     <a style="text-align: right ;position: relative ; font-size: 100%" data-reveal-id="BboxModal" class="button tiny" >Räumliche Ausdehnung</a>
-                            <p><input id="filter" type="submit" class="button expand" value="Filtern" />
+                            <p><input id="filter" type="submit" class="button expand" value="Suchen" />
                             </p>  
                     <p>
 					mein Standort: 
@@ -546,6 +548,12 @@
         map.on('locationerror', onLocationError);
 		L.control.pan().addTo(map);
 		map.addControl(L.control.search());
+		
+		//<?php
+		//	echo 'bboxURcoor2 = '.$_GET['leftpoint'];
+		//	echo 'bboxLLcoor2 = '.$_GET['rightpoint'];
+		//?>
+		
 		bboxURcoor2 = String(getCookie("bboxURcoor"));
 		bboxLLcoor2 = String(getCookie("bboxLLcoor"));
 		bboxURcoor2 = bboxURcoor2.substring(6,bboxURcoor2.length);
@@ -652,7 +660,7 @@
 		$suchbegriffHilf = "";
 
 		if ($suchbegriff != "") {
-			$suchbegriffHilf = "(UPPER(text) LIKE UPPER('%$suchbegriff%') OR UPPER (titel) LIKE UPPER('%$suchbegriff%') OR UPPER(tag) LIKE UPPER('%$suchbegriff%') OR UPPER(body) LIKE UPPER('%$suchbegriff%'))";
+			$suchbegriffHilf = "(UPPER(text) LIKE UPPER('%$suchbegriff%') OR UPPER (titel) LIKE UPPER('%$suchbegriff%') OR UPPER(tag) LIKE UPPER('%$suchbegriff%') OR UPPER(body) LIKE UPPER('%$suchbegriff%') OR UPPER(url_top) LIKE UPPER('%$suchbegriff%'))";
 		}
 
 
@@ -761,7 +769,7 @@
             
 
                         if ($bewertungTopic == NULL and $count == NULL) {
-                            $rating_avg = 0;
+                            $rating_avg = "Keine Bewertung";
                             }
                         elseif ($bewertungTopic != NULL) {
                             $rating_avg = ($bewertungTopic + $sum) / ($count + 1);

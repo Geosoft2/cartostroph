@@ -94,7 +94,7 @@
 						
 						<!-- popUp fuer Boundingbox -->
 						<div id="confirmBbox"data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
-							<h3>Sind Sie mit der Boundingbox zufrieden?</h3>
+							<h3>Sind Sie mit der räumlichen Ausdehnung zufrieden?</h3>
 							<a id="setBbox3" style="text-align: right ;position: relative ; font-size: 120%"  class="close-reveal-modal" data-reveal-id="newTopicModal">Ja</a><br />
                     		<a id="rejectBbox2" onclick="discardTopic()" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Nein</a>
                     		<script>
@@ -111,15 +111,16 @@
   								<p><abbr title="Hier geben Sie an unter welcher Internetadresse der Geodatensatz auffindbar ist"><img src="../img/info.png" width="15px" height="15px" /></abbr> URL: <input type="text" id="URL" name="URL" required/> </p>
   								<p><abbr title="Hier geben Sie einen geeigneten Titel des Datensatzens an, z.B. 'Überflutungsdaten Münster 2014'"><img src="../img/info.png" width="15px" height="15px"/></abbr> Titel: <input type="text" id="Titel" name="Titel" required /></p>
   								<p><abbr title="Hier geben Sie an was Sie über den Geodatensatz denken. Ist er hilfreich? Ist er gut? Fehlt etwas? etc."><img src="../img/info.png" width="15px" height="15px"/></abbr> Kommentar: <textarea type="text"  id="Kommentar" name="Kommentar" required></textarea></p>
-  								<p><abbr title="Hier geben Sie an wie groß das Gebiet ist, welches vom Geodatensatz abgedeckt wird. Zur Auswahl stehen:
+  								<p><abbr title="Hier geben Sie optional an wie groß das Gebiet ist, welches vom Geodatensatz abgedeckt wird. Zur Auswahl stehen:
 					                Welt
 					                Kontinent
 					                Land
 					                Region
 					                Stadt
-				                    ">
-						            <img src="../img/info.png" width="15px" height="15px"/></abbr>&ensp;Kategorie:
+				                    " style ="text-align:left;">
+						            <img src="../img/info.png" width="15px" height="15px"/></abbr>&ensp;Kategorie
 									<select id="Kategorie" name="Kategorie">
+										<option value="Keine">Keine Kategorie</option>
   								        <option value="Welt">Welt</option>
   										<option value="Kontinent">Kontinent</option>
   										<option value="Land">Land</option>

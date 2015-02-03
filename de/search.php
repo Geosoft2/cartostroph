@@ -86,7 +86,7 @@
 						
 						<!-- popUp fuer Boundingbox -->
 						<div id="confirmBbox"data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
-							<h3>Sind Sie mit der Boundingbox zufrieden?</h3>
+							<h3>Sind Sie mit der räumlichen Ausdehnung zufrieden?</h3>
 							<a id="setBbox3" style="text-align: right ;position: relative ; font-size: 120%"  class="close-reveal-modal" data-reveal-id="newTopicModal">Ja</a><br />
                     		<a id="rejectBbox2" onclick="discardTopic()" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Nein</a>
                     		<script>
@@ -110,8 +110,9 @@
 					                Region
 					                Stadt
 				                    ">
-						            <img src="../img/info.png" width="15px" height="15px"/></abbr>&ensp;Kategorie:
+						            <img src="../img/info.png" width="15px" height="15px"/></abbr>&ensp;Kategorie
 									<select id="Kategorie" name="Kategorie">
+										<option value="Keine">Keine Kategorie</option>
   								        <option value="Welt">Welt</option>
   										<option value="Kontinent">Kontinent</option>
   										<option value="Land">Land</option>
@@ -410,7 +411,7 @@
             		<input hidden="hidden" name="rightpoint" id="rightpoint" /> 
 					<p>
 					<a style="text-align: right ;position: relative ; font-size: 100%" data-reveal-id="BboxModal" class="button tiny" >Räumliche Ausdehnung</a>
-                            <p><input id="filter" type="submit" class="button expand" value="Filtern" />
+                            <p><input id="filter" type="submit" class="button expand" value="Suchen" />
                             </p>  
 					<p>
 					mein Standort: 

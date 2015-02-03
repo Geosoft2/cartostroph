@@ -128,7 +128,7 @@
 		
 		// if result couldn't show text
 		if (!$fetched){
-			echo 'Sie haben bisher keine Kommentare selbst erstellt.';
+			echo 'Sie haben bisher keine Topics erstellt.';
 		}
 		
 	
@@ -186,7 +186,7 @@
 		
 		// if result couldn't show text
 		if (!$fetched){
-			echo 'Sie haben bisher keine Kommentare selbst erstellt.';
+			echo 'Sie haben bisher keine Kommentare erstellt.';
 		}
 		
 		
