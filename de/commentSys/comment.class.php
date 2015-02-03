@@ -75,7 +75,7 @@ class Comment
             		 <textarea name="body1" id="body1" cols="20" rows="5"></textarea>
             
 	    		 <input type="hidden" name="id1" id="id1" value = '.$d['id'].' />
-	
+			 <input type="hidden" name="urleins" id="urleins" value = '.$d['page_id'].' />
 	
 			<button style="float: left;"> Bearbeiten</button>
 			</form>
