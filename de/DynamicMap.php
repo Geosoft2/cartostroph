@@ -160,8 +160,6 @@ while($row = pg_fetch_assoc($result))
 					  <button style="float: right;"> Daten ändern</button>
 						<?php
 						// attempt a connection
-						ini_set('display_errors', '1');
-						error_reporting(E_ALL | E_STRICT);
 						include("config.php");
 						global $config;
 
@@ -507,9 +505,6 @@ foreach($comments as $c){
 	<?php 
 	
 		// attempt a connection
-		ini_set('display_errors', '1');
-		error_reporting(E_ALL | E_STRICT);
-
 		include("config.php");
 		
 		// execute query
