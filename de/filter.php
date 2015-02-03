@@ -342,7 +342,7 @@
     <div class="large-8 columns" id="map" style="height: 100%;">
 
 </div>
-<div id="SearchContent" class="large-4 columns">  <h3 style="display: inline">Suche  </h3><button class="tiny button" data-reveal-id="PermalinkModal">Permalink</button>
+<div id="SearchContent" class="large-4 columns">  <h3 style="display: inline">Suche  </h3>
 	
 				<?php	
 					echo '<h6>Aktiver Filter</h6>';
@@ -393,6 +393,7 @@
 					echo '</ul>';
 				?>
 	
+					<button class="tiny button" data-reveal-id="PermalinkModal">Permalink</button>
 	
 						<div id="PermalinkModal" class="reveal-modal" data-reveal>
                     		<h3>Der Permalink von Ihrer Suche</h3>
@@ -409,7 +410,7 @@
 	
                             <form action="filter.php" method="get">
                             <p><input type="text" placeholder="Suche" name="search"></p>
-                            <p>Kategorie: <select id="KategorieSuche" name="KategorieSuche">
+                            <p>Kategorie <select id="KategorieSuche" name="KategorieSuche">
                                 <option value="Keine">Keine Kategorie</option>
                                 <option value="Welt">Welt</option>
                                 <option value="Kontinent">Kontinent</option>
@@ -424,7 +425,7 @@
                   <p><abbr title="Hier geben Sie an bis wann der Datensatz gültig war bzw. voraussichtlich sein wird."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
                   Ende <input type="date" id="endSuche" name="endSuche" />  
                   </p>
-                    <p>Bewertung: <select id="BewertungSuche" name="BewertungSuche">
+                    <p>Bewertung <select id="BewertungSuche" name="BewertungSuche">
                                 <option value="Keine">Keine Einschränkung</option>
                                 <option value="1">1 oder höher</option>
                                 <option value="2">2 oder höher</option>
@@ -445,9 +446,9 @@
                             <p><input id="filter" type="submit" class="button expand" value="Filtern" />
                             </p>  
                     <p>
-					mein Standort: 
-					<p>Breitengrad: <input id="lat" readonly="readonly" type="number" name="lat"/> </p>
-  					<p>Längengrad: <input id="lng" readonly="readonly" type="number" name="lng"/> </p>
+					mein Standort 
+					<p>Breitengrad <input id="lat" readonly="readonly" type="number" name="lat"/> </p>
+  					<p>Längengrad <input id="lng" readonly="readonly" type="number" name="lng"/> </p>
 		</form></h1>
 </div>
 
