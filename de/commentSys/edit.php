@@ -9,6 +9,7 @@
 
 	$ID =     $_POST['id1'];
 	$body = (string)$_POST['body1'];
+	$urleins =     $_POST['urleins'];
 
 	
 	// execute query
@@ -19,6 +20,6 @@
 		die("Error in SQL query: " . pg_last_error());
 	}
 
-	
+	header("Location: ../DynamicMap.php?url=$urleins");
 
 ?>
