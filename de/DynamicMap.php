@@ -353,9 +353,9 @@ while($row = pg_fetch_assoc($result))
     	<div>
 	     <p>Autor <input id="name" type="text" readonly="readonly" name="name"/>
          	<label for="leftpoint"></label>
-            <input type="text" name="leftpoint" id="leftpoint" />
+            <input type="text" readonly="true" name="leftpoint" id="leftpoint" />
             <label for="rightpoint"></label>
-            <input type="text" name="rightpoint" id="rightpoint" /> 
+            <input type="text" readonly="true" name="rightpoint" id="rightpoint" /> 
 			
             <label for="page_id"></label>
             <input type="hidden" name="page_id" id="page_id" />
@@ -370,7 +370,7 @@ while($row = pg_fetch_assoc($result))
 				echo '</script>';
 			?>
   	<p><abbr title="Hier geben Sie an wie gut Sie den Datensatzfinden.Skala von 1(sehr schlecht/unbrauchbar) bis 5(perfekt)"><img src="../img/info.png" width="15px" height="15px"/></abbr> 
-		Bewertung (optional): <br /><input id="checkbox1" name="checkbox1" type="checkbox" onclick="activateAssessment()"><label for="checkbox1" >Bewertung ausschalten</label>
+		Bewertung (optional): <br /><input id="checkbox1" checked="true" name="checkbox1" type="checkbox" onclick="activateAssessment()"><label for="checkbox1" >Bewertung ausschalten</label>
   		<div class="row">
   		    <div class="small-10 medium-11 columns">
   		      <div id="Bewertung" name="Bewertung" onclick="activateSlider()" class="range-slider" data-slider enabled data-options="display_selector: #sliderOutput3; start: 1; end: 5;" >
@@ -387,7 +387,7 @@ while($row = pg_fetch_assoc($result))
   		</div>
   	    </div>
   	</p>
-			<a style="text-align: right ;position: relative ; font-size: 100%" data-reveal-id="BboxModal" >Räumliche Ausdehnung</a><br />
+			<a style="text-align: right ;position: relative ; font-size: 100%" data-reveal-id="BboxModal" class="button tiny" >Räumliche Ausdehnung</a><br /><br />
             <label for="body">Kommentar</label>
             <textarea name="body" id="body" cols="20" rows="5"></textarea>
             <input type="submit" id="submit" value="Abschicken" class="button"/>
