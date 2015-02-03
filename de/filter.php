@@ -325,7 +325,7 @@
     <div class="large-8 columns" id="map" style="height: 100%;">
 
 </div>
-<div id="SearchContent" class="large-4 columns"> <h1><h3>Filter</h3> <button class="tiny button" data-reveal-id="PermalinkModal">Permalink</button>
+<div id="SearchContent" class="large-4 columns">  <h3 style="display: inline">Suche  </h3><button class="tiny button" data-reveal-id="PermalinkModal">Permalink</button>
 	
 				<?php	
 					echo '<h6>Aktiver Filter</h6>';

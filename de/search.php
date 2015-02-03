@@ -61,21 +61,34 @@
                     </li>
 
                     <!-- Neues Topic erstellen -->
-                    <li><a href="#" data-reveal-id="myModal">Neues Topic anlegen</a>
-                    	<div id="myModal" class="reveal-modal" data-reveal>
-                    		<h3>Wählen Sie eine Position durch Klick in die Karte</h3>
-                    		<a id="setCoordinate" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">OK</a>
+                    <li><a href="#" data-reveal-id="BboxModal2">Neues Topic anlegen</a>
+                    	
+                    	<!-- popUp fuer Boundingbox -->
+						<div id="BboxModal2" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
+                    		<h3>Definieren Sie die räumliche Ausdehnung, indem Sie zwei gegenüberliegende Eckpunkte klicken.</h3>
+                    		<a id="setBbox2" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Räumliche Ausdehnung definieren</a><br />
+                    		<a id="rejectBbox2" onclick="discardTopic" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
                     		<script type="text/javascript">
-                    			document.getElementById("setCoordinate").onclick = newMarker;
+                    			document.getElementById("setBbox2").onclick = createTopicBoundingBox;
+                    		</script>
+						</div>
+						
+						<!-- popUp fuer Boundingbox -->
+						<div id="confirmBbox"data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
+							<h3>Sind Sie mit der Boundingbox zufrieden?</h3>
+							<a id="setBbox3" style="text-align: right ;position: relative ; font-size: 120%"  class="close-reveal-modal" data-reveal-id="newTopicModal">Ja</a><br />
+                    		<a id="rejectBbox2" onclick="discardTopic()" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Nein</a>
+                    		<script>
+                    			document.getElementById("setBbox3").onclick = fillForm;
                     		</script>
 						</div>
 
                   		<!-- Formular zur Erstellung eines Topics  -->
-						<div id="newTopicModal" class="reveal-modal" data-reveal>
+						<div id="newTopicModal" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
   							<h3>Fügen Sie einen Geodatensatz hinzu</h3>
   							<form action="topic.php" method="post">
-  								<p>Breitengrad: <input id="Breitengrad" readonly="readonly" type="number" name="Breitengrad"/> </p>
-  								<p>Längengrad: <input id="Längengrad" readonly="readonly" type="number" name="Längengrad"/> </p>
+  								<p>Breitengrad vom Zentrum der Bbox: <input id="Breitengrad" readonly="readonly" type="number" name="Breitengrad"/> </p>
+  								<p>Längengrad vom Zentrum der Bbox: <input id="Längengrad" readonly="readonly" type="number" name="Längengrad"/> </p>
   								<p><abbr title="Hier geben Sie an unter welcher Internetadresse der Geodatensatz auffindbar ist"><img src="../img/info.png" width="15px" height="15px" /></abbr> URL: <input type="text" id="URL" name="URL" required/> </p>
   								<p><abbr title="Hier geben Sie einen geeigneten Titel des Datensatzens an, z.B. 'Überflutungsdaten Münster 2014'"><img src="../img/info.png" width="15px" height="15px"/></abbr> Titel: <input type="text" id="Titel" name="Titel" required /></p>
   								<p><abbr title="Hier geben Sie an was Sie über den Geodatensatz denken. Ist er hilfreich? Ist er gut? Fehlt etwas? etc."><img src="../img/info.png" width="15px" height="15px"/></abbr> Kommentar: <textarea type="text"  id="Kommentar" name="Kommentar" required></textarea></p>
@@ -86,7 +99,7 @@
 					                Region
 					                Stadt
 				                    ">
-						            <img src="../img/info.png" width="15px" height="15px"/></abbr> Kategorie:
+						            <img src="../img/info.png" width="15px" height="15px"/></abbr>&ensp;Kategorie:
 									<select id="Kategorie" name="Kategorie">
   								        <option value="Welt">Welt</option>
   										<option value="Kontinent">Kontinent</option>
@@ -116,14 +129,19 @@
   										</div>
   									</div>
   								</p>
-  								<p><abbr title="Hier geben Sie Tags an, damit der Datensatz später leichter zu finden ist."><img src="../img/info.png" width="15px" height="15px"/></abbr> Tags (optional): <input type="text" id="tags" name="tags"/>
+  								<p><abbr title="Hier geben Sie Tags an, damit der Datensatz später leichter zu finden ist."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
+								Tags (optional): <input type="text" id="tags" name="tags"/>
 								</p>
-								<p><abbr title="Hier geben Sie andere Internetquellen an, welche den Geodatensatz ergänzen - z.B. neuer oder besserer Datensatz, Zusatzinformationen zum betroffenen Gebiet, etc."><img src="../img/info.png" width="15px" height="15px"/></abbr> Hyperlink (optional): <input type="text" id="hyperlink" name="hyperlink"/>
+								<p><abbr title="Hier geben Sie andere Internetquellen an, welche den Geodatensatz ergänzen - z.B. neuer oder besserer Datensatz, Zusatzinformationen zum betroffenen Gebiet, etc."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
+								Hyperlink (optional): <input type="text" id="hyperlink" name="hyperlink"/>
 								</p>
 								<p>Autor <input id="Autor" type="text" readonly="readonly" name="Autor"/>
+								<input type="hidden" id="cTbboxLLcoor" name="cTbboxLLcoor"/>
+								<input type="hidden" id="cTbboxURcoor" name="cTbboxURcoor"/>
+								
 								<input type="submit" class="button expand" value="Topic erstellen"/>
         					</form>
-  							<a id="cancelTopic" style="position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a><br />
+  							<a id="cancelTopic" style="position: relative ; font-size: 120%" class="close-reveal-modal" onclick="discardTopic()">Abbrechen</a><br />
                             <br />
 					    </div>
 					</li>
@@ -326,7 +344,7 @@
     <div class="large-8 columns" id="map" style="height: 100%;">
 
 	</div>
-	<div id="SearchContent" class="large-4 columns"> <h1><h3>Filter</h3>
+	<div id="SearchContent" class="large-4 columns"> <h3>Suche</h3>
         <form action="filter.php" method="get">
                   <p><input type="text" placeholder="Suche" name="search"></p>
                   <p><select id="KategorieSuche" name="KategorieSuche">
