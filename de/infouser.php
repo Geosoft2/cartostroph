@@ -72,8 +72,8 @@
 	<h3>Meine Topics:</h3>
 	<?php
 		// attempt a connection
-		ini_set('display_errors', '1');
-		error_reporting(E_ALL | E_STRICT);
+		//ini_set('display_errors', '1');
+		//error_reporting(E_ALL | E_STRICT);
 		include("config.php");
 		global $config;
 	
@@ -122,8 +122,8 @@
  	<h3>Meine Kommentare:</h3>
 	<?php
 		// attempt a connection
-		ini_set('display_errors', '1');
-		error_reporting(E_ALL | E_STRICT);
+		//ini_set('display_errors', '1');
+		//error_reporting(E_ALL | E_STRICT);
 		include("config.php");
 		global $config;
 	
@@ -205,8 +205,8 @@
 					  <button style="float: right;"> Daten ändern</button>
 						<?php
 						// attempt a connection
-						ini_set('display_errors', '1');
-						error_reporting(E_ALL | E_STRICT);
+						//ini_set('display_errors', '1');
+						//error_reporting(E_ALL | E_STRICT);
 						include("config.php");
 						global $config;
 
