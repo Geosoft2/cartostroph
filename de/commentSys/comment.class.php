@@ -31,37 +31,63 @@ class Comment
 
 		if($d['name'] === "Gast") {	
 		$avatar = '<img src="/../Simon/Master/img/CommentSys/Gast.gif" />';
-	
+			$farbe  = '';
+			$dtfarbe  = '';
+
 		}  else   { 
 			$avatar  = '<img src="/../Simon/Master/img/CommentSys/default_avatar.gif" />';
+			$farbe  = 'style="background-color:lightgray"';
+			$dtfarbe  = 'style="color:white"';
+			
 		}
 			
 		if($d['name'] === "$_COOKIE[Autor]") {	
-		$edit = '<button type="submit" id="edit" data-reveal-id="Edit" >Bearbeiten</button>';
+	$edit = '<button type="submit" id="edit" data-reveal-id="t'.$d['id'].'" class="button tiny" >Bearbeiten</button>';
+
 	
 		}  else   { 
 			$edit  = '';
+
 		}
-			
-		return '
 		
-			
-			
-			<div class="comment">
+
+		return '			
+			<div class="comment" '.$farbe.'>
 				<div class="avatar">'.$avatar.'</div>			
-				<div class="name">'.$d['name'].'</div>
+				<div class="name"  >'.$d['name'].'</div>
 				<div class="rating">'.$d['rating'].'</div>
-				<div class="date" title="Added at '.date('H:i \o\n d M Y',$d['dt']).'">'.date('H:i \o\n d M Y',$d['dt']).'</div>
+				<div class="date" '.$dtfarbe.' title="Added at '.date('H:i \o\n d M Y',$d['dt']).'">'.date('H:i \o\n d M Y',$d['dt']).'</div>
 				<input type="hidden" value='.$d['leftpoint'].' />
 				<input type="hidden" value='.$d['rightpoint'].' />
-				<a onclick="drawBox(this.parentNode.childNodes[9].value, this.parentNode.childNodes[11].value)" class="button tiny">BBox auf der Karte Zeichnen</a>
 				<p>'.$d['body'].'</p>
-				'.$d['leftpoint'].'
-				'.$d['rightpoint'].'
 				'.$edit.'
-				<input type="text" name="id" id="id" value = '.$d['id'].' />
-	
+				<a onclick="drawBox(this.parentNode.childNodes[9].value, this.parentNode.childNodes[11].value)" class="button tiny">BBox auf der Karte Zeichnen</a>
+				
+
 			</div>
+			<div id="t'.$d['id'].'" class="reveal-modal" data-reveal>
+			<div id="EditCommentContainer">
+			<p>Kommentar bearbeiten</p>
+    			<div>
+	 		<form action="commentSys/edit.php" method="post">
+	    		 <p>Autor <input id="name1" type="text" readonly="readonly" name="name"/>
+
+	   		 <label for="body">Kommentar</label>
+            		 <textarea name="body1" id="body1" cols="20" rows="5"></textarea>
+            
+	    		 <input type="hidden" name="id1" id="id1" value = '.$d['id'].' />
+	
+	
+			<button style="float: left;"> Bearbeiten</button>
+			</form>
+
+<script>
+document.getElementById("name1").value = author();
+</script>
+</div>
+</div>
+</div>
+
 		';
 	}
 
