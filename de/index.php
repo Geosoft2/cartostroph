@@ -74,8 +74,8 @@
 						
 						<!-- popUp fuer Boundingbox -->
 						<div id="BboxModal2" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
-                    		<h3>Hier können Sie eine Bounding Box auf der Karte klicken. Klicken Sie das erste Mal für die obere linke Ecke und das zweite Mal für die untere rechte Ecke.</h3>
-                    		<a id="setBbox2" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">OK</a><br />
+                    		<h3>Definieren Sie die räumliche Ausdehnung, indem Sie zwei gegenüberliegende Eckpunkte klicken.</h3>
+                    		<a id="setBbox2" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Räumliche Ausdehnung definieren</a><br />
                     		<a id="rejectBbox2" onclick="discardTopic" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
                     		<script type="text/javascript">
                     			document.getElementById("setBbox2").onclick = createTopicBoundingBox;
