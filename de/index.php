@@ -31,7 +31,7 @@
         <nav class="top-bar" data-topbar role="navigation">
             <ul class="title-area">
                 <li class="name">
-                    <h1><a href="index.php">Carto<span style="color: red;">stroph!</span></a></h1>
+                    <h1><a href="index.php">Carto<span style="color: red;">stroph!</span></a></h1>  
                 </li>
                 <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
                 <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
@@ -39,7 +39,17 @@
             <section class="top-bar-section">
                 <!-- Right Nav Section -->
                 <ul class="right">
+                    <li>
+                    	</a> <a href="../de"><img src="../img/germany.gif"></a>
+                    </li>
                     
+                    <li>
+                    	</a> <a href="../en"><img src="../img/uk.gif"></a>
+                    </li>
+                    
+                    <li>
+                    	</a> <a href="../pl"><img src="../img/poland.gif"></a>
+                    </li>
                     <!-- FAQ aufrufen -->
                     <li>
                         <a href="FAQ.php">Hilfe</a>
