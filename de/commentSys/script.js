@@ -45,42 +45,5 @@
 		},'json');
 
 	});
-		$('#editCommentForm').submit1(function(e){
 
- 		e.preventDefault();
-		if(working) return false;
-		
-		working = true;
-		$('#submit1').val('Arbeitet..');
-		$('span.error').remove();
-		
-		/* Sending the form fileds to edit.php: */
-		$.post('commentSys/edit.php',$(this).serialize(),function(msg){
-
-			working = false;
-			$('#submit1').val('Abschicken');
-			
-			if(msg.status){
-
-				/* 
-				/	If the insert was successful, add the comment
-				/	below the last one on the page with a slideDown effect
-				/*/
-
-
-			}
-			else {
-
-				/*
-				/	If there were errors, loop through the
-				/	msg.errors object and display them on the page 
-				/*/
-				
-				$.each(msg.errors,function(k,v){
-					$('label[for='+k+']').append('<span class="error">'+v+'</span>');
-				});
-			}
-		},'json');
-
-	});
 });
