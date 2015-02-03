@@ -113,7 +113,7 @@
 			
 			$fetched = true;
 			
-			echo 'URL: ' . $URL . '<br />';
+			echo 'URL: <a href=' . $URL . '>' . $URL . '</a><br />';
 			echo 'Titel: ' . $Titel . '<br />';
 			echo 'Text: ' . $Text;
 			echo '<form action=DynamicMap.php method=get>';
@@ -172,7 +172,7 @@
 			
 			$fetched = true;
 			
-			echo 'URL: ' . $URL . '<br />';
+			echo 'URL: <a href=' . $URL . '>' . $URL . '</a><br />';
 			echo 'Text: ' . $Text;
 			echo '<form action=DynamicMap.php method=get>';
 			echo '<input type=hidden name=url value=';
