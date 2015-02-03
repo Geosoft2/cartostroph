@@ -224,7 +224,12 @@
 						document.getElementById("benutzername").innerHTML = "Mein Profil: " + author();
 					  </script>
 					  <form action="alteruser.php" method="post">
-					  <button style="float: right;"> Daten ändern</button>
+						<p>Ort: <input type="text" id="ort" name="ort" style="width: 75%;"/></p>
+						<p>PLZ: <input type="text" id="plz" name="plz" style="width: 75%;"/></p>
+						<p>Land: <input type="text" id="land" name="land" style="width: 75%;"/></p>
+						<button style="float: right;">Daten ändern</button>
+						<a class="close-reveal-modal">&#215;</a>
+					  </form>
 						<?php
 						// attempt a connection
 						//ini_set('display_errors', '1');
@@ -247,6 +252,8 @@
 							die("Error in SQL query: " . pg_last_error());
 						}
 
+						$fetched = false;
+						
 						// iterate over result set
 						// print each row
 						while ($row = pg_fetch_array($result)) {
@@ -254,22 +261,34 @@
 							$plz = (string)$row[1];
 							$land = (string)$row[2];
 						
-							echo '<p>Ort: ' . $ort . ' </p>';
-							echo '<p>PLZ: ' . $plz . '</p>';
-							echo '<p>Land: ' . $land . '</p>';
-							//echo '<p>Ort: <input value=' . $ort . ' type=\"text\" id=\"ort\" name=\"ort\" style=\"width: 90%;\"/></p>';
-							//echo '<p>PLZ: <input value=' . $plz . ' type=\"text\" id=\"plz\" name=\"plz\" style=\"width: 90%;\"/></p>';
-							//echo '<p>Land: <input value=' . $land . ' type=\"text\" id=\"land\" name=\"land\" style=\"width: 90%;\"/></p>';
+							$fetched = true;
+							
+							echo '<script>';
+							if ($ort != ''){
+								echo 'document.getElementById("ort").value = "'.$ort.'";';
+							}else{ echo 'document.getElementById("ort").value = "keine Angabe";';}
+							if ($plz != ''){
+								echo 'document.getElementById("plz").value = "'.$plz.'";';
+							}else{ echo 'document.getElementById("plz").value = "keine Angabe";';}
+							if ($land != ''){
+								echo 'document.getElementById("land").value = "'.$land.'";';
+							}else{ echo 'document.getElementById("land").value = "keine Angabe";';}
+							echo '</script>';
+							
+							//echo 'Ort: <input value="' . $ort . '"type=\"text\" id=\"ort\" name=\"ort\" style=\"width: 90%;\"/>';
+							//echo 'PLZ: <input value="' . $plz . '" type=\"text\" id=\"plz\" name=\"plz\" style=\"width: 90%;\"/>';
+							//echo 'Land: <input value="' . $land . '" type=\"text\" id=\"land\" name=\"land\" style=\"width: 90%;\"/>';
+						}
+						
+						if (!fechted){
+							echo 'document.getElementById("ort").value = "keine Angabe";';
+							echo 'document.getElementById("plz").value = "keine Angabe";';
+							echo 'document.getElementById("land").value = "keine Angabe";';
 						}
 
 						// free memory
 						pg_free_result($result);
-						?>
-						<input value="ort" type="text" id="ort" name="ort" style="width: 90%;"/>
-						<input value="plz" type="text" id="plz" name="plz" style="width: 90%;"/>
-						<input value="land" type="text" id="land" name="land" style="width: 90%;"/>
-						<a class="close-reveal-modal">&#215;</a>
-						</form>
+						?>	
 					</div>
 			
 			  
