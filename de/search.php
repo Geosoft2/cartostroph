@@ -361,7 +361,7 @@
             		<label for="rightpoint"></label>
             		<input hidden="hidden" name="rightpoint" id="rightpoint" /> 
 					<p>
-					<a style="text-align: right ;position: relative ; font-size: 100%" data-reveal-id="BboxModal" >Bounding Box</a>
+					<a style="text-align: right ;position: relative ; font-size: 100%" data-reveal-id="BboxModal" >Räumliche Ausdehnung</a>
                             <p><input id="filter" type="submit" class="button expand" value="Filtern" />
                             </p>  
 					<p>

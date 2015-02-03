@@ -387,7 +387,7 @@ while($row = pg_fetch_assoc($result))
   		</div>
   	    </div>
   	</p>
-			<a style="text-align: right ;position: relative ; font-size: 100%" data-reveal-id="BboxModal" >Bounding Box</a><br />
+			<a style="text-align: right ;position: relative ; font-size: 100%" data-reveal-id="BboxModal" >Räumliche Ausdehnung</a><br />
             <label for="body">Kommentar</label>
             <textarea name="body" id="body" cols="20" rows="5"></textarea>
             <input type="submit" id="submit" value="Abschicken" class="button"/>
