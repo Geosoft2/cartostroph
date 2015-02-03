@@ -347,7 +347,7 @@
 	<div id="SearchContent" class="large-4 columns"> <h3>Suche</h3>
         <form action="filter.php" method="get">
                   <p><input type="text" placeholder="Suche" name="search"></p>
-                  <p><select id="KategorieSuche" name="KategorieSuche">
+                  <p>Kategorie: <select id="KategorieSuche" name="KategorieSuche">
                       <option value="Keine">Keine Kategorie</option>
                       <option value="Welt">Welt</option>
                       <option value="Kontinent">Kontinent</option>
@@ -362,7 +362,7 @@
                   <p><abbr title="Hier geben Sie an bis wann der Datensatz gültig war bzw. voraussichtlich sein wird."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
                   Ende <input type="date" id="endSuche" name="endSuche" />  
                   </p>
-                    <p><select id="BewertungSuche" name="BewertungSuche">
+                    <p>Bewertung: <select id="BewertungSuche" name="BewertungSuche">
                                 <option value="Keine">Keine Einschränkung</option>
                                 <option value="1">1 oder höher</option>
                                 <option value="2">2 oder höher</option>
