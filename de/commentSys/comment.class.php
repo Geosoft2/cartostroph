@@ -41,25 +41,33 @@ class Comment
 		}
 			
 		if($d['name'] === "$_COOKIE[Autor]") {	
-	$edit = '<button type="submit" id="edit" data-reveal-id="t'.$d['id'].'" class="button tiny" >Bearbeiten</button>';
-
-	
+			$edit = '<button type="submit" id="edit" data-reveal-id="t'.$d['id'].'" class="button tiny" >Bearbeiten</button>';
 		}  else   { 
 			$edit  = '';
-
 		}
 		
+		$checked = $_POST['checkbox1'];
+		if($checked== 'on'){
+			$rate = 'keine Bewertung';
+		}else{
+			$rate = $d['rating'].' / 5';
+		}
+		if($d['rating'] == ''){
+			$rate = 'keine Bewertung';
+		}else{
+			$rate = $d['rating'].' / 5';
+		}
 
 		return '			
 			<div class="comment" '.$farbe.'>
 				<div class="avatar">'.$avatar.'</div>			
 				<div class="name"  >'.$d['name'].'</div>
-				<div class="rating">'.$d['rating'].' / 5</div>
+				<div class="rating">'.$rate.'</div>
 				<div class="date" title="Added at '.date('H:i \o\n d M Y',$d['dt']).'">'.date('H:i \o\n d M Y',$d['dt']).'</div>
 				<input type="hidden" value='.$d['leftpoint'].' />
 				<input type="hidden" value='.$d['rightpoint'].' />
 				<p>'.$d['body'].'</p>
-				'.$edit.'
+				'.$edit.'				
 				<a onclick="drawBox(this.parentNode.childNodes[9].value, this.parentNode.childNodes[11].value)" class="button tiny">R&auml;umliche Ausdehnung anzeigen</a>
 				
 
@@ -75,7 +83,7 @@ class Comment
             		 <textarea name="body1" id="body1" cols="20" rows="5"></textarea>
             
 	    		 <input type="hidden" name="id1" id="id1" value = '.$d['id'].' />
-			 <input type="hidden" name="urleins" id="urleins" value = '.$d['page_id'].' />
+	
 	
 			<button style="float: left;"> Bearbeiten</button>
 			</form>
