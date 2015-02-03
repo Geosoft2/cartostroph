@@ -556,8 +556,6 @@
 			echo 'bboxLLcoor2 = "'.$rp.'";';
 		?>
 		
-		alert(typeof bboxURcoor2);
-		alert(bboxURcoor2);
 		/*bboxURcoor2 = String(getCookie("bboxURcoor"));
 		bboxLLcoor2 = String(getCookie("bboxLLcoor"));
 		bboxURcoor2 = bboxURcoor2.substring(6,bboxURcoor2.length);
