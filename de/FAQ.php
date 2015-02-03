@@ -85,29 +85,16 @@
             Geodatensatz im Internet gefunden haben und ihn mit anderen teilen möchten, sind Sie hier genau richtig!
         </p>
         <p>
-            <b> Welche Formate können visualisiert werden?</b> <br />
-            <ul>
-                <li>OGC WMS</li>
-                <li>OGC WFS</li>
-                <li>GML</li>
-                <li>KML</li>
-                <li>OGC WMTS</li>
-                <li>h-geo(microfromat)</li>
-                <li>JPEG</li>
-                <li>PNG</li>
-            </ul>
-        </p>
-        <p>
             <b> Wie füge ich einen neuen Geodatensatz hinzu? </b>
             <br />
             <ul>
                 <li>In der oberen Leiste auf "Neues Topic anlegen" klicken.</li>
                 <li>
-                    Fenster bestätigen und per Klick eine Position für den Geodatensatz auswählen.
+                    Fenster bestätigen und per Klick 2 Punkte auf der Karte festlegen (Räumliche Ausdehnung definieren).
                 </li>
                 <li>Informationen zum Geodatensatz angeben. Hilfestellung dazu finden sie <a href="#FormularRichtig">hier</a>.</li>
-                <li>Wenn Sie sich sicher sind alles richtig ausgefüllt zu haben klicken Sie auf "Abschicken".</li>
-                <li>Nun gibt es einen Marker mit dem von Ihnen gefundenen Datensatz, welcher von anderen Nutzern kommentiert und bewertet werden kann.</li>
+                <li>Wenn Sie sich sicher sind alles richtig ausgefüllt zu haben, klicken Sie auf "Topic erstellen".</li>
+                <li>Nun gibt es einen Marker (im Zentrum der von Ihnen definierten räumlichen Ausdehnung) mit Ihrem gefundenen Datensatz, welcher von anderen Nutzern kommentiert und bewertet werden kann.</li>
             </ul>
         </p>
         <p id="FormularRichtig">
@@ -116,9 +103,9 @@
             <ul>
                 <li><strong>URL</strong>: Hier geben Sie an unter welcher Internetadresse der Geodatensatz auffindbar ist.</li>
                 <li><strong>Titel</strong>: Hier geben Sie einen geeigneten Titel des Datensatzens an, z.B. "Überflutungsdaten Münster 2014".</li>
-                <li><strong>Kommentar</strong>: Hier geben Sie an was Sie über den Geodatensatz denken. Ist er hilfreich? Ist er gut? Fehlt etwas? etc.</li>
+                <li><strong>Kommentar</strong>: Hier können Sie den Geodatensatz kommentieren. Ist er hilfreich? Ist er gut? Fehlt etwas? etc.</li>
                 <li>
-                    <strong>Kategorie (optional)</strong>: Hier geben Sie an wie groß das Gebiet ist, welches vom Geodatensatz abgedeckt wird. Zur Auswahl stehen: <ul>
+                    <strong>Kategorie (optional)</strong>: Hier können Sie die räumliche Ausdehnung des Geodatensatzes klassifizieren. Zur Auswahl stehen: <ul>
                         <li>Welt</li>
                         <li>Kontinent</li>
                         <li>Land</li>
@@ -126,11 +113,11 @@
                         <li>Stadt</li>
                     </ul>
                 </li>
-                <li><strong>Zeitliche Ausdehnung - Start (optional)</strong>: Hier geben Sie an ab wann der Geodatensatz gültig ist</li>
+                <li><strong>Zeitliche Ausdehnung - Start (optional)</strong>: Hier geben Sie an ab wann der Geodatensatz gültig ist.</li>
                 <li><strong>Zeitliche Ausdehnung - Ende (optional)</strong>: Hier geben Sie an bis wann der Datensatz gültig war bzw. voraussichtlich sein wird.</li>
-                <li><strong>Bewertung (optional)</strong>: Hier können Sie den Datensatz bewerten von 1 (sehr schlecht) bis 5 (perfekt).</li>
+                <li><strong>Bewertung (optional)</strong>: Hier können Sie den Datensatz bewerten von 1 (sehr schlecht) bis 5 (sehr gut).</li>
                 <li><strong>Tags (optional)</strong>: Hier geben Sie Tags an, damit der Datensatz später leichter zu finden ist. </li>
-                <li><strong>Hyperlink (optional)</strong>: Hier geben Sie andere Internetquellen an, welche den Geodatensatz ergänzen - z.B. neuer oder besserer Datensatz, Zusatzinformationen zum betroffenen Gebiet, etc.</li>
+                <li><strong>Hyperlink (optional)</strong>: Hier geben Sie weitere Internetquellen an, welche den Geodatensatz ergänzen - z.B. neuer oder besserer Datensatz, Zusatzinformationen zum betroffenen Gebiet, etc.</li>
             </ul>
         </p>
     </div>
