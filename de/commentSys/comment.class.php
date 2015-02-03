@@ -46,17 +46,19 @@ class Comment
 			$edit  = '';
 		}
 		
-		$checked = $_POST['checkbox1'];
-		if($checked== 'on'){
-			$rate = 'keine Bewertung';
-		}else{
-			$rate = $d['rating'].' / 5';
-		}
+		
 		if($d['rating'] == ''){
 			$rate = 'keine Bewertung';
 		}else{
-			$rate = $d['rating'].' / 5';
+			$checked = $_POST['checkbox1'];
+			if($checked== 'on'){
+				$rate = 'keine Bewertung';
+			}else{
+				$rate = $d['rating'].' / 5';
+			}
+			//$rate = $d['rating'].' / 5';
 		}
+		
 
 		return '			
 			<div class="comment" '.$farbe.'>
