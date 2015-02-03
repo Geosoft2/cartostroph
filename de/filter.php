@@ -566,8 +566,8 @@
 		}
 
 		// execute query
-		$suchbegriff = htmlspecialchars($_GET['search']);
-		$kategorie = $_GET['KategorieSuche'];
+		$suchbegriff =  pg_escape_string(htmlspecialchars($_GET['search']));
+		$kategorie =  $_GET['KategorieSuche'];
 		$katwert = NULL;
 		switch ($kategorie) { 
 			case 'Keine':
@@ -632,7 +632,7 @@
 
         $ownPositionlng = $_GET['lat'];
         $ownPositionlat = $_GET['lng'];  
-        $radius = $_GET['radius'];
+        $radius =  pg_escape_string(htmlspecialchars($_GET['radius']));
         $radius = (float)$radius;
         $radius = ($radius/111);
 

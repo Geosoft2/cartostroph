@@ -11,9 +11,9 @@
 	}
 						
 	$user = $_COOKIE['Autor'];
-	$ort = (string)$_POST['ort'];
-	$plz = (string)$_POST['plz'];
-	$land = (string)$_POST['land'];
+	$ort =  pg_escape_string(htmlspecialchars((string)$_POST['ort']));
+	$plz =  pg_escape_string(htmlspecialchars((string)$_POST['plz']));
+	$land =  pg_escape_string(htmlspecialchars((string)$_POST['land']));
 
 	
 	// execute query
