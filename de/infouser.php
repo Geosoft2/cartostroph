@@ -80,6 +80,7 @@
 		$connection = pg_connect($config["connection"]);
 		if (!$connection) {
 			die("Error in connection: " . pg_last_error());
+			echo 'Sie haben bisher keinen Kommentar selbst erstellt.';
 		}
 						
 		$user = $_COOKIE['Autor'];
@@ -92,13 +93,17 @@
 			die("Error in SQL query: " . pg_last_error());
 		}
 		
+		$fetched = false;
+		
 		// iterate over result set
 		// print each row
 		while ($row = pg_fetch_array($result)) {
 			$URL = (string)$row[0];
 			$Titel = (string)$row[1];
 			$Text = (string)$row[2];
-					
+			
+			$fetched = true;
+			
 			echo 'URL: ' . $URL . '<br />';
 			echo 'Titel: ' . $Titel . '<br />';
 			echo 'Text: ' . $Text;
@@ -111,6 +116,12 @@
 			echo '<br />';
 			
 		}
+		
+		// if result couldn't show text
+		if (!$fetched){
+			echo 'Sie haben bisher keine Kommentare selbst erstellt.';
+		}
+		
 	
 		// free memory
 		pg_free_result($result);
@@ -122,8 +133,8 @@
  	<h3>Meine Kommentare:</h3>
 	<?php
 		// attempt a connection
-		//ini_set('display_errors', '1');
-		//error_reporting(E_ALL | E_STRICT);
+		ini_set('display_errors', '1');
+		error_reporting(E_ALL | E_STRICT);
 		include("config.php");
 		global $config;
 	
@@ -140,14 +151,18 @@
 		$result = pg_query($connection, $sql);
 		if (!$result) {
 			die("Error in SQL query: " . pg_last_error());
-		}
-	
+		}		
+		
+		$fetched = false;
+			
 		// iterate over result set
 		// print each row
 		while ($row = pg_fetch_array($result)) {
 			$URL = (string)$row[0];
 			$Text = (string)$row[1];
-					
+			
+			$fetched = true;
+			
 			echo 'URL: ' . $URL . '<br />';
 			echo 'Text: ' . $Text;
 			echo '<form action=DynamicMap.php method=get>';
@@ -159,6 +174,12 @@
 			echo '<br />';
 			
 		}
+		
+		// if result couldn't show text
+		if (!$fetched){
+			echo 'Sie haben bisher keine Kommentare selbst erstellt.';
+		}
+		
 		
 		// free memory
 		pg_free_result($result);
