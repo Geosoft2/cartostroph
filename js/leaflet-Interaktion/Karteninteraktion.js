@@ -74,9 +74,7 @@ function onMapClick(e) {
 		var ki = kor.search(/,/);
 		kor1 = kor.slice(1,ki);
 		var kl = kor.indexOf(")");
-		//Salert(kl);
 		kor2 = kor.slice(ki+1,kl);
-		//alert(kor2);
 		var lpo = kor1 +"," + kor2;
 		document.getElementById("leftpoint").value = lpo;
 		
@@ -84,13 +82,11 @@ function onMapClick(e) {
 		var ki = kor.search(/,/);
 		kor1 = kor.slice(1,ki);
 		var kl = kor.indexOf(")");
-		//alert(kl);
+		
 		kor2 = kor.slice(ki+1,kl);
-		//alert(kor2);
+		
 		var rpo = kor1 +"," + kor2;
 		document.getElementById("rightpoint").value = rpo;
-		//alert(kor);
-		//alert((string)bboxLLcoor.slice(0,6));
 		
 		bboxLL = false;
 		if(TopicBBox != null) {
@@ -193,9 +189,7 @@ function showDataOnMap(URL) {
 	var Laenge = Typ.length;
 	Typ = Typ[(Laenge - 1)];
 	var ur = URL;
-	alert(ur);
 	if ((ur.indexOf('WMS') != -1) || (ur.indexOf('wms') != -1)) {
-	alert("it is a wms");
 	Typ = "WMS";
 	}
 	
@@ -223,34 +217,32 @@ function showDataOnMap(URL) {
 		
 		//KML
 		case "kml":
-		alert(Typ);
 		omnivore.kml(URL).addTo(map);
 		break;
 		
 		//GML
 		case "gml":
-		alert(Typ);
+		
 		
 		break;
 		
 		
 		//JPEG
 		case "jpg":
-		alert(Typ);
+		
 		document.write("<img src='" + URL +  "' alt='Boris'>");
 		break;
 		
 		
 		//PNG
 		case "png":
-		alert(Typ);
+		
 		document.write("<img src='" + URL +  "' alt='Boris'>");
 		break;
 		
 		
 		//JPEG / PNG mit boundingBox die angegeben wurde
 		case "geoPic":
-		alert(Typ);
 		var imageUrl = URL ,
     	imageBounds = [[40.712216, -74.22655], [40.773941, -74.12544]];
 		L.imageOverlay(imageUrl, imageBounds).addTo(map);
@@ -262,13 +254,13 @@ function showDataOnMap(URL) {
 		
 		//WMTS
 		case "WMTS":
-		alert(Typ);
+		
 		
 		break;
 		
 		//WFS
 		case "WFS":
-		alert(Typ);
+		
 		
 		break;
 		
@@ -343,7 +335,6 @@ function fillForm() {
 	document.getElementById("Autor").value = author();
 	document.getElementById("cTbboxLLcoor").value = createTopicbboxPolygon.getBounds().getSouthWest();
 	document.getElementById("cTbboxURcoor").value = createTopicbboxPolygon.getBounds().getNorthEast();
-	//alert(document.getElementById("cTbboxLLcoor").value);
 	}
 	
 function commentIntersectsTopic() {
