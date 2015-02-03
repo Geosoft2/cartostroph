@@ -61,10 +61,12 @@ function onMapClick(e) {
 				addMarker = false;
 	}else if (bboxUR == true) {
 		bboxURcoor = e.latlng;
+		document.cookie = "bboxURcoor=" + bboxURcoor;
 		bboxLL = true;
 		bboxUR = false;
 	}else if (bboxLL == true){
 		bboxLLcoor = e.latlng;
+		document.cookie = "bboxLLcoor=" + bboxLLcoor;
 		var bounds = [bboxURcoor, bboxLLcoor];
 		bboxPolygon = L.rectangle(bounds, {color: "#FF0040", weight: 1}).addTo(map);
 		
