@@ -25,6 +25,17 @@
 
                 <!-- Right Nav Section -->
                 <ul class="right">
+                	<li>
+                    	</a> <a href="../de"><img src="../img/germany.gif"></a>
+                    </li>
+                    
+                    <li>
+                    	</a> <a href="../en"><img src="../img/uk.gif"></a>
+                    </li>
+                    
+                    <li>
+                    	</a> <a href="../pl"><img src="../img/poland.gif"></a>
+                    </li>
                     <li><a href="FAQ.php">Hilfe</a></li>
 
                  <!-- Loginfunktion -->
