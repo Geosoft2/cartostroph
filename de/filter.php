@@ -549,17 +549,21 @@
 		L.control.pan().addTo(map);
 		map.addControl(L.control.search());
 		
-		//<?php
-		//	echo 'bboxURcoor2 = '.$_GET['leftpoint'];
-		//	echo 'bboxLLcoor2 = '.$_GET['rightpoint'];
-		//?>
+		<?php
+			$lp = (string)$_GET['leftpoint'];
+			$rp = (string)$_GET['rightpoint'];
+			echo 'bboxURcoor2 = "'.$lp.'";';
+			echo 'bboxLLcoor2 = "'.$rp.'";';
+		?>
 		
-		bboxURcoor2 = String(getCookie("bboxURcoor"));
+		alert(typeof bboxURcoor2);
+		alert(bboxURcoor2);
+		/*bboxURcoor2 = String(getCookie("bboxURcoor"));
 		bboxLLcoor2 = String(getCookie("bboxLLcoor"));
 		bboxURcoor2 = bboxURcoor2.substring(6,bboxURcoor2.length);
 		bboxLLcoor2 = bboxLLcoor2.substring(6,bboxLLcoor2.length);
 		bboxURcoor2 = bboxURcoor2.replace(/[{()}]/g, '');
-  		bboxLLcoor2 = bboxLLcoor2.replace(/[{()}]/g, '');
+  		bboxLLcoor2 = bboxLLcoor2.replace(/[{()}]/g, '');*/
   		coords1 = bboxLLcoor2.split(",");
   		coords2 = bboxURcoor2.split(",");
   		coor1 = coords1[0];
