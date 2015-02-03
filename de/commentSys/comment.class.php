@@ -36,8 +36,7 @@ class Comment
 
 		}  else   { 
 			$avatar  = '<img src="/../Simon/Master/img/CommentSys/default_avatar.gif" />';
-			$farbe  = 'style="background-color:lightgray"';
-			$dtfarbe  = 'style="color:white"';
+			$farbe  = 'style="background-color:lightgray; border:lightgrey"';
 			
 		}
 			
@@ -55,13 +54,13 @@ class Comment
 			<div class="comment" '.$farbe.'>
 				<div class="avatar">'.$avatar.'</div>			
 				<div class="name"  >'.$d['name'].'</div>
-				<div class="rating">'.$d['rating'].'</div>
-				<div class="date" '.$dtfarbe.' title="Added at '.date('H:i \o\n d M Y',$d['dt']).'">'.date('H:i \o\n d M Y',$d['dt']).'</div>
+				<div class="rating">'.$d['rating'].' / 5</div>
+				<div class="date" title="Added at '.date('H:i \o\n d M Y',$d['dt']).'">'.date('H:i \o\n d M Y',$d['dt']).'</div>
 				<input type="hidden" value='.$d['leftpoint'].' />
 				<input type="hidden" value='.$d['rightpoint'].' />
 				<p>'.$d['body'].'</p>
 				'.$edit.'
-				<a onclick="drawBox(this.parentNode.childNodes[9].value, this.parentNode.childNodes[11].value)" class="button tiny">BBox auf der Karte Zeichnen</a>
+				<a onclick="drawBox(this.parentNode.childNodes[9].value, this.parentNode.childNodes[11].value)" class="button tiny">R&auml;umliche Ausdehnung anzeigen</a>
 				
 
 			</div>
