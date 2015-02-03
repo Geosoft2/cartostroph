@@ -363,7 +363,7 @@
 	
 	
 	<!-- Container für die Karte -->
-    <div id="map" style="height: 92.5%; width: 100%;">
+    <div id="map" style="height: 100%; width: 100%;">
 
     </div>
 
@@ -406,8 +406,8 @@
             "MapBox": mapBox,
             "Aerial": aerial
 	    };
-
-	    L.control.layers(baseLayers).addTo(map);
+		
+	    L.control.layers(baseLayers, null, {position: 'bottomleft'}).addTo(map);
 
         //zoom to location of user 
 	    map.locate({ setView: true, maxZoom: 12 });

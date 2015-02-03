@@ -323,7 +323,7 @@
 	
 	
 	
-    <div class="large-8 columns" id="map" style="height: 92.5%;">
+    <div class="large-8 columns" id="map" style="height: 100%;">
 
 	</div>
 	<div id="SearchContent" class="large-4 columns"> <h1><h3>Filter</h3>
@@ -428,7 +428,7 @@
             "Aerial": aerial
 	    };
 
-	    L.control.layers(baseLayers).addTo(map);
+	    L.control.layers(baseLayers, null, {position: 'bottomleft'}).addTo(map);
 
         //zoom to location of user 
 	    map.locate({ setView: true, maxZoom: 12 });
