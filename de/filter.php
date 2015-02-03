@@ -564,15 +564,20 @@
   		bboxLLcoor2 = bboxLLcoor2.replace(/[{()}]/g, '');*/
   		coords1 = bboxLLcoor2.split(",");
   		coords2 = bboxURcoor2.split(",");
-  		coor1 = coords1[0];
+  		
+      if(coords1 == null) {
+
+      coor1 = coords1[0];
   		coor2 = coords1[1];
   		coor3 = coords2[0];
   		coor4 = coords2[1];
-  		var bounds = [[coor1, coor2], [coor3, coor4]];
-  		map.fitBounds(bounds);
+  		var bounds2 = [[coor1, coor2], [coor3, coor4]];
+  		map.fitBounds(bounds2);
 		// create an orange rectangle
-		L.rectangle(bounds, {color: "red", weight: 1}).addTo(map);
+		L.rectangle(bounds2, {color: "red", weight: 1}).addTo(map);
 		
+    }
+
 		map.on('click', onMapClick);
 		// map.on('mouseout',resetView);
     </script>
