@@ -42,14 +42,14 @@ body{
 	/*/
 
 	height:50px;
-	left:-70px;
+	left:5px;
 	position:absolute;
 	width:50px;
 	background:url('../../img/CommentSys/default_avatar.gif') no-repeat #fcfcfc;
 	
 	/* Centering it vertically: */
 	
-	margin-top:-25px;
+	margin-top:-95px;
 	top:50%;
 
 	-moz-box-shadow:1px 1px 0 #c2c2c2;
@@ -63,8 +63,9 @@ body{
 
 .comment .name{
 	font-size:20px;
-	padding-bottom:10px;
+	padding-bottom:0px;
         color:#008cba;
+	margin-left: 50px;
 }
 
 .comment .date{
@@ -73,7 +74,7 @@ body{
 	position:absolute;
 	right:15px;
 	top:10px;
-	color:#bbb;
+
 }
 
 .comment .rating{
@@ -82,7 +83,7 @@ body{
 	position:absolute;
 	right:15px;
 	top:28px;
-	color:#000;
+
 }
 
 .comment p,
@@ -90,6 +91,7 @@ body{
 	font-size:18px;
 	line-height:1.5;
 	overflow-x:hidden;
+ 	margin-top:50px;
 }
 
 #addCommentContainer input[type=text],
@@ -102,7 +104,7 @@ body{
 	margin:5px 0 5px;
 	padding:3px;
 	font-size:12px;
-	color:#555;
+	color:black;
 	font-family:Arial, Helvetica, sans-serif;
 }
 
