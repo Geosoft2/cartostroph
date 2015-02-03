@@ -77,7 +77,10 @@
     </div>
 
     <!-- Inhalt -->
-    <div id="faqcontent">
+	<div class="row">
+	<div class="large-2 columns">
+	</div>
+    <div class="large-10 columns" id="faqcontent">
         <h1>FAQ</h1>
         <p>Auf dieser Seite bekommen Sie Hilfestellung zur Nutzung von Cartostroph!</p>
         <p>
@@ -121,6 +124,7 @@
             </ul>
         </p>
     </div>
+	</div>
 
  <!-- Dropdown-Login-Feld -->
     <div id="login-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">

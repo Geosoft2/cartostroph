@@ -80,7 +80,7 @@
 <div class="row">
 	<div class="large-1 columns">
 	</div>
-	<div class="large-11 columns" id="impressumcontent">
+	<div class="large-12 columns" id="impressumcontent">
 		<h1>Impressum</h1>
 		
 		<p>Cartostroph <br> Heisenbergstr. 2<br> 48149 Münster <br> </p>
@@ -104,6 +104,7 @@
 		<p><strong>Quellcode</strong><br><br>
 		Unseren Quellcode können Sie <a href='https://github.com/mruhe/cartostroph'>hier</a> finden.</br></p>
     </div>
+	</div>
 
  <!-- Dropdown-Login-Feld -->
     <div id="login-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
