@@ -603,7 +603,7 @@
 		$suchbegriffHilf = "";
 
 		if ($suchbegriff != "") {
-			$suchbegriffHilf = "(UPPER(text) LIKE UPPER('%$suchbegriff%') OR UPPER (titel) LIKE UPPER('%$suchbegriff%') OR UPPER(tag) LIKE UPPER('%$suchbegriff%') OR UPPER(body) LIKE UPPER('%$suchbegriff%'))";
+			$suchbegriffHilf = "(UPPER(text) LIKE UPPER('%$suchbegriff%') OR UPPER(url_top) LIKE UPPER('%$suchbegriff%') OR UPPER (titel) LIKE UPPER('%$suchbegriff%') OR UPPER(tag) LIKE UPPER('%$suchbegriff%') OR UPPER(body) LIKE UPPER('%$suchbegriff%'))";
 		}
 
 
