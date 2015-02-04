@@ -565,9 +565,9 @@
   		coords1 = bboxLLcoor2.split(",");
   		coords2 = bboxURcoor2.split(",");
   		
-      if(coords1 == null) {
+      if(coords1 != null) {
 
-      coor1 = coords1[0];
+      	coor1 = coords1[0];
   		coor2 = coords1[1];
   		coor3 = coords2[0];
   		coor4 = coords2[1];
