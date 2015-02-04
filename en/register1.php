@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cartostroph | Registrierung fehlgeschlagen</title>
+    <title>Cartostroph | Registration failed</title>
     <link rel="stylesheet" href="../css/foundation/foundation.css" />
     <link rel="stylesheet" href="../css/register.css" />
     <script src="../js/vendor/modernizr.js"></script>
@@ -26,7 +26,7 @@
 
                 <!-- Right Nav Section -->
                 <ul class="right">
-                    <li><a href="FAQ.php">Hilfe</a></li>
+                    <li><a href="FAQ.php">Help</a></li>
 
 
                     <!-- Loginfunktion -->
@@ -48,19 +48,19 @@
 					<li class="has-form">
 						<div class="row collapse">
 							<form action="filter.php" method="get">
-								<input type="text" placeholder="Schnellsuche" name="search">
+								<input type="text" placeholder="Quick search" name="search">
 							</form>
 						</div>
 					</li>
 
                     <!-- Suchfeld -->
 					 <li>
-						<a href="search.php">Suche</a>
+						<a href="search.php">Search</a>
                     </li>
 					
 					<!-- Impressum aufrufen -->
                     <li>
-                        <a href="Impressum.php">Impressum</a>
+                        <a href="Impressum.php">Imprint</a>
                     </li>
 					
                 </ul>
@@ -74,17 +74,17 @@
 		
         <form id="top-nav-login" action="login.php" method="post">
             <div class="row">
-                <label>Nutzer</label>
+                <label>User</label>
                 <input type="text" name="user" placeholder="name" tabindex="1" />
             </div>
             <div class="row">
-                <label>Passwort</label>
+                <label>Password</label>
                 <input type="password" name="password" placeholder="********" tabindex="2" />
             </div>
             <div class="row">
                 <input type="submit" class="button tiny success" value="Login" tabindex="3" />
             </div>
-            <p>Sie haben noch kein Konto? Zur Registrierung geht es <a onclick="test" data-reveal-id="RegisterModal">hier</a></p>
+            <p>You do not have an account? You can register one <a onclick="test" data-reveal-id="RegisterModal">here</a></p>
         </form>
     </div>
 	
@@ -95,16 +95,16 @@
 				document.getElementById("eingeloggtAls").innerHTML = "Eingeloggt als: " + author();
 			</script>
 			<ul id="drop" class="[tiny small medium large content]f-dropdown" data-dropdown-content>
-			  <a href="#" data-reveal-id="Profile">Profil</a>
+			  <a href="#" data-reveal-id="Profile">Profile</a>
 
 					<div id="Profile" class="reveal-modal" data-reveal>
-					  <h3 id="benutzername">Mein Profil: </h3>
+					  <h3 id="benutzername">My Profile: </h3>
 					  
 					  <script>
 						document.getElementById("benutzername").innerHTML = "Mein Profil: " + author();
 					  </script>
 					  <form action="alteruser.php" method="post">
-					  <button style="float: right;"> Daten ändern</button>
+					  <button style="float: right;"> Edit</button>
 						<?php
 						// attempt a connection
 						//ini_set('display_errors', '1');
@@ -134,9 +134,9 @@
 							$plz = (string)$row[1];
 							$land = (string)$row[2];
 						
-							echo '<p>Ort: ' . $ort . ' </p>';
-							echo '<p>PLZ: ' . $plz . '</p>';
-							echo '<p>Land: ' . $land . '</p>';
+							echo '<p>City: ' . $ort . ' </p>';
+							echo '<p>Zip Code: ' . $plz . '</p>';
+							echo '<p>Country: ' . $land . '</p>';
 							//echo '<p>Ort: <input value=' . $ort . ' type=\"text\" id=\"ort\" name=\"ort\" style=\"width: 90%;\"/></p>';
 							//echo '<p>PLZ: <input value=' . $plz . ' type=\"text\" id=\"plz\" name=\"plz\" style=\"width: 90%;\"/></p>';
 							//echo '<p>Land: <input value=' . $land . ' type=\"text\" id=\"land\" name=\"land\" style=\"width: 90%;\"/></p>';
@@ -145,15 +145,15 @@
 						// free memory
 						pg_free_result($result);
 						?>
-						<input value="ort" type="text" id="ort" name="ort" style="width: 90%;"/>
-						<input value="plz" type="text" id="plz" name="plz" style="width: 90%;"/>
-						<input value="land" type="text" id="land" name="land" style="width: 90%;"/>
+						<input value="City" type="text" id="ort" name="ort" style="width: 90%;"/>
+						<input value="Zip code" type="text" id="plz" name="plz" style="width: 90%;"/>
+						<input value="Country" type="text" id="land" name="land" style="width: 90%;"/>
 						<a class="close-reveal-modal">&#215;</a>
 						</form>
 					</div>
 			
 			  
-			  <br /><a href="infouser.php">Meine Topics und Kommentare</a>
+			  <br /><a href="infouser.php">My topics and comments</a>
 			  <br /><a href="logout.php">Logout</a>
 			</ul>
 	</div>
@@ -162,17 +162,17 @@
     <!-- Inhalt -->
    <div id="registercontent">
    <b> </b>
-   <p>Der Benutzername ist schon vergeben!</p>
-    <p>Bitte geben Sie einen anderen Benutzernamen an!</p>
+   <p>Username is already taken!</p>
+    <p>Please give another username!</p>
    <form action="register.php" method="post" >
-                        Benutzername: <input type="text" id="Benutzername" name="Benutzername"/>
-                        Passwort: <input type="password" id="Passwort" name="Passwort"/>
-                        Passwort wiederholen:<input type="password" id="Passwort2" name="Passwort2"/>
-                        Ort (optional): <input type="text" name="Ort" id="Ort" />
-                        PLZ (optional): <input type="text" name="PLZ" id="PLZ"/>
-                        Land (optional): <input type="text" name="Land" id="Land" />
-                        <input type="submit" class="button expand" value="Registrieren" name="Submit" />
-                        <a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
+                        Username: <input type="text" id="Benutzername" name="Benutzername"/>
+                        Password: <input type="password" id="Passwort" name="Passwort"/>
+                        Retype password:<input type="password" id="Passwort2" name="Passwort2"/>
+                        City (optional): <input type="text" name="Ort" id="Ort" />
+                        Zip Code (optional): <input type="text" name="PLZ" id="PLZ"/>
+                        Country (optional): <input type="text" name="Land" id="Land" />
+                        <input type="submit" class="button expand" value="Register" name="Submit" />
+                        <a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abort</a>
                       </form>
 	</div>
 	
