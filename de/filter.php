@@ -596,7 +596,7 @@
 		$kategorie =  $_GET['KategorieSuche'];
 		$katwert = NULL;
 		switch ($kategorie) { 
-			case 'Keine':
+			case 'Keine Kategorie':
 				$katwert = NULL;
 				break;
 			case 'Welt': 
@@ -634,19 +634,19 @@
 				$bewert = NULL;
 				break;
 			case '1': 
-				$bewert = '1';
+				$bewert = 1;
 				break; 
 			case '2': 
-				$bewert = '2';
+				$bewert = 2;
 				break; 
 			case '3': 
-				$bewert = '3';
+				$bewert = 3;
 				break; 
 			case '4': 
-				$bewert = '4';
+				$bewert = 4;
 				break; 
 			case '5': 
-				$bewert = '5';
+				$bewert = 5;
 				break;  
 			default:
 				$bewert = NULL;
