@@ -29,7 +29,7 @@ class Comment
 		// Converting the time to a UNIX timestamp:
 		$d['dt'] = strtotime($d['dt']);
 
-		if($d['name'] === "Gast") {	
+		if($d['name'] === "Gast" || $d['name'] === "Guest" || $d['name'] === "Gosc" ) {	
 		$avatar = '<img src="/../Simon/Master/img/CommentSys/Gast.gif" />';
 			$farbe  = '';
 			$dtfarbe  = '';
@@ -41,12 +41,22 @@ class Comment
 		}
 			
 		if($d['name'] === "$_COOKIE[Autor]") {	
-	$edit = '<button type="submit" id="edit" data-reveal-id="t'.$d['id'].'" class="button tiny" >Bearbeiten</button>';
-
-	
+			$edit = '<button type="submit" id="edit" data-reveal-id="t'.$d['id'].'" class="button tiny" >Edit</button>';
 		}  else   { 
 			$edit  = '';
-
+		}
+		
+		
+		if($d['rating'] == ''){
+			$rate = 'not rated';
+		}else{
+			$checked = $_POST['checkbox1'];
+			if($checked== 'on'){
+				$rate = 'not rated';
+			}else{
+				$rate = $d['rating'].' / 5';
+			}
+			//$rate = $d['rating'].' / 5';
 		}
 		
 
@@ -54,19 +64,19 @@ class Comment
 			<div class="comment" '.$farbe.'>
 				<div class="avatar">'.$avatar.'</div>			
 				<div class="name"  >'.$d['name'].'</div>
-				<div class="rating">'.$d['rating'].' / 5</div>
+				<div class="rating">'.$rate.'</div>
 				<div class="date" title="Added at '.date('H:i \o\n d M Y',$d['dt']).'">'.date('H:i \o\n d M Y',$d['dt']).'</div>
 				<input type="hidden" value='.$d['leftpoint'].' />
 				<input type="hidden" value='.$d['rightpoint'].' />
 				<p>'.$d['body'].'</p>
-				'.$edit.'
-				<a onclick="drawBox(this.parentNode.childNodes[9].value, this.parentNode.childNodes[11].value)" class="button tiny">R&auml;umliche Ausdehnung anzeigen</a>
+				'.$edit.'				
+				<a onclick="drawBox(this.parentNode.childNodes[9].value, this.parentNode.childNodes[11].value)" class="button tiny">Show Bounding Box</a>
 				
 
 			</div>
 			<div id="t'.$d['id'].'" class="reveal-modal" data-reveal>
 			<div id="EditCommentContainer">
-			<p>Kommentar bearbeiten</p>
+			<p>edit comment</p>
     			<div>
 	 		<form action="commentSys/edit.php" method="post">
 	    		 <p>Autor <input id="name1" type="text" readonly="readonly" name="name"/>
@@ -75,9 +85,10 @@ class Comment
             		 <textarea name="body1" id="body1" cols="20" rows="5"></textarea>
             
 	    		 <input type="hidden" name="id1" id="id1" value = '.$d['id'].' />
+				 <input type="hidden" name="urleins" id="urleins" value = '.$d['page_id'].' />
 	
 	
-			<button style="float: left;"> Bearbeiten</button>
+			<button style="float: left;">Edit</button>
 			</form>
 
 <script>
@@ -130,20 +141,20 @@ document.getElementById("name1").value = author();
 		
 		if(!($data['body'] = filter_input(INPUT_POST,'body',FILTER_CALLBACK,array('options'=>'Comment::validate_text'))))
 		{
-			$errors['body'] = 'Bitte geben sie einen Kommentartext ein.';
+			$errors['body'] = 'Please leave a comment.';
 		}
 
 
 		
 		if(!($data['name'] = filter_input(INPUT_POST,'name',FILTER_CALLBACK,array('options'=>'Comment::validate_text'))))
 		{
-			$errors['name'] = 'Bitte geben sie einen Namen an.';
+			$errors['name'] = 'Please leave your name.';
 		}
 		
 		
 		if(!($data['rating'] = filter_input(INPUT_POST,'rating',FILTER_CALLBACK,array('options'=>'Comment::validate_text'))))
 		{
-			$errors['rating'] = 'Bitte geben sie eine Bewertung an.';
+			$errors['rating'] = 'Please leave a rating.';
 		}
 
 		if(!empty($errors)){

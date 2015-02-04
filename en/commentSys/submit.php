@@ -18,6 +18,18 @@ $validates = Comment::validate($arr);
 if($validates)
 {
 	/* Everything is OK, insert to database: */
+	$checked = $_POST['checkbox1'];
+	if($checked== 'on'){
+		pg_query("	INSERT INTO comments(name,page_id,rating,body,leftpoint,rightpoint)
+					VALUES (
+						'".$arr['name']."',
+						'".$arr['page_id']."',
+						Null,
+						'".$arr['body']."',
+						'".$arr['leftpoint']."  ',
+						'".$arr['rightpoint']."'
+					)");
+	}else{
 		pg_query("	INSERT INTO comments(name,page_id,rating,body,leftpoint,rightpoint)
 					VALUES (
 						'".$arr['name']."',
@@ -27,6 +39,7 @@ if($validates)
 						'".$arr['leftpoint']."  ',
 						'".$arr['rightpoint']."'
 					)");
+	}
 	
 	$arr['dt'] = date('r',time());
 	$arr['id'] = 1;
