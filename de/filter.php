@@ -549,7 +549,7 @@
       L.control.layers(baseLayers, null, {position: 'bottomleft'}).addTo(map);
 
         //zoom to location of user 
-      map.locate({ setView: false, maxZoom: 12 });
+      //map.locate({ setView: false, maxZoom: 12 });
 
         map.on('locationfound', onLocationFound);
     
