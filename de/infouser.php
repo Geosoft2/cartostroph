@@ -155,7 +155,7 @@
 		$user = $_COOKIE['Autor'];
 	
 		// execute query
-		$sql = "SELECT page_id, body from comments WHERE name='$user';";
+		$sql = "SELECT page_id, body, rating from comments WHERE name='$user';";
 	
 		$result = pg_query($connection, $sql);
 		if (!$result) {
@@ -167,13 +167,19 @@
 		// iterate over result set
 		// print each row
 		while ($row = pg_fetch_array($result)) {
-			$URL = (string)$row[0];
-			$Text = (string)$row[1];
+			$URL = pg_escape_string(htmlspecialchars((string)$row[0]));
+			$Text = pg_escape_string(htmlspecialchars((string)$row[1]));
+			$rating = pg_escape_string(htmlspecialchars((string)$row[2]));
+			
+			if ($rating == ''){
+				$rating = 'keine Bewertung';
+			}
 			
 			$fetched = true;
 			
 			echo 'URL: <a href=' . $URL . '>' . $URL . '</a><br />';
-			echo 'Text: ' . $Text;
+			echo 'Text: ' . $Text .'<br />';
+			echo 'Bewertung: '. $rating .'<br />';
 			echo '<form action=DynamicMap.php method=get>';
 			echo '<input type=hidden name=url value=';
 			echo $URL;
