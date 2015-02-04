@@ -97,14 +97,14 @@ while($row = pg_fetch_assoc($result))
 					
 					<!-- FAQ aufrufen -->
                     <li>
-                        <a href="FAQ.php">Hilfe</a>
+                        <a href="FAQ.php">Help</a>
                     </li>
                     
                     
                     
                     <!-- Pop-Up f�r Registrierung  -->
                     <li>
-                        <a href="#" data-reveal-id="RegisterModal">Registrierung</a>
+                        <a href="#" data-reveal-id="RegisterModal">Register</a>
                     </li>
 					
 					<!-- Schnellsuche -->
@@ -112,19 +112,19 @@ while($row = pg_fetch_assoc($result))
 					<li class="has-form">
 						<div class="row collapse">
 							<form action="filter.php" method="get">
-								<input type="text" placeholder="Schnellsuche" name="search">
+								<input type="text" placeholder="Quick Search" name="search">
 							</form>
 						</div>
 					</li>
 					
 					<!-- Suchfeld -->
 					 <li>
-						<a href="search.php">Suche</a>
+						<a href="search.php">Search</a>
                     </li>
 					
 					<!-- Impressum aufrufen -->
                     <li>
-                        <a href="Impressum.php">Impressum</a>
+                        <a href="Impressum.php">Legal disclosure</a>
                     </li>
 					
 					 </ul>
@@ -139,17 +139,17 @@ while($row = pg_fetch_assoc($result))
 		
         <form id="top-nav-login" action="login.php" method="post">
             <div class="row">
-                <label>Nutzer</label>
+                <label>User</label>
                 <input type="text" name="user" placeholder="name" tabindex="1" />
             </div>
             <div class="row">
-                <label>Passwort</label>
+                <label>Password</label>
                 <input type="password" name="password" placeholder="********" tabindex="2" />
             </div>
             <div class="row">
                 <input type="submit" class="button tiny success" value="Login" tabindex="3" />
             </div>
-            <p>Sie haben noch kein Konto? Zur Registrierung geht es <a onclick="test" data-reveal-id="RegisterModal">hier</a></p>
+            <p>You do not have an account? You can register one <a onclick="test" data-reveal-id="RegisterModal">here</a></p>
         </form>
     </div>
 	
@@ -160,19 +160,19 @@ while($row = pg_fetch_assoc($result))
 				document.getElementById("eingeloggtAls").innerHTML = "Eingeloggt als: " + author();
 			</script>
 			<ul id="drop" class="[tiny small medium large content]f-dropdown" data-dropdown-content>
-			  <a href="#" data-reveal-id="Profile">Profil</a>
+			  <a href="#" data-reveal-id="Profile">Profile</a>
 
 					<div id="Profile" class="reveal-modal" data-reveal>
-					  <h3 id="benutzername">Mein Profil: </h3>
+					  <h3 id="benutzername">My profile: </h3>
 					  
 					  <script>
-						document.getElementById("benutzername").innerHTML = "Mein Profil: " + author();
+						document.getElementById("benutzername").innerHTML = "my profile: " + author();
 					  </script>
 					  <form action="alteruser.php" method="post">
-						<p>Ort: <input type="text" id="ort" name="ort" style="width: 75%;"/></p>
-						<p>PLZ: <input type="text" id="plz" name="plz" style="width: 75%;"/></p>
-						<p>Land: <input type="text" id="land" name="land" style="width: 75%;"/></p>
-						<button style="float: right;">Daten ändern</button>
+						<p>City: <input type="text" id="ort" name="ort" style="width: 75%;"/></p>
+						<p>Zip code: <input type="text" id="plz" name="plz" style="width: 75%;"/></p>
+						<p>Country: <input type="text" id="land" name="land" style="width: 75%;"/></p>
+						<button style="float: right;">Edit</button>
 						<a class="close-reveal-modal">&#215;</a>
 					  </form>
 						<?php
@@ -237,7 +237,7 @@ while($row = pg_fetch_assoc($result))
 					</div>
 			
 			  
-			  <br /><a href="infouser.php">Meine Topics und Kommentare</a>
+			  <br /><a href="infouser.php">My topics and comments</a>
 			  <br /><a href="logout.php">Logout</a>
 			</ul>
 			</div>
@@ -245,16 +245,16 @@ while($row = pg_fetch_assoc($result))
 				    
 				    <!-- PopUp-Registrierungs-Formular -->
 				    <div id="RegisterModal" class="reveal-modal" data-reveal>
-				        <h2> Registrierung </h2>
+				        <h2> Registration </h2>
 				        <form action="register.php" method="post">
-				            Benutzername: <input type="text" id="Benutzername" name="Benutzername" required />
-				            Passwort: <input type="password" id="passwort" name="Passwort" required />
-				            Passwort wiederholen:<input type="password" id="passwortWieder" name="Passwort2" required />
-				            Ort (optional): <input type="text" name="Ort" id="Ort" />
-				            PLZ (optional): <input type="text" name="PLZ" id="PLZ" />
-				            Land (optional): <input type="text" name="Land" id="Land" />
-				            <input id="regist" type="submit" class="button expand" value="Registrieren" />
-				            <a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a><br />
+				            Username: <input type="text" id="Benutzername" name="Benutzername" required />
+				            Password: <input type="password" id="passwort" name="Passwort" required />
+				            Password check:<input type="password" id="passwortWieder" name="Passwort2" required />
+				            City (optional): <input type="text" name="Ort" id="Ort" />
+				            Zip Code(optional): <input type="text" name="PLZ" id="PLZ" />
+				            Country (optional): <input type="text" name="Land" id="Land" />
+				            <input id="regist" type="submit" class="button expand" value="Register" />
+				            <a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abort</a><br />
 				            <br />
 				        </form>
 				    </div>
@@ -273,15 +273,15 @@ while($row = pg_fetch_assoc($result))
 		</div>
 		<table>
 				<tr><th>URL:</th> <th id="URL"></th></tr>
-				<tr><th>Titel:</th> <th id="Titel"></th></tr>
-				<tr><th>Autor:</th> <th id="Autor"></th></tr>
-				<tr><th>Kommentar:</th> <th id="Commen"></th></tr>
-                                <tr><th>Durchschnittliche Bewertung:</th> <th id="DBewertung"></th></tr>
-				<tr><th>Kategorie:</th> <th id="Kategorie"></th></tr>
+				<tr><th>Title:</th> <th id="Titel"></th></tr>
+				<tr><th>Author:</th> <th id="Autor"></th></tr>
+				<tr><th>Comment:</th> <th id="Commen"></th></tr>
+                                <tr><th>average rating:</th> <th id="DBewertung"></th></tr>
+				<tr><th>Category:</th> <th id="Kategorie"></th></tr>
 				<tr><th>Hyperlinks:</th> <th id="Hyperlinks"></th></tr>
 				<tr><th>Tags:</th> <th  id="tag"></th"></tr>
-				<tr><th>Startdatum:</th> <th  id="Startdatum"></th"></tr>
-				<tr><th>Enddatum:</th> <th  id="Enddatum"></th"></tr>
+				<tr><th>Start datum:</th> <th  id="Startdatum"></th"></tr>
+				<tr><th>End datum:</th> <th  id="Enddatum"></th"></tr>
 			</table>
 		</div>
 		
@@ -325,7 +325,7 @@ while($row = pg_fetch_assoc($result))
                         }
                     
                     if ($bewertungTopic == NULL and $count == NULL) {
-                        $rating_avg = "Keine Bewertung";
+                        $rating_avg = "not rated";
                         }
                     elseif ($bewertungTopic != NULL) {
                         
@@ -355,11 +355,11 @@ while($row = pg_fetch_assoc($result))
 			$text = (string)$row[8];
 			
 			if($startdatum == "0001-01-01") {
-				$startdatum = "universell";
+				$startdatum = "universal";
 			}
 			
 			if($enddatum == "9999-12-31") {
-				$enddatum = "universell";
+				$enddatum = "universal";
 			}
 				
 			
