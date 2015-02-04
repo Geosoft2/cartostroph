@@ -275,7 +275,8 @@ while($row = pg_fetch_assoc($result))
 				<tr><th>URL:</th> <th id="URL"></th></tr>
 				<tr><th>Titel:</th> <th id="Titel"></th></tr>
 				<tr><th>Autor:</th> <th id="Autor"></th></tr>
-				<tr><th>Durchschnittliche Bewertung:</th> <th id="DBewertung"></th></tr>
+				<tr><th>Kommentar:</th> <th id="Commen"></th></tr>
+                                <tr><th>Durchschnittliche Bewertung:</th> <th id="DBewertung"></th></tr>
 				<tr><th>Kategorie:</th> <th id="Kategorie"></th></tr>
 				<tr><th>Hyperlinks:</th> <th id="Hyperlinks"></th></tr>
 				<tr><th>Tags:</th> <th  id="tag"></th"></tr>
@@ -373,7 +374,7 @@ while($row = pg_fetch_assoc($result))
 			echo 'document.getElementById("tag").innerHTML = "'. $tag .'";';
 			echo 'document.getElementById("Startdatum").innerHTML = "'. $startdatum .'";';
 			echo 'document.getElementById("Enddatum").innerHTML = "'. $enddatum .'";';
-			echo 'var text = "'. $text .'";';
+			echo 'document.getElementById("Commen").innerHTML = "'. $text .'";';
 			echo '</script>';
 			
 		};
@@ -382,12 +383,8 @@ while($row = pg_fetch_assoc($result))
 	</div>
 <div class="large-4 columns"> 
 	     <div id="addCommentContainer">
-	<p id="komm"></p>
-	<script>
-		document.getElementById("komm").innerHTML = "Kommentar  <br /> " + text;
-	</script>
 	
-	<form id="addCommentForm" method="post" action="">
+        <form id="addCommentForm" method="post" action="">
     	<div>
 	     <p>Autor <input id="name" type="text" readonly="readonly" name="name"/>
          	<label for="leftpoint"></label>
