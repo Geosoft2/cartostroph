@@ -488,7 +488,7 @@ foreach($comments as $c){
 	    L.control.layers(baseLayers, null, {position: 'bottomleft'}).addTo(map);
 
         //zoom to location of user 
-	    map.locate({ setView: true, maxZoom: 12 });
+	    //map.locate({ setView: true, maxZoom: 12 });
 
         /*function onLocationFound(e) {
             var radius = e.accuracy / 2;
