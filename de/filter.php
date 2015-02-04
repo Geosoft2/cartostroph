@@ -461,10 +461,10 @@
                             </select>
                             </p>
                             <p><abbr title="Hier geben Sie an ab wann der Geodatensatz gültig ist"><img src="../img/info.png" width="15px" height="15px"/></abbr>
-                  Start <input type="date" id="startSuche" name="startSuche" /> 
+                  Start <input type="date" id="startSuche" name="startSuche" placeholder="jjjj-mm-tt"/> 
                   </p>
                   <p><abbr title="Hier geben Sie an bis wann der Datensatz gültig war bzw. voraussichtlich sein wird."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
-                  Ende <input type="date" id="endSuche" name="endSuche" />  
+                  Ende <input type="date" id="endSuche" name="endSuche" placeholder="jjjj-mm-tt"/>  
                   </p>
                     <p>Bewertung: <select id="BewertungSuche" name="BewertungSuche">
                                 <option value="Keine">Keine Einschränkung</option>
