@@ -81,29 +81,27 @@
 	<div class="large-1 columns">
 	</div>
 	<div class="large-11 columns" id="impressumcontent">
-		<h1>Impressum</h1>
+		<h1>Legal Disclosure</h1>
 		
 		<p>Cartostroph <br> Heisenbergstr. 2<br> 48149 Münster <br> </p>
-		<p> <strong>Vertreten durch: </strong><br>Bartosz Mazurkiewicz<br>Simon Schulte<br>Marco Ruhe<br>Philipp Stüwe<br>Joana Gockel<br></p><p><strong>Kontakt:</strong> <br>E-Mail: 
+		<p> <strong>Represented by: </strong><br>Bartosz Mazurkiewicz<br>Simon Schulte<br>Marco Ruhe<br>Philipp Stüwe<br>Joana Gockel<br></p><p><strong>Contact:</strong> <br>E-Mail: 
 		<a href='mailto:s_sch032@uni-muenster.de'>s_sch032@uni-muenster.de</a></br></p>
 		
-		<p><strong>Haftungsausschluss: </strong><br><br><strong>Haftung für Inhalte</strong>
+		<p><strong>Disclaimer: </strong><br><br><strong>Liability for content</strong>
 		<br><br>
-		Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.<br>
-		<br><strong>Haftung für Links</strong>
+		The contents of these pages were created with great care . For the accuracy, completeness or timeliness of the content, we can not take any responsibility . As a service provider we are responsible according to 7 paragraph 1 of TMG for own contents on these pages under the general law. According to  8 to 10 TMG we are not obligated as a service provider to monitor transmitted or stored information, or to investigate circumstances that indicate illegal activity. Obligations to remove or block access to information under the general laws remain unaffected . However , a relevant liability is only possible from the date of knowledge of a specific infringement . Upon notification of such violations, we will remove the content immediately.
+		<br><br><strong>Liability for Links</strong>
 		<br><br>
-		Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
-		<br><br><strong>Urheberrecht</strong><br><br>
-		Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
-		<br><br><strong>Datenschutz</strong><br><br>
-		Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben. <br>
-		Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich. <br>
-		Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.<br>
-		<p>Angaben gemäß § 5 TMG</p>
+		Our site contains links to external websites over which we have no control. Therefore we can not accept any responsibility for their content. The respective provider or operator is always responsible for the contents of any Linked Site. The linked sites were checked at the time of linking for possible violations of law. Illegal contents were at the time of linking. A permanent control of the linked pages is unreasonable without concrete evidence of a violation . Upon notification of violations, we will remove such links immediately.<br><br><strong>copyright</strong><br><br>
+		The content and works provided on these pages created by the site operators are subject to German copyright law. The reproduction, modification , distribution or any kind of exploitation outside the limits of copyright require the written consent of its respective author or creator. Downloads and copies are permitted only for private, non -commercial use. As far as the content is not created by the website operator, the copyrights of third parties. Any duplication or labeled as such. Should you still be aware of copyright infringement , we ask for a hint . Upon notification of violations, we will remove the content immediately .<br><br><strong>Privacy Policy</strong><br><br>
+		Use of our website is usually possible without providing personal information . The collection of any personal data ( eg name, address or e- mail address) , this is as far as possible , on a voluntary basis. These data are not without your express permission to third parties. <br>
+		We point out that the Data transmission over the Internet ( eg communication by e -mail ) security vulnerabilities. A complete protection of data against unauthorized access by third parties is not possible. <br>
+		The use of published under the imprint obligation by third parties for marketing purposes of not expressly requested advertising and information materials is hereby expressly contradicted . The operators of the sites expressly legal steps in case of unsolicited advertising information, such as spam e - mails. <br>
+		<p>Information in accordance with 5 TMG</p>
 		
-		<p><strong>Quellcode</strong><br><br>
-		Unseren Quellcode können Sie <a href='https://github.com/mruhe/cartostroph'>hier</a> finden.</br></p>
-    </div>
+		<p><strong>source code</strong><br><br>
+Our source code , you can find <a href='https://github.com/mruhe/cartostroph'> code here . < / Br > < / p >
+  </div>
 
  <!-- Dropdown-Login-Feld -->
     <div id="login-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
