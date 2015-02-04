@@ -124,7 +124,7 @@ while($row = pg_fetch_assoc($result))
 					
 					<!-- Impressum aufrufen -->
                     <li>
-                        <a href="Impressum.php">Legal disclosure</a>
+                        <a href="Impressum.php">Imprint</a>
                     </li>
 					
 					 </ul>
@@ -149,7 +149,7 @@ while($row = pg_fetch_assoc($result))
             <div class="row">
                 <input type="submit" class="button tiny success" value="Login" tabindex="3" />
             </div>
-            <p>You do not have an account? You can register one <a onclick="test" data-reveal-id="RegisterModal">here</a></p>
+            <p>You do not have an account? You can register  <a onclick="test" data-reveal-id="RegisterModal">here</a></p>
         </form>
     </div>
 	
@@ -211,13 +211,13 @@ while($row = pg_fetch_assoc($result))
 							echo '<script>';
 							if ($ort != ''){
 								echo 'document.getElementById("ort").value = "'.$ort.'";';
-							}else{ echo 'document.getElementById("ort").value = "keine Angabe";';}
+							}else{ echo 'document.getElementById("ort").value = "not specified";';}
 							if ($plz != ''){
 								echo 'document.getElementById("plz").value = "'.$plz.'";';
-							}else{ echo 'document.getElementById("plz").value = "keine Angabe";';}
+							}else{ echo 'document.getElementById("plz").value = "not specified";';}
 							if ($land != ''){
 								echo 'document.getElementById("land").value = "'.$land.'";';
-							}else{ echo 'document.getElementById("land").value = "keine Angabe";';}
+							}else{ echo 'document.getElementById("land").value = "not specified";';}
 							echo '</script>';
 							
 							//echo 'Ort: <input value="' . $ort . '"type=\"text\" id=\"ort\" name=\"ort\" style=\"width: 90%;\"/>';
@@ -226,9 +226,9 @@ while($row = pg_fetch_assoc($result))
 						}
 						
 						if (!fechted){
-							echo 'document.getElementById("ort").value = "keine Angabe";';
-							echo 'document.getElementById("plz").value = "keine Angabe";';
-							echo 'document.getElementById("land").value = "keine Angabe";';
+							echo 'document.getElementById("ort").value = "not specified";';
+							echo 'document.getElementById("plz").value = "not specified";';
+							echo 'document.getElementById("land").value = "not specified";';
 						}
 
 						// free memory
@@ -276,7 +276,7 @@ while($row = pg_fetch_assoc($result))
 				<tr><th>Title:</th> <th id="Titel"></th></tr>
 				<tr><th>Author:</th> <th id="Autor"></th></tr>
 				<tr><th>Comment:</th> <th id="Commen"></th></tr>
-                                <tr><th>average rating:</th> <th id="DBewertung"></th></tr>
+                                <tr><th>Average rating:</th> <th id="DBewertung"></th></tr>
 				<tr><th>Category:</th> <th id="Kategorie"></th></tr>
 				<tr><th>Hyperlinks:</th> <th id="Hyperlinks"></th></tr>
 				<tr><th>Tags:</th> <th  id="tag"></th"></tr>

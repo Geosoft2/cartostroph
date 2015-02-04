@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cartostroph | Legal disclosure</title>    
+    <title>Cartostroph | Imprint</title>    
 	<link rel="stylesheet" href="../css/foundation/foundation.css" />
     <link rel="stylesheet" href="../css/default.css" />
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
@@ -81,7 +81,7 @@
 	<div class="large-1 columns">
 	</div>
 	<div class="large-11 columns" id="impressumcontent">
-		<h1>Legal Disclosure</h1>
+		<h1>Imprint</h1>
 		
 		<p>Cartostroph <br> Heisenbergstr. 2<br> 48149 Münster <br> </p>
 		<p> <strong>Represented by: </strong><br>Bartosz Mazurkiewicz<br>Simon Schulte<br>Marco Ruhe<br>Philipp Stüwe<br>Joana Gockel<br></p><p><strong>Contact:</strong> <br>E-Mail: 
