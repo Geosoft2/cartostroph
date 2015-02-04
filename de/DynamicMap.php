@@ -294,7 +294,7 @@ while($row = pg_fetch_assoc($result))
 		
 		// execute query
 		$url = (string)$_GET['url'];
-		$sql = "SELECT bewertung, hyperlink, kategorie, titel, autor, tag, anfangsdatum ,enddatum FROM topic WHERE url_top = '$url'";
+		$sql = "SELECT bewertung, hyperlink, kategorie, titel, autor, tag, anfangsdatum ,enddatum, text FROM topic WHERE url_top = '$url'";
 		$result = pg_query($connection, $sql);
 		if (!$result) {
 			die("Error in SQL query: " . pg_last_error());
@@ -351,6 +351,7 @@ while($row = pg_fetch_assoc($result))
 			$tag = (string)$row[5];
 			$startdatum = (string)$row[6];
 			$enddatum = (string)$row[7];
+			$text = (string)$row[8];
 			
 			if($startdatum == "0001-01-01") {
 				$startdatum = "universell";
@@ -372,6 +373,7 @@ while($row = pg_fetch_assoc($result))
 			echo 'document.getElementById("tag").innerHTML = "'. $tag .'";';
 			echo 'document.getElementById("Startdatum").innerHTML = "'. $startdatum .'";';
 			echo 'document.getElementById("Enddatum").innerHTML = "'. $enddatum .'";';
+			echo 'var text = "'. $text .'";';
 			echo '</script>';
 			
 		};
@@ -380,8 +382,11 @@ while($row = pg_fetch_assoc($result))
 	</div>
 <div class="large-4 columns"> 
 	     <div id="addCommentContainer">
-
-	<p>Kommentar</p>
+	<p id="komm"></p>
+	<script>
+		document.getElementById("komm").innerHTML = "Kommentar  <br /> " + text;
+	</script>
+	
 	<form id="addCommentForm" method="post" action="">
     	<div>
 	     <p>Autor <input id="name" type="text" readonly="readonly" name="name"/>
