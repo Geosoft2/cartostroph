@@ -76,12 +76,12 @@ class Comment
 			</div>
 			<div id="t'.$d['id'].'" class="reveal-modal" data-reveal>
 			<div id="EditCommentContainer">
-			<p>edit comment</p>
+			<p>Edit comment</p>
     			<div>
 	 		<form action="commentSys/edit.php" method="post">
 	    		 <p>Autor <input id="name1" type="text" readonly="readonly" name="name"/>
 
-	   		 <label for="body">Kommentar</label>
+	   		 <label for="body">Edit</label>
             		 <textarea name="body1" id="body1" cols="20" rows="5"></textarea>
             
 	    		 <input type="hidden" name="id1" id="id1" value = '.$d['id'].' />

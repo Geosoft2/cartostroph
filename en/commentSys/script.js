@@ -12,14 +12,14 @@
 		if(working) return false;
 		
 		working = true;
-		$('#submit').val('Arbeitet..');
+		$('#submit').val('Working..');
 		$('span.error').remove();
 		
 		/* Sending the form fileds to submit.php: */
 		$.post('commentSys/submit.php',$(this).serialize(),function(msg){
 
 			working = false;
-			$('#submit').val('Abschicken');
+			$('#submit').val('Submit');
 			
 			if(msg.status){
 
