@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cartostroph | Willkommen</title>
+    <title>Cartostroph | Welcome</title>
     <link rel="stylesheet" href="../css/foundation/foundation.css" />
     <link rel="stylesheet" href="../css/default.css" />
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
@@ -31,7 +31,7 @@
         <nav class="top-bar" data-topbar role="navigation">
             <ul class="title-area">
                 <li class="name">
-                    <h1><a href="index.php">Carto<span style="color: red;">stroph!</span></a></h1>
+                    <h1><a href="index.php">Carto<span style="color: red;">stroph!</span></a></h1>  
                 </li>
                 <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
                 <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
@@ -39,10 +39,20 @@
             <section class="top-bar-section">
                 <!-- Right Nav Section -->
                 <ul class="right">
+                    <li>
+                    	</a> <a href="../de"><img src="../img/germany.gif"></a>
+                    </li>
                     
+                    <li>
+                    	</a> <a href="../en"><img src="../img/uk.gif"></a>
+                    </li>
+                    
+                    <li>
+                    	</a> <a href="../pl"><img src="../img/poland.gif"></a>
+                    </li>
                     <!-- FAQ aufrufen -->
                     <li>
-                        <a href="FAQ.php">Hilfe</a>
+                        <a href="FAQ.php">Help</a>
                     </li>
 
                     <!-- Loginfunktion -->
@@ -60,11 +70,11 @@
                     </li>
 
                     <!-- Neues Topic erstellen -->
-                    <li><a href="#" data-reveal-id="BboxModal2">Neues Topic anlegen</a>
+                    <li><a href="#" data-reveal-id="BboxModal2">Create new topic</a>
                     	
                     	
                     	<div id="myModal" class="reveal-modal" data-reveal>
-                    		<h3>Wählen Sie eine Position durch Klick in die Karte</h3>
+                    		<h3>Choose a postion on the map</h3>
                     		<a id="setCoordinate" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">OK</a>
                     		<script type="text/javascript">
                     			document.getElementById("setCoordinate").onclick = newMarker;
@@ -74,9 +84,9 @@
 						
 						<!-- popUp fuer Boundingbox -->
 						<div id="BboxModal2" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
-                    		<h3>Definieren Sie die räumliche Ausdehnung, indem Sie zwei gegenüberliegende Eckpunkte klicken.</h3>
-                    		<a id="setBbox2" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Räumliche Ausdehnung definieren</a><br />
-                    		<a id="rejectBbox2" onclick="discardTopic" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
+                    		<h3>Define the bounding box, by clicking two points on the map.</h3>
+                    		<a id="setBbox2" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Define bounding box</a><br />
+                    		<a id="rejectBbox2" onclick="discardTopic" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Abort</a>
                     		<script type="text/javascript">
                     			document.getElementById("setBbox2").onclick = createTopicBoundingBox;
                     		</script>
@@ -84,9 +94,9 @@
 						
 						<!-- popUp fuer Boundingbox -->
 						<div id="confirmBbox"data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
-							<h3>Sind Sie mit der Boundingbox zufrieden?</h3>
-							<a id="setBbox3" style="text-align: right ;position: relative ; font-size: 120%"  class="close-reveal-modal" data-reveal-id="newTopicModal">Ja</a><br />
-                    		<a id="rejectBbox2" onclick="discardTopic()" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Nein</a>
+							<h3>Are you statisfied with the bounding box?</h3>
+							<a id="setBbox3" style="text-align: right ;position: relative ; font-size: 120%"  class="close-reveal-modal" data-reveal-id="newTopicModal">Yes</a><br />
+                    		<a id="rejectBbox2" onclick="discardTopic()" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">No</a>
                     		<script>
                     			document.getElementById("setBbox3").onclick = fillForm;
                     		</script>
@@ -94,22 +104,23 @@
 
                   		<!-- Formular zur Erstellung eines Topics  -->
 						<div id="newTopicModal" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
-  							<h3>Fügen Sie einen Geodatensatz hinzu</h3>
+  							<h3>Add a spatial data set</h3>
   							<form action="topic.php" method="post">
-  								<p>Breitengrad vom Zentrum der Bbox: <input id="Breitengrad" readonly="readonly" type="number" name="Breitengrad"/> </p>
-  								<p>Längengrad vom Zentrum der Bbox: <input id="Längengrad" readonly="readonly" type="number" name="Längengrad"/> </p>
-  								<p><abbr title="Hier geben Sie an unter welcher Internetadresse der Geodatensatz auffindbar ist"><img src="../img/info.png" width="15px" height="15px" /></abbr> URL: <input type="text" id="URL" name="URL" required/> </p>
-  								<p><abbr title="Hier geben Sie einen geeigneten Titel des Datensatzens an, z.B. 'Überflutungsdaten Münster 2014'"><img src="../img/info.png" width="15px" height="15px"/></abbr> Titel: <input type="text" id="Titel" name="Titel" required /></p>
-  								<p><abbr title="Hier geben Sie an was Sie über den Geodatensatz denken. Ist er hilfreich? Ist er gut? Fehlt etwas? etc."><img src="../img/info.png" width="15px" height="15px"/></abbr> Kommentar: <textarea type="text"  id="Kommentar" name="Kommentar" required></textarea></p>
-  								<p><abbr title="Hier geben Sie an wie groß das Gebiet ist, welches vom Geodatensatz abgedeckt wird. Zur Auswahl stehen:
+  								<p>Latitude from the center of the bounding box: <input id="Breitengrad" readonly="readonly" type="number" name="Breitengrad"/> </p>
+  								<p>Longitude from the center of the bounding box: <input id="Längengrad" readonly="readonly" type="number" name="Längengrad"/> </p>
+  								<p><abbr title="Here you enter under which internet address the spatial data set is discoverable"><img src="../img/info.png" width="15px" height="15px" /></abbr> URL: <input type="text" id="URL" name="URL" required/> </p>
+  								<p><abbr title="Here you enter a suitable title for the data set , eg'Überflutungsdaten Münster 2014'"><img src="../img/info.png" width="15px" height="15px"/></abbr> Titel: <input type="text" id="Titel" name="Titel" required /></p>
+  								<p><abbr title="Here you specify what you think about the spatial data set . Is it helpful? Is it good ? Something missing ?"><img src="../img/info.png" width="15px" height="15px"/></abbr> Kommentar: <textarea type="text"  id="Kommentar" name="Kommentar" required></textarea></p>
+  								<p><abbr title="Hier geben Sie optional an wie groß das Gebiet ist, welches vom Geodatensatz abgedeckt wird. Zur Auswahl stehen:
 					                Welt
 					                Kontinent
 					                Land
 					                Region
 					                Stadt
-				                    ">
-						            <img src="../img/info.png" width="15px" height="15px"/></abbr>&ensp;Kategorie:
+				                    " style ="text-align:left;">
+						            <img src="../img/info.png" width="15px" height="15px"/></abbr>&ensp;Kategorie
 									<select id="Kategorie" name="Kategorie">
+										<option value="Keine">Keine Kategorie</option>
   								        <option value="Welt">Welt</option>
   										<option value="Kontinent">Kontinent</option>
   										<option value="Land">Land</option>
@@ -157,7 +168,7 @@
 
 					<!-- Pop-Up für Registrierung  -->
                     <li>
-                    	<a id="regis" href="#" data-reveal-id="RegisterModal">Registrierung</a>
+                    	<a id="regis" href="#" data-reveal-id="RegisterModal">Register</a>
                     	<script type="text/javascript">
                     		if (loggedIn() == "Login"){
 					
@@ -173,7 +184,7 @@
 					<li class="has-form">
 						<div class="row collapse">
 							<form action="filter.php" method="get">
-								<input type="text" placeholder="Schnellsuche" name="search">
+								<input type="text" placeholder="Quick search" name="search">
 							</form>
 						</div>
 					</li>
@@ -181,12 +192,12 @@
 					
                     <!-- Suchfeld -->
 					 <li>
-						<a href="search.php">Suche</a>
+						<a href="search.php">Search</a>
                     </li>
 					
 					<!-- Impressum aufrufen -->
                     <li>
-                        <a href="Impressum.php">Impressum</a>
+                        <a href="Impressum.php">Imprint</a>
                     </li>
                     
                 </ul>
@@ -196,16 +207,16 @@
 
     <!-- PopUp-Registrierungs-Formular -->
     <div id="RegisterModal" class="reveal-modal" data-reveal>
-        <h2> Registrierung </h2>
+        <h2> Registration </h2>
         <form action="register.php" method="post">
-            Benutzername: <input type="text" id="Benutzername" name="Benutzername" required />
-            Passwort: <input type="password" id="passwort" name="Passwort" required />
-            Passwort wiederholen:<input type="password" id="passwortWieder" name="Passwort2" required />
-            Ort (optional): <input type="text" name="Ort" id="Ort" />
-            PLZ (optional): <input type="text" name="PLZ" id="PLZ" />
-            Land (optional): <input type="text" name="Land" id="Land" />
-            <input id="regist" type="submit" class="button expand" value="Registrieren" />
-            <a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a><br />
+            Username: <input type="text" id="Benutzername" name="Benutzername" required />
+            Password: <input type="password" id="passwort" name="Passwort" required />
+            Retype password:<input type="password" id="passwortWieder" name="Passwort2" required />
+            City (optional): <input type="text" name="Ort" id="Ort" />
+            Zip Code (optional): <input type="text" name="PLZ" id="PLZ" />
+            Country (optional): <input type="text" name="Land" id="Land" />
+            <input id="regist" type="submit" class="button expand" value="Register" />
+            <a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abort</a><br />
             <br />
         </form>
     </div>
@@ -216,17 +227,17 @@
 		
         <form id="top-nav-login" action="login.php" method="post">
             <div class="row">
-                <label>Nutzer</label>
+                <label>User</label>
                 <input type="text" name="user" placeholder="name" tabindex="1" />
             </div>
             <div class="row">
-                <label>Passwort</label>
+                <label>Password</label>
                 <input type="password" name="password" placeholder="********" tabindex="2" />
             </div>
             <div class="row">
                 <input type="submit" class="button tiny success" value="Login" tabindex="3" />
             </div>
-            <p>Sie haben noch kein Konto? Zur Registrierung geht es <a onclick="test" data-reveal-id="RegisterModal">hier</a></p>
+            <p>You do not have an account? You can register one <a onclick="test" data-reveal-id="RegisterModal">here</a></p>
         </form>
     </div>
 	
@@ -237,16 +248,21 @@
 				document.getElementById("eingeloggtAls").innerHTML = "Eingeloggt als: " + author();
 			</script>
 			<ul id="drop" class="[tiny small medium large content]f-dropdown" data-dropdown-content>
-			  <a href="#" data-reveal-id="Profile">Profil</a>
+			  <a href="#" data-reveal-id="Profile">Profile</a>
 
 					<div id="Profile" class="reveal-modal" data-reveal>
-					  <h3 id="benutzername">Mein Profil: </h3>
+					  <h3 id="benutzername">My Profile: </h3>
 					  
 					  <script>
 						document.getElementById("benutzername").innerHTML = "Mein Profil: " + author();
 					  </script>
 					  <form action="alteruser.php" method="post">
-					  <button style="float: right;"> Daten ändern</button>
+						<p>City: <input type="text" id="ort" name="ort" style="width: 75%;"/></p>
+						<p>Zip Code: <input type="text" id="plz" name="plz" style="width: 75%;"/></p>
+						<p>Country: <input type="text" id="land" name="land" style="width: 75%;"/></p>
+						<button style="float: right;">Edit</button>
+						<a class="close-reveal-modal">&#215;</a>
+					  </form>
 						<?php
 						// attempt a connection
 						//ini_set('display_errors', '1');
@@ -269,6 +285,8 @@
 							die("Error in SQL query: " . pg_last_error());
 						}
 
+						$fetched = false;
+						
 						// iterate over result set
 						// print each row
 						while ($row = pg_fetch_array($result)) {
@@ -276,26 +294,38 @@
 							$plz = (string)$row[1];
 							$land = (string)$row[2];
 						
-							echo '<p>Ort: ' . $ort . ' </p>';
-							echo '<p>PLZ: ' . $plz . '</p>';
-							echo '<p>Land: ' . $land . '</p>';
-							//echo '<p>Ort: <input value=' . $ort . ' type=\"text\" id=\"ort\" name=\"ort\" style=\"width: 90%;\"/></p>';
-							//echo '<p>PLZ: <input value=' . $plz . ' type=\"text\" id=\"plz\" name=\"plz\" style=\"width: 90%;\"/></p>';
-							//echo '<p>Land: <input value=' . $land . ' type=\"text\" id=\"land\" name=\"land\" style=\"width: 90%;\"/></p>';
+							$fetched = true;
+							
+							echo '<script>';
+							if ($ort != ''){
+								echo 'document.getElementById("ort").value = "'.$ort.'";';
+							}else{ echo 'document.getElementById("ort").value = "not specified";';}
+							if ($plz != ''){
+								echo 'document.getElementById("plz").value = "'.$plz.'";';
+							}else{ echo 'document.getElementById("plz").value = "not specified";';}
+							if ($land != ''){
+								echo 'document.getElementById("land").value = "'.$land.'";';
+							}else{ echo 'document.getElementById("land").value = "not specified";';}
+							echo '</script>';
+							
+							//echo 'Ort: <input value="' . $ort . '"type=\"text\" id=\"ort\" name=\"ort\" style=\"width: 90%;\"/>';
+							//echo 'PLZ: <input value="' . $plz . '" type=\"text\" id=\"plz\" name=\"plz\" style=\"width: 90%;\"/>';
+							//echo 'Land: <input value="' . $land . '" type=\"text\" id=\"land\" name=\"land\" style=\"width: 90%;\"/>';
+						}
+						
+						if (!fechted){
+							echo 'document.getElementById("ort").value = "not specified";';
+							echo 'document.getElementById("plz").value = "not specified";';
+							echo 'document.getElementById("land").value = "not specified";';
 						}
 
 						// free memory
 						pg_free_result($result);
-						?>
-						<input value="ort" type="text" id="ort" name="ort" style="width: 90%;"/>
-						<input value="plz" type="text" id="plz" name="plz" style="width: 90%;"/>
-						<input value="land" type="text" id="land" name="land" style="width: 90%;"/>
-						<a class="close-reveal-modal">&#215;</a>
-						</form>
+						?>	
 					</div>
 			
 			  
-			  <br /><a href="infouser.php">Meine Topics und Kommentare</a>
+			  <br /><a href="infouser.php">My topics and comments</a>
 			  <br /><a href="logout.php">Logout</a>
 			</ul>
 	</div>
