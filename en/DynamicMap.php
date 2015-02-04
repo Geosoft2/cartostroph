@@ -66,8 +66,20 @@ while($row = pg_fetch_assoc($result))
                 <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
             </ul>
             <section class="top-bar-section">
+            		
                 <!-- Right Nav Section -->
                 <ul class="right">
+                	<li>
+                    	</a> <a href="../de"><img src="../img/germany.gif"></a>
+                    </li>
+                    
+                    <li>
+                    	</a> <a href="../en"><img src="../img/uk.gif"></a>
+                    </li>
+                    
+                    <li>
+                    	</a> <a href="../pl"><img src="../img/poland.gif"></a>
+                    </li>
                 	
                 	<!-- Loginfunktion -->
                     <li class="has-dropdown">
@@ -157,9 +169,16 @@ while($row = pg_fetch_assoc($result))
 						document.getElementById("benutzername").innerHTML = "Mein Profil: " + author();
 					  </script>
 					  <form action="alteruser.php" method="post">
-					  <button style="float: right;"> Daten ändern</button>
+						<p>Ort: <input type="text" id="ort" name="ort" style="width: 75%;"/></p>
+						<p>PLZ: <input type="text" id="plz" name="plz" style="width: 75%;"/></p>
+						<p>Land: <input type="text" id="land" name="land" style="width: 75%;"/></p>
+						<button style="float: right;">Daten ändern</button>
+						<a class="close-reveal-modal">&#215;</a>
+					  </form>
 						<?php
 						// attempt a connection
+						//ini_set('display_errors', '1');
+						//error_reporting(E_ALL | E_STRICT);
 						include("config.php");
 						global $config;
 
@@ -178,6 +197,8 @@ while($row = pg_fetch_assoc($result))
 							die("Error in SQL query: " . pg_last_error());
 						}
 
+						$fetched = false;
+						
 						// iterate over result set
 						// print each row
 						while ($row = pg_fetch_array($result)) {
@@ -185,22 +206,34 @@ while($row = pg_fetch_assoc($result))
 							$plz = (string)$row[1];
 							$land = (string)$row[2];
 						
-							echo '<p>Ort: ' . $ort . ' </p>';
-							echo '<p>PLZ: ' . $plz . '</p>';
-							echo '<p>Land: ' . $land . '</p>';
-							//echo '<p>Ort: <input value=' . $ort . ' type=\"text\" id=\"ort\" name=\"ort\" style=\"width: 90%;\"/></p>';
-							//echo '<p>PLZ: <input value=' . $plz . ' type=\"text\" id=\"plz\" name=\"plz\" style=\"width: 90%;\"/></p>';
-							//echo '<p>Land: <input value=' . $land . ' type=\"text\" id=\"land\" name=\"land\" style=\"width: 90%;\"/></p>';
+							$fetched = true;
+							
+							echo '<script>';
+							if ($ort != ''){
+								echo 'document.getElementById("ort").value = "'.$ort.'";';
+							}else{ echo 'document.getElementById("ort").value = "keine Angabe";';}
+							if ($plz != ''){
+								echo 'document.getElementById("plz").value = "'.$plz.'";';
+							}else{ echo 'document.getElementById("plz").value = "keine Angabe";';}
+							if ($land != ''){
+								echo 'document.getElementById("land").value = "'.$land.'";';
+							}else{ echo 'document.getElementById("land").value = "keine Angabe";';}
+							echo '</script>';
+							
+							//echo 'Ort: <input value="' . $ort . '"type=\"text\" id=\"ort\" name=\"ort\" style=\"width: 90%;\"/>';
+							//echo 'PLZ: <input value="' . $plz . '" type=\"text\" id=\"plz\" name=\"plz\" style=\"width: 90%;\"/>';
+							//echo 'Land: <input value="' . $land . '" type=\"text\" id=\"land\" name=\"land\" style=\"width: 90%;\"/>';
+						}
+						
+						if (!fechted){
+							echo 'document.getElementById("ort").value = "keine Angabe";';
+							echo 'document.getElementById("plz").value = "keine Angabe";';
+							echo 'document.getElementById("land").value = "keine Angabe";';
 						}
 
 						// free memory
 						pg_free_result($result);
-						?>
-						<input value="ort" type="text" id="ort" name="ort" style="width: 90%;"/>
-						<input value="plz" type="text" id="plz" name="plz" style="width: 90%;"/>
-						<input value="land" type="text" id="land" name="land" style="width: 90%;"/>
-						<a class="close-reveal-modal">&#215;</a>
-						</form>
+						?>	
 					</div>
 			
 			  
@@ -231,18 +264,19 @@ while($row = pg_fetch_assoc($result))
 		<!-- Inhalt -->
 	<div class="large-8 columns" >
 		<div class="row" id="map" style="height: 92.5%"><h1 style="color: transparent">das</h1>
-			<h1 style="color: transparent">das</h1>
-			<h1 style="color: transparent">das</h1>
-			<h1 style="color: transparent">das</h1>
-			<h1 style="color: transparent">das</h1>
-			<h1 style="color: transparent">das</h1>
-			<h1 style="color: transparent">das</h1>
+			<h1 style="color: transparent">Whoop whoop</h1>
+			<h1 style="color: transparent">Whoop whoop</h1>
+			<h1 style="color: transparent">https://www.youtube.com/watch?v=auMW8u_Ixhs</h1>
+			<h1 style="color: transparent">https://www.youtube.com/watch?v=auMW8u_Ixhs</h1>
+			<h1 style="color: transparent">Whoop whoop</h1>
+			<h1 style="color: transparent">Whoop whoop</h1>
 		</div>
 		<table>
 				<tr><th>URL:</th> <th id="URL"></th></tr>
 				<tr><th>Titel:</th> <th id="Titel"></th></tr>
 				<tr><th>Autor:</th> <th id="Autor"></th></tr>
-				<tr><th>Durchschnittliche Bewertung:</th> <th id="DBewertung"></th></tr>
+				<tr><th>Kommentar:</th> <th id="Commen"></th></tr>
+                                <tr><th>Durchschnittliche Bewertung:</th> <th id="DBewertung"></th></tr>
 				<tr><th>Kategorie:</th> <th id="Kategorie"></th></tr>
 				<tr><th>Hyperlinks:</th> <th id="Hyperlinks"></th></tr>
 				<tr><th>Tags:</th> <th  id="tag"></th"></tr>
@@ -261,7 +295,7 @@ while($row = pg_fetch_assoc($result))
 		
 		// execute query
 		$url = (string)$_GET['url'];
-		$sql = "SELECT bewertung, hyperlink, kategorie, titel, autor, tag, anfangsdatum ,enddatum FROM topic WHERE url_top = '$url'";
+		$sql = "SELECT bewertung, hyperlink, kategorie, titel, autor, tag, anfangsdatum ,enddatum, text FROM topic WHERE url_top = '$url'";
 		$result = pg_query($connection, $sql);
 		if (!$result) {
 			die("Error in SQL query: " . pg_last_error());
@@ -318,6 +352,7 @@ while($row = pg_fetch_assoc($result))
 			$tag = (string)$row[5];
 			$startdatum = (string)$row[6];
 			$enddatum = (string)$row[7];
+			$text = (string)$row[8];
 			
 			if($startdatum == "0001-01-01") {
 				$startdatum = "universell";
@@ -339,6 +374,7 @@ while($row = pg_fetch_assoc($result))
 			echo 'document.getElementById("tag").innerHTML = "'. $tag .'";';
 			echo 'document.getElementById("Startdatum").innerHTML = "'. $startdatum .'";';
 			echo 'document.getElementById("Enddatum").innerHTML = "'. $enddatum .'";';
+			echo 'document.getElementById("Commen").innerHTML = "'. $text .'";';
 			echo '</script>';
 			
 		};
@@ -347,9 +383,8 @@ while($row = pg_fetch_assoc($result))
 	</div>
 <div class="large-4 columns"> 
 	     <div id="addCommentContainer">
-
-	<p>Kommentar</p>
-	<form id="addCommentForm" method="post" action="">
+	
+        <form id="addCommentForm" method="post" action="">
     	<div>
 	     <p>Autor <input id="name" type="text" readonly="readonly" name="name"/>
          	<label for="leftpoint"></label>
@@ -420,18 +455,54 @@ foreach($comments as $c){
 	<script>
 	var addMarker = false;
 	var comBBox = null;
-	var map = L.map('map', {
-			minZoom: 2 ,
-    		worldCopyJump : true
-    	}).setView([51.505, -0.09], 2);
+	var osmLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>',
+    		thunLink = '<a href="http://thunderforest.com/">Thunderforest</a>';
+
+	    var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    		osmAttrib = '&copy; ' + osmLink + ' Contributors',
+    		landUrl = 'http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png',
+    		thunAttrib = '&copy; '+osmLink+' Contributors & '+thunLink;
+            	mapUrl = 'https://{s}.tiles.mapbox.com/v3/examples.map-i875mjb7/{z}/{x}/{y}.png',
+            	mapAttrib = '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>';
+		aerialUrl = 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png';
 		
-		L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
-			maxZoom: 18,
-			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-				'Imagery � <a href="http://mapbox.com">Mapbox</a>',
-			id: 'examples.map-i875mjb7'
-		}).addTo(map);
+	    var osmMap = L.tileLayer(osmUrl, {attribution: osmAttrib}),
+    		landMap = L.tileLayer(landUrl, {attribution: thunAttrib});
+            	mapBox = L.tileLayer(mapUrl, {attribution: mapAttrib});
+            	aerial = L.tileLayer(aerialUrl, {attribution: mapAttrib});
+
+	    var map = L.map('map', {
+      		layers: [mapBox], // only add one!
+      		minZoom: 2 ,
+    		worldCopyJump : true
+    	})
+    		.setView([30.505, 0], 2);
+
+	    var baseLayers = {
+  		    "OSM Mapnik": osmMap,
+  		    "Landscape": landMap,
+            "MapBox": mapBox,
+            "Aerial": aerial
+	    };
+		
+	    L.control.layers(baseLayers, null, {position: 'bottomleft'}).addTo(map);
+
+        //zoom to location of user 
+	    map.locate({ setView: true, maxZoom: 12 });
+
+        /*function onLocationFound(e) {
+            var radius = e.accuracy / 2;
+            L.marker(e.latlng).addTo(map)
+                .bindPopup("You are within " + radius + " meters from this point").openPopup(); 
+            L.circle(e.latlng, radius).addTo(map);
+        }
+        map.on('locationfound', onLocationFound);
+        function onLocationError(e) {
+            
+        }
+        map.on('locationerror', onLocationError);*/
+        //L.control.pan().addTo(map);
+		//map.addControl(L.control.search());
 		
 		
 		
