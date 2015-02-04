@@ -81,11 +81,11 @@
         <h1>FAQ</h1>
         <p>This side helps you using Cartostroph!</p>
         <p>
-            Cartostroph! is a Web App trying to muster up geological data. 
+            Cartostroph! is a Web App trying to muster up geodata. 
 			When you found interesting geodata, share it right here!
         </p>
         <p>
-            <b>How can I add geological data?</b>
+            <b>How can I add geodata?</b>
             <br />
             <ul>
                 <li>Click "Add new topic" in the toolbar above.</li>
@@ -95,14 +95,14 @@
                 </li>
                 <li>Add informations to the geodata. <a href="#FormularRichtig">Here</a> you can find help.</li>
                 <li>When you filled in all important information click "submit"</li>
-                <li>Now you have crated a Marker which is linked to your geological data, which can be commented and rated from other users.</li>
+                <li>Now you have crated a Marker which is linked to your geodata, which can be commented and rated from other users.</li>
             </ul>
         </p>
         <p id="FormularRichtig">
-            <b>How to fill in the form for my geological data?</b>
+            <b>How to fill in the form for my geodata?</b>
             <br />
             <ul>
-                <li><strong>URL</strong>: Here the link of your geological data is requested</li>
+                <li><strong>URL</strong>: Here the link of your geodata is requested</li>
                 <li><strong>Titel</strong>: Choose a title for your geodata, for example "Hurricane data of Florida"</li>
                 <li><strong>Comment</strong>: Here you can comment to the geodata. Is it helpful? Are there any mistakes in it? etc.</li>
                 <li>
