@@ -507,6 +507,7 @@
 
         // create a map in the "map" div, set the view to a given place and zoom
         var addMarker = false;
+        var TopicBBox = null;
        
         var osmLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>',
     		thunLink = '<a href="http://thunderforest.com/">Thunderforest</a>';
@@ -565,7 +566,7 @@
   		coords1 = bboxLLcoor2.split(",");
   		coords2 = bboxURcoor2.split(",");
   		
-      if(coords1 != null) {
+      if(coords1[0].length > 0) {
 
       	coor1 = coords1[0];
   		coor2 = coords1[1];
