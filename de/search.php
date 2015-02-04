@@ -377,7 +377,7 @@
 	</div>
 	<div id="SearchContent" class="large-4 columns"> <h3>Suche</h3>
         <form action="filter.php" method="get">
-                  <p><input type="text" placeholder="Suche" name="search"></p>
+                  <p><input type="text" placeholder="Suche" id="search" name="search"></p>
                   <p>Kategorie: <select id="KategorieSuche" name="KategorieSuche">
                       <option value="Keine">Keine Kategorie</option>
                       <option value="Welt">Welt</option>
