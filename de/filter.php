@@ -486,10 +486,7 @@
                     <a style="text-align: right ;position: relative ; font-size: 100%" data-reveal-id="BboxModal" class="button tiny" >Räumliche Ausdehnung</a>
                             <p><input id="filter" type="submit" class="button expand" value="Suchen" />
                             </p>  
-                    <p>
-          mein Standort: 
-          <p>Breitengrad: <input id="lat" readonly="readonly" type="number" name="lat"/> </p>
-            <p>Längengrad: <input id="lng" readonly="readonly" type="number" name="lng"/> </p>
+                    </p>
     </form></h1>
 </div>
 
