@@ -271,6 +271,7 @@ function showDataOnMap(URL) {
     	transparent: true,
     	layers: 16
 		}).addTo(map);
+		temperature.bringToFront();
 		break;
 	}
 }
