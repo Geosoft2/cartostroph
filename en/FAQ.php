@@ -41,7 +41,7 @@
 
                   <!-- Pop-Up für Registrierung  -->
                     <li>
-                    	<a id="regis" href="#" data-reveal-id="RegisterModal">Registrierung</a>
+                    	<a id="regis" href="#" data-reveal-id="RegisterModal">Register</a>
                     	<script type="text/javascript">
                     		if (loggedIn() == "Login"){
 					
@@ -56,19 +56,19 @@
 					<li class="has-form">
 						<div class="row collapse">
 							<form action="filter.php" method="get">
-								<input type="text" placeholder="Schnellsuche" name="search">
+								<input type="text" placeholder="Quick search" name="search">
 							</form>
 						</div>
 					</li>
 					
                     <!-- Suchfeld -->
 					 <li>
-						<a href="search.php">Suche</a>
+						<a href="search.php">Search</a>
                     </li>
 					
 					<!-- Impressum aufrufen -->
                     <li>
-                        <a href="Impressum.php">Impressum</a>
+                        <a href="Impressum.php">Imprint</a>
                     </li>
 					
                 </ul>
@@ -76,69 +76,70 @@
         </nav>
     </div>
 
-    <!-- Inhalt -->
+        <!-- Inhalt -->
     <div id="faqcontent">
         <h1>FAQ</h1>
-        <p>Auf dieser Seite bekommen Sie Hilfestellung zur Nutzung von Cartostroph!</p>
+        <p>This side helps you using Cartostroph!</p>
         <p>
-            Cartostroph! ist eine Webapplikation mit dem Ziel Geodatensätze, bzw. URLs dieser, zu Sammeln. Wenn Sie einen
-            Geodatensatz im Internet gefunden haben und ihn mit anderen teilen möchten, sind Sie hier genau richtig!
+            Cartostroph! is a Web App trying to muster up geological data. 
+			When you found interesting geodata, share it right here!
         </p>
         <p>
-            <b> Wie füge ich einen neuen Geodatensatz hinzu? </b>
+            <b>How can I add geological data?</b>
             <br />
             <ul>
-                <li>In der oberen Leiste auf "Neues Topic anlegen" klicken.</li>
+                <li>Click "Add new topic" in the toolbar above.</li>
                 <li>
-                    Fenster bestätigen und per Klick 2 Punkte auf der Karte festlegen (Räumliche Ausdehnung definieren).
+                    Click the OK button in the following Window.
+					Then click two times to define the bounding box of your geodata.
                 </li>
-                <li>Informationen zum Geodatensatz angeben. Hilfestellung dazu finden sie <a href="#FormularRichtig">hier</a>.</li>
-                <li>Wenn Sie sich sicher sind alles richtig ausgefüllt zu haben, klicken Sie auf "Topic erstellen".</li>
-                <li>Nun gibt es einen Marker (im Zentrum der von Ihnen definierten räumlichen Ausdehnung) mit Ihrem gefundenen Datensatz, welcher von anderen Nutzern kommentiert und bewertet werden kann.</li>
+                <li>Add informations to the geodata. <a href="#FormularRichtig">Here</a> you can find help.</li>
+                <li>When you filled in all important information click "submit"</li>
+                <li>Now you have crated a Marker which is linked to your geological data, which can be commented and rated from other users.</li>
             </ul>
         </p>
         <p id="FormularRichtig">
-            <b> Wie fülle ich das Formular zum Geodatensatz richtig aus? </b>
+            <b>How to fill in the form for my geological data?</b>
             <br />
             <ul>
-                <li><strong>URL</strong>: Hier geben Sie an unter welcher Internetadresse der Geodatensatz auffindbar ist.</li>
-                <li><strong>Titel</strong>: Hier geben Sie einen geeigneten Titel des Datensatzens an, z.B. "Überflutungsdaten Münster 2014".</li>
-                <li><strong>Kommentar</strong>: Hier können Sie den Geodatensatz kommentieren. Ist er hilfreich? Ist er gut? Fehlt etwas? etc.</li>
+                <li><strong>URL</strong>: Here the link of your geological data is requested</li>
+                <li><strong>Titel</strong>: Choose a title for your geodata, for example "Hurricane data of Florida"</li>
+                <li><strong>Comment</strong>: Here you can comment to the geodata. Is it helpful? Are there any mistakes in it? etc.</li>
                 <li>
-                    <strong>Kategorie (optional)</strong>: Hier können Sie die räumliche Ausdehnung des Geodatensatzes klassifizieren. Zur Auswahl stehen: <ul>
-                        <li>Welt</li>
-                        <li>Kontinent</li>
-                        <li>Land</li>
+                    <strong>Category (optionally)</strong>: Choose which region the geodata you want to add is representing. At choice: <ul>
+                        <li>World</li>
+                        <li>Continent</li>
+                        <li>Coutry</li>
                         <li>Region</li>
-                        <li>Stadt</li>
+                        <li>City</li>
                     </ul>
                 </li>
-                <li><strong>Zeitliche Ausdehnung - Start (optional)</strong>: Hier geben Sie an ab wann der Geodatensatz gültig ist.</li>
-                <li><strong>Zeitliche Ausdehnung - Ende (optional)</strong>: Hier geben Sie an bis wann der Datensatz gültig war bzw. voraussichtlich sein wird.</li>
-                <li><strong>Bewertung (optional)</strong>: Hier können Sie den Datensatz bewerten von 1 (sehr schlecht) bis 5 (sehr gut).</li>
-                <li><strong>Tags (optional)</strong>: Hier geben Sie Tags an, damit der Datensatz später leichter zu finden ist. </li>
-                <li><strong>Hyperlink (optional)</strong>: Hier geben Sie weitere Internetquellen an, welche den Geodatensatz ergänzen - z.B. neuer oder besserer Datensatz, Zusatzinformationen zum betroffenen Gebiet, etc.</li>
+                <li><strong>Time extent - start (optionally)</strong>: Give a date since the data is valid</li>
+                <li><strong>Time extent - end (optionally)</strong>: Give a date up to when the data can be valid.</li>
+                <li><strong>Bewertung (optionalyl)</strong>: Here you can rate the data from 1 (very bad) to 5 (perfect).</li>
+                <li><strong>Tags (optionally)</strong>: Here you can give tags. Later your data can be easier found. </li>
+                <li><strong>Hyperlink (optionally)</strong>: Here you can add another URL, which gives additional information to your geodata, or is a newer version of it.</li>
             </ul>
         </p>
     </div>
 
- <!-- Dropdown-Login-Feld -->
-    <div id="login-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
+    <!-- Dropdown-Login-Feld -->
+   <div id="login-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
         <h5>Log In:</h5>
 		
         <form id="top-nav-login" action="login.php" method="post">
             <div class="row">
-                <label>Nutzer</label>
-                <input type="text" name="user" placeholder="name" tabindex="1" />
+                <label>User</label>
+                <input type="text" name="user" placeholder="email@example.com" tabindex="1" />
             </div>
             <div class="row">
-                <label>Passwort</label>
-                <input type="password" name="password" placeholder="********" tabindex="2" />
+                <label>Password</label>
+                <input type="password" placeholder="********" tabindex="2" />
             </div>
             <div class="row">
                 <input type="submit" class="button tiny success" value="Login" tabindex="3" />
             </div>
-            <p>Sie haben noch kein Konto? Zur Registrierung geht es <a onclick="test" data-reveal-id="RegisterModal">hier</a></p>
+            <p>You don't have a login? Click <a onclick="test" data-reveal-id="RegisterModal">here</a> for registration.</p>
         </form>
     </div>
 	
@@ -149,16 +150,16 @@
 				document.getElementById("eingeloggtAls").innerHTML = "Eingeloggt als: " + author();
 			</script>
 			<ul id="drop" class="[tiny small medium large content]f-dropdown" data-dropdown-content>
-			  <a href="#" data-reveal-id="Profile">Profil</a>
+			  <a href="#" data-reveal-id="Profile">Profile</a>
 
 					<div id="Profile" class="reveal-modal" data-reveal>
-					  <h3 id="benutzername">Mein Profil: </h3>
+					  <h3 id="benutzername">My profile: </h3>
 					  
 					  <script>
 						document.getElementById("benutzername").innerHTML = "Mein Profil: " + author();
 					  </script>
 					  <form action="alteruser.php" method="post">
-					  <button style="float: right;"> Daten ändern</button>
+					  <button style="float: right;">change data</button>
 						<?php
 						// attempt a connection
 						//ini_set('display_errors', '1');
@@ -188,9 +189,9 @@
 							$plz = (string)$row[1];
 							$land = (string)$row[2];
 						
-							echo '<p>Ort: ' . $ort . ' </p>';
-							echo '<p>PLZ: ' . $plz . '</p>';
-							echo '<p>Land: ' . $land . '</p>';
+							echo '<p>Location: ' . $ort . ' </p>';
+							echo '<p>Postcode: ' . $plz . '</p>';
+							echo '<p>Country: ' . $land . '</p>';
 							//echo '<p>Ort: <input value=' . $ort . ' type=\"text\" id=\"ort\" name=\"ort\" style=\"width: 90%;\"/></p>';
 							//echo '<p>PLZ: <input value=' . $plz . ' type=\"text\" id=\"plz\" name=\"plz\" style=\"width: 90%;\"/></p>';
 							//echo '<p>Land: <input value=' . $land . ' type=\"text\" id=\"land\" name=\"land\" style=\"width: 90%;\"/></p>';
@@ -207,27 +208,26 @@
 					</div>
 			
 			  
-			  <br /><a href="infouser.php">Meine Topics und Kommentare</a>
+			  <br /><a href="infouser.php">My Topics and Comments</a>
 			  <br /><a href="logout.php">Logout</a>
 			</ul>
 	</div>
 
-
     <!-- PopUp-Registrierungs-Formular -->
     <div id="RegisterModal" class="reveal-modal" data-reveal>
-        <h2> Registrierung </h2>
+        <h1> Registration </h1>
         <form action="register.php" method="post">
-            Benutzername: <input type="text" id="Benutzername" name="Benutzername" required />
-            Passwort: <input type="password" id="passwort" name="Passwort" required />
-            Passwort wiederholen:<input type="password" id="passwortWieder" name="Passwort2" required />
-            Ort (optional): <input type="text" name="Ort" id="Ort" />
-            PLZ (optional): <input type="text" name="PLZ" id="PLZ" />
-            Land (optional): <input type="text" name="Land" id="Land" />
+            Username: <input type="text" id="Benutzername" name="Benutzername" required />
+            Password: <input type="password" id="passwort" name="Passwort" required />
+            Repeat password:<input type="password" id="passwortWieder" name="Passwort" required />
+            Location (optionally): <input type="text" name="Ort" id="Ort" />
+            Postcode (optionally): <input type="text" name="PLZ" id="PLZ" />
+            Country (optionally): <input type="text" name="Land" id="Land" />
             <input id="regist" type="submit" class="button expand" value="Registrieren" />
-            <a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a><br />
-            <br />
+            <a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
         </form>
     </div>
+	
 
 	
     <!-- Skriptabschnitt -->

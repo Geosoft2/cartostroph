@@ -173,6 +173,11 @@
               </form>
             </div>
           </li>
+		  
+		  <!-- Suchfeld -->
+					 <li>
+						<a href="search.php">Suche</a>
+                    </li>
           
           <!-- Impressum aufrufen -->
                     <li>
