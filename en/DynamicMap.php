@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Cartostroph | Geodatensatz</title>
+		<title>Cartostroph | Geodata</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 		<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
@@ -149,7 +149,7 @@ while($row = pg_fetch_assoc($result))
             <div class="row">
                 <input type="submit" class="button tiny success" value="Login" tabindex="3" />
             </div>
-            <p>You do not have an account? You can register  <a onclick="test" data-reveal-id="RegisterModal">here</a></p>
+            <p>You do not have an account? You can register <a onclick="test" data-reveal-id="RegisterModal">here</a>.</p>
         </form>
     </div>
 	
@@ -250,9 +250,9 @@ while($row = pg_fetch_assoc($result))
 				            Username: <input type="text" id="Benutzername" name="Benutzername" required />
 				            Password: <input type="password" id="passwort" name="Passwort" required />
 				            Password check:<input type="password" id="passwortWieder" name="Passwort2" required />
-				            City (optional): <input type="text" name="Ort" id="Ort" />
-				            Zip Code(optional): <input type="text" name="PLZ" id="PLZ" />
-				            Country (optional): <input type="text" name="Land" id="Land" />
+				            City (optionally): <input type="text" name="Ort" id="Ort" />
+				            Zip Code(optionally): <input type="text" name="PLZ" id="PLZ" />
+				            Country (optionally): <input type="text" name="Land" id="Land" />
 				            <input id="regist" type="submit" class="button expand" value="Register" />
 				            <a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abort</a><br />
 				            <br />
@@ -280,8 +280,8 @@ while($row = pg_fetch_assoc($result))
 				<tr><th>Category:</th> <th id="Kategorie"></th></tr>
 				<tr><th>Hyperlinks:</th> <th id="Hyperlinks"></th></tr>
 				<tr><th>Tags:</th> <th  id="tag"></th"></tr>
-				<tr><th>Start datum:</th> <th  id="Startdatum"></th"></tr>
-				<tr><th>End datum:</th> <th  id="Enddatum"></th"></tr>
+				<tr><th>Start date:</th> <th  id="Startdatum"></th"></tr>
+				<tr><th>End date:</th> <th  id="Enddatum"></th"></tr>
 			</table>
 		</div>
 		
@@ -405,7 +405,7 @@ while($row = pg_fetch_assoc($result))
 				echo '</script>';
 			?>
   	<p><abbr title="Please leave a rating from 1 to 5"><img src="../img/info.png" width="15px" height="15px"/></abbr> 
-		Rating (optional): <br /><input id="checkbox1" checked="true" name="checkbox1" type="checkbox" onclick="activateAssessment()"><label for="checkbox1" >Deactivate rating</label>
+		Rating (optionally): <br /><input id="checkbox1" checked="true" name="checkbox1" type="checkbox" onclick="activateAssessment()"><label for="checkbox1" >Deactivate rating</label>
   		<div class="row">
   		    <div class="small-10 medium-11 columns">
   		      <div id="Bewertung" name="Bewertung" onclick="activateSlider()" class="range-slider" data-slider enabled data-options="display_selector: #sliderOutput3; start: 1; end: 5;" >
@@ -431,8 +431,8 @@ while($row = pg_fetch_assoc($result))
 </div>
 						<div id="BboxModal" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
                     		<h3>Define the bounding box, by clicking two points on the map.</h3>
-                    		<a id="setBbox" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Räumliche Ausdehnung definieren</a><br />
-                    		<a id="rejectBbox" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
+                    		<a id="setBbox" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Define Bounding Box</a><br />
+                    		<a id="rejectBbox" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Cancel</a>
                     		<script type="text/javascript">
                     			document.getElementById("setBbox").onclick = searchBoundingBox;
                     			document.getElementById("rejectBbox").onclick = discardTopic;

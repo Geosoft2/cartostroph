@@ -86,7 +86,7 @@
 						<div id="BboxModal2" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
                     		<h3>Define the bounding box, by clicking two points on the map.</h3>
                     		<a id="setBbox2" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Define bounding box</a><br />
-                    		<a id="rejectBbox2" onclick="discardTopic" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Abort</a>
+                    		<a id="rejectBbox2" onclick="discardTopic" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Cancel</a>
                     		<script type="text/javascript">
                     			document.getElementById("setBbox2").onclick = createTopicBoundingBox;
                     		</script>

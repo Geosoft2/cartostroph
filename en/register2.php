@@ -96,7 +96,7 @@
 			  <a href="#" data-reveal-id="Profile">Profile</a>
 
 					<div id="Profile" class="reveal-modal" data-reveal>
-					  <h3 id="benutzername">Mein Profile: </h3>
+					  <h3 id="benutzername">My Profile: </h3>
 					  
 					  <script>
 						document.getElementById("benutzername").innerHTML = "Mein Profil: " + author();
