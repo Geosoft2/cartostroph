@@ -234,7 +234,7 @@
 	<div id="loggedin-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
 		<h5 id="eingeloggtAls"><h5>
 			<script>
-				document.getElementById("eingeloggtAls").innerHTML = "Eingeloggt als: " + author();
+				document.getElementById("eingeloggtAls").innerHTML = "Logged in as: " + author();
 			</script>
 			<ul id="drop" class="[tiny small medium large content]f-dropdown" data-dropdown-content>
 			  <a href="#" data-reveal-id="Profile">Profile</a>
@@ -386,10 +386,10 @@
                    </select>
                    </p>
                   <p><abbr title="Hier geben Sie an ab wann der Geodatensatz gültig ist"><img src="../img/info.png" width="15px" height="15px"/></abbr>
-                  Start <input type="date" id="startSuche" name="startSuche" placeholder="jjjj-mm-tt"/> 
+                  Start <input type="date" id="startSuche" name="startSuche" placeholder="yyyy-mm-dd"/> 
                   </p>
                   <p><abbr title="Hier geben Sie an bis wann der Datensatz gültig war bzw. voraussichtlich sein wird."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
-                  End <input type="date" id="endSuche" name="endSuche" placeholder="jjjj-mm-tt"/>  
+                  End <input type="date" id="endSuche" name="endSuche" placeholder="yyyy-mm-dd"/>  
                   </p>
                     <p>Rating: <select id="BewertungSuche" name="BewertungSuche">
                                 <option value="Keine">No Restriction</option>
