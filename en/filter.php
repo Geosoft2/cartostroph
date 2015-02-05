@@ -152,7 +152,7 @@
                 <input type="hidden" id="cTbboxLLcoor" name="cTbboxLLcoor"/>
                 <input type="hidden" id="cTbboxURcoor" name="cTbboxURcoor"/>
                 
-                <input type="submit" class="button expand" value="Topic erstellen"/>
+                <input type="submit" class="button expand" value="Create Topic"/>
                   </form>
                 <a id="cancelTopic" style="position: relative ; font-size: 120%" class="close-reveal-modal" onclick="discardTopic()">Abort</a><br />
                             <br />
@@ -230,7 +230,7 @@
   <div id="loggedin-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
     <h5 id="eingeloggtAls"><h5>
       <script>
-        document.getElementById("eingeloggtAls").innerHTML = "Eingeloggt als: " + author();
+        document.getElementById("eingeloggtAls").innerHTML = "Logged in as: " + author();
       </script>
       <ul id="drop" class="[tiny small medium large content]f-dropdown" data-dropdown-content>
         <a href="#" data-reveal-id="Profile">Profile</a>
