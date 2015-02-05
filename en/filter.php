@@ -422,7 +422,7 @@ Then click two times to define the bounding box of your geodata.
   
   
                             <form action="filter.php" method="get">
-                            <p><input type="text" placeholder="Suche" id="search" name="search"></p>
+                            <p><input type="text" placeholder="Search" id="search" name="search"></p>
                             <p>Category (optional)<select id="KategorieSuche" name="KategorieSuche">
                                 <option value="Keine">No Category</option>
                                 <option value="Welt">World</option>
