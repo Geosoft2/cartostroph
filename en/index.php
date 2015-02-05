@@ -502,7 +502,7 @@
                         }
                     
                     if ($bewertungTopic == NULL and $count == NULL) {
-                        $rating_avg = "Keine Bewertung";
+                        $rating_avg = "No rating";
                         }
                     elseif ($bewertungTopic != NULL) {
                         
