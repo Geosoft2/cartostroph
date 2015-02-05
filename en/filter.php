@@ -56,7 +56,7 @@
           
                     <!-- FAQ aufrufen -->
                     <li>
-                        <a href="FAQ.php">Hilfe</a>
+                        <a href="FAQ.php">Help</a>
                     </li>
 
                     <!-- Loginfunktion -->
@@ -170,7 +170,7 @@
           <li class="has-form">
             <div class="row collapse">
               <form action="filter.php" method="get">
-                <input type="text" placeholder="Schnellsuche" name="search">
+                <input type="text" placeholder="Quick search" name="search">
               </form>
             </div>
           </li>
@@ -391,7 +391,7 @@ Then click two times to define the bounding box of your geodata.
           
           $bbox = '';
           if ($_GET['leftpoint'] != ''){
-            $bbox = "Search based on active Boundingbox";
+            $bbox = "Search based on Boundingbox active";
             echo '<li class="current"><a href="#">' . $bbox . '</a></li>';
           }
           
@@ -436,9 +436,9 @@ Then click two times to define the bounding box of your geodata.
                   Start <input type="date" id="startSuche" name="startSuche" placeholder="yyyy-mm-dd"/> 
                   </p>
                   <p><abbr title="Give a date up to when the data can be valid."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
-                  Ende <input type="date" id="endSuche" name="endSuche" placeholder="yyyy-mm-dd"/>  
+                  End <input type="date" id="endSuche" name="endSuche" placeholder="yyyy-mm-dd"/>  
                   </p>
-                    <p>Bewertung: <select id="BewertungSuche" name="BewertungSuche">
+                    <p>Rating: <select id="BewertungSuche" name="BewertungSuche">
                                 <option value="Keine">No Restriction</option>
                                 <option value="1">1 or higher</option>
                                 <option value="2">2 or higher</option>
@@ -581,7 +581,7 @@ Then click two times to define the bounding box of your geodata.
     $kategorie =  $_GET['KategorieSuche'];
     $katwert = NULL;
     switch ($kategorie) { 
-      case 'Keine Kategorie':
+      case 'Keine':
         $katwert = NULL;
         break;
       case 'Welt': 
@@ -784,13 +784,13 @@ Then click two times to define the bounding box of your geodata.
       
       echo 'var autor = "' . $Autor . '";';
       echo 'if(autor == "" || autor == 0 || autor == "Anonym"){';
-      echo 'var marker = L.marker([' . $Position . '],{icon: AnonymMarker}).addTo(map).bindPopup("Titel: " + "' . $Titel . '" + "<br />Rating: "
+      echo 'var marker = L.marker([' . $Position . '],{icon: AnonymMarker}).addTo(map).bindPopup("Title: " + "' . $Titel . '" + "<br />Rating: "
                            + "' . $Bewertung . '" + "<br/> URL: " + "<a href=" + "' . $URL . '" + ">"+ "' . $URL . '"   + "</a>" +  
                        "<br/> Author: " + "' . $Autor . '"  + "<form action=\"DynamicMap.php\" method=\"get\">" + 
                        "<input type=\"hidden\" name=\"url\" value=\"" + "' . $URL . '" + "\"/>" + 
                        "<br /><br /><input class=\"button tiny\" id=\"filter\" type=\"submit\" value=\"More information...\"/>" + "</form>");';
       echo'} else {
-        var marker = L.marker([' . $Position . '],{icon: EingeloggtMarker}).addTo(map).bindPopup("Titel: " + "' . $Titel . '" + "<br />Rating: "
+        var marker = L.marker([' . $Position . '],{icon: EingeloggtMarker}).addTo(map).bindPopup("Title: " + "' . $Titel . '" + "<br />Rating: "
                            + "' . $Bewertung . '" + "<br/> URL: " + "<a href=" + "' . $URL . '" + ">"+ "' . $URL . '"   + "</a>" +
                        "<br/> Author: " + "' . $Autor . '"  + "<form action=\"DynamicMap.php\" method=\"get\">" +
                        "<input type=\"hidden\" name=\"url\" value=\"" + "' . $URL . '" + "\"/>" +
