@@ -104,7 +104,15 @@ while($row = pg_fetch_assoc($result))
                     
                     <!-- Pop-Up f�r Registrierung  -->
                     <li>
-                        <a href="#" data-reveal-id="RegisterModal">Registrierung</a>
+                    	<a id="regis" href="#" data-reveal-id="RegisterModal">Registrierung</a>
+                    	<script type="text/javascript">
+                    		if (loggedIn() == "Login"){
+					
+								}else{
+									document.getElementById("regis").innerHTML="";
+								}
+                    	</script>
+                        
                     </li>
 					
 					<!-- Schnellsuche -->
