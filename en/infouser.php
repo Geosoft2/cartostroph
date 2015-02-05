@@ -26,7 +26,17 @@
             <section class="top-bar-section">
                 <!-- Right Nav Section -->
                 <ul class="right">
-
+					<li>
+                    	</a> <a href="../de"><img src="../img/germany.gif"></a>
+                    </li>
+                    
+                    <li>
+                    	</a> <a href="../en"><img src="../img/uk.gif"></a>
+                    </li>
+                    
+                    <li>
+                    	</a> <a href="../pl"><img src="../img/poland.gif"></a>
+                    </li>
 
                     <!-- Loginfunktion -->
                     <li class="has-dropdown">
@@ -45,19 +55,19 @@
 					<li class="has-form">
 						<div class="row collapse">
 							<form action="filter.php" method="get">
-								<input type="text" placeholder="Schnellsuche" name="search">
+								<input type="text" placeholder="Quick search" name="search">
 							</form>
 						</div>
 					</li>
                     
                     <!-- Suchfeld -->
 					 <li>
-						<a href="search.php">Suche</a>
+						<a href="search.php">Search</a>
                     </li>
 					
 					<!-- Impressum aufrufen -->
                     <li>
-                        <a href="Impressum.php">Impressum</a>
+                        <a href="Impressum.php">Imprint</a>
                     </li>
 					
                 </ul>
@@ -69,7 +79,7 @@
 <div class="row">
    <div class="large-6 columns">
 	<br> </br>
-	<h3>Meine Topics:</h3>
+	<h3>My Topics:</h3>
 	<?php
 		// attempt a connection
 		//ini_set('display_errors', '1');
@@ -80,7 +90,6 @@
 		$connection = pg_connect($config["connection"]);
 		if (!$connection) {
 			die("Error in connection: " . pg_last_error());
-			echo 'Sie haben bisher keinen Kommentar selbst erstellt.';
 		}
 						
 		$user = $_COOKIE['Autor'];
@@ -98,20 +107,20 @@
 		// iterate over result set
 		// print each row
 		while ($row = pg_fetch_array($result)) {
-			$URL = (string)$row[0];
-			$Titel = (string)$row[1];
-			$Text = (string)$row[2];
+			$URL = pg_escape_string(htmlspecialchars((string)$row[0]));
+			$Titel = pg_escape_string(htmlspecialchars((string)$row[1]));
+			$Text = pg_escape_string(htmlspecialchars((string)$row[2]));
 			
 			$fetched = true;
 			
-			echo 'URL: ' . $URL . '<br />';
-			echo 'Titel: ' . $Titel . '<br />';
+			echo 'URL: <a href=' . $URL . '>' . $URL . '</a><br />';
+			echo 'Title: ' . $Titel . '<br />';
 			echo 'Text: ' . $Text;
 			echo '<form action=DynamicMap.php method=get>';
 			echo '<input type=hidden name=url value=';
 			echo $URL;
 			echo '>';
-			echo '<input class="button tiny" id=filter type=submit value="Mehr Infos..."/>';
+			echo '<input class="button tiny" id=filter type=submit value="More Infos..."/>';
 			echo '</form>';
 			echo '<br />';
 			
@@ -119,7 +128,7 @@
 		
 		// if result couldn't show text
 		if (!$fetched){
-			echo 'Sie haben bisher keine Kommentare selbst erstellt.';
+			echo 'You did not generate any topics yet.';
 		}
 		
 	
@@ -130,11 +139,11 @@
 	
 	<div class="large-6 columns">
 	<br> </br>
- 	<h3>Meine Kommentare:</h3>
+ 	<h3>My Comments:</h3>
 	<?php
 		// attempt a connection
-		ini_set('display_errors', '1');
-		error_reporting(E_ALL | E_STRICT);
+		//ini_set('display_errors', '1');
+		//error_reporting(E_ALL | E_STRICT);
 		include("config.php");
 		global $config;
 	
@@ -146,7 +155,7 @@
 		$user = $_COOKIE['Autor'];
 	
 		// execute query
-		$sql = "SELECT page_id, body from comments WHERE name='$user';";
+		$sql = "SELECT page_id, body, rating from comments WHERE name='$user';";
 	
 		$result = pg_query($connection, $sql);
 		if (!$result) {
@@ -158,18 +167,24 @@
 		// iterate over result set
 		// print each row
 		while ($row = pg_fetch_array($result)) {
-			$URL = (string)$row[0];
-			$Text = (string)$row[1];
+			$URL = pg_escape_string(htmlspecialchars((string)$row[0]));
+			$Text = pg_escape_string(htmlspecialchars((string)$row[1]));
+			$rating = pg_escape_string(htmlspecialchars((string)$row[2]));
+			
+			if ($rating == ''){
+				$rating = 'no rating';
+			}
 			
 			$fetched = true;
 			
-			echo 'URL: ' . $URL . '<br />';
-			echo 'Text: ' . $Text;
+			echo 'URL: <a href=' . $URL . '>' . $URL . '</a><br />';
+			echo 'Text: ' . $Text .'<br />';
+			echo 'Rating: '. $rating .'<br />';
 			echo '<form action=DynamicMap.php method=get>';
 			echo '<input type=hidden name=url value=';
 			echo $URL;
 			echo '>';
-			echo '<input class="button tiny" id=filter type=submit value="Mehr Infos..."/>';
+			echo '<input class="button tiny" id=filter type=submit value="More Infos..."/>';
 			echo '</form>';
 			echo '<br />';
 			
@@ -177,7 +192,7 @@
 		
 		// if result couldn't show text
 		if (!$fetched){
-			echo 'Sie haben bisher keine Kommentare selbst erstellt.';
+			echo 'You did not generate any comments yet.';
 		}
 		
 		
@@ -188,22 +203,22 @@
 </div>
 
  <!-- Dropdown-Login-Feld -->
-    <div id="login-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
+   <div id="login-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
         <h5>Log In:</h5>
 		
         <form id="top-nav-login" action="login.php" method="post">
             <div class="row">
-                <label>Nutzer</label>
-                <input type="text" name="user" placeholder="name" tabindex="1" />
+                <label>User</label>
+                <input type="text" name="user" placeholder="email@example.com" tabindex="1" />
             </div>
             <div class="row">
-                <label>Passwort</label>
-                <input type="password" name="password" placeholder="********" tabindex="2" />
+                <label>Password</label>
+                <input type="password" placeholder="********" tabindex="2" />
             </div>
             <div class="row">
                 <input type="submit" class="button tiny success" value="Login" tabindex="3" />
             </div>
-            <p>Sie haben noch kein Konto? Zur Registrierung geht es <a onclick="test" data-reveal-id="RegisterModal">hier</a></p>
+            <p>You don't have a login? Click <a onclick="test" data-reveal-id="RegisterModal">here</a> for registration.</p>
         </form>
     </div>
 	
@@ -211,19 +226,19 @@
 	<div id="loggedin-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
 		<h5 id="eingeloggtAls"><h5>
 			<script>
-				document.getElementById("eingeloggtAls").innerHTML = "Eingeloggt als: " + autor();
+				document.getElementById("eingeloggtAls").innerHTML = "Eingeloggt als: " + author();
 			</script>
 			<ul id="drop" class="[tiny small medium large content]f-dropdown" data-dropdown-content>
-			  <a href="#" data-reveal-id="Profile">Profil</a>
+			  <a href="#" data-reveal-id="Profile">Profile</a>
 
 					<div id="Profile" class="reveal-modal" data-reveal>
-					  <h3 id="benutzername">Mein Profil: </h3>
+					  <h3 id="benutzername">My profile: </h3>
 					  
 					  <script>
-						document.getElementById("benutzername").innerHTML = "Mein Profil: " + autor();
+						document.getElementById("benutzername").innerHTML = "Mein Profil: " + author();
 					  </script>
 					  <form action="alteruser.php" method="post">
-					  <button style="float: right;"> Daten ändern</button>
+					  <button style="float: right;">change data</button>
 						<?php
 						// attempt a connection
 						//ini_set('display_errors', '1');
@@ -253,9 +268,9 @@
 							$plz = (string)$row[1];
 							$land = (string)$row[2];
 						
-							echo '<p>Ort: ' . $ort . ' </p>';
-							echo '<p>PLZ: ' . $plz . '</p>';
-							echo '<p>Land: ' . $land . '</p>';
+							echo '<p>Location: ' . $ort . ' </p>';
+							echo '<p>Postcode: ' . $plz . '</p>';
+							echo '<p>Country: ' . $land . '</p>';
 							//echo '<p>Ort: <input value=' . $ort . ' type=\"text\" id=\"ort\" name=\"ort\" style=\"width: 90%;\"/></p>';
 							//echo '<p>PLZ: <input value=' . $plz . ' type=\"text\" id=\"plz\" name=\"plz\" style=\"width: 90%;\"/></p>';
 							//echo '<p>Land: <input value=' . $land . ' type=\"text\" id=\"land\" name=\"land\" style=\"width: 90%;\"/></p>';
@@ -272,11 +287,10 @@
 					</div>
 			
 			  
-			  <br /><a href="#">Meine Topics und Kommentare</a>
+			  <br /><a href="infouser.php">My Topics and Comments</a>
 			  <br /><a href="logout.php">Logout</a>
 			</ul>
 	</div>
-
 
 	
     <!-- Skriptabschnitt -->
