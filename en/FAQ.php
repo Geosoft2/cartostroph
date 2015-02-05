@@ -235,8 +235,8 @@
             Location (optionally): <input type="text" name="Ort" id="Ort" />
             Postcode (optionally): <input type="text" name="PLZ" id="PLZ" />
             Country (optionally): <input type="text" name="Land" id="Land" />
-            <input id="regist" type="submit" class="button expand" value="Registrieren" />
-            <a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
+            <input id="regist" type="submit" class="button expand" value="register" />
+            <a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Cancel</a>
         </form>
     </div>
 	
