@@ -37,7 +37,7 @@
 
 					<!-- FAQ aufrufen -->
                     <li>
-                        <a href="FAQ.php">Hilfe</a>
+                        <a href="FAQ.php">Pomoc</a>
                     </li>
 				
                     <!-- Loginfunktion -->
@@ -56,7 +56,7 @@
 
                   <!-- Pop-Up für Registrierung  -->
                     <li>
-                    	<a id="regis" href="#" data-reveal-id="RegisterModal">Registrierung</a>
+                    	<a id="regis" href="#" data-reveal-id="RegisterModal">Rejestracja</a>
                     	<script type="text/javascript">
                     		if (loggedIn() == "Login"){
 					
@@ -78,7 +78,7 @@
 					
                     <!-- Suchfeld -->
 					 <li>
-						<a href="search.php">Suche</a>
+						<a href="search.php">Wyszukaj</a>
                     </li>
 					
                 </ul>
@@ -94,45 +94,91 @@
 		<h1>Impressum</h1>
 		
 		<p>Cartostroph <br> Heisenbergstr. 2<br> 48149 Münster <br> </p>
-		<p> <strong>Vertreten durch: </strong><br>Bartosz Mazurkiewicz<br>Simon Schulte<br>Marco Ruhe<br>Philipp Stüwe<br>Joana Gockel<br></p><p><strong>Kontakt:</strong> <br>E-Mail: 
+		<p> <strong>Przedstawiciele: </strong><br>Bartosz Mazurkiewicz<br>Simon Schulte<br>Marco Ruhe<br>Philipp Stüwe<br>Joana Gockel<br></p><p><strong>Kontakt:</strong> <br>E-Mail: 
 		<a href='mailto:s_sch032@uni-muenster.de'>s_sch032@uni-muenster.de</a></br></p>
 		
-		<p><strong>Haftungsausschluss: </strong><br><br><strong>Haftung für Inhalte</strong>
+		<p><strong>Zrzekamy się następujących rzeczy: </strong><br><br><strong>Odpowiedzialność za treść</strong>
 		<br><br>
-		Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.<br>
-		<br><strong>Haftung für Links</strong>
+		Treść tych stron zostały stworzone z wielką starannością .
+Za dokładność, kompletność i aktualność treści
+Jednak nie możemy zagwarantować . Jako usługodawcy
+jesteśmy odpowiedzialni zgodnie z § 7 pkt 1 TMG na własne treści na nich
+Strony zgodnie z ogólnymi przepisami prawa .
+Zgodnie z §§ 8 do 10 TMG my jako usługodawców
+ale nie obowiązek , przekazane lub
+do monitorowania informacji przechowywanych , lub
+Do zbadania okoliczności , które wskazują na bezprawną działalność .
+Obowiązek usunięcia lub zablokowania korzystania z informacji
+pozostają bez zmian ogólnego prawa . Istotne
+Jednakże , zobowiązanie jest możliwe jedynie od dnia znajomość konkretnego naruszenia.
+Po otrzymaniu zgłoszenia takich naruszeń , będziemy niezwłocznie usuwać zawartość.<br>
+		<br><strong>Odpowiedzialność za linki</strong>
 		<br><br>
-		Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
-		<br><br><strong>Urheberrecht</strong><br><br>
-		Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
-		<br><br><strong>Datenschutz</strong><br><br>
-		Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben. <br>
-		Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich. <br>
-		Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.<br>
-		<p>Angaben gemäß § 5 TMG</p>
+		Nasza strona zawiera linki do zewnętrznych stron internetowych
+nad którymi nie mamy kontroli . dlatego
+Nie ponosimy żadnej odpowiedzialności za ich treść.
+Jest zawsze za treść jakiejkolwiek witryny ,odpowiednie
+Usługodawcy lub operatora odpowiedzialnego .
+Strony są połączone w momencie łączenia
+sprawdzane pod kątem możliwych naruszeń prawa . bezprawny
+Zawartość nie były w momencie łączenia
+rozpoznawalne . Bieżąca kontrola
+Jednak połączonych stron bez konkretnych dowodów
+naruszenie prawa nieuzasadnione . Na zgłoszenie naruszenia
+ Będziemy niezwłocznie usuwać takie linki
+		<br><br><strong>Prawo autorskie</strong><br><br>
+		Treści dostarczane przez operatora
+i działa na tych stronach podlegają niemieckim
+Prawa autorskie . Powielanie, modyfikowanie,
+Dystrybucja i jakiekolwiek wykorzystywanie poza
+granice prawa autorskiego wymaga pisemnej
+Zgoda autora lub twórcy . pliki do pobrania
+Kopie tej stronie są wyłącznie do użytku prywatnego, nie
+komercyjne wykorzystanie . W odniesieniu do zawartości
+Ta strona nie jest tworzony przez operatora , są
+prawa autorskie osób trzecich przestrzegane . W szczególności treści
+Po trzecie są oznaczone jako takie . Jeśli dowiesz się o
+Bądź świadomy naruszenia praw autorskich , prosimy o
+podpowiedź . Na zgłoszenie naruszenia
+natychmiast usuniemy zawartość.
+		<br><br><strong>Polityka prywatności</strong><br><br>
+		Korzystanie z naszej strony jest zazwyczaj nie wskazuje
+Dane osobowe możliwe . Kolekcja każda
+dane osobowe ( np nazwisko, adres lub
+Adres e-mail ) , to w miarę możliwości ,
+na zasadzie dobrowolności . Są to dane bez Twojej
+wyrażenia zgody osobom trzecim . <br>
+Zwracamy uwagę, że transmisja danych przez Internet
+(komunikacja poprzez e -mail ) luk w zabezpieczeniach .
+Pełna ochrona danych przed nieuprawnionym dostępem osób trzecich nie jest możliwe . <br>
+Zastosowanie opublikowana pod nadruk obowiązek opublikowany kontakcie
+przez osoby trzecie do wysyłania niechcianych reklam i
+Materiały informacyjne niniejszym wyraźnie wyłączone . operatorzy
+Zastrzegamy sobie prawo do podjęcia kroków prawnych w przypadku niechcianych
+Wysyłanie reklamy , takie jak spam e -mail</p>
 		
-		<p><strong>Quellcode</strong><br><br>
-		Unseren Quellcode können Sie <a href='https://github.com/mruhe/cartostroph'>hier</a> finden.</br></p>
+		<p><strong>Kod źródłowy</strong><br><br>
+		Kod źródłowy można znaleźć <a href='https://github.com/mruhe/cartostroph'>tutaj</a>.</br></p>
     </div>
 	</div>
 
  <!-- Dropdown-Login-Feld -->
     <div id="login-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
-        <h5>Log In:</h5>
+        <h5>Login:</h5>
 		
         <form id="top-nav-login" action="login.php" method="post">
             <div class="row">
-                <label>Nutzer</label>
+                <label>Użytkownik</label>
                 <input type="text" name="user" placeholder="name" tabindex="1" />
             </div>
             <div class="row">
-                <label>Passwort</label>
+                <label>Hasło</label>
                 <input type="password" name="password" placeholder="********" tabindex="2" />
             </div>
             <div class="row">
                 <input type="submit" class="button tiny success" value="Login" tabindex="3" />
             </div>
-            <p>Sie haben noch kein Konto? Zur Registrierung geht es <a onclick="test" data-reveal-id="RegisterModal">hier</a></p>
+            <p>Nie masz jeszcze konta? Zarejestrować możesz się tutaj <a onclick="test" data-reveal-id="RegisterModal">tutaj</a></p>
         </form>
     </div>
 	
@@ -140,102 +186,105 @@
 	<div id="loggedin-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
 		<h5 id="eingeloggtAls"><h5>
 			<script>
-				document.getElementById("eingeloggtAls").innerHTML = "Eingeloggt als: " + author();
+				document.getElementById("eingeloggtAls").innerHTML = "Zalogowany jako: " + author();
 			</script>
 			<ul id="drop" class="[tiny small medium large content]f-dropdown" data-dropdown-content>
 			  <a href="#" data-reveal-id="Profile">Profil</a>
 
 					<div id="Profile" class="reveal-modal" data-reveal>
-					  <h3 id="benutzername">Mein Profil: </h3>
+					  <h3 id="benutzername">Mój profil: </h3>
 					  
 					  <script>
-						document.getElementById("benutzername").innerHTML = "Mein Profil: " + author();
+						document.getElementById("benutzername").innerHTML = "Mój profil: " + author();
 					  </script>
 					  <form action="alteruser.php" method="post">
-						<p>Ort: <input type="text" id="ort" name="ort" style="width: 75%;"/></p>
-						<p>PLZ: <input type="text" id="plz" name="plz" style="width: 75%;"/></p>
-						<p>Land: <input type="text" id="land" name="land" style="width: 75%;"/></p>
-						<button style="float: right;">Daten ändern</button>
+						<p>Miejscowość: <input type="text" id="ort" name="ort" style="width: 75%;"/></p>
+						<p>Kod pocztowy: <input type="text" id="plz" name="plz" style="width: 75%;"/></p>
+						<p>Kraj: <input type="text" id="land" name="land" style="width: 75%;"/></p>
+						<button style="float: right;">Zmień dane</button>
 						<a class="close-reveal-modal">&#215;</a>
 					  </form>
-						<?php
-						// attempt a connection
-						//ini_set('display_errors', '1');
-						//error_reporting(E_ALL | E_STRICT);
-						include("config.php");
-						global $config;
+            <?php
+            // attempt a connection
+            //ini_set('display_errors', '1');
+            //error_reporting(E_ALL | E_STRICT);
+            include("config.php");
+            global $config;
 
-						$connection = pg_connect($config["connection"]);
-						if (!$connection) {
-							die("Error in connection: " . pg_last_error());
-						}
-						
-						$user = $_COOKIE['Autor'];
+            $connection = pg_connect($config["connection"]);
+            if (!$connection) {
+              die("Error in connection: " . pg_last_error());
+            }
+            
+            $user = $_COOKIE['Autor'];
 
-						// execute query
-						$sql = "SELECT ort, plz, land FROM nutzer WHERE name='$user';";
-	
-						$result = pg_query($connection, $sql);
-						if (!$result) {
-							die("Error in SQL query: " . pg_last_error());
-						}
+            // execute query
+            $sql = "SELECT ort, plz, land FROM nutzer WHERE name='$user';";
+  
+            $result = pg_query($connection, $sql);
+            if (!$result) {
+              die("Error in SQL query: " . pg_last_error());
+            }
 
-						$fetched = false;
-						
-						// iterate over result set
-						// print each row
-						while ($row = pg_fetch_array($result)) {
-							$ort = (string)$row[0];
-							$plz = (string)$row[1];
-							$land = (string)$row[2];
-						
-							$fetched = true;
-							
-							echo '<script>';
-							if ($ort != ''){
-								echo 'document.getElementById("ort").value = "'.$ort.'";';
-							}else{ echo 'document.getElementById("ort").value = "keine Angabe";';}
-							if ($plz != ''){
-								echo 'document.getElementById("plz").value = "'.$plz.'";';
-							}else{ echo 'document.getElementById("plz").value = "keine Angabe";';}
-							if ($land != ''){
-								echo 'document.getElementById("land").value = "'.$land.'";';
-							}else{ echo 'document.getElementById("land").value = "keine Angabe";';}
-							echo '</script>';
-							
-							//echo 'Ort: <input value="' . $ort . '"type=\"text\" id=\"ort\" name=\"ort\" style=\"width: 90%;\"/>';
-							//echo 'PLZ: <input value="' . $plz . '" type=\"text\" id=\"plz\" name=\"plz\" style=\"width: 90%;\"/>';
-							//echo 'Land: <input value="' . $land . '" type=\"text\" id=\"land\" name=\"land\" style=\"width: 90%;\"/>';
-						}
-						
-						if (!fechted){
-							echo 'document.getElementById("ort").value = "keine Angabe";';
-							echo 'document.getElementById("plz").value = "keine Angabe";';
-							echo 'document.getElementById("land").value = "keine Angabe";';
-						}
+            $fetched = false;
+            
+            // iterate over result set
+            // print each row
+            while ($row = pg_fetch_array($result)) {
+              $ort = (string)$row[0];
+              $plz = (string)$row[1];
+              $land = (string)$row[2];
+            
+              $fetched = true;
+              
+              echo '<script>';
+              if ($ort != ''){
+                echo 'document.getElementById("ort").value = "'.$ort.'";';
+              }else{ echo 'document.getElementById("ort").value = "brak danych";';}
+              if ($plz != ''){
+                echo 'document.getElementById("plz").value = "'.$plz.'";';
+              }else{ echo 'document.getElementById("plz").value = "brak danych";';}
+              if ($land != ''){
+                echo 'document.getElementById("land").value = "'.$land.'";';
+              }else{ echo 'document.getElementById("land").value = "brak danych";';}
+              echo '</script>';
+              
+              //echo 'Ort: <input value="' . $ort . '"type=\"text\" id=\"ort\" name=\"ort\" style=\"width: 90%;\"/>';
+              //echo 'PLZ: <input value="' . $plz . '" type=\"text\" id=\"plz\" name=\"plz\" style=\"width: 90%;\"/>';
+              //echo 'Land: <input value="' . $land . '" type=\"text\" id=\"land\" name=\"land\" style=\"width: 90%;\"/>';
+            }
+            
+            if (!fechted){
+              echo 'document.getElementById("ort").value = "brak danych";';
+              echo 'document.getElementById("plz").value = "brak danych";';
+              echo 'document.getElementById("land").value = "brak danych";';
+            }
 
-						// free memory
-						pg_free_result($result);
-						?>	
-					</div>
-			  <br /><a href="infouser.php">Meine Topics und Kommentare</a>
-			  <br /><a href="logout.php">Logout</a>
-			</ul>
-	</div>
+            // free memory
+            pg_free_result($result);
+            ?>  
+            </form>
+          </div>
+      
+        
+        <br /><a href="infouser.php">Moje wątki i komentarze</a>
+			  <br /><a href="logout.php">Wyloguj</a>
+      </ul>
+  </div>
 
 
     <!-- PopUp-Registrierungs-Formular -->
     <div id="RegisterModal" class="reveal-modal" data-reveal>
-        <h2> Registrierung </h2>
+        <h2> Rejestracja </h2>
         <form action="register.php" method="post">
-            Benutzername: <input type="text" id="Benutzername" name="Benutzername" required />
-            Passwort: <input type="password" id="passwort" name="Passwort" required />
-            Passwort wiederholen:<input type="password" id="passwortWieder" name="Passwort2" required />
-            Ort (optional): <input type="text" name="Ort" id="Ort" />
-            PLZ (optional): <input type="text" name="PLZ" id="PLZ" />
-            Land (optional): <input type="text" name="Land" id="Land" />
+            Nazwa użytkownika: <input type="text" id="Benutzername" name="Benutzername" required />
+            Hasło: <input type="password" id="passwort" name="Passwort" required />
+            Powtórz hasło:<input type="password" id="passwortWieder" name="Passwort2" required />
+            Miejscowość (opcjonalnie): <input type="text" name="Ort" id="Ort" />
+            Kod pocztowy (opcjonalnie): <input type="text" name="PLZ" id="PLZ" />
+            Kraj (opcjonalnie): <input type="text" name="Land" id="Land" />
             <input id="regist" type="submit" class="button expand" value="Registrieren" />
-            <a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a><br />
+            <a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Anuluj</a><br />
             <br />
         </form>
     </div>
