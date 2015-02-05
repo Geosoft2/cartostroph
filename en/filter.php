@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cartostroph | Suche Filter</title>
+    <title>Cartostroph | Search Filter</title>
     <link rel="stylesheet" href="../css/foundation/foundation.css" />
     <link rel="stylesheet" href="../css/default.css" />
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <script src="../js/vendor/modernizr.js"></script>
     <script src="../js/leaflet-Interaktion/Karteninteraktion.js"></script>
-	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script src="../js/leaflet-Interaktion/Leaflet-Search.js"</script>
     <script src="../js/leaflet-Interaktion/sprite.coffee"</script>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -22,12 +22,12 @@
     <script src="../js/PanControl/L.Control.Pan.js"</script>
 </head>
 <body id="index">
-	<script>
-		window.onload=HilfeAnzeigen;
-		//window.onload=addMarkers;
-	</script>
-	
-	
+  <script>
+    window.onload=HilfeAnzeigen;
+    //window.onload=addMarkers;
+  </script>
+  
+  
     <div class="fixed">
         <nav class="top-bar" data-topbar role="navigation">
             <ul class="title-area">
@@ -38,11 +38,22 @@
                 <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
             </ul>
             <section class="top-bar-section">
+              
                 <!-- Right Nav Section -->
                 <ul class="right">
+                    <li>
+                      </a> <a href="../de"><img src="../img/germany.gif"></a>
+                    </li>
                     
-					
-					
+                    <li>
+                      </a> <a href="../en"><img src="../img/uk.gif"></a>
+                    </li>
+                    
+                    <li>
+                      </a> <a href="../pl"><img src="../img/poland.gif"></a>
+                    </li>
+          
+          
                     <!-- FAQ aufrufen -->
                     <li>
                         <a href="FAQ.php">Hilfe</a>
@@ -51,122 +62,129 @@
                     <!-- Loginfunktion -->
                     <li class="has-dropdown">
                         <a href="#" id="login-drop">Login</a>
-						<script type="text/javascript">
-                    			document.getElementById("login-drop").innerHTML = loggedIn();
-								if (loggedIn() == "Login"){
-									document.getElementById("login-drop").setAttribute("data-dropdown", "login-dropdown");
-								}else{
-									document.getElementById("login-drop").setAttribute("data-dropdown", "loggedin-dropdown");
-								}
-                    	</script>
-						
+            <script type="text/javascript">
+                          document.getElementById("login-drop").innerHTML = loggedIn();
+                if (loggedIn() == "Login"){
+                  document.getElementById("login-drop").setAttribute("data-dropdown", "login-dropdown");
+                }else{
+                  document.getElementById("login-drop").setAttribute("data-dropdown", "loggedin-dropdown");
+                }
+                      </script>
+            
                     </li>
 
                     <!-- Neues Topic erstellen -->
-                    <li><a href="#" data-reveal-id="BboxModal2">Neues Topic anlegen</a>
-                    	
-                    	<div id="BboxModal2" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
-                    		<h3>Definieren Sie die räumliche Ausdehnung, indem Sie zwei gegenüberliegende Eckpunkte klicken.</h3>
-                    		<a id="setBbox2" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Räumliche Ausdehnung definieren</a><br />
-                    		<a id="rejectBbox2" onclick="discardTopic" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
-                    		<script type="text/javascript">
-                    			document.getElementById("setBbox2").onclick = createTopicBoundingBox;
-                    		</script>
-						</div>
-						
-						<!-- popUp fuer Boundingbox -->
-						<div id="confirmBbox"data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
-							<h3>Sind Sie mit der Boundingbox zufrieden?</h3>
-							<a id="setBbox3" style="text-align: right ;position: relative ; font-size: 120%"  class="close-reveal-modal" data-reveal-id="newTopicModal">Ja</a><br />
-                    		<a id="rejectBbox2" onclick="discardTopic()" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Nein</a>
-                    		<script>
-                    			document.getElementById("setBbox3").onclick = fillForm;
-                    		</script>
-						</div>
-                    	
-                  		<!-- Formular zur Erstellung eines Topics  -->
-						<div id="newTopicModal" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
-  							<h3>Fügen Sie einen Geodatensatz hinzu</h3>
-  							<form action="topic.php" method="post">
-  								<p>Breitengrad vom Zentrum der Bbox: <input id="Breitengrad" readonly="readonly" type="number" name="Breitengrad"/> </p>
-  								<p>Längengrad vom Zentrum der Bbox: <input id="Längengrad" readonly="readonly" type="number" name="Längengrad"/> </p>
-  								<p><abbr title="Hier geben Sie an unter welcher Internetadresse der Geodatensatz auffindbar ist"><img src="../img/info.png" width="15px" height="15px" /></abbr> URL: <input type="text" id="URL" name="URL" required/> </p>
-  								<p><abbr title="Hier geben Sie einen geeigneten Titel des Datensatzens an, z.B. 'Überflutungsdaten Münster 2014'"><img src="../img/info.png" width="15px" height="15px"/></abbr> Titel: <input type="text" id="Titel" name="Titel" required /></p>
-  								<p><abbr title="Hier geben Sie an was Sie über den Geodatensatz denken. Ist er hilfreich? Ist er gut? Fehlt etwas? etc."><img src="../img/info.png" width="15px" height="15px"/></abbr> Kommentar: <textarea type="text"  id="Kommentar" name="Kommentar" required></textarea></p>
-  								<p><abbr title="Hier geben Sie an wie groß das Gebiet ist, welches vom Geodatensatz abgedeckt wird. Zur Auswahl stehen:
-					                Welt
-					                Kontinent
-					                Land
-					                Region
-					                Stadt
-				                    ">
-						            <img src="../img/info.png" width="15px" height="15px"/></abbr>&ensp;Kategorie:
-									<select id="Kategorie" name="Kategorie">
-  								        <option value="Welt">Welt</option>
-  										<option value="Kontinent">Kontinent</option>
-  										<option value="Land">Land</option>
-  										<option value="Region">Region</option>
-  										<option value="Stadt">Stadt</option>
-								    </select>
-								</p>
-  								<p><abbr title="Hier geben Sie an ab wann der Geodatensatz gültig ist"><img src="../img/info.png" width="15px" height="15px"/></abbr>
-  								Zeitliche Ausdehnung - Start (optional) <input type="date" id="start" name="start" />	
-  								</p>
-  								<p><abbr title="Hier geben Sie an bis wann der Datensatz gültig war bzw. voraussichtlich sein wird."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
-  								Zeitliche Ausdehnung - Ende (optional) <input type="date" id="end" name="end" />	
-  								</p>
-  								<p><abbr title="Hier geben Sie an wie gut Sie den Datensatzfinden.Skala von 1(sehr schlecht/unbrauchbar) bis 5(perfekt)"><img src="../img/info.png" width="15px" height="15px"/></abbr> 
-								Bewertung (optional): <br /><input id="checkbox1" name="checkbox1" type="checkbox" onclick="activateAssessment()"><label for="checkbox1" >Bewertung ausschalten</label>
-  									<div class="row">
-  									    <div class="small-10 medium-11 columns">
-  										    <div id="Bewertung" name="Bewertung" onclick="activateSlider()" class="range-slider" data-slider disabled data-options="display_selector: #sliderOutput3; start: 1; end: 5;" >
-  											    <span class="range-slider-handle" role="slider" tabindex="0"></span>
-  												<span class="range-slider-active-segment"></span> 
-												<input type="hidden" name = "Bewertung">
-  											</div> 
-  										</div>
-  										<div class="small-2 medium-1 columns">
-  											<span id="sliderOutput3"></span>
-  										</div>
-  									</div>
-  								</p>
-  								<p><abbr title="Hier geben Sie Tags an, damit der Datensatz später leichter zu finden ist."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
-								Tags (optional): <input type="text" id="tags" name="tags"/>
-								</p>
-								<p><abbr title="Hier geben Sie andere Internetquellen an, welche den Geodatensatz ergänzen - z.B. neuer oder besserer Datensatz, Zusatzinformationen zum betroffenen Gebiet, etc."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
-								Hyperlink (optional): <input type="text" id="hyperlink" name="hyperlink"/>
-								</p>
-								<p>Autor <input id="Autor" type="text" readonly="readonly" name="Autor"/>
-								<input type="hidden" id="cTbboxLLcoor" name="cTbboxLLcoor"/>
-								<input type="hidden" id="cTbboxURcoor" name="cTbboxURcoor"/>
-								
-								<input type="submit" class="button expand" value="Topic erstellen"/>
-        					</form>
-  							<a id="cancelTopic" style="position: relative ; font-size: 120%" class="close-reveal-modal" onclick="discardTopic()">Abbrechen</a><br />
-                            <br />
-					    </div>
-					</li>
+                    <li><a href="#" data-reveal-id="BboxModal2">Add New Topic</a>
+                      
+                      <div id="BboxModal2" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
+                        <h3>Define the spatial extent , by clicking two opposite corners .</h3>
+                        <a id="setBbox2" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Define the spatial extent</a><br />
+                        <a id="rejectBbox2" onclick="discardTopic" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Abort</a>
+                        <script type="text/javascript">
+                          document.getElementById("setBbox2").onclick = createTopicBoundingBox;
+                        </script>
+            </div>
+            
+           <!-- popUp fuer Boundingbox -->
+            <div id="confirmBbox"data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
+              <h3>re you satisfied with the spatial extent?</h3>
+              <a id="setBbox3" style="text-align: right ;position: relative ; font-size: 120%"  class="close-reveal-modal" data-reveal-id="newTopicModal">Yes</a><br />
+                        <a id="rejectBbox2" onclick="discardTopic()" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">No</a>
+                        <script>
+                          document.getElementById("setBbox3").onclick = fillForm;
+                        </script>
+            </div>
 
-					<!-- Pop-Up für Registrierung  -->
+                      <!-- Formular zur Erstellung eines Topics  -->
+            <div id="newTopicModal" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
+                <h3>Add a spatial dataset</h3>
+                <form action="topic.php" method="post">
+                  <p>Latitude from the center of the bounding box: <input id="Breitengrad" readonly="readonly" type="number" name="Breitengrad"/> </p>
+                  <p>Longitude from the center of the bounding box: <input id="Längengrad" readonly="readonly" type="number" name="Längengrad"/> </p>
+                  <p><abbr title=" Here the link of your geodata is requested"><img src="../img/info.png" width="15px" height="15px" /></abbr> URL: <input type="text" id="URL" name="URL" required/> </p>
+                  <p><abbr title="Choose a title for your geodata, for example 'Hurricane data of Florida'"><img src="../img/info.png" width="15px" height="15px"/></abbr> Title: <input type="text" id="Titel" name="Titel" required /></p>
+                  <p><abbr title="Here you can comment to the geodata. Is it helpful? Are there any mistakes in it? etc."><img src="../img/info.png" width="15px" height="15px"/></abbr> Comment: <textarea type="text"  id="Kommentar" name="Kommentar" required></textarea></p>
+                  <p><abbr title="Choose which region the geodata you want to add is representing. At choice:
+                          World
+                          Continent
+                          Country
+                          Region
+                          City
+                            " style ="text-align:left;">
+                        <img src="../img/info.png" width="15px" height="15px"/></abbr>&ensp;Categorie
+                  <select id="Kategorie" name="Kategorie">
+                    <option value="Keine">No Categorie</option>
+                          <option value="Welt">World</option>
+                      <option value="Kontinent">Continent</option>
+                      <option value="Land">Country</option>
+                      <option value="Region">Region</option>
+                      <option value="Stadt">City</option>
+                    </select>
+                </p>
+                  <p><abbr title="Give a date since the data is valid"><img src="../img/info.png" width="15px" height="15px"/></abbr>
+                  Time extent - start  (optional) <input type="date" id="start" name="start" /> 
+                  </p>
+                  <p><abbr title="Give a date up to when the data can be valid."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
+                  Time extent - end (optional) <input type="date" id="end" name="end" />  
+                  </p>
+                  <p><abbr title="Here you can rate the data from 1 (very bad) to 5 (perfect)."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
+                Rating (optional): <br /><input id="checkbox1" name="checkbox1" type="checkbox" onclick="activateAssessment()"><label for="checkbox1" >Rating inactive</label>
+                    <div class="row">
+                        <div class="small-10 medium-11 columns">
+                          <div id="Bewertung" name="Bewertung" onclick="activateSlider()" class="range-slider" data-slider disabled data-options="display_selector: #sliderOutput3; start: 1; end: 5;" >
+                            <span class="range-slider-handle" role="slider" tabindex="0"></span>
+                          <span class="range-slider-active-segment"></span> 
+                        <input type="hidden" name = "Bewertung">
+                        </div> 
+                      </div>
+                      <div class="small-2 medium-1 columns">
+                        <span id="sliderOutput3"></span>
+                      </div>
+                    </div>
+                  </p>
+                  <p><abbr title="Here you can give tags. Later your data can be easier found."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
+                Tags (optional): <input type="text" id="tags" name="tags"/>
+                </p>
+                <p><abbr title="Here you can add another URL, which gives additional information to your geodata, or is a newer version of it."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
+                Hyperlink (optional): <input type="text" id="hyperlink" name="hyperlink"/>
+                </p>
+                <p>Author <input id="Autor" type="text" readonly="readonly" name="Autor"/>
+                <input type="hidden" id="cTbboxLLcoor" name="cTbboxLLcoor"/>
+                <input type="hidden" id="cTbboxURcoor" name="cTbboxURcoor"/>
+                
+                <input type="submit" class="button expand" value="Topic erstellen"/>
+                  </form>
+                <a id="cancelTopic" style="position: relative ; font-size: 120%" class="close-reveal-modal" onclick="discardTopic()">Abort</a><br />
+                            <br />
+              </div>
+          </li>
+
+
+          <!-- Pop-Up für Registrierung  -->
                     <li>
-                        <a href="#" data-reveal-id="RegisterModal">Registrierung</a>
+                        <a href="#" data-reveal-id="RegisterModal">Register</a>
                     </li>
                     
-					<!-- Schnellsuche -->
-						
-					<li class="has-form">
-						<div class="row collapse">
-							<form action="filter.php" method="get">
-								<input type="text" placeholder="Schnellsuche" name="search">
-							</form>
-						</div>
-					</li>
-					
-					<!-- Impressum aufrufen -->
-                    <li>
-                        <a href="Impressum.php">Impressum</a>
+          <!-- Schnellsuche -->
+            
+          <li class="has-form">
+            <div class="row collapse">
+              <form action="filter.php" method="get">
+                <input type="text" placeholder="Schnellsuche" name="search">
+              </form>
+            </div>
+          </li>
+		  
+		  <!-- Suchfeld -->
+					 <li>
+						<a href="search.php">Search</a>
                     </li>
-					
+          
+          <!-- Impressum aufrufen -->
+                    <li>
+                        <a href="Impressum.php">Imprint</a>
+                    </li>
+          
                 </ul>
             </section>
         </nav>
@@ -174,295 +192,286 @@
 
     <!-- PopUp-Registrierungs-Formular -->
     <div id="RegisterModal" class="reveal-modal" data-reveal>
-        <h2> Registrierung </h2>
+        <h2> Registration </h2>
         <form action="register.php" method="post">
-            Benutzername: <input type="text" id="Benutzername" name="Benutzername" required />
-            Passwort: <input type="password" id="passwort" name="Passwort" required />
-            Passwort wiederholen:<input type="password" id="passwortWieder" name="Passwort2" required />
-            Ort (optional): <input type="text" name="Ort" id="Ort" />
-            PLZ (optional): <input type="text" name="PLZ" id="PLZ" />
-            Land (optional): <input type="text" name="Land" id="Land" />
-            <input id="regist" type="submit" class="button expand" value="Registrieren" />
-            <a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a><br />
+            Username: <input type="text" id="Benutzername" name="Benutzername" required />
+            Password: <input type="password" id="passwort" name="Passwort" required />
+            Retype password :<input type="password" id="passwortWieder" name="Passwort2" required />
+            City (optional): <input type="text" name="Ort" id="Ort" />
+            Zip code (optional): <input type="text" name="PLZ" id="PLZ" />
+            Country (optional): <input type="text" name="Land" id="Land" />
+            <input id="regist" type="submit" class="button expand" value="Register" />
+            <a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Abort</a><br />
             <br />
         </form>
     </div>
-	
+  
     <!-- Dropdown-Login-Feld -->
     <div id="login-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
         <h5>Log In:</h5>
-		
+    
         <form id="top-nav-login" action="login.php" method="post">
             <div class="row">
-                <label>Nutzer</label>
-                <input type="text" name="user" placeholder="name" tabindex="1" />
+                <label>User</label>
+                <input type="text" name="user" placeholder="user" tabindex="1" />
             </div>
             <div class="row">
-                <label>Passwort</label>
+                <label>Password</label>
                 <input type="password" name="password" placeholder="********" tabindex="2" />
             </div>
             <div class="row">
                 <input type="submit" class="button tiny success" value="Login" tabindex="3" />
             </div>
-            <p>Sie haben noch kein Konto? Zur Registrierung geht es <a onclick="test" data-reveal-id="RegisterModal">hier</a></p>
+            <p>You do not have an account? You can register one <a onclick="test" data-reveal-id="RegisterModal">here</a></p>
         </form>
     </div>
-	
-	<!-- Dropdown-Eingeloggt-Feld -->
-	<div id="loggedin-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
-		<h5 id="eingeloggtAls"><h5>
-			<script>
-				document.getElementById("eingeloggtAls").innerHTML = "Eingeloggt als: " + author();
-			</script>
-			<ul id="drop" class="[tiny small medium large content]f-dropdown" data-dropdown-content>
-			  <a href="#" data-reveal-id="Profile">Profil</a>
+  
+  <!-- Dropdown-Eingeloggt-Feld -->
+  <div id="loggedin-dropdown" class="f-dropdown small content" data-dropdown-content="true" width="10%">
+    <h5 id="eingeloggtAls"><h5>
+      <script>
+        document.getElementById("eingeloggtAls").innerHTML = "Eingeloggt als: " + author();
+      </script>
+      <ul id="drop" class="[tiny small medium large content]f-dropdown" data-dropdown-content>
+        <a href="#" data-reveal-id="Profile">Profile</a>
 
-					<div id="Profile" class="reveal-modal" data-reveal>
-					  <h3 id="benutzername">Mein Profil: </h3>
-					  
-					  <script>
-						document.getElementById("benutzername").innerHTML = "Mein Profil: " + author();
-					  </script>
-					  <form action="alteruser.php" method="post">
-					  <button style="float: right;"> Daten ändern</button>
-						<?php
-						// attempt a connection
-						include("config.php");
-						global $config;
+          <div id="Profile" class="reveal-modal" data-reveal>
+            <h3 id="benutzername">My profile: </h3>
+            
+            <script>
+            document.getElementById("benutzername").innerHTML = "My profile: " + author();
+            </script>
+            <form action="alteruser.php" method="post">
+            <button style="float: right;"> Edit</button>
+            <?php
+            // attempt a connection
+            //ini_set('display_errors', '1');
+            //error_reporting(E_ALL | E_STRICT);
+            include("config.php");
+            global $config;
 
-						$connection = pg_connect($config["connection"]);
-						if (!$connection) {
-							die("Error in connection: " . pg_last_error());
-						}
-						
-						$user = $_COOKIE['Autor'];
+            $connection = pg_connect($config["connection"]);
+            if (!$connection) {
+              die("Error in connection: " . pg_last_error());
+            }
+            
+            $user = $_COOKIE['Autor'];
 
-						// execute query
-						$sql = "SELECT ort, plz, land FROM nutzer WHERE name='$user';";
-	
-						$result = pg_query($connection, $sql);
-						if (!$result) {
-							die("Error in SQL query: " . pg_last_error());
-						}
+            // execute query
+            $sql = "SELECT ort, plz, land FROM nutzer WHERE name='$user';";
+  
+            $result = pg_query($connection, $sql);
+            if (!$result) {
+              die("Error in SQL query: " . pg_last_error());
+            }
 
-						// iterate over result set
-						// print each row
-						while ($row = pg_fetch_array($result)) {
-							$ort = (string)$row[0];
-							$plz = (string)$row[1];
-							$land = (string)$row[2];
-						
-							echo '<p>Ort: ' . $ort . ' </p>';
-							echo '<p>PLZ: ' . $plz . '</p>';
-							echo '<p>Land: ' . $land . '</p>';
-							//echo '<p>Ort: <input value=' . $ort . ' type=\"text\" id=\"ort\" name=\"ort\" style=\"width: 90%;\"/></p>';
-							//echo '<p>PLZ: <input value=' . $plz . ' type=\"text\" id=\"plz\" name=\"plz\" style=\"width: 90%;\"/></p>';
-							//echo '<p>Land: <input value=' . $land . ' type=\"text\" id=\"land\" name=\"land\" style=\"width: 90%;\"/></p>';
-						}
+            // iterate over result set
+            // print each row
+            while ($row = pg_fetch_array($result)) {
+              $ort = (string)$row[0];
+              $plz = (string)$row[1];
+              $land = (string)$row[2];
+            
+              echo '<p>City: ' . $ort . ' </p>';
+              echo '<p>Zip code: ' . $plz . '</p>';
+              echo '<p>Country: ' . $land . '</p>';
+              //echo '<p>Ort: <input value=' . $ort . ' type=\"text\" id=\"ort\" name=\"ort\" style=\"width: 90%;\"/></p>';
+              //echo '<p>PLZ: <input value=' . $plz . ' type=\"text\" id=\"plz\" name=\"plz\" style=\"width: 90%;\"/></p>';
+              //echo '<p>Land: <input value=' . $land . ' type=\"text\" id=\"land\" name=\"land\" style=\"width: 90%;\"/></p>';
+            }
 
-						// free memory
-						pg_free_result($result);
-						?>
-						<input value="ort" type="text" id="ort" name="ort" style="width: 90%;"/>
-						<input value="plz" type="text" id="plz" name="plz" style="width: 90%;"/>
-						<input value="land" type="text" id="land" name="land" style="width: 90%;"/>
-						<a class="close-reveal-modal">&#215;</a>
-						</form>
-					</div>
-			
-			  
-			  <br /><a href="infouser.php">Meine Topics und Kommentare</a>
-			  <br /><a href="logout.php">Logout</a>
-			</ul>
-	</div>
+            // free memory
+            pg_free_result($result);
+            ?>
+            <input value="ort" type="text" id="ort" name="ort" style="width: 90%;"/>
+            <input value="plz" type="text" id="plz" name="plz" style="width: 90%;"/>
+            <input value="land" type="text" id="land" name="land" style="width: 90%;"/>
+            <a class="close-reveal-modal">&#215;</a>
+            </form>
+          </div>
+      
+        
+        <br /><a href="infouser.php">My Topics and comments</a>
+        <br /><a href="logout.php">Logout</a>
+      </ul>
+  </div>
 
     <!-- Pop-Up mit Hilfestellung beim ersten Aufruf  -->
     <div id="HilfeModal" class="reveal-modal" data-reveal>
-        <h1>Willkommen auf der Hilfeseite von Cartostroph!</h1>
-        <p>Auf dieser Seite bekommen Sie Hilfestellung zur Nutzung von Cartostroph!</p>
+        <h1>Welcome to Cartostroph!</h1>
+        <p>This side helps you using Cartostroph!</p>
+        
         <p>
-            Cartostroph! ist eine Webapplikation, welche als Ziel hat Geodatensätze an einem Ort zu versammeln (oder eher gesagt Verweise darauf). Wenn Sie einen
-            tollen Geodatensatz im Internet gefunden haben und ihn mit anderen teilen möchten, sind Sie hier genau richtig!
-        </p>
-        <p>
-            <b> Welche Formate können visualisiert werden?</b><br />
-            <ul>
-                <li>OGC WMS</li>
-                <li>OGC WFS</li>
-                <li>GML</li>
-                <li>KML</li>
-                <li>OGC WMTS</li>
-                <li>h-geo(microfromat)</li>
-                <li>JPEG</li>
-                <li>PNG</li>
-            </ul>
-        </p>
+Cartostroph! is a Web App trying to muster up geodata.
+When you found interesting geodata, share it right here!
+</p>
+<p>
+<b>How can I add geodata?</b>
+<br />
+<ul>
+<li>Click "Add new topic" in the toolbar above.</li>
+<li>
+Click the OK button in the following Window.
+Then click two times to define the bounding box of your geodata.
+</li>
+<li>Add informations to the geodata. <a href="#FormularRichtig">Here</a> you can find help.</li>
+<li>When you filled in all important information click "submit"</li>
+<li>Now you have crated a Marker which is linked to your geodata, which can be commented and rated from other users.</li>
+</ul>
+</p>
+<p id="FormularRichtig">
+<b>How to fill in the form for my geodata?</b>
+<br />
+<ul>
+<li><strong>URL</strong>: Here the link of your geodata is requested</li>
+<li><strong>Titel</strong>: Choose a title for your geodata, for example "Hurricane data of Florida"</li>
+<li><strong>Comment</strong>: Here you can comment to the geodata. Is it helpful? Are there any mistakes in it? etc.</li>
+<li>
+<strong>Category (optionally)</strong>: Choose which region the geodata you want to add is representing. At choice: <ul>
+<li>World</li>
+<li>Continent</li>
+<li>Coutry</li>
+<li>Region</li>
+<li>City</li>
+</ul>
+</li>
+<li><strong>Time extent - start (optionally)</strong>: Give a date since the data is valid</li>
+<li><strong>Time extent - end (optionally)</strong>: Give a date up to when the data can be valid.</li>
+<li><strong>Bewertung (optionalyl)</strong>: Here you can rate the data from 1 (very bad) to 5 (perfect).</li>
+<li><strong>Tags (optionally)</strong>: Here you can give tags. Later your data can be easier found. </li>
+<li><strong>Hyperlink (optionally)</strong>: Here you can add another URL, which gives additional information to your geodata, or is a newer version of it.</li>
+</ul>
+</p>
 
-        <p>
-            <b> Wie füge ich einen neuen Geodatensatz hinzu? </b><br />
-            <ul>
-                <li>In der oberen Leiste auf "Neues Topic anlegen" klicken.</li>
-                <li>Fenster bestätigen und einen Punkt auf der Karte per Klick auswählen, wo der Datensatz hinzugefügt werden soll.</li>
-                <li>Informationen zum Geodatensatz angeben.
-                <li>Wenn Sie sich sicher sind alles richtig ausgefüllt zu haben, klicken Sie auf "Abschicken"</li>
-                <li>Nun gibt es einen Marker mit dem von Ihnen gefundenen Datensatz, welcher von anderen Nutzern kommentiert und bewertet werden kann.</li>
-            </ul>
-        </p>
-
-        <p>
-            <b> Wie fülle ich das Formular zum Geodatensatz richtig aus?</b><br />
-            <ul>
-                <li><strong>URL</strong>: Hier geben Sie an, unter welcher Internetadresse der Geodatensatz auffindbar ist.</li>
-                <li><strong>Titel</strong>: Hier geben Sie einen geeigneten Titel des Datensatzens an, z.B. "Überflutungsdaten Münster 2014"</li>
-                <li><strong>Kommentar</strong>: Hier geben Sie an, was Sie über den Geodatensatz denken. Ist er hilfreich? Ist er gut? Fehlt etwas? etc.</li>
-                <li>
-                    <strong>Kategorie</strong>: Hier geben Sie an wie groß das Gebiet ist, welches vom Geodatensatz abgedeckt wird. Zur Auswahl stehen:
-                    <ul>
-                        <li>Welt</li>
-                        <li>Kontinent</li>
-                        <li>Land</li>
-                        <li>Region</li>
-                        <li>Stadt</li>
-                    </ul>
-                </li>
-                <li><strong>Zeitliche Ausdehnung - Start (optional)</strong>: Hier geben Sie an, ab wann der Geodatensatz gültig ist.</li>
-                <li><strong>Zeitliche Ausdehnung - Ende (optional)</strong>: Hier geben Sie an, bis wann der Datensatz gültig war bzw. voraussichtlich sein wird.</li>
-                <li><strong>Bewertung (optional)</strong>: Hier geben Sie an, wie gut Sie den Datensatzfinden. Skala von 1 (sehr schlecht/unbrauchbar) bis 5 (perfekt).</li>
-                <li><strong>Tags (optional)</strong>: Hier geben Sie Tags an, damit der Datensatz später leichter zu finden ist. </li>
-                <li><strong>Hyperlink (optional)</strong>: Hier geben Sie andere Internetquellen an, welche den Geodatensatz ergänzen - z.B. neuer oder besserer Datensatz, Zusatzinformationen zum betroffenen Gebiet, etc.</li>
-            </ul>
-        </p>
-        <input id="HilfeAusschalten" type="checkbox"><label for="HilfeAusschalten">Hilfe nicht mehr anzeigen</label><br />
-        <a onclick="hilfeCookie()" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Weiter</a><br />
+        <input id="HilfeAusschalten" type="checkbox"><label for="HilfeAusschalten">Do not show again</label><br />
+        <a onclick="hilfeCookie()" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Continue</a><br />
         <br />
     </div>
-	
-	
-	
+  
+  
+  
     <div class="large-8 columns" id="map" style="height: 100%;">
 
 </div>
-<div id="SearchContent" class="large-4 columns">  <h3 style="display: inline">Suche  </h3>
-	
-				<?php	
-					echo '<h6>Aktiver Filter</h6>';
-					echo '<ul class="breadcrumbs">';
-					
-					$suchbegriff = '';
-					if ($_GET['search'] != ''){
-						$suchbegriff = "Suchbegriff: ".htmlspecialchars($_GET['search']);
-						echo '<li class="current"><a href="#">' . $suchbegriff . '</a></li>';
-					}
-					
-					$kategorie = '';
-					if ($_GET['KategorieSuche'] != ''){
-						$kategorie = "Kategorie: ".$_GET['KategorieSuche'];
-						echo '<li class="current"><a href="#">' . $kategorie . '</a></li>';
-					}
-					
-					$start = '';
-					if ($_GET['startSuche'] != ''){
-						$start = "Start: ".$_GET['startSuche'];
-						echo '<li class="current"><a href="#">' . $start . '</a></li>';
-					}
-					
-					$end = '';
-					if ($_GET['endSuche'] != ''){
-						$end = "Ende: ".$_GET['endSuche'];
-						echo '<li class="current"><a href="#">' . $end . '</a></li>';
-					}
-					
-					$bewertung = '';
-					if ($_GET['BewertungSuche'] != ''){
-						$bewertung = "Bewertung: ".$_GET['BewertungSuche'];
-						echo '<li class="current"><a href="#">' . $bewertung . '</a></li>';
-					}
-					
-					$bbox = '';
-					if ($_GET['leftpoint'] != ''){
-						$bbox = "Suche basiert auf Boundingbox aktiv";
-						echo '<li class="current"><a href="#">' . $bbox . '</a></li>';
-					}
-					
-					$radius = '';
-					if ($_GET['radius'] != ''){
-						$radius = "Suche basiert auf Radius: ".$_GET['radius'];
-						echo '<li class="current"><a href="#">' . $radius . '</a></li>';
-					}
-					
-					echo '</ul>';
-				?>
-	
-					<button class="tiny button" data-reveal-id="PermalinkModal">Permalink</button>
-	
-						<div id="PermalinkModal" class="reveal-modal" data-reveal>
-                    		<h3>Der Permalink von Ihrer Suche</h3>
-                    		<input id="permalink" readonly="true" type="text" />
-                    		<a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">OK</a>
-                    		<script>
-                    			document.getElementById("permalink").value = window.location.href;
-                    		</script>
-						</div>
-						
-		
-	
-	
-	
+<div id="SearchContent" class="large-4 columns">  <h3 style="display: inline">Search  </h3>
+  
+        <?php 
+          echo '<h6>Aktive filter</h6>';
+          echo '<ul class="breadcrumbs">';
+          
+          $suchbegriff = '';
+          if ($_GET['search'] != ''){
+            $suchbegriff = "Search text: ".htmlspecialchars($_GET['search']);
+            echo '<li class="current"><a href="#">' . $suchbegriff . '</a></li>';
+          }
+          
+          $kategorie = '';
+          if ($_GET['KategorieSuche'] != '' && $_GET['KategorieSuche'] != 'Keine'){
+            $kategorie = "Category: ".$_GET['KategorieSuche'];
+            echo '<li class="current"><a href="#">' . $kategorie . '</a></li>';
+          }
+          
+          $start = '';
+          if ($_GET['startSuche'] != ''){
+            $start = "Start: ".$_GET['startSuche'];
+            echo '<li class="current"><a href="#">' . $start . '</a></li>';
+          }
+          
+          $end = '';
+          if ($_GET['endSuche'] != ''){
+            $end = "End: ".$_GET['endSuche'];
+            echo '<li class="current"><a href="#">' . $end . '</a></li>';
+          }
+          
+          $bewertung = '';
+          if ($_GET['BewertungSuche'] != '' && $_GET['BewertungSuche'] != 'Keine'){
+            $bewertung = "Rating: ".$_GET['BewertungSuche'];
+            echo '<li class="current"><a href="#">' . $bewertung . '</a></li>';
+          }
+          
+          $bbox = '';
+          if ($_GET['leftpoint'] != ''){
+            $bbox = "Search based on active Boundingbox";
+            echo '<li class="current"><a href="#">' . $bbox . '</a></li>';
+          }
+          
+          $radius = '';
+          if ($_GET['radius'] != ''){
+            $radius = "Search based on radius: ".$_GET['radius'];
+            echo '<li class="current"><a href="#">' . $radius . '</a></li>';
+          }
+          
+          echo '</ul>';
+        ?>
+        
+        <button class="tiny button" data-reveal-id="PermalinkModal">Permalink</button>
+  
+            <div id="PermalinkModal" class="reveal-modal" data-reveal>
+                        <h3>The permalink of your search</h3>
+                        <input id="permalink" readonly="true" type="text" />
+                        <a style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">OK</a>
+                        <script>
+                          document.getElementById("permalink").value = window.location.href;
+                          
+                        
+                        </script>
+            </div>
+            
+    
+  
+  
+  
                             <form action="filter.php" method="get">
-                            <p><input type="text" placeholder="Suche" name="search"></p>
-                            <p>Kategorie <select id="KategorieSuche" name="KategorieSuche">
-                                <option value="Keine">Keine Kategorie</option>
-                                <option value="Welt">Welt</option>
-                                <option value="Kontinent">Kontinent</option>
-                                <option value="Land">Land</option>
+                            <p><input type="text" placeholder="Suche" id="search" name="search"></p>
+                            <p>Category (optional)<select id="KategorieSuche" name="KategorieSuche">
+                                <option value="Keine">No Category</option>
+                                <option value="Welt">World</option>
+                                <option value="Kontinent">Continent</option>
+                                <option value="Land">Country</option>
                                 <option value="Region">Region</option>
-                                <option value="Stadt">Stadt</option>
+                                <option value="Stadt">City</option>
                             </select>
                             </p>
-                            <p><abbr title="Hier geben Sie an ab wann der Geodatensatz gültig ist"><img src="../img/info.png" width="15px" height="15px"/></abbr>
-                  Start <input type="date" id="startSuche" name="startSuche" /> 
+                            <p><abbr title="Give a date since the data is valid"><img src="../img/info.png" width="15px" height="15px"/></abbr>
+                  Start <input type="date" id="startSuche" name="startSuche" placeholder="yyyy-mm-dd"/> 
                   </p>
-                  <p><abbr title="Hier geben Sie an bis wann der Datensatz gültig war bzw. voraussichtlich sein wird."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
-                  Ende <input type="date" id="endSuche" name="endSuche" />  
+                  <p><abbr title="Give a date up to when the data can be valid."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
+                  Ende <input type="date" id="endSuche" name="endSuche" placeholder="yyyy-mm-dd"/>  
                   </p>
-                    <p>Bewertung <select id="BewertungSuche" name="BewertungSuche">
-                                <option value="Keine">Keine Einschränkung</option>
-                                <option value="1">1 oder höher</option>
-                                <option value="2">2 oder höher</option>
-                                <option value="3">3 oder höher</option>
-                                <option value="4">4 oder höher</option>
+                    <p>Bewertung: <select id="BewertungSuche" name="BewertungSuche">
+                                <option value="Keine">No Restriction</option>
+                                <option value="1">1 or higher</option>
+                                <option value="2">2 or higher</option>
+                                <option value="3">3 or higher</option>
+                                <option value="4">4 or higher</option>
                                 <option value="5">5</option>
                             </select>
                             </p>
-							<p><abbr title="Hier können Sie auf Ihren Standort basiert eine räumliche Suche mit Radius machen. Bitte geben Sie die Kilometer an."><img src="../img/info.png" width="15px" height="15px"/></abbr>
-                    Radiussuche in Kilometer <input type="text" id="radius" placeholder="0" name="radius" onchange="searchCircle()"></p>
+              <p><abbr title="Based on your location you can do a spatial search with indication of the radius. Please indicate in km"><img src="../img/info.png" width="15px" height="15px"/></abbr>
+                    Radius search in km <input type="text" id="radius" placeholder="0" name="radius" onchange="searchCircle()"></p>
                     </p>
                     <label for="leftpoint"></label>
                     <input type="hidden" name="leftpoint" id="leftpoint" />
                     <label for="rightpoint"></label>
                     <input hidden="hidden" name="rightpoint" id="rightpoint" /> 
                     <p>
-                    <a style="text-align: right ;position: relative ; font-size: 100%" data-reveal-id="BboxModal" class="button tiny" >Räumliche Ausdehnung</a>
-                            <p><input id="filter" type="submit" class="button expand" value="Filtern" />
+                    <a style="text-align: right ;position: relative ; font-size: 100%" data-reveal-id="BboxModal" class="button tiny" >Spatial Expansion</a>
+                            <p><input id="filter" type="submit" class="button expand" value="Suchen" />
                             </p>  
-                    <p>
-					mein Standort 
-					<p>Breitengrad <input id="lat" readonly="readonly" type="number" name="lat"/> </p>
-  					<p>Längengrad <input id="lng" readonly="readonly" type="number" name="lng"/> </p>
-		</form></h1>
+                    </p>
+    </form></h1>
 </div>
 
 
-						<!-- popUp fuer Boundingbox -->
-						<div id="BboxModal" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
-                    		<h3>Definieren Sie die räumliche Ausdehnung, indem Sie zwei gegenüberliegende Eckpunkte klicken.</h3>
-                    		<a id="setBbox" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Räumliche Ausdehnung definieren</a><br />
-                    		<a id="rejectBbox" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Abbrechen</a>
-                    		<script type="text/javascript">
-                    			document.getElementById("setBbox").onclick = searchBoundingBox;
-                    			document.getElementById("rejectBbox").onclick = discardTopic;
-                    		</script>
-						</div>
+            <!-- popUp fuer Boundingbox -->
+            <div id="BboxModal" data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
+                        <h3>Define the spatial extent , by clicking two opposite corners.</h3>
+                        <a id="setBbox2" style="text-align: right ;position: relative ; font-size: 120%" class="close-reveal-modal">Define the spatial extent</a><br />
+                        <a id="rejectBbox2" onclick="discardTopic" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">Abort</a>
+                        <script type="text/javascript">
+                          document.getElementById("setBbox2").onclick = createTopicBoundingBox;
+                        </script>
+            </div>
 
 </div>
     <!-- Skriptabschnitt -->
@@ -473,154 +482,193 @@
 
         // create a map in the "map" div, set the view to a given place and zoom
         var addMarker = false;
+        var TopicBBox = null;
        
         var osmLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>',
-    		thunLink = '<a href="http://thunderforest.com/">Thunderforest</a>';
+        thunLink = '<a href="http://thunderforest.com/">Thunderforest</a>';
 
-	    var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    		osmAttrib = '&copy; ' + osmLink + ' Contributors',
-    		landUrl = 'http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png',
-    		thunAttrib = '&copy; '+osmLink+' Contributors & '+thunLink;
+      var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        osmAttrib = '&copy; ' + osmLink + ' Contributors',
+        landUrl = 'http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png',
+        thunAttrib = '&copy; '+osmLink+' Contributors & '+thunLink;
             mapUrl = 'https://{s}.tiles.mapbox.com/v3/examples.map-i875mjb7/{z}/{x}/{y}.png',
             mapAttrib = '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>';
             aerialUrl = 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png';
 
-	    var osmMap = L.tileLayer(osmUrl, {attribution: osmAttrib}),
-    		landMap = L.tileLayer(landUrl, {attribution: thunAttrib});
+      var osmMap = L.tileLayer(osmUrl, {attribution: osmAttrib}),
+        landMap = L.tileLayer(landUrl, {attribution: thunAttrib});
             mapBox = L.tileLayer(mapUrl, {attribution: mapAttrib});
             aerial = L.tileLayer(aerialUrl, {attribution: mapAttrib});
 
-	    var map = L.map('map', {
-      		layers: [mapBox], // only add one!
-			minZoom: 2 ,
-    		worldCopyJump : true
-    	})
-    		.setView([30.505, 0], 2);
+      var map = L.map('map', {
+          layers: [mapBox], // only add one!
+      minZoom: 2 ,
+        worldCopyJump : true
+      })
+        .setView([30.505, 0], 2);
 
-	    var baseLayers = {
-  		    "OSM Mapnik": osmMap,
-  		    "Landscape": landMap,
+      var baseLayers = {
+          "OSM Mapnik": osmMap,
+          "Landscape": landMap,
             "MapBox": mapBox,
             "Aerial": aerial
-	    };
+      };
 
-	    L.control.layers(baseLayers, null, {position: 'bottomleft'}).addTo(map);
+      L.control.layers(baseLayers, null, {position: 'bottomleft'}).addTo(map);
 
         //zoom to location of user 
-	    map.locate({ setView: false, maxZoom: 12 });
+      //map.locate({ setView: false, maxZoom: 12 });
 
         map.on('locationfound', onLocationFound);
-		
+    
         map.on('locationerror', onLocationError);
-		L.control.pan().addTo(map);
-		map.addControl(L.control.search());
-		
-		map.on('click', onMapClick);
-		// map.on('mouseout',resetView);
+    L.control.pan().addTo(map);
+    map.addControl(L.control.search());
+    
+    <?php
+      $lp = (string)$_GET['leftpoint'];
+      $rp = (string)$_GET['rightpoint'];
+      echo 'bboxURcoor2 = "'.$lp.'";';
+      echo 'bboxLLcoor2 = "'.$rp.'";';
+    ?>
+    
+    /*bboxURcoor2 = String(getCookie("bboxURcoor"));
+    bboxLLcoor2 = String(getCookie("bboxLLcoor"));
+    bboxURcoor2 = bboxURcoor2.substring(6,bboxURcoor2.length);
+    bboxLLcoor2 = bboxLLcoor2.substring(6,bboxLLcoor2.length);
+    bboxURcoor2 = bboxURcoor2.replace(/[{()}]/g, '');
+      bboxLLcoor2 = bboxLLcoor2.replace(/[{()}]/g, '');*/
+      coords1 = bboxLLcoor2.split(",");
+      coords2 = bboxURcoor2.split(",");
+      
+      if(coords1[0].length > 0) {
+
+        coor1 = coords1[0];
+      coor2 = coords1[1];
+      coor3 = coords2[0];
+      coor4 = coords2[1];
+      var bounds2 = [[coor1, coor2], [coor3, coor4]];
+      map.fitBounds(bounds2);
+    // create an orange rectangle
+    L.rectangle(bounds2, {color: "red", weight: 1}).addTo(map);
+    
+    }
+
+    map.on('click', onMapClick);
+    // map.on('mouseout',resetView);
     </script>
-	<?php 
-	
-		// attempt a connection
-		include("config.php");
-		global $config;
-		$connection = pg_connect($config["connection"]);
-		if (!$connection) {
-			die("Error in connection: " . pg_last_error());
-		}
+  <?php 
+    echo '<script>';  
+    echo 'document.getElementById("search").value = "'.$_GET['search'].'";';
+    echo 'document.getElementById("KategorieSuche").value = "'.$_GET['KategorieSuche'].'";';
+    echo 'document.getElementById("BewertungSuche").value = "'.$_GET['BewertungSuche'].'";';
+    echo 'document.getElementById("radius").value = "'.$_GET['radius'].'";';
+    echo 'document.getElementById("startSuche").value = "'.$_GET['startSuche'].'";';
+    echo 'document.getElementById("endSuche").value = "'.$_GET['endSuche'].'";';
+    echo '</script>';                      
 
-		// execute query
-		$suchbegriff = htmlspecialchars($_GET['search']);
-		$kategorie = $_GET['KategorieSuche'];
-		$katwert = NULL;
-		switch ($kategorie) { 
-			case 'Keine':
-				$katwert = NULL;
-				break;
-			case 'Welt': 
-				$katwert = 'Welt';
-				break; 
-			case 'Kontinent': 
-				$katwert = 'Kontinent';
-				break; 
-			case 'Land': 
-				$katwert = 'Land';
-				break; 
-			case 'Region': 
-				$katwert = 'Region';
-				break; 
-			case 'Stadt': 
-				$katwert = 'Stadt';
-				break;  
-			default:
-				$katwert = NULL;
-		}
 
-		$start = '0001-01-01';
-		if ($_GET['startSuche'] != ''){
-			$start = $_GET['startSuche'];
+    // attempt a connection
+    include("config.php");
+    global $config;
+    $connection = pg_connect($config["connection"]);
+    if (!$connection) {
+      die("Error in connection: " . pg_last_error());
+    }
+
+    // execute query
+    $suchbegriff =  pg_escape_string(htmlspecialchars($_GET['search']));
+    $kategorie =  $_GET['KategorieSuche'];
+    $katwert = NULL;
+    switch ($kategorie) { 
+      case 'Keine Kategorie':
+        $katwert = NULL;
+        break;
+      case 'Welt': 
+        $katwert = 'Welt';
+        break; 
+      case 'Kontinent': 
+        $katwert = 'Kontinent';
+        break; 
+      case 'Land': 
+        $katwert = 'Land';
+        break; 
+      case 'Region': 
+        $katwert = 'Region';
+        break; 
+      case 'Stadt': 
+        $katwert = 'Stadt';
+        break;  
+      default:
+        $katwert = NULL;
+    }
+
+    $start = '0001-01-01';
+    if ($_GET['startSuche'] != ''){
+      $start = $_GET['startSuche'];
         }
-		$end = '9999-12-31';
-		if ($_GET['endSuche'] != ''){
-			$end = $_GET['endSuche'];
+    $end = '9999-12-31';
+    if ($_GET['endSuche'] != ''){
+      $end = $_GET['endSuche'];
         }
 
-		$bewertung = $_GET['BewertungSuche'];
-		$bewert = NULL;
-		switch ($bewertung) { 
-			case 'Keine':
-				$bewert = NULL;
-				break;
-			case '1': 
-				$bewert = '1';
-				break; 
-			case '2': 
-				$bewert = '2';
-				break; 
-			case '3': 
-				$bewert = '3';
-				break; 
-			case '4': 
-				$bewert = '4';
-				break; 
-			case '5': 
-				$bewert = '5';
-				break;  
-			default:
-				$bewert = NULL;
-		} 
+    $bewertung = $_GET['BewertungSuche'];
+    $bewert = NULL;
+    switch ($bewertung) { 
+      case 'Keine':
+        $bewert = NULL;
+        break;
+      case '1': 
+        $bewert = 1;
+        break; 
+      case '2': 
+        $bewert = 2;
+        break; 
+      case '3': 
+        $bewert = 3;
+        break; 
+      case '4': 
+        $bewert = 4;
+        break; 
+      case '5': 
+        $bewert = 5;
+        break;  
+      default:
+        $bewert = NULL;
+    } 
 
-		
+    
         $bboxLeft = $_GET['leftpoint'];
         $bboxRight = $_GET['rightpoint'];
 
         $ownPositionlng = $_GET['lat'];
         $ownPositionlat = $_GET['lng'];  
-        $radius = $_GET['radius'];
+        $radius =  pg_escape_string(htmlspecialchars($_GET['radius']));
         $radius = (float)$radius;
         $radius = ($radius/111);
 
          //Hilfsvariable für den SQL Befehl
-		//$sqlContent = "";
-		$suchbegriffHilf = "";
+    //$sqlContent = "";
+    $suchbegriffHilf = "";
 
-		if ($suchbegriff != "") {
-			$suchbegriffHilf = "(UPPER(text) LIKE UPPER('%$suchbegriff%') OR UPPER(url_top) LIKE UPPER('%$suchbegriff%') OR UPPER (titel) LIKE UPPER('%$suchbegriff%') OR UPPER(tag) LIKE UPPER('%$suchbegriff%') OR UPPER(body) LIKE UPPER('%$suchbegriff%'))";
-		}
-
-
-		$sqlContent = $suchbegriffHilf;
+    if ($suchbegriff != "") {
+      $suchbegriffHilf = "(UPPER(text) LIKE UPPER('%$suchbegriff%') OR UPPER (titel) LIKE UPPER('%$suchbegriff%') OR UPPER(tag) LIKE UPPER('%$suchbegriff%') OR UPPER(body) LIKE UPPER('%$suchbegriff%') OR UPPER(url_top) LIKE UPPER('%$suchbegriff%'))";
+    }
 
 
-		if ($katwert == NULL) {
-			$kategorieHilf = "";
-		} elseif ($suchbegriff == "" and $katwert != NULL) {
-			$kategorieHilf = "kategorie  = '$katwert'";
-		} else {
-			$kategorieHilf = "AND kategorie = '$katwert'";
-		}
+    $sqlContent = $suchbegriffHilf;
 
 
-		$sqlContent = $sqlContent.$kategorieHilf;
+    if ($katwert == NULL) {
+      $kategorieHilf = "";
+    } elseif ($suchbegriff == "" and $katwert != NULL) {
+      $kategorieHilf = "kategorie  = '$katwert'";
+    } else {
+      $kategorieHilf = "AND kategorie = '$katwert'";
+    }
+
+
+    $sqlContent = $sqlContent.$kategorieHilf;
                 
 
         if ($bboxLeft == "") {
@@ -677,17 +725,17 @@
 
 
                 $result = pg_query($connection, $sql);
-		
-	
-		// iterate over result set
-		// print each row
-		
-		while ($row = pg_fetch_array($result)) {
-			$URL = (string)$row[0];
-			$Titel = (string)$row[1];
-			$Pos = (string)$row[2];
-			$Position = substr($Pos, 1, -1);
-			$Autor = (string)$row[4];
+    
+  
+    // iterate over result set
+    // print each row
+    
+    while ($row = pg_fetch_array($result)) {
+      $URL = (string)$row[0];
+      $Titel = (string)$row[1];
+      $Pos = (string)$row[2];
+      $Position = substr($Pos, 1, -1);
+      $Autor = (string)$row[4];
                         
                         //average berechnen 
                         $sql6 = "SELECT bewertung FROM topic WHERE url_top = '$URL'";
@@ -713,7 +761,7 @@
             
 
                         if ($bewertungTopic == NULL and $count == NULL) {
-                            $rating_avg = 0;
+                            $rating_avg = "No rating";
                             }
                         elseif ($bewertungTopic != NULL) {
                             $rating_avg = ($bewertungTopic + $sum) / ($count + 1);
@@ -723,39 +771,39 @@
                         
                         if ($rating_avg >= $bewert) { 
                             $Bewertung = round($rating_avg,2);
-			
-					
-			echo '<script type="text/javascript"> ';
-			echo 'var AnonymMarker = L.AwesomeMarkers.icon({
-    			  markerColor: "red",
-    			  });';
-				  
-			echo 'var EingeloggtMarker = L.AwesomeMarkers.icon({
-    			  markerColor: "blue",
-    			  });';	  
-			
-			echo 'var autor = "' . $Autor . '";';
-			echo 'if(autor == "" || autor == 0 || autor == "Anonym"){';
-			echo 'var marker = L.marker([' . $Position . '],{icon: AnonymMarker}).addTo(map).bindPopup("Titel: " + "' . $Titel . '" + "<br />Bewertung: "
-								       		 + "' . $Bewertung . '" + "<br/> URL: " + "<a href=" + "' . $URL . '" + ">"+ "' . $URL . '"   + "</a>" +  
-											 "<br/> Autor: " + "' . $Autor . '"  + "<form action=\"DynamicMap.php\" method=\"get\">" + 
-											 "<input type=\"hidden\" name=\"url\" value=\"" + "' . $URL . '" + "\"/>" + 
-											 "<br /><br /><input class=\"button tiny\" id=\"filter\" type=\"submit\" value=\"Mehr Infos...\"/>" + "</form>");';
-			echo'} else {
-				var marker = L.marker([' . $Position . '],{icon: EingeloggtMarker}).addTo(map).bindPopup("Titel: " + "' . $Titel . '" + "<br />Bewertung: "
-								       		 + "' . $Bewertung . '" + "<br/> URL: " + "<a href=" + "' . $URL . '" + ">"+ "' . $URL . '"   + "</a>" +
-											 "<br/> Autor: " + "' . $Autor . '"  + "<form action=\"DynamicMap.php\" method=\"get\">" +
-											 "<input type=\"hidden\" name=\"url\" value=\"" + "' . $URL . '" + "\"/>" +
-											 "<br /><br /><input class=\"button tiny\" id=\"filter\" type=\"submit\" value=\"Mehr Infos...\"/>" + "</form>");
-			}';
-			echo 'marker.on(\'click\',clickMarker);';
-			echo '</script>';
+      
+          
+      echo '<script type="text/javascript"> ';
+      echo 'var AnonymMarker = L.AwesomeMarkers.icon({
+            markerColor: "red",
+            });';
+          
+      echo 'var EingeloggtMarker = L.AwesomeMarkers.icon({
+            markerColor: "blue",
+            });';   
+      
+      echo 'var autor = "' . $Autor . '";';
+      echo 'if(autor == "" || autor == 0 || autor == "Anonym"){';
+      echo 'var marker = L.marker([' . $Position . '],{icon: AnonymMarker}).addTo(map).bindPopup("Titel: " + "' . $Titel . '" + "<br />Rating: "
+                           + "' . $Bewertung . '" + "<br/> URL: " + "<a href=" + "' . $URL . '" + ">"+ "' . $URL . '"   + "</a>" +  
+                       "<br/> Author: " + "' . $Autor . '"  + "<form action=\"DynamicMap.php\" method=\"get\">" + 
+                       "<input type=\"hidden\" name=\"url\" value=\"" + "' . $URL . '" + "\"/>" + 
+                       "<br /><br /><input class=\"button tiny\" id=\"filter\" type=\"submit\" value=\"More information...\"/>" + "</form>");';
+      echo'} else {
+        var marker = L.marker([' . $Position . '],{icon: EingeloggtMarker}).addTo(map).bindPopup("Titel: " + "' . $Titel . '" + "<br />Rating: "
+                           + "' . $Bewertung . '" + "<br/> URL: " + "<a href=" + "' . $URL . '" + ">"+ "' . $URL . '"   + "</a>" +
+                       "<br/> Author: " + "' . $Autor . '"  + "<form action=\"DynamicMap.php\" method=\"get\">" +
+                       "<input type=\"hidden\" name=\"url\" value=\"" + "' . $URL . '" + "\"/>" +
+                       "<br /><br /><input class=\"button tiny\" id=\"filter\" type=\"submit\" value=\"More infosrmation...\"/>" + "</form>");
+      }';
+      echo 'marker.on(\'click\',clickMarker);';
+      echo '</script>';
 
-		}
+    }
 
         }
-		//pg_free_result($result);
-		
-	?>
+    //pg_free_result($result);
+    
+  ?>
 </body>
 </html>
