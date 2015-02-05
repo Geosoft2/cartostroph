@@ -783,7 +783,7 @@ Then click two times to define the bounding box of your geodata.
             });';   
       
       echo 'var autor = "' . $Autor . '";';
-      echo 'if(autor == "" || autor == 0 || autor == "Anonym"){';
+      echo 'if(autor == "" || autor == 0 || autor == "Gość" || autor == "Gast" || autor == "Guest"){';
       echo 'var marker = L.marker([' . $Position . '],{icon: AnonymMarker}).addTo(map).bindPopup("Title: " + "' . $Titel . '" + "<br />Rating: "
                            + "' . $Bewertung . '" + "<br/> URL: " + "<a href=" + "' . $URL . '" + ">"+ "' . $URL . '"   + "</a>" +  
                        "<br/> Author: " + "' . $Autor . '"  + "<form action=\"DynamicMap.php\" method=\"get\">" + 
