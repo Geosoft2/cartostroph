@@ -170,7 +170,15 @@ function HilfeAnzeigen() {
 function author() {
 	var autor = getCookie("Autor");
 	if(autor == "" || autor == 0){
+		if(window.navigator.language == 'de'){
 		autor = "Gast";
+		}
+		if(window.navigator.language == 'pl'){
+		autor = "Gość";
+		}
+		if(window.navigator.language == 'en'){
+		autor = "Guest";
+		}
 	}
 	return autor;
 }
