@@ -385,10 +385,10 @@
                       <option value="Stadt">City</option>
                    </select>
                    </p>
-                  <p><abbr title="Hier geben Sie an ab wann der Geodatensatz gültig ist"><img src="../img/info.png" width="15px" height="15px"/></abbr>
+                  <p><abbr title="Give a date since the data is valid."><img src="../img/info.png" width="15px" height="15px"/></abbr>
                   Start <input type="date" id="startSuche" name="startSuche" placeholder="yyyy-mm-dd"/> 
                   </p>
-                  <p><abbr title="Hier geben Sie an bis wann der Datensatz gültig war bzw. voraussichtlich sein wird."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
+                  <p><abbr title="Give a date up to when the data can be valid."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
                   End <input type="date" id="endSuche" name="endSuche" placeholder="yyyy-mm-dd"/>  
                   </p>
                     <p>Rating: <select id="BewertungSuche" name="BewertungSuche">
@@ -400,7 +400,7 @@
                                 <option value="5">5</option>
                             </select>
                             </p>
-					<p><abbr title="Hier können Sie auf Ihren Standort basiert eine räumliche Suche mit Radius machen. Bitte geben Sie die Kilometer an."><img src="../img/info.png" width="15px" height="15px"/></abbr>
+					<p><abbr title="Based on your location you can do a spatial search with indication of the radius. Please indicate in km."><img src="../img/info.png" width="15px" height="15px"/></abbr>
 					Radius search in kilometres <input type="text" id="radius" placeholder="0" name="radius" onchange="searchCircle()"></p>
 					</p>
 					<label for="leftpoint"></label>

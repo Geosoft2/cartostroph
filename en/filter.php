@@ -432,7 +432,7 @@ Then click two times to define the bounding box of your geodata.
                                 <option value="Stadt">City</option>
                             </select>
                             </p>
-                            <p><abbr title="Give a date since the data is valid"><img src="../img/info.png" width="15px" height="15px"/></abbr>
+                            <p><abbr title="Give a date since the data is valid."><img src="../img/info.png" width="15px" height="15px"/></abbr>
                   Start <input type="date" id="startSuche" name="startSuche" placeholder="yyyy-mm-dd"/> 
                   </p>
                   <p><abbr title="Give a date up to when the data can be valid."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
@@ -447,7 +447,7 @@ Then click two times to define the bounding box of your geodata.
                                 <option value="5">5</option>
                             </select>
                             </p>
-              <p><abbr title="Based on your location you can do a spatial search with indication of the radius. Please indicate in km"><img src="../img/info.png" width="15px" height="15px"/></abbr>
+              <p><abbr title="Based on your location you can do a spatial search with indication of the radius. Please indicate in km."><img src="../img/info.png" width="15px" height="15px"/></abbr>
                     Radius search in km <input type="text" id="radius" placeholder="0" name="radius" onchange="searchCircle()"></p>
                     </p>
                     <label for="leftpoint"></label>
@@ -456,7 +456,7 @@ Then click two times to define the bounding box of your geodata.
                     <input hidden="hidden" name="rightpoint" id="rightpoint" /> 
                     <p>
                     <a style="text-align: right ;position: relative ; font-size: 100%" data-reveal-id="BboxModal" class="button tiny" >Spatial Expansion</a>
-                            <p><input id="filter" type="submit" class="button expand" value="Suchen" />
+                            <p><input id="filter" type="submit" class="button expand" value="Search" />
                             </p>  
                     </p>
     </form></h1>
