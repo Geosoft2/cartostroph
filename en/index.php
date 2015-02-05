@@ -94,7 +94,7 @@
 						
 						<!-- popUp fuer Boundingbox -->
 						<div id="confirmBbox"data-options="close_on_background_click:false" class="reveal-modal" data-reveal>
-							<h3>Are you statisfied with the bounding box?</h3>
+							<h3>Are you satisfied with the bounding box?</h3>
 							<a id="setBbox3" style="text-align: right ;position: relative ; font-size: 120%"  class="close-reveal-modal" data-reveal-id="newTopicModal">Yes</a><br />
                     		<a id="rejectBbox2" onclick="discardTopic()" style="text-align: left ;position: relative ; font-size: 120%" class="close-reveal-modal">No</a>
                     		<script>
@@ -109,33 +109,33 @@
   								<p>Latitude from the center of the bounding box: <input id="Breitengrad" readonly="readonly" type="number" name="Breitengrad"/> </p>
   								<p>Longitude from the center of the bounding box: <input id="Längengrad" readonly="readonly" type="number" name="Längengrad"/> </p>
   								<p><abbr title="Here you enter under which internet address the spatial data set is discoverable"><img src="../img/info.png" width="15px" height="15px" /></abbr> URL: <input type="text" id="URL" name="URL" required/> </p>
-  								<p><abbr title="Here you enter a suitable title for the data set , eg'Überflutungsdaten Münster 2014'"><img src="../img/info.png" width="15px" height="15px"/></abbr> Titel: <input type="text" id="Titel" name="Titel" required /></p>
-  								<p><abbr title="Here you specify what you think about the spatial data set . Is it helpful? Is it good ? Something missing ?"><img src="../img/info.png" width="15px" height="15px"/></abbr> Kommentar: <textarea type="text"  id="Kommentar" name="Kommentar" required></textarea></p>
-  								<p><abbr title="Hier geben Sie optional an wie groß das Gebiet ist, welches vom Geodatensatz abgedeckt wird. Zur Auswahl stehen:
-					                Welt
-					                Kontinent
-					                Land
+  								<p><abbr title="Here you enter a suitable title for the data set , eg'Überflutungsdaten Münster 2014'"><img src="../img/info.png" width="15px" height="15px"/></abbr> Title: <input type="text" id="Titel" name="Titel" required /></p>
+  								<p><abbr title="Here you specify what you think about the spatial data set . Is it helpful? Is it good ? Something missing ?"><img src="../img/info.png" width="15px" height="15px"/></abbr> Comment: <textarea type="text"  id="Kommentar" name="Kommentar" required></textarea></p>
+  								<p><abbr title="Here you can optionally choose a category for the spatial expansion of your geodata. Choose between:
+					                World
+					                Continent
+					                Country
 					                Region
-					                Stadt
+					                City
 				                    " style ="text-align:left;">
-						            <img src="../img/info.png" width="15px" height="15px"/></abbr>&ensp;Kategorie
+						            <img src="../img/info.png" width="15px" height="15px"/></abbr>&ensp;Category
 									<select id="Kategorie" name="Kategorie">
-										<option value="Keine">Keine Kategorie</option>
-  								        <option value="Welt">Welt</option>
-  										<option value="Kontinent">Kontinent</option>
-  										<option value="Land">Land</option>
+										<option value="Keine">No Category</option>
+  								        <option value="Welt">World</option>
+  										<option value="Kontinent">Continent</option>
+  										<option value="Land">Country</option>
   										<option value="Region">Region</option>
-  										<option value="Stadt">Stadt</option>
+  										<option value="Stadt">City</option>
 								    </select>
 								</p>
-  								<p><abbr title="Hier geben Sie an ab wann der Geodatensatz gültig ist"><img src="../img/info.png" width="15px" height="15px"/></abbr>
-  								Zeitliche Ausdehnung - Start (optional) <input type="date" id="start" name="start" />	
+  								<p><abbr title="Give a date since the data is valid."><img src="../img/info.png" width="15px" height="15px"/></abbr>
+  								Time extent - start (optionally) <input type="date" id="start" name="start" />	
   								</p>
-  								<p><abbr title="Hier geben Sie an bis wann der Datensatz gültig war bzw. voraussichtlich sein wird."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
-  								Zeitliche Ausdehnung - Ende (optional) <input type="date" id="end" name="end" />	
+  								<p><abbr title="Give a date up to when the data can be valid."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
+  								Time extent - end (optionally) <input type="date" id="end" name="end" />	
   								</p>
-  								<p><abbr title="Hier geben Sie an wie gut Sie den Datensatzfinden.Skala von 1(sehr schlecht/unbrauchbar) bis 5(perfekt)"><img src="../img/info.png" width="15px" height="15px"/></abbr> 
-								Bewertung (optional): <br /><input id="checkbox1" name="checkbox1" type="checkbox" onclick="activateAssessment()"><label for="checkbox1" >Bewertung ausschalten</label>
+  								<p><abbr title="Here you can rate the data from 1 (very bad) to 5 (very good)."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
+								Rating (optionally): <br /><input id="checkbox1" name="checkbox1" type="checkbox" onclick="activateAssessment()"><label for="checkbox1" >disable rating</label>
   									<div class="row">
   									    <div class="small-10 medium-11 columns">
   										    <div id="Bewertung" name="Bewertung" onclick="activateSlider()" class="range-slider" data-slider disabled data-options="display_selector: #sliderOutput3; start: 1; end: 5;" >
@@ -149,26 +149,26 @@
   										</div>
   									</div>
   								</p>
-  								<p><abbr title="Hier geben Sie Tags an, damit der Datensatz später leichter zu finden ist."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
-								Tags (optional): <input type="text" id="tags" name="tags"/>
+  								<p><abbr title="Here you can give tags. Later your data can be easier found."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
+								Tags (optionally): <input type="text" id="tags" name="tags"/>
 								</p>
-								<p><abbr title="Hier geben Sie andere Internetquellen an, welche den Geodatensatz ergänzen - z.B. neuer oder besserer Datensatz, Zusatzinformationen zum betroffenen Gebiet, etc."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
-								Hyperlink (optional): <input type="text" id="hyperlink" name="hyperlink"/>
+								<p><abbr title="Here you can add another URL, which gives additional information to your geodata, or is a newer version of it."><img src="../img/info.png" width="15px" height="15px"/></abbr> 
+								Hyperlink (optionally): <input type="text" id="hyperlink" name="hyperlink"/>
 								</p>
-								<p>Autor <input id="Autor" type="text" readonly="readonly" name="Autor"/>
+								<p>Author <input id="Autor" type="text" readonly="readonly" name="Autor"/>
 								<input type="hidden" id="cTbboxLLcoor" name="cTbboxLLcoor"/>
 								<input type="hidden" id="cTbboxURcoor" name="cTbboxURcoor"/>
 								
 								<input type="submit" class="button expand" value="Topic erstellen"/>
         					</form>
-  							<a id="cancelTopic" style="position: relative ; font-size: 120%" class="close-reveal-modal" onclick="discardTopic()">Abbrechen</a><br />
+  							<a id="cancelTopic" style="position: relative ; font-size: 120%" class="close-reveal-modal" onclick="discardTopic()">Cancel</a><br />
                             <br />
 					    </div>
 					</li>
 
 					<!-- Pop-Up für Registrierung  -->
                     <li>
-                    	<a id="regis" href="#" data-reveal-id="RegisterModal">Register</a>
+                    	<a id="regis" href="#" data-reveal-id="RegisterModal">Registration</a>
                     	<script type="text/javascript">
                     		if (loggedIn() == "Login"){
 					
@@ -332,58 +332,47 @@
 
     <!-- Pop-Up mit Hilfestellung beim ersten Aufruf  -->
     <div id="HilfeModal" class="reveal-modal" data-reveal>
-        <h1>Willkommen auf der Hilfeseite von Cartostroph!</h1>
-        <p>Auf dieser Seite bekommen Sie Hilfestellung zur Nutzung von Cartostroph!</p>
+        <h1>Welcome to the Helpside of Cartostroph!</h1>
+        <p>This side helps you using Cartostroph!</p>
         <p>
-            Cartostroph! ist eine Webapplikation, welche als Ziel hat Geodatensätze an einem Ort zu versammeln (oder eher gesagt Verweise darauf). Wenn Sie einen
-            tollen Geodatensatz im Internet gefunden haben und ihn mit anderen teilen möchten, sind Sie hier genau richtig!
+            Cartostroph! is a Web App trying to muster up geodata. 
+			When you found interesting geodata, share it right here!
         </p>
         <p>
-            <b> Welche Formate können visualisiert werden?</b><br />
+            <b>How can I add geodata?</b>
+            <br />
             <ul>
-                <li>OGC WMS</li>
-                <li>OGC WFS</li>
-                <li>GML</li>
-                <li>KML</li>
-                <li>OGC WMTS</li>
-                <li>h-geo(microfromat)</li>
-                <li>JPEG</li>
-                <li>PNG</li>
-            </ul>
-        </p>
-
-        <p>
-            <b> Wie füge ich einen neuen Geodatensatz hinzu? </b><br />
-            <ul>
-                <li>In der oberen Leiste auf "Neues Topic anlegen" klicken.</li>
-                <li>Fenster bestätigen und einen Punkt auf der Karte per Klick auswählen, wo der Datensatz hinzugefügt werden soll.</li>
-                <li>Informationen zum Geodatensatz angeben.
-                <li>Wenn Sie sich sicher sind alles richtig ausgefüllt zu haben, klicken Sie auf "Abschicken"</li>
-                <li>Nun gibt es einen Marker mit dem von Ihnen gefundenen Datensatz, welcher von anderen Nutzern kommentiert und bewertet werden kann.</li>
-            </ul>
-        </p>
-
-        <p>
-            <b> Wie fülle ich das Formular zum Geodatensatz richtig aus?</b><br />
-            <ul>
-                <li><strong>URL</strong>: Hier geben Sie an, unter welcher Internetadresse der Geodatensatz auffindbar ist.</li>
-                <li><strong>Titel</strong>: Hier geben Sie einen geeigneten Titel des Datensatzens an, z.B. "Überflutungsdaten Münster 2014"</li>
-                <li><strong>Kommentar</strong>: Hier geben Sie an, was Sie über den Geodatensatz denken. Ist er hilfreich? Ist er gut? Fehlt etwas? etc.</li>
+                <li>Click "Add new topic" in the toolbar above.</li>
                 <li>
-                    <strong>Kategorie</strong>: Hier geben Sie an wie groß das Gebiet ist, welches vom Geodatensatz abgedeckt wird. Zur Auswahl stehen:
-                    <ul>
-                        <li>Welt</li>
-                        <li>Kontinent</li>
-                        <li>Land</li>
+                    Click the OK button in the following Window.
+					Then click two times to define the bounding box of your geodata.
+                </li>
+                <li>Add informations to the geodata. <a href="#FormularRichtig">Here</a> you can find help.</li>
+                <li>When you filled in all important information click "submit"</li>
+                <li>Now you have crated a Marker which is linked to your geodata, which can be commented and rated from other users.</li>
+            </ul>
+        </p>
+        <p id="FormularRichtig">
+            <b>How to fill in the form for my geodata?</b>
+            <br />
+            <ul>
+                <li><strong>URL</strong>: Here the link of your geodata is requested</li>
+                <li><strong>Title</strong>: Choose a title for your geodata, for example "Hurricane data of Florida"</li>
+                <li><strong>Comment</strong>: Here you can comment to the geodata. Is it helpful? Are there any mistakes in it? etc.</li>
+                <li>
+                    <strong>Category (optionally)</strong>: Choose which region the geodata you want to add is representing. At choice: <ul>
+                        <li>World</li>
+                        <li>Continent</li>
+                        <li>Country</li>
                         <li>Region</li>
-                        <li>Stadt</li>
+                        <li>City</li>
                     </ul>
                 </li>
-                <li><strong>Zeitliche Ausdehnung - Start (optional)</strong>: Hier geben Sie an, ab wann der Geodatensatz gültig ist.</li>
-                <li><strong>Zeitliche Ausdehnung - Ende (optional)</strong>: Hier geben Sie an, bis wann der Datensatz gültig war bzw. voraussichtlich sein wird.</li>
-                <li><strong>Bewertung (optional)</strong>: Hier geben Sie an, wie gut Sie den Datensatzfinden. Skala von 1 (sehr schlecht/unbrauchbar) bis 5 (perfekt).</li>
-                <li><strong>Tags (optional)</strong>: Hier geben Sie Tags an, damit der Datensatz später leichter zu finden ist. </li>
-                <li><strong>Hyperlink (optional)</strong>: Hier geben Sie andere Internetquellen an, welche den Geodatensatz ergänzen - z.B. neuer oder besserer Datensatz, Zusatzinformationen zum betroffenen Gebiet, etc.</li>
+                <li><strong>Time extent - start (optionally)</strong>: Give a date since the data is valid</li>
+                <li><strong>Time extent - end (optionally)</strong>: Give a date up to when the data can be valid.</li>
+                <li><strong>Bewertung (optionalyl)</strong>: Here you can rate the data from 1 (very bad) to 5 (perfect).</li>
+                <li><strong>Tags (optionally)</strong>: Here you can give tags. Later your data can be easier found. </li>
+                <li><strong>Hyperlink (optionally)</strong>: Here you can add another URL, which gives additional information to your geodata, or is a newer version of it.</li>
             </ul>
         </p>
         <input id="HilfeAusschalten" type="checkbox"><label for="HilfeAusschalten">Hilfe nicht mehr anzeigen</label><br />
@@ -539,17 +528,17 @@
 			
 			echo 'var autor = "' . $Autor . '";';
 			echo 'if(autor == "" || autor == 0 || autor == "Anonym"){';
-			echo 'var marker = L.marker([' . $Position . '],{icon: AnonymMarker}).addTo(map).bindPopup("Titel: " + "' . $Titel . '" + "<br />Bewertung: "
+			echo 'var marker = L.marker([' . $Position . '],{icon: AnonymMarker}).addTo(map).bindPopup("Title: " + "' . $Titel . '" + "<br />Rating: "
 								       		 + "' . $Bewertung . '" + "<br/> URL: " + "<a href=" + "' . $URL . '" + ">"+ "' . $URL . '"   + "</a>" +  
-											 "<br/> Autor: " + "' . $Autor . '"  + "<form action=\"DynamicMap.php\" method=\"get\">" + 
+											 "<br/> Author: " + "' . $Autor . '"  + "<form action=\"DynamicMap.php\" method=\"get\">" + 
 											 "<input type=\"hidden\" name=\"url\" value=\"" + "' . $URL . '" + "\"/>" + 
-											 "<br /><br /><input class=\"button tiny\" id=\"filter\" type=\"submit\" value=\"Mehr Infos...\"/>" + "</form>");';
+											 "<br /><br /><input class=\"button tiny\" id=\"filter\" type=\"submit\" value=\"More Infos...\"/>" + "</form>");';
 			echo'} else {
-				var marker = L.marker([' . $Position . '],{icon: EingeloggtMarker}).addTo(map).bindPopup("Titel: " + "' . $Titel . '" + "<br />Bewertung: "
+				var marker = L.marker([' . $Position . '],{icon: EingeloggtMarker}).addTo(map).bindPopup("Title: " + "' . $Titel . '" + "<br />Rating: "
 								       		 + "' . $Bewertung . '" + "<br/> URL: " + "<a href=" + "' . $URL . '" + ">"+ "' . $URL . '"   + "</a>" +
-											 "<br/> Autor: " + "' . $Autor . '"  + "<form action=\"DynamicMap.php\" method=\"get\">" +
+											 "<br/> Author: " + "' . $Autor . '"  + "<form action=\"DynamicMap.php\" method=\"get\">" +
 											 "<input type=\"hidden\" name=\"url\" value=\"" + "' . $URL . '" + "\"/>" +
-											 "<br /><br /><input class=\"button tiny\" id=\"filter\" type=\"submit\" value=\"Mehr Infos...\"/>" + "</form>");
+											 "<br /><br /><input class=\"button tiny\" id=\"filter\" type=\"submit\" value=\"More Infos...\"/>" + "</form>");
 			}';
 			echo 'marker.on(\'click\',clickMarker);';
 			echo '</script>';

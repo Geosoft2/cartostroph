@@ -17,23 +17,23 @@
     $kategorie = $_POST['Kategorie'];
 	$katwert = NULL;
     switch ($kategorie) { 
-		case 'keine Ausgewählt':
+		case 'No Category':
 			$katwert = NULL;
 			break;
-        case 'Welt': 
-            $katwert = 'Welt';
+        case 'World': 
+            $katwert = 'World';
             break; 
-        case 'Kontinent': 
-            $katwert = 'Kontinent';
+        case 'Continent': 
+            $katwert = 'Continent';
             break; 
-        case 'Land': 
-            $katwert = 'Land';
+        case 'Country': 
+            $katwert = 'Country';
             break; 
         case 'Region': 
             $katwert = 'Region';
             break; 
-        case 'Stadt': 
-            $katwert = 'Stadt';
+        case 'City': 
+            $katwert = 'City';
             break; 	
         default:
 			$katwert = NULL;

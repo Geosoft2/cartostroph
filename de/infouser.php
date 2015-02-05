@@ -107,9 +107,9 @@
 		// iterate over result set
 		// print each row
 		while ($row = pg_fetch_array($result)) {
-			$URL = (string)$row[0];
-			$Titel = (string)$row[1];
-			$Text = (string)$row[2];
+			$URL = pg_escape_string(htmlspecialchars((string)$row[0]));
+			$Titel = pg_escape_string(htmlspecialchars((string)$row[1]));
+			$Text = pg_escape_string(htmlspecialchars((string)$row[2]));
 			
 			$fetched = true;
 			

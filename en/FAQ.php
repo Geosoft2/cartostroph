@@ -115,20 +115,20 @@
             <br />
             <ul>
                 <li><strong>URL</strong>: Here the link of your geodata is requested</li>
-                <li><strong>Titel</strong>: Choose a title for your geodata, for example "Hurricane data of Florida"</li>
+                <li><strong>Title</strong>: Choose a title for your geodata, for example "Hurricane data of Florida"</li>
                 <li><strong>Comment</strong>: Here you can comment to the geodata. Is it helpful? Are there any mistakes in it? etc.</li>
                 <li>
                     <strong>Category (optionally)</strong>: Choose which region the geodata you want to add is representing. At choice: <ul>
                         <li>World</li>
                         <li>Continent</li>
-                        <li>Coutry</li>
+                        <li>Country</li>
                         <li>Region</li>
                         <li>City</li>
                     </ul>
                 </li>
-                <li><strong>Time extent - start (optionally)</strong>: Give a date since the data is valid</li>
+                <li><strong>Time extent - start (optionally)</strong>: Give a date since the data is valid.</li>
                 <li><strong>Time extent - end (optionally)</strong>: Give a date up to when the data can be valid.</li>
-                <li><strong>Bewertung (optionalyl)</strong>: Here you can rate the data from 1 (very bad) to 5 (perfect).</li>
+                <li><strong>Rating (optionalyl)</strong>: Here you can rate the data from 1 (very bad) to 5 (very good).</li>
                 <li><strong>Tags (optionally)</strong>: Here you can give tags. Later your data can be easier found. </li>
                 <li><strong>Hyperlink (optionally)</strong>: Here you can add another URL, which gives additional information to your geodata, or is a newer version of it.</li>
             </ul>
