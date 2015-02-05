@@ -409,7 +409,7 @@
             		<input hidden="hidden" name="rightpoint" id="rightpoint" /> 
 					<p>
 					<a style="text-align: right ;position: relative ; font-size: 100%" data-reveal-id="BboxModal" class="button tiny" >Bounding Box</a>
-                            <p><input id="filter" type="submit" class="button expand" value="Suchen" />
+                            <p><input id="filter" type="submit" class="button expand" value="Search" />
                             </p>  
 					<p>
 					my Position: 
